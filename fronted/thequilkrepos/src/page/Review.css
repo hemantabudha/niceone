@@ -1,0 +1,1600 @@
+.alwaysmain{
+  height: 100vh;
+  overflow: scroll;
+}
+.alwaysmain::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.detail{
+  border: 10px solid black;
+  width: 100%;
+  overflow: scroll;
+  height: 100%;
+  border: none;
+  overflow-x: hidden;
+}
+.detail .detaildiv{
+  border: 3px solid yellow;
+  width: 100%;
+  overflow-x: hidden;
+  border: none;
+}
+.detail::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.detail::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.detail::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.detail::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.detail .sponsordivb{
+  border: 3px solid blue;
+  overflow: hidden;
+  box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
+  display: none;
+  height: 100%;
+  border: none;
+}
+.sponsordivb .headingb{
+  border: 1px solid black;
+  text-align: center;
+  text-shadow: 10px 10px 10px black;
+  border: none;
+}
+.sponsordivb .paragraphb{
+
+  font-size: large;
+  font-weight: 700;
+
+  text-shadow: 10px 10px 10px black;
+  margin-top: 20px;
+  text-align: center;
+  border: none;
+}
+ .sponsordivb .imagesponsorb{
+  border: 1px solid black;
+  width: 337px;
+  margin-top: 30px;
+  height: 790px;
+  border: none;
+}
+.sponsordivb .divsponrshipb{
+  border: 1px solid black;
+  width: 100%;
+  height:85%;
+  margin-top:15px;
+  border: none;
+}
+.detaildiv .bigimagediv {
+  width: 100%;
+  height: 700px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  overflow: hidden;
+  border: none;
+  position: relative;
+}
+.bigimagediv .pen{
+  position: absolute;
+  top: 10px;
+  margin-left: 450px;
+}
+.pen .penicon{
+  width: 25px;
+  height: 25px;
+  border-radius: 39%;
+  padding: 7px;
+  color: black;
+  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+}
+.penicon:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.bigimagediv .pen2{
+  position: absolute;
+  border: 1px solid red;
+  margin-left: 650px;
+  top: 10px;
+  border: none;
+}
+.pen2 .penicon2{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 7px;
+  color: black;
+  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+}
+.bigimagediv .pen3{
+  position: absolute;
+  border: 1px solid red;
+  margin-left: 550px;
+  top: 10px;
+  border: none;
+}
+.pen3 .penicon3{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color: black;
+  padding: 7px;
+  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+}
+.pen3 .penactiveicon3{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  color:red;
+  padding: 7px;
+  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+}
+.penactiveicon3:hover,.penicon3:hover{
+  transform: scale(1.1);
+}
+.bigimagepic{
+  border: 1px solid black;
+  height: 700px;
+  width: 700px;
+  border: none;
+  border-radius: 17px;
+}
+.penicon2:hover{
+  transform: scale(1.2);
+  color: red;
+}
+.titles{
+ 
+  font-size: large;
+  font-weight: 500;
+
+  text-align: center;
+  text-shadow: 10px 10px 10px black;
+  border: 1px solid black;
+  text-transform: capitalize;
+  border: none;
+}
+.descriptiontext{
+
+  font-size: large;
+  font-weight: 500;
+
+  text-align: center;
+  border: 1px solid black;
+  border: none;
+  
+  /* Ensure long words break to fit within the container */
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word;  /* Additional fallback for word break */
+  
+}
+@media screen and (min-width: 950px) and (max-width:1500px) {
+ 
+.detail  .detaildiv {
+    width: 100%;
+    border: none;
+  }
+
+ /* .detail .sponsordivb {
+    width: 25%;
+    display: block; 
+  } */
+}
+.imagedivreview {
+  margin-top: 10px;
+  border: 3px solid black;
+  display: flex;
+  margin-left:0.5%;
+  margin-right: 0.5%;
+  overflow-x: scroll;  
+  height: 120px;
+  align-items: center;
+  justify-content: flex-start;  /* Align items to the left */
+  white-space: nowrap;  /* Prevent line breaks between images */
+  width: 99%;
+  box-shadow: 10px 10px 10px 10px rgba(70, 69, 69,0.2);
+  border-radius: 15px;
+  border: none;
+}
+.imagedivreview::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+
+.imageprev,
+.imageprevdata {
+  width: 100px;
+  height: 100px;
+  border: 1px solid red;
+  margin-left: 40px; 
+  border: none;
+  border-radius: 15%;
+  box-shadow: 5px 5px 15px rgba(90, 88, 88, 0.5);
+  transition: all 0.2s ease-in;
+}
+.imageprev:hover ,.imageprevdata:hover{
+  transform: scale(1.3);
+}
+.showbutton{
+  width: 150px;
+  height: 50px;
+ 
+  font-size: large;
+  font-weight: 500;
+
+  text-shadow: 10px 10px 10px black;
+  border-radius: 15px;
+  border: none;
+  outline: none;
+  margin-left: 40px;
+  box-shadow: 10px 10px 10px  rgb(107, 103, 103);
+  transition: all 0.2s ease;
+}
+.showbutton:hover{
+  transform: scale(1.07);
+}
+.profiledivcontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  border: 3px solid blue;
+  margin-top: 5px;
+  border: none;
+}
+.profiledivcontainer .profilepicture{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.5);
+  margin-right: 21px;
+  transition: all 0.2s ease;
+}
+.profilepicture:hover{
+  transform: scale(1.04);
+}
+.profiledivcontainer .profilename{
+
+  font-size: large;
+  font-weight: 500;
+  margin-left: 15px;
+  text-shadow: 10px 10px 10px black;
+  text-transform: capitalize;
+  border: none;
+}
+.profiledivcontainer .followerbutton{
+  width: 130px;
+  height: 35px;
+  color:white;
+  background-color:black;
+  border-radius: 17px 78px;
+  border: none;
+  margin-top: 3px;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+.followerbutton:hover{
+  transform: scale(1.1);
+}
+.descriptiondiv{
+  border: 3px solid red;
+  border: none;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.showquizbuttonhellowtwo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+.showquizbuttonhellowtwo .showquizbuttontwo{
+  border: 2px solid black;
+  height: 41px;
+  font-size: large;
+  width: 200px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  border: 1px solid white;
+}
+.showquizbuttontwo:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.showquizbuttonhellow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  margin-top:10px;
+  margin-bottom: 10px;
+  border: none;
+}
+.showquizbuttonhellow .showquizbutton{
+  border: 2px solid black;
+  height: 41px;
+  font-size: large;
+  width: 130px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+  border: 1px solid white;
+}
+.showquizbutton:hover{
+  transform: scale(1.1);
+  color: red;
+}
+
+.quizsectionwheredisplay{
+  border: 2px solid red;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+}
+.quizholdersectionone{
+  border: 2px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  margin-bottom: 18px;
+}
+.quizholdersectionone .askingquestionpeople{
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.askingquestionpeople .askingquestionpeopleicon{
+  border: 2px solid black;
+  color:black;
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  border: 2px solid black;
+  margin-left: 10px;
+  margin-right: 5px;
+  transition: all 3s ease;
+  border: none;
+}
+.askingquestionpeopleicon:hover{
+  transform: scale(1.35);
+}
+.askingquestionpeople .askingquestionpeopletext{
+  border: 2px solid black;
+  flex-grow: 1;
+  margin-right: 5px;
+  min-height: 35px;  /* Minimum height of 35px */
+  border-radius: 17px;
+  text-align: center;
+  font-size: large;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(235, 231, 231);
+  background-color: rgb(247, 205, 205);
+  border-radius: 17px 78px;
+  border: 2px solid rgb(204, 200, 200);
+  outline: none;
+  border: none;
+
+  /* Flexbox for centering text vertically */
+  display: flex;
+  align-items: center;  /* Centers content vertically */
+  justify-content: center;  /* Centers content horizontally */
+  transition: all 3s ease;
+  /* Allow height to increase with content */
+  padding: 5px;  /* Optional padding to provide space around the text */
+  word-wrap: break-word;  /* Ensures long words break to fit */
+  
+  /* Ensure long words break to fit within the container */
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word;  /* Additional fallback for word break */
+  
+}
+.askingquestionpeopletext:hover{
+  transform: scale(1.005);
+}
+.quizholdersectionone .optionholderhohaiguys{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border: none;
+} 
+.optionholderhohaiguys .optionholderhohaiguystext{
+  border: none;
+  outline: none;
+  width: 48%;
+  min-height: 30px;  /* Minimum height of 35px */
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid white;
+  margin-top: 10px;
+  margin-left: 1px;
+  /* Flexbox for centering text vertically and horizontally */
+  display: flex;
+  align-items: center;  /* Vertically center the text */
+  justify-content: center;  /* Horizontally center the text */
+  
+  /* Allow height to increase with content */
+  padding: 5px;  /* Optional padding to provide space around the text */
+  word-wrap: break-word;  /* Ensures long words break to fit */
+  
+  /* Ensure long words break to fit within the container */
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word;  /* Additional fallback for word break */
+  
+  transition: all 3s ease;
+}
+.optionholderhohaiguystext:hover{
+  transform: scale(1.004);
+}
+.quizholdersectionone .explanationhoniguys{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.explanationhoniguys .explanationhoniguystext {
+  border: none;
+  outline: none;
+  width: 71%;
+  min-height: 35px;  /* Minimum height of 35px */
+  font-size: large;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid white;
+  text-align: center;
+  color: green;
+  
+  /* Flexbox for centering text vertically and horizontally */
+  display: flex;
+  align-items: center;  /* Vertically center the text */
+  justify-content: center;  /* Horizontally center the text */
+  
+  /* Allow height to increase with content */
+  padding: 5px;  /* Optional padding for space around the text */
+  
+  /* Ensure long words break to fit within the container */
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word;  /* Additional fallback for word break */
+  
+  transition: all 3s ease;
+}
+
+.explanationhoniguystext:hover{
+  transform: scale(1.002);
+}
+.quizsectionwheredisplay .startingtiming{
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  border: none;
+  border-top: 2px solid rgb(148, 144, 144);
+}
+.startingtiming .startquiz{
+  width: 135px;
+  height: 35px;
+  font-size: large;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  margin-left: 10px;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+.startquiz:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.startingtiming .stopwatch{
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  margin-left: 10px;
+  box-shadow: 10px 10px 10px rgb(235, 232, 232);
+  transition: all 0.3s ease;
+}
+.stopwatch:hover{
+  transform: scale(1.1);
+}
+.startingtiming .timewatch{
+  width: 130px;
+  text-align: center;
+  height: 35px;
+  border-radius:50%;
+  border: none;
+  outline: none;
+  border: 1px solid white;
+  font-size: large;
+  font-weight: 500;
+  overflow: hidden;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+.timewatch:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.finishingquizdiv{
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-bottom: 10px;
+}
+.finishingquizdiv .finishingquizdivfinish{
+  width: 130px;
+  height: 35px;
+  border-radius: 17px 78px;
+  border: none;
+  outline: none;
+  margin-left: 21px;
+  margin-right: 21px;
+  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  transition: all 0.3s ease;
+  font-size: large;
+  font-weight: 500;
+  border: 1px solid white;
+}
+.finishingquizdivfinish:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.finishingquizdiv .finishingquizdivflag{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 10px 10px 10px rgb(235, 232, 232);
+  transition: all 0.3s ease;
+}
+.finishingquizdivflag:hover{
+  transform: scale(1.3);
+  color: red;
+}
+.quizresultsection{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:0px;
+  border: none;
+  border-top: 2px solid rgb(224, 216, 216);
+  border: none;
+}
+.quizresultsection .imagesection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.imagesection .imageiconthing{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(211, 206, 206),inset -10px -10px 10px rgb(202, 197, 197);
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.imageiconthing:hover{
+  transform: scale(1.05);
+}
+ .totalscoreimage{
+  height: 40px;
+  font-size: large;
+  font-weight: 500;
+  margin-top: 5px;
+  border-radius: 17px 78px;
+  box-shadow: 10px 10px 10px rgb(177, 172, 172);
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+  margin-bottom: 15px;
+}
+.totalscoreimage:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.quizresultsection .quizresultanalysis{
+  display: flex;
+  flex-direction: column;
+ 
+}
+.correctincorrect{
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.correctincorrect .correct{
+  width: 190px;
+  height: 35px;
+  border: none;
+  margin-right: 10px;
+  font-weight: 500;
+  outline: none;
+  font-size: large;
+  box-shadow: 10px 10px 10px rgb(177, 173, 173);
+  transition: all 0.3s ease;
+}
+.correct:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.hellonegativemark{
+  height: 35px;
+  font-weight: 500;
+  font-size: large;
+  box-shadow: 10px 10px 10px rgb(177, 173, 173);
+  transition: all 0.3s ease;
+  border: none;
+  outline: none;
+}
+.hellonegativemark:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.timewatchs{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  overflow: hidden;
+  font-size: large;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.headingresultsection{
+  display: flex;
+  align-items: center;
+}
+.headingresultsection .faflag{
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(119, 114, 114);
+  transition: all 0.3s ease;
+}
+.faflag:hover{
+  transform: scale(1.1);
+}
+.headingresultsection .headingquiz{
+  text-shadow: 10px 10px 10px rgb(97, 94, 94);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.rankholderthatitis{
+  border: 2px solid black;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  border-top: 2px solid rgb(201, 193, 193);
+  border: none;
+}
+.rankholderthatitis .rankholderdivnumber{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid red;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+.rankholderdivnumber .rankholderdivnumberbutton{
+  height: 35px;
+  font-size: large;
+  font-weight: 500;
+  width: 350px;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  border: 1px solid white;
+}
+.rankholderdivnumberbutton:hover{
+  transform: scale(1.02);
+  color: red;
+}
+.actualrankholding{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border: 2px solid black;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: none;
+}
+.actualrankholding .actualhonking{
+  border: 2px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+  margin-top: 20px;
+  position: relative;
+  border: none;
+  box-shadow:10px 10px 10px 10px rgb(240, 238, 238);
+}
+.actualhonking .awardguys{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(223, 219, 219);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.actualhonking .imagetoppers{
+ width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+}
+.imagetoppers:hover{
+  transform: scale(1.03);
+}
+.actualhonking .icontoproudholder{
+  display: flex;
+  margin-top: 5px;
+}
+.icontoproudholder .icontoproud{
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-left: 3px;
+  padding: 7px;
+  color: rgb(170, 152, 155);
+  box-shadow: 10px 10px 10px rgb(243, 241, 241);
+  transition: all 0.3s ease;
+}
+.icontoproud:hover{
+  transform: rotate(180deg);
+  color: red;
+}
+.actualhonking .nameofwinner{
+  height: 35px;
+  width: 100%;
+  font-size: large;
+  font-weight: 500;
+  margin-top: 9px;
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
+  text-align: center;
+  transition: all 0.3 ease;
+}
+.nameofwinner:hover{
+  transform: scale(1.04);
+}
+.actualhonking .okdoingit{
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 2px solid black;
+  justify-content: center;
+  border: none;
+}
+.okdoingit .stopwatching{
+  width: 23px;
+  height: 23px;
+  padding: 7px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  transition:all 0.3s ease;
+}
+.stopwatching:hover{
+  transform: scale(1.1);
+}
+.okdoingit .secondholdering{
+  font-size: large;
+  font-weight:500;
+  width: 100px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  height: 35px;
+  box-shadow: 10px 10px 10px rgb(245, 244, 244);
+  transition:all 0.3s ease;
+}
+.secondholdering:hover{
+  transform: scale(1.05);
+  color: red;
+}
+.actualhonking .showingscore{
+margin-top: 9px;
+width: 100%;
+font-size: large;
+font-weight: 500;
+border: none;
+outline: none;
+height: 35px;
+box-shadow: 10px 10px 10px rgb(238, 236, 236);
+transition:all 0.3s ease;
+}
+.showingscore:hover{
+  transform: scale(1.05);
+  color: red;
+} 
+
+.commentsectiondivholder .inputsectiontocomment{
+  display: flex;
+  border: 2px solid red;
+  align-items: center;
+  margin-bottom: 10px;
+  border: none;
+}
+.inputsectiontocomment .inputtexttodisplay{
+  flex-grow: 1;
+  margin-left: 10px;
+  border: none;
+  outline: none;
+  height: 35px;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 17px 78px;
+  font-size: large;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+.inputtexttodisplay::placeholder{
+  color: black;
+}
+.inputsectiontocomment .sendcomment{
+  margin-left: 10px;
+  height: 35px;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  outline: none;
+  border-radius: 17px 78px;
+  font-size: large;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border: 1px solid white;
+  transition: all 0.3s ease;
+}
+.sendcomment:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.commentsectiondivholder .commentholdersectionforpost{
+  display: flex;
+  flex-direction: column;
+}
+.commentholdersectionforpost .actualholderwhoholdcomment{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.actualholderwhoholdcomment .imageforthecommentor{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(145, 142, 142);
+  margin-left: 10px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.imageforthecommentor:hover{
+  transform: scale(1.1);
+}
+.namepluscomment .usernameforcommentor{
+ 
+  font-size: 17px;
+  font-weight: 500;
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word;  /* Additional fallback for word break */
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+}
+.namepluscomment .usertextforcommentor{
+  font-size: 17px;
+  font-weight: 500;
+  word-wrap: break-word;  /* Break long words */
+  word-break: break-word; 
+  margin-left: 5px;
+  text-shadow: 10px 10px 10px rgb(192, 184, 184); /* Additional fallback for word break */
+}
+.buttondivholderhamkohonitesma{
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: none;
+  }
+@media screen and (min-width:720px) {
+.showquizbuttonhellow .showquizbutton{
+  margin-left: 10px;
+  margin-right: 11px;
+}
+}
+@media screen and (max-width:650px) {
+  .inputsectiontocomment .inputtexttodisplay{
+    margin-left: 0px;
+    border-radius: 1px;
+  }
+  .inputsectiontocomment .sendcomment{
+    margin-left: 0px;
+    border-radius: 1px;
+    height: 39px;
+    background-color: black;
+    color: white;
+  }
+  .actualrankholding .actualhonking{
+    width: 100%;
+    border: 2px solid black;
+    margin: 0px;
+    margin-bottom: 10px;
+    border: none;
+  }
+  .commentholdersectionforpost .actualholderwhoholdcomment{
+    margin-bottom: 10px;
+  }
+  .namepluscomment .usernameforcommentor{
+    font-size: 17px;
+    text-transform: capitalize;
+  }
+  .actualholderwhoholdcomment .imageforthecommentor{
+    width: 50px;
+    height: 50px;
+    margin-left: 1px;
+    margin-right: 1px;
+    box-shadow: 10px 10px 10px rgb(212, 207, 207);
+  }
+  .namepluscomment .usertextforcommentor{
+    font-size: 17px;
+    font-weight: 500px;
+  }
+}
+@media screen and (min-width:650px) and (max-width:1000px) {
+  .actualrankholding .actualhonking{
+    width: 32%;
+    border: 2px solid black;
+    margin: 0px;
+    margin-bottom: 10px;
+    border: none;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width:1000px) and (max-width:1300px) {
+  .actualrankholding .actualhonking{
+    width: 32%;
+    border: 2px solid black;
+    margin: 5px;
+    border: none;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width:1300px) and (max-width:1600px) {
+  .actualrankholding .actualhonking{
+    width: 23%;
+    border: 2px solid black;
+    margin: 10px;
+    border: none;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width: 1600px) {
+  .actualrankholding .actualhonking{
+    width: 18%;
+    border: 2px solid black;
+    margin: 10px;
+    border: none;
+  }
+}
+@media screen and (max-width: 500px) {
+ .profiledivcontainer{
+  border: 1px solid black;
+  height: 80px;
+  margin-top: 0px;
+  border: none;
+ }
+ .profiledivcontainer .profilepicture{
+  width: 70px;
+  height: 70px;
+  border: 1px solid black;
+  border: none;
+ }
+ .descriptiondiv{
+  margin-top: 10px;
+ }
+ .descriptiontext{
+  
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid black;
+  border: none;
+ }
+ .detaildiv .bigimagediv {
+  width: 100%;
+  height: 550.3px; 
+ border: 2px solid black;
+ margin-bottom: 10px;
+ margin-top: 0px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 0px;
+ border: none;
+}
+ .bigimagepic{
+  height: 550px;
+  width: 100%;
+  border: none;
+  margin-top: 0px;
+  border-radius: 0px;
+  box-shadow: 10px 10px 10px 10px rgb(129, 125, 125);
+}
+.imagedivreview {
+  margin-top: 10px;
+  border: 3px solid black;
+  display: flex;
+  overflow-x: scroll;  
+  width: 100%;
+  height: 120px;
+  align-items: center;
+  justify-content: flex-start;  /* Align items to the left */
+  white-space: nowrap;  /* Prevent line breaks between images */
+  box-shadow: 5px 5px 15px rgba(94, 92, 92, 0.5);
+  border: none;
+}
+.imagedivreview::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.imagedivreview::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.correctincorrect .correct{
+  margin-left: 2px;
+  font-size: 14px;
+  font-weight: 200;
+  width: 150px;
+  border: 2px solid black;
+  border: none;
+}
+.totalscoreimage{
+  border: 1px solid white;
+  
+}
+.totalscoreimage:hover{
+  transform: scale(1.003);
+}
+  }
+  @media screen and (min-width: 500px) and (max-width:750px){
+    .detaildiv .bigimagediv {
+      width: 100%;
+      height: 700px; 
+     border: 2px solid black;
+     margin-bottom: 10px;
+     border: none;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     border-radius: 0px;
+     margin-top: 0px;
+    }
+     .bigimagepic{
+      height: 700px;
+      width: 100%;
+      border: 2px solid red;
+      margin-top: 0px;
+      border-radius: 0px;
+      box-shadow: 10px 10px 10px 10px rgb(129, 125, 125);
+      border: none;
+    }
+    .bigimagediv .pen{
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      border: 2px solid black;
+      margin-left: 0px;
+      border: none;
+    }
+    .pen .penicon{
+      width: 25px;
+      height: 25px;
+      border-radius: 39%;
+      padding: 7px;
+      color: black;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .penicon:hover{
+      color: red;
+      transform: scale(1.1);
+    }
+    .bigimagediv .pen2{
+      position: absolute;
+      border: 1px solid blue;
+      margin-left: 0px;
+      right: 70px;
+      border: none;
+    }
+    .pen2 .penicon2{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      padding: 7px;
+      color: black;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .bigimagediv .pen3{
+      position: absolute;
+      border: 1px solid red;
+      margin-left: 0px;
+      top: 10px;
+      right: 120px;
+      border: none;
+    }
+    .pen3 .penicon3{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      color: black;
+      padding: 7px;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .pen3 .penactiveicon3{
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      color:red;
+      padding: 7px;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .penactiveicon3:hover,.penicon3:hover{
+      transform: scale(1.1);
+    }
+  }
+  @media screen and (min-width: 0px) and (max-width:350px) {
+    .bigimagediv .pen{
+      position: absolute;
+      top: 20%;
+      margin-left: 291px;
+    }
+    .pen .penicon{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      padding: 7px;
+      color: black;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .bigimagediv .pen2{
+      position: absolute;
+      top: 38.1%;
+      margin-left: 291px;
+    }
+    .pen2 .penicon2{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      padding: 7px;
+      color: black;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .bigimagediv .pen3{
+      position: absolute;
+      top: 27%;
+      margin-left: 291px;
+    }
+    .pen3 .penicon3{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      padding: 7px;
+      color: black;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .pen3 .penactiveicon3{
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      padding: 7px;
+      color: red;
+      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+    }
+    .correctincorrect .correct{
+      margin-right: 1px;
+    }
+    .correct:hover{
+      transform: scale(1.0001);
+    }
+    .hellonegativemark:hover{
+      transform: scale(1.0001);
+    }
+    }
+
+    @media screen and (min-width: 350px) and (max-width:370px) {
+      .bigimagediv .pen{
+        position: absolute;
+        top: 10px;
+        margin-left: 230px;
+      }
+      .pen .penicon{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        padding: 7px;
+        color: black;
+        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      }
+      .bigimagediv .pen2{
+        position: absolute;
+        top: 10px;
+        margin-left: 312px;
+      }
+      .pen2 .penicon2{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        padding: 7px;
+        color: black;
+        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      }
+      .bigimagediv .pen3{
+        position: absolute;
+        top: 10px;
+        margin-left: 150px;
+      }
+      .pen3 .penicon3{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        padding: 7px;
+        color: black;
+        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      }
+      .pen3 .penactiveicon3{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        padding: 7px;
+        color: red;
+        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      }
+      }
+      @media screen and (min-width: 370px) and (max-width:400px) {
+        .bigimagediv .pen{
+          position: absolute;
+          top: 0px;
+          margin-left: 345px;
+        }
+        .pen .penicon{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          padding: 7px;
+          color: black;
+          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        }
+        .bigimagediv .pen2{
+          position: absolute;
+          top: 0px;
+          margin-left: 264px;
+        }
+        .pen2 .penicon2{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          padding: 7px;
+          color: black;
+          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        }
+        .bigimagediv .pen3{
+          position: absolute;
+          top: 0px;
+          margin-left: 190px;
+        }
+        .pen3 .penicon3{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          padding: 7px;
+          color: black;
+          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        }
+        .pen3 .penactiveicon3{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          padding: 7px;
+          color: red;
+          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        }
+        }
+        @media screen and (min-width: 400px) and (max-width:500px) {
+          .bigimagediv .pen{
+            position: absolute;
+            top: 0px;
+            margin-left: 365px;
+          }
+          .pen .penicon{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            padding: 7px;
+            color: black;
+            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          }
+          .bigimagediv .pen2{
+            position: absolute;
+            top: 0px;
+            margin-left: 270px;
+          }
+          .pen2 .penicon2{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            padding: 7px;
+            color: black;
+            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          }
+          .bigimagediv .pen3{
+            position: absolute;
+            top: 0px;
+            margin-left: 190px;
+          }
+          .pen3 .penicon3{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            padding: 7px;
+            color: black;
+            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          }
+          .pen3 .penactiveicon3{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            padding: 7px;
+            color: black;
+            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          }
+          }
+        
+            @media screen and (min-width:0px) and (max-width:750px) {
+              .optionholderquiz .optionholderquizone{
+                width: 100%;
+                margin-top: 10px;
+                margin-left: 1px;
+                border: 1px solid white;
+                border-radius: 1px;
+              }
+              .optionholderhohaiguys .optionholderhohaiguystext{
+                width: 100%;
+                margin-top: 10px;
+                margin-left: 1px;
+                border: 1px solid white;
+                border-radius: 1px;
+              }
+              .quizholderhamkohoni .optionholderquiz{
+                margin-top: 0px;
+              }
+              .explanationhoniguys .explanationhoniguystext{
+                width: 100%;
+                border: 1px solid white;
+                border-radius: 1px;
+              }
+              .askingquestionpeople .askingquestionpeopletext{
+                margin-right: 1px;
+                border: 1px solid red;
+                border-radius: 1px;
+                border: none;
+              }
+              .askingquestionpeople .askingquestionpeopleicon{
+                margin-left: 1px;
+                display: none;
+              }
+               }
+               @media screen and (min-width:750px) and (max-width:1200px) {
+                .explanationhoniguys .explanationhoniguystext{
+                  width: 100%;
+                  border: 1px solid white;
+                }
+               
+                 }
+                 @media screen and (min-height:1000px) and (max-width:750px){
+                  .detaildiv .bigimagediv {
+
+  height: 800px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: none;
+  margin-top: 0px;
+  position: relative;
+}
+                .bigimagepic{
+  border: 1px solid black;
+  height: 800px;
+  width: 100%;
+  border: none;
+  border-radius: 1px;
+}
+                 }
+                 @media screen and (min-height:1000px) and (min-width:749px){
+                  .detaildiv .bigimagediv {
+
+                    height: 800px;
+                  
+                  }
+                                  .bigimagepic{
+           
+                    height: 800px;
+                 
+               
+                  }
+                 }
+.youtubelinktoshow{
+  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+}
+.youtubelinktoshowicon{
+  width: 20px;
+  height: 20px;
+  color: red;
+  padding: 7px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  transition: all 0.3s ease;
+}
+.youtubelinktoshowicon:hover{
+  transform: scale(1.1);
+}
+.youtubelinktoshowbutton{
+  width: 110px;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: large;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.youtubelinktoshowbutton:hover{
+  transform: scale(1.1);
+  color: red;
+}

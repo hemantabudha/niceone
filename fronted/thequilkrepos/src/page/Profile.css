@@ -1,0 +1,1409 @@
+.alwaysmain{
+  height: 100vh;
+  overflow: scroll;
+}
+.alwaysmain::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+ .hiddenone{
+  display: none;
+}
+.hiddentwo{
+  display: none;
+}
+ .createsearchsone{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-top: 3px;
+  border: none;
+}
+.createsearchstwo{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: none;
+}
+.createsearchsone .createss{
+  border: 1px solid black;
+  margin-right: 10px;
+  display: flex;
+  width: 150px;
+  border-radius: 17px 78px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgb(211, 204, 204);
+  border: none;
+  cursor: pointer;
+  border: none;
+}
+.createss .newsadds {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+}
+.createss .adds{
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  color: black;
+}
+.createsearchstwo .createss{
+  border: 1px solid black;
+  margin-right: 10px;
+  display: flex;
+  width: 50%;
+  border-radius: 17px 78px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 10px 10px 10px rgb(211, 204, 204);
+  border: none;
+  cursor: pointer;
+
+}
+.createss .newsadds {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+  margin-right: 10px;
+  cursor: pointer;
+  border: none;
+}
+.createss .adds{
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  color: black;
+}
+@media screen and (max-width: 700px) {
+.createsearchsone{
+display: none;
+}
+}
+@media screen and (min-width: 701px) {
+  .createsearchstwo{
+  display: none;
+  }
+  }
+@media screen and  (min-width: 360px) and (max-width: 390px){
+.createsearchs .createss{
+  margin-left: 30px;
+}
+}
+.inputpost{
+  width: 100%;
+  height: 100%;
+  box-sizing:border-box;
+  border: 3px solid blue; 
+  border: none;
+}
+
+
+.inputpost::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.inputpost::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.inputpost::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.inputpost::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+ display: none;
+}
+
+.inputpost::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.alwaysmain .changediv{
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 15px;
+  border: none;
+  border-bottom: 2px solid white;
+}
+.changediv .changeimage{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.changediv .labelicon{
+  margin-top: -5px;
+}
+.changediv .changenames{
+  color: black;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: 2px solid rgb(173, 167, 167);
+  text-align: center;
+  margin-bottom: 3px;
+
+}
+.changediv .changeinfos{
+  color: black;
+  font-size: medium;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 3px;
+  width: 100%;
+}
+
+.changediv .hello{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.uploadbutton{
+font-size: medium;
+font-weight: 500;
+border-radius: 17px 78px;
+width: 100px;
+height: 30px;
+outline: none;
+border: none;
+box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
+}
+.uploadbutton:hover{
+  transform: scale(1.1);
+}
+.labelicon .cameraicon{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  border: 2px solid white;
+  color:black;
+  margin-top: -32px;
+  margin-left: 120px;
+}
+.alwaysmain  .imagefilldiv{
+  border: 1px solid black;
+  width: 100%;
+  border: none;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-bottom: 2px solid white;
+}
+
+.inputclass{
+  display: none;
+}
+.inputselector{
+  align-items: center;
+  display: flex;
+  border: none;
+  box-shadow: none;
+}
+
+.inputselector .plus{
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  border: 2px solid white;
+}
+.plus:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.inputholder{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border: 3px solid black;
+  border: none;
+}
+.inputpic {
+  border: 1px solid red;
+  width: 100%;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+}
+
+/* Style the scrollbar */
+.inputpic::-webkit-scrollbar {
+  width: 8px;  /* Width of the vertical scrollbar */
+  display: none;
+}
+
+.inputpic::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  /* Rounded corners for the track */
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.inputpic::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color of the draggable scrollbar thumb */
+  border-radius: 10px;  /* Rounded corners for the thumb */
+  height: 15px;
+  display: none;
+}
+
+.inputpic::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Color of the thumb on hover */
+  display: none;
+}
+.displayp{
+  
+  font-size: large;
+
+  font-weight: 500;
+  text-shadow: 10px 10px 10px black;
+}
+.inputpic .divimage{
+  border: 2px solid blue;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 18px;
+  margin-left: 25px;
+  margin-top: 18px;
+  border: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+.divimage:hover{
+  transform: scale(1.01);
+}
+.manager {
+  border: 1px solid red;
+  width: 100%;
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+/* Style the scrollbar */
+.manager::-webkit-scrollbar {
+  width: 8px;  /* Width of the vertical scrollbar */
+  display: none;
+}
+
+.manager::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  /* Rounded corners for the track */
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.manager::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color of the draggable scrollbar thumb */
+  border-radius: 10px;  /* Rounded corners for the thumb */
+  height: 15px;
+  display: none;
+}
+
+.manager::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Color of the thumb on hover */
+  display: none;
+}
+.divimagetwo{
+  border: 1px solid black;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 18px;
+  margin-left: 25px;
+  margin-top: 18px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border: 2px solid white;
+}
+.divimagetwo:hover{
+  transform: scale(1.01);
+}
+.divimagetwo .uploadparagraph{
+ 
+  font-weight: 500;
+
+  text-shadow: 10px 10px 10px black;
+}
+.divimage .imageshow{
+  width: 150px;
+  height: 150px;
+  border: 1px solid green;
+  border: none;
+}
+.divimage .imageshowpdf{
+  height: 140px;
+  width: 140px;
+  border: 1px solid blue;
+  border: none;
+  overflow: hidden;
+  border: none;
+}
+
+.showresult{
+border: 1px solid black;
+outline: none;
+border: none;
+margin-top: 10px;
+}
+.showresult .showresultonly{
+width: 300px;
+height: 300px;
+box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+border: 3px solid black;
+border: none;
+border: 2px solid white;
+}
+.showresultonly:hover{
+  transform: scale(1.02);
+}
+.showresult .bigshowimage{
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 10px 10px rgb(214, 211, 211);
+}
+.bigshowimage:hover{
+  transform: scale(1.03);
+}
+.showresult .bigshowvideo{
+  width: 300px;
+  height: 300px;
+  box-shadow: 10px 10px 10px rgb(194, 187, 187);
+}
+.bigshowvideo:hover{
+  transform: scale(1.03);
+}
+.imagefilldiv .detaildiv{
+border: 3px solid black;
+width: 100%;
+border: none;                          
+}
+
+.showresult .title{
+  border: 1px solid black;
+  display: flex;
+  height: 40px;
+  align-items: center;
+  width: 300px;
+  border: none;
+}
+.title .titleinput{
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+  font-size: large;
+  width: 100%;
+  outline: none;
+  font-weight: 500;
+  background-color: transparent;
+  text-shadow: 10px 10px 10px rgb(201, 190, 190);
+}
+.titleinput::placeholder{
+  color: black;
+}
+.thumbnail .description {
+  border: 3px solid black;
+  display: flex;
+  align-items: center;
+  height: 160px;
+  width: 50%;
+  margin-left: 16px;
+  border: none;
+}
+
+.description .descriptioninput {
+  border: 1px solid blue;
+  outline: none;
+  text-align: start;
+  color: black;
+  font-size:large;
+  font-weight: 500;
+  width: 100%;
+  background-color: transparent;
+  resize: none;  
+  overflow-y: auto;
+  line-height: 1.5;
+  text-shadow: 10px 10px 10px rgb(194, 189, 189);
+  
+  
+  word-wrap: break-word; 
+  min-height: 20px; 
+  max-height: 160px; /* Restricting height to 160px */
+  padding-top: 0;
+  padding-bottom: 0; /* Remove extra padding */
+  border: none;
+}
+
+
+.descriptioninput::placeholder {
+  color: black;
+}
+
+.descriptioninput::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.descriptioninput::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  /* Rounded corners for the track */
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.descriptioninput::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Color of the draggable scrollbar thumb */
+  border-radius: 10px;  /* Rounded corners for the thumb */
+  height: 15px;
+  display: none;
+}
+.detaildiv .thumbnail{
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+  border: none;
+}
+
+
+.thumbnail .selectthumbnail{
+  border: 1px solid black;
+  margin-top: -21px;
+  border: none;
+}
+.selectthumbnail .thumbnailinput{
+  display: none;
+}
+.selectthumbnail .iconplus{
+ padding: 7px;
+ width: 20px;
+ height: 20px;
+ border-radius: 50%;
+ box-shadow: 10px 10px 10px rgb(218, 211, 211);
+ border: 2px solid white;
+}
+.iconplus:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.thumbnail .uploadthumbnail{
+ 
+  margin-right: 30px;
+
+ 
+}
+.uploadthumbnail:hover{
+  transform: scale(1.03);
+}
+.uploadthumbnail .imageclass{
+  width: 170px;
+  height: 170px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+.imageclass:hover{
+  transform: scale(1.03);
+}
+.uploaded{
+  width: 170px;
+  height: 170px;
+  
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+ box-sizing: border-box;
+}
+
+
+.divimage .uploadparagraph{
+  border: 1px solid black;
+  font-weight: 500;
+
+  text-shadow: 10px 10px 10px rgb(194, 187, 187);
+  text-align: center;
+}
+.uploaded .paragraph{
+
+  font-size: large;
+  font-weight: 500;
+ 
+ 
+  text-shadow: 10px 10px 10px rgb(194, 187, 187);
+  text-align: center;
+}
+
+ .finish{
+ 
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-bottom: 10px;
+}
+.finish .button{
+  border: 1px solid black;
+  margin-left: 20px;
+  font-size: large;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  height: 40px;
+  width: 130px;
+  text-align: center;
+  border-radius: 7px 80px;
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  box-shadow: 10px 10px 10px rgb(228, 223, 223);
+  border: 2px solid white;
+}
+.button:hover{
+  transform: scale(1.03);
+  color: red;
+}
+
+.inputpost .collection{
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  margin-top: 10px;
+}
+.collection .collectionheading{
+width: 111px;
+text-shadow: 10px 10px 10px black;
+}
+.inputpost .userprofilediv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.inputcontainterforall{
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.inputcontainterforall::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.inputcontainterforall::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.inputcontainterforall::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+ display: none;
+}
+.inputcontainterforall::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.inputpost .postholder{
+  width: 100%;
+  display: flex;
+  height:90%;
+  box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  box-shadow: none;
+  overflow-y: auto; 
+  margin-top: 5px;
+}
+.postholder::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.postholder::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.postholder::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+ display: none;
+}
+.postholder::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.postholder .postdiv{
+  border: 2px solid red;
+  width: 19%;
+  height: 230px;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 5px;
+  position: relative;
+  margin-top: 4px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+}
+.postdiv .delete{
+  position: absolute;
+  right: 2px;
+  z-index: 99999;
+}
+.delete .trash{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 7px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  border: none;
+}
+.postdiv .show{
+  width: 100%;
+}
+.show .showimage{
+  width: 100%;
+  height: 200px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.postdiv .title{
+  margin-top: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  height: 20px;
+  width: 100%;
+  border: none;
+}
+.title .ptitle{
+  border: 1px  solid black;
+  text-transform: lowercase;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+  text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+  color: black;
+  border: none;
+}
+.wrongparagraph{
+
+  font-size: large;
+  font-weight: 500;
+
+  text-shadow: 10px 10px 10px black;
+}
+.quizbasediv{
+  border: 2px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+.quizbasediv .addquizdiv{
+  border: 2px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.addquizdiv .iconquizdiv{
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  margin-left: 40px;
+  margin-right: 10px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.iconquizdiv:hover{
+  transform: scale(1.1); /* Slightly scale up on hover */
+}
+.addquizdiv .iconquizbutton {
+  border: 1px solid black;
+  font-size: large;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-radius: 7px 80px;
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  box-shadow: 10px 10px 10px rgb(228, 223, 223);
+  border: 2px solid white;
+}
+
+.iconquizbutton:hover {
+
+  transform: scale(1.1); /* Slightly scale up on hover */
+ 
+
+}
+.quizbasediv .quizholderhamkohoni{
+  border: 2px solid black;
+  width: 100%;
+  border: none;
+  margin-bottom: 18px;
+}
+.quizholderhamkohoni .askingquestion{
+  border: 2px solid red;
+  display: flex;
+  align-items: center;
+  border: none;
+}
+.askingquestion .askingquestionicon{
+  border: 2px solid black;
+  color:black;
+  padding: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+  border: 2px solid black;
+  margin-left: 10px;
+  margin-right: 5px;
+  transition: all 3s ease;
+  border: none;
+}
+.askingquestionicon:hover{
+  transform: scale(1.35);
+}
+.askingquestion .askingquestioninput{
+  border: 2px solid black;
+  flex-grow: 1;
+  margin-right: 20px;
+  height: 35px;
+  border-radius: 17px;
+  text-align: center;
+  font-size: large;
+  font-weight:500;
+  box-shadow: 10px 10px 10px rgb(235, 231, 231);
+  background-color: rgb(238, 210, 210);
+  border-radius: 17px 78px;
+  border: 2px solid rgb(204, 200, 200);
+  outline: none;
+  border: none;
+}
+.askingquestioninput::placeholder{
+  color: black;
+}
+.quizholderhamkohoni .optionholderquiz{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border: none;
+}
+.optionholderquiz .optionholderquizone{
+  border: none;
+  outline: none;
+  width: 18%;
+  margin-left: 10px;
+  height: 35px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid rgb(204, 200, 200);
+  border: none;
+  outline: none;
+  transition: all 3s ease;
+}
+.optionholderquiz .optionholderquiztwo{
+  border: none;
+  outline: none;
+  width: 18%;
+  margin-left: 10px;
+  height: 35px;
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border-radius: 30px;
+  border: 2px solid rgb(204, 200, 200);
+  outline: none;
+  transition: all 3s ease;
+  border: none;
+}
+.optionholderquizone:hover,.optionholderquiztwo:hover{
+  transform: scale(1.004);
+}
+.optionholderquizone::placeholder,.optionholderquiztwo::placeholder{
+  color: black;
+}
+.quizholderhamkohoni .explainationdiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.explainationdiv .explainationinput{
+  border: 2px solid black;
+  width:71%;
+  height: 35px;
+  border: none;
+  outline: none;
+  border-radius: 18px;
+  font-size: large;
+  font-weight: 500;
+  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  background-color: transparent;
+  border-radius:30px;
+  border: 2px solid rgb(204, 200, 200);
+  outline: none;
+  text-align: center;
+  color: green;
+  transition: all 3s ease;
+  border: none;
+}
+.explainationinput:hover{
+  transform: scale(1.002);
+}
+.explainationinput::placeholder{
+  color: black;
+}
+.quizsectionwheretodisplaytheseparatequiz{
+  border: 2px solid black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: center;
+  border: none;
+  margin-top: 15px;
+  margin-bottom: 26px;
+  box-shadow: 10px 10px 10px rgb(245, 242, 242);
+}
+.quizsectionwheretodisplaytheseparatequiz .headerdivwhereinput{
+  border: 2px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: none;
+}
+.headerdivwhereinput .inputwhereimageandtitle{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid blue;
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+}
+.inputwhereimageandtitle .imageofquizer{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.inputwhereimageandtitle .imageofquizer:hover{
+  transform: scale(1.1);
+}
+.inputwhereimageandtitle .titleforthequiz{
+  height: 35px;
+  width: 75%;
+  margin-left: 10px;
+  font-size: large;
+  font-weight: 500;
+  border-radius: 17px 78px;
+  background-color: #f0bfbf;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+.inputwhereimageandtitle .titleforthequiz::placeholder{
+text-align: center;
+color: black;
+text-transform: capitalize;
+}
+ .inputwheredescription{
+  border: 2px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin-top: 10px;
+  border: none;
+  box-sizing: border-box;
+}
+.inputwheredescription .inputwheredescriptiontext{
+  border: 1px solid blue;
+  outline: none;
+  width: 100%;
+  resize: none;  
+  text-align: center;
+  margin-left: 50px;
+  overflow-y: auto;
+  text-shadow: 10px 10px 10px rgb(241, 239, 239);
+  background-color: transparent;
+  word-wrap: break-word; 
+  min-height: 20px; 
+  max-height: 160px; /* Restricting height to 160px */
+  padding-top: 0;
+  padding-bottom: 0; /* Remove extra padding */
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  word-spacing: 0.1px;
+  font-weight: normal;
+  display: flex;
+  align-items: center; /* Vertically center */
+  justify-content: center;
+}
+.inputwheredescriptiontext::-webkit-scrollbar {
+  width: 8px;  
+  word-spacing: 1px;
+  display: none;
+  font-size: 19px;
+}
+
+.inputwheredescriptiontext::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.inputwheredescriptiontext::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.inputwheredescriptiontext::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.inputwheredescriptiontext::placeholder{
+  color: black;
+}
+.quizsectionwheretodisplaytheseparatequiz .addquizdivtodisplay{
+  border: 2px solid black;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  border: none;
+}
+.addquizdivtodisplay .plusiconforadd{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(185, 182, 182);
+  transition: all 0.3s ease;
+}
+.plusiconforadd:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.addquizdivtodisplay .plusbuttonadd{
+  width: 150px;
+  height: 35px;
+  font-size: large;
+  font-weight: 500;
+  margin-left: 10px;
+  text-transform: capitalize;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 10px 10px 10px rgb(184, 178, 178);
+ 
+}
+.plusbuttonadd:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.submitorcancelquiz{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.submitorcancelquiz .submitquiz{
+  height: 30px;
+  width: 170px;
+  border: none;
+  outline: none;
+  font-size: large;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 10px 10px 10px rgb(184, 178, 178);
+  margin-right: 50px;
+}
+.submitorcancelquiz .cancelquiz{
+  height: 30px;
+  width: 170px;
+  border: none;
+  outline: none;
+  font-size: large;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 10px 10px 10px rgb(184, 178, 178);
+}
+.submitquiz:hover,.cancelquiz:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.youtubelinktodisplay{
+  border: 3px solid red;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border: none;
+  margin-bottom: 21px;
+}
+.youtubelinktodisplay .youtubeicon{
+  width: 27px;
+  height: 27px;
+  padding: 7px;
+  color:red;
+  border-radius: 50%;
+  margin-left: 29%;
+  box-shadow: 10px 10px 10px rgb(228, 225, 225);
+  transition: all 0.3s ease;
+}
+.youtubeicon:hover{
+  transform: scale(1.1);
+}
+.youtubelinktodisplay .youtubeinput{
+  height: 30px;
+  width: 50%;
+  font-size: large;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  margin-left: 15px;
+  background-color: transparent;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.youtubeinput::placeholder{
+  color: black;
+}
+@media screen and (min-width:0px) and (max-width:500px){
+  .youtubelinktodisplay .youtubeicon{
+    margin-left: 5px;
+  }
+  .youtubelinktodisplay .youtubeinput{
+    flex-grow: 1;
+  }
+}
+@media screen and (min-width:500px) and (max-width:700px){
+  .youtubelinktodisplay .youtubeicon{
+    margin-left: 30%;
+  }
+}
+@media screen and (min-width:700px) and (max-width:1000px){
+  .youtubelinktodisplay .youtubeicon{
+    margin-left: 36%;
+
+  }
+}
+@media screen and (min-width:0px) and (max-width:600px){
+  .submitorcancelquiz .submitquiz{
+          border: 2px solid black;
+          margin-right: 10px;
+          border: 1px solid white;
+  }
+  .submitorcancelquiz .cancelquiz{
+          width: 45%;
+          border: 1px solid white;
+  }
+  .inputwheredescription{
+    height: 180px;
+    border: 2px solid black;
+    border: none;
+  }
+  .inputwheredescription .inputwheredescriptiontext{
+    border: 2px solid red;
+    margin-left: 0px;
+    max-height: 180px;
+    border: none;
+  }
+}
+@media screen and (min-width:600px) and (max-width:1200px){
+ 
+  .inputwheredescription{
+    height: 180px;
+    border: 2px solid black;
+    border: none; 
+  }
+  .inputwheredescription .inputwheredescriptiontext{
+    border: 2px solid red;
+    margin-left: 0px;
+    max-height: 180px;
+    border: none;
+  }
+}
+@media screen and (min-width: 0px) and (max-width: 760px) {
+  .inputpic .divimage{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+  }
+  .divimage .imageshow{
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  .divimagetwo{
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+  .showresultonly{
+    border-radius: 10px;
+  }
+  .detaildiv .thumbnail{
+    border: 1px solid red;
+    height: auto;
+    border: none;
+  }
+  .thumbnail .uploadthumbnail{
+    margin-right: 10px;
+  }
+  .uploadthumbnail .imageclass{
+    width: 120px;
+    height: 120px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+  .uploaded{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+}
+@media screen and (min-width:0px) and (max-width:500px) {
+   .postholder .postdiv{
+    width: 49%;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: none;
+   }
+   
+  .postdiv .delete{
+    position: absolute;
+    right: 2px;
+  }
+  .delete .trash{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    padding: 7px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: none;
+  }
+ 
+  .title .ptitle{
+    border: 1px  solid black;
+    text-transform: lowercase;
+    font-weight: 500;
+    width: 100%;
+    font-size: 13px;
+    text-align: center;
+    text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+    color: black;
+    border: none;
+  }
+
+  }
+  @media screen and (min-width: 500px) and (max-width:900px) {
+    .postholder .postdiv{
+      width: 48%;
+    }
+    }
+    @media screen and (min-width: 900px) and (max-width:1300px) {
+     
+      .postholder .postdiv{
+        width: 32%;
+      }
+    
+      }
+    @media screen and (min-width: 1300px) and (max-width:1400px) {
+      .postholder .postdiv{
+        width: 31%;
+      }
+     
+      }
+      @media screen and (min-width: 1400px) and (max-width:1600px) {
+    .postholder .postdiv{
+      width: 24%;
+    }
+        }
+ @media screen and (min-width:0px) and (max-width:750px) {
+        .optionholderquiz .optionholderquizone{
+          width: 100%;
+          margin-top: 10px;
+          margin-left: 1px;
+          border: 1px solid white;
+      
+        }
+        .optionholderquiz .optionholderquiztwo{
+          width: 100%;
+          margin-top: 10px;
+          margin-left: 1px;
+          border: 1px solid white;
+          
+        }
+        .quizholderhamkohoni .optionholderquiz{
+          margin-top: 0px;
+        }
+        .explainationdiv .explainationinput{
+          width: 100%;
+          border: 1px solid white;
+        }
+        .askingquestion .askingquestioninput{
+          margin-right: 1px;
+        }
+         }
+
+        
+         @media screen and (min-width:750px) {
+          .optionholderquiz .optionholderquizone{
+            width: 49%;
+            margin-top: 10px;
+            margin-left: 1px;
+            border: 1px solid white;
+        
+          }
+          .optionholderquiz .optionholderquiztwo{
+            width: 49%;
+            margin-top: 10px;
+            margin-left: 1px;
+            border: 1px solid white;
+    
+          }
+          .quizholderhamkohoni .optionholderquiz{
+            margin-top: 0px;
+          }
+          .explainationdiv .explainationinput{
+            width: 100%;
+            border: 1px solid white;
+          }
+          .askingquestion .askingquestioninput{
+            margin-right: 1px;
+          }
+           }

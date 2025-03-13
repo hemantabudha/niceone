@@ -1,0 +1,129 @@
+.quizinfodiv{
+  border: 2px solid black;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
+  border: none;
+}
+.quizinfodiv::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.quizinfodiv::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.quizinfodiv::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.quizinfodiv::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.topandshowandcompete{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.topandshowandcompete .buttononeonce{
+  font-size: large;
+  font-weight: 500;
+  height: 40px;
+  width: 150px;
+  border: 1px solid white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.topandshowandcompete .buttontwoonce{
+  font-size: large;
+  font-weight: 500;
+  height: 41px;
+  width: 150px;
+  border: 1px solid white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.topandshowandcompete .buttonthreeonce{
+  font-size: large;
+  font-weight: 500;
+  height: 40px;
+  width: 150px;
+  border: 1px solid white;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.buttononeonce:hover,.buttontwoonce:hover,.buttonthreeonce:hover{
+  color: red;
+  transform: scale(1.1);
+}
+.justplace{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.justplace .buttononetwice{
+  
+  width: 52px;
+  height: 67.1px;
+  padding: 7px;
+  border: none;
+}
+.golangicon{
+  width: 50px;
+  height: 54px;
+  border: 1px solid red;
+  padding: 7px;
+  border: none;
+}
+@media screen and (max-width:600px){
+  .topandshowandcompete .buttononeonce{
+    font-size: large;
+    font-weight: 500;
+    height: 40px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .topandshowandcompete .buttontwoonce{
+    font-size: large;
+    font-weight: 500;
+    height: 41px;
+    width: 100px;
+    border: 1px solid white;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .topandshowandcompete .buttonthreeonce{
+    font-size: large;
+    font-weight: 500;
+    height: 40px;
+    width: 130px;
+    border: 1px solid white;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+}
+@media screen and (min-width:600px){
+.buttontwoonce{
+  margin-left: 20px;
+  margin-right: 22px;
+}
+.buttononeonce:hover,.buttontwoonce:hover,.buttonthreeonce:hover{
+  color: red;
+  transform: scale(1.1);
+  border-radius: 17px;
+}
+}

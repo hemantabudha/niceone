@@ -1,0 +1,551 @@
+.alwaysmain{
+  height: 100vh;
+  overflow: scroll;
+}
+.alwaysmain::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.alwaysmain::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.usercontainer {
+  border: 10px solid green;
+  height: 100vh;
+  border: none;
+  overflow: auto;
+  overflow-x: hidden;
+}
+.usercontainer::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.usercontainer::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.usercontainer::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.usercontainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+ 
+}
+.usercontainer .userprofilediv{
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.usercontainer .inputdiv{
+  border: 1px solid black;
+  display: flex;
+  justify-content:end;
+  margin-top: 10px;
+  border: none;
+}
+.inputdiv .searchname{
+  width: 240px;
+  height: 30px;
+  border: none;
+  outline: none;
+
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+
+  text-shadow: 10px 10px 10px black;
+  border-radius: 17px 38px;
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(212, 210, 210);
+  border: none;
+}
+.searchname::placeholder{
+  color: black;
+  text-align: center;
+}
+.usercontainer .myquestion{
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border: none;
+  justify-content: center;
+}
+.myquestion::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.myquestion::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.myquestion::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.myquestion::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.usercontainer .bigdiv{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-top: 10px;
+}
+.bigdiv .imagediv{
+  display: flex;
+  align-items: center;
+}
+.imagediv .imageprofile{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(214, 210, 210);
+}
+.imagediv .paragraph{
+  font-size: large;
+  font-weight: 500;
+  text-shadow: 10px 10px 10px rgba(112, 105, 105,0.5);
+  text-transform: capitalize;
+  margin-left: 10px;
+}
+.bigdiv .auto-expand-textarea {
+  width: 75%;
+  min-height: 20px; /* Minimum height */
+  overflow: hidden; /* Hide scrollbars */
+  resize: none; /* Disable manual resizing */
+  line-height: 1.5;
+  font-size: large;
+  font-weight: 500;
+  text-shadow: none;
+  border:1px solid black;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: none;
+}
+.auto-expand-textarea::placeholder{
+  color: black;
+  font-weight: 500;
+  font-style: normal;
+  font-size: large;
+  margin-top: 10px;
+  text-align: center;
+}
+.cancel{
+  border: 1px solid black;
+  margin-right: 10px;
+  width: 150px;
+  height: 35px;
+  border-radius: 17px 78px;
+  box-shadow: 10px 10px 10px rgb(231, 223, 223);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border: 1px solid rgb(248, 248, 248);
+}
+.upload{
+  border: 1px solid black;
+  width: 150px;
+  border-radius: 17px 78px;
+  box-shadow: 10px 10px 10px rgb(231, 223, 223);
+  cursor: pointer;
+  height: 35px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border: 1px solid white;
+}
+.cancel:hover,.upload:hover{
+  transform: scale(1.05);
+  color: red;
+}
+.myquestion .sponserediv{
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 47%;
+  height: 750px;
+  margin-left: 30px;
+  margin-top: 9px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  border: none;
+  border: 1px solid white;
+}
+.sponserediv .showsads{
+height: 600px;
+width: 100%;
+}
+.showsads .showimages{
+  width: 100%;
+  height: 100%;
+}
+.sponserediv .titles{
+  width: 100%;
+  margin-top: 20px;
+}
+.titles .currenttitles{
+  font-size: medium;
+  text-shadow: 10px 10px 10px rgb(182, 177, 177);
+}
+.sponserediv .creatordivs{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.creatordivs .userimages{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+.sponserediv .showlinks{
+  width: 110px;
+  height:35px;
+  border-radius: 17px 78px;
+  color: red;
+  outline: none;
+  border: none;
+  margin-left: 20px;
+  box-shadow: 10px 10px 10px rgb(155, 153, 153);
+}
+.showlinks:hover{
+  transform: scale(1.05);
+}
+.myquestion .questiondiv {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 49%;
+  height: 750px;
+  margin-left: 5px;
+  margin-top: 9px;
+  border-bottom-left-radius: 17px;
+  border-bottom-right-radius: 17px;
+  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  border:1px solid white;
+} .questiondiv .creatordiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.creatordiv .imagecreator{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 10px 10px 10px rgb(238, 234, 234);
+}
+.creatordiv .imagename{
+  text-shadow: 10px 10px 10px rgb(238, 232, 232);
+  margin-left: 15px;
+  text-transform: capitalize;
+}
+.questiondiv .question {
+  font-size:17px;
+  font-weight: 500;
+  margin-top: 2px;
+  width: 100%;
+  text-shadow: 10px 10px 10px rgb(236, 233, 233);
+  margin-bottom: 10px;
+  text-align: center;
+  border: 2px solid black;
+  word-wrap: break-word;
+  border: none;
+  text-transform: lowercase;
+}
+
+.questiondiv .likeandcomment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2px;
+  box-shadow: 10px 10px 10px rgba(219, 216, 216,0.5);
+  width: 100%;
+}
+.likeandcomment .likes{
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  color:silver;
+  margin-bottom: 10px;
+}
+.likes .button{
+  border: none;
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
+  margin-right: 10px;
+}
+.likes .iconthumb{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  color: silver;
+  box-shadow: 10px 10px 10px rgb(233, 229, 229);
+}
+.iconthumb:hover{
+  color: red;
+}
+.likeandcomment .dislikes{
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  color: silver;
+}
+.dislikes .button{
+  border: none;
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(235, 232, 232);
+  margin-right: 10px;
+}
+.dislikes .iconthumb{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  color: silver;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(233, 230, 230);
+}
+.iconthumb:hover{
+  color: red;
+}
+.questiondiv .comment{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 30px;
+}
+.comment .button{
+  border: none;
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 10px 10px 10px rgb(238, 235, 235);
+  margin-right: 10px;
+}
+.comment .iconthumb{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border-radius: 50%;
+  color: silver;
+  box-shadow: 10px 10px 10px rgb(241, 240, 240);
+}
+.iconthumb:hover{
+  color: red;
+}
+.questiondiv .commentshowdiv {
+  border: 2px solid black;
+  flex-grow: 1; /* Take remaining space */
+  overflow: auto; /* Enable scroll if content overflows */
+  margin-bottom: 0px;
+  padding: 2px;
+  overflow-x: hidden;
+  border: none;
+}
+.commentshowdiv::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.commentshowdiv::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.commentshowdiv::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.commentshowdiv::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+.commentshowdiv .commentcontainer{
+  border: 2px solid red;
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+}
+.commentcontainer .commentordiv{
+  display: flex;
+  align-items: center;
+}
+.commentordiv .commentorimage{
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px rgb(245, 242, 242);
+  border: none;
+  cursor: pointer;
+}
+.commentordiv .commentorname{
+  font-size: 16px;
+  font-weight: 500;
+  text-shadow: 10px 10px 10px rgb(247, 243, 243);
+  text-transform: capitalize;
+}
+.textdiv .text {
+  border: 1px solid black; 
+   font-size: 16px;/* Make sure the div takes up full width */
+  word-wrap: break-word;    /* Ensures long words will break and wrap into the next line */
+  white-space: normal; 
+  border: none;  
+  text-transform: lowercase; 
+  text-shadow: 10px 10px 10px rgb(245, 241, 241);
+    /* Allow the text to break naturally at spaces */       /* Hide anything that overflows */
+}
+
+.questiondiv .inputdiv {
+  border: 2px solid black;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.inputdiv .inputtext {
+  width: 85%;
+  height: 35px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: large;
+  font-weight: 500;
+  background-color: transparent;
+  text-shadow: 10px 10px 10px rgb(206, 197, 197);
+  box-shadow: 10px 10px 10px rgb(235, 232, 232);
+  border-radius: 17px 78px;
+  border: 2px solid black;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: none;
+}
+
+.inputdiv .button {
+  font-size: large;
+  font-weight: 500;
+  text-shadow: 10px 10px 10px rgb(231, 229, 229);
+  width: 111px;
+  border-radius: 17px 78px;
+  border: none;
+  height: 35px;
+  box-shadow: 10px 10px 10px rgb(226, 223, 223);
+  outline: none;
+}
+
+.button:hover {
+  color: red;
+  transform: scale(1.05);
+}
+.inputtext::placeholder{
+  color:black;
+  font-size:medium;
+}
+
+@media screen and  (min-width: 0px) and (max-width: 1600px) {
+  .bigdiv .auto-expand-textarea{
+    width: 100%;
+  }
+  .usercontainer .questiondiv{
+    width: 100%;
+    margin-left: 0px;
+  }
+  .myquestion .sponserediv{
+    width: 100%;
+    margin-left: 0px;
+    border: 1px solid white;
+  }
+   }
+
+   @media screen and  (min-width: 0px) and (max-width: 750px){
+    .questiondiv .question {
+      font-size:15px;
+      font-weight: 500;
+      text-shadow: 10px 10px 10px rgb(199, 193, 193);
+    }
+    .commentordiv .commentorname{
+      font-size: 15px;
+      font-weight: 500;
+      text-shadow: 10px 10px 10px rgb(199, 193, 193);
+      text-transform: capitalize;
+    }
+    .textdiv .text {
+      border: 1px solid black; 
+       font-size: 15px;/* Make sure the div takes up full width */
+      word-wrap: break-word;    /* Ensures long words will break and wrap into the next line */
+      white-space: normal; 
+      border: none;  
+      text-transform: lowercase; 
+      text-shadow: 10px 10px 10px rgb(199, 193, 193);
+        /* Allow the text to break naturally at spaces */       /* Hide anything that overflows */
+    }
+   }
+ 

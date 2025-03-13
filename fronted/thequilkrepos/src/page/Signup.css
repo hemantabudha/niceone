@@ -1,0 +1,410 @@
+.signup {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; 
+  height: 100vh; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  border: 2px solid black;
+   overflow: scroll;
+   overflow-x: hidden;
+  border: none;
+}
+.signup::-webkit-scrollbar {
+  width: 8px;  
+  display: none;
+}
+
+.signup::-webkit-scrollbar-track {
+  background-color: rgb(207,204,204);
+  border-radius: 10px;  
+  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  display: none;
+}
+
+.signup::-webkit-scrollbar-thumb {
+  background-color: #888;  
+  border-radius: 10px;  
+  height: 15px;
+  display: none;
+}
+
+.signup::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  
+  display: none;
+}
+
+.signup .signupcontainer {
+  width: 400px;
+  border: 1px solid white;
+  border-radius: 17px;
+  height: 680px;
+}
+
+.signup .photo{
+  border: 1px solid black;
+  height:180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+ border: none;
+}
+.photo .profile{
+  display: none;
+}
+.photo .changeimage{
+width: 153px;
+height: 153px;
+border-radius: 50%;
+border: 2px solid white;
+}
+.photo .labelicon{
+  margin-top: -3.6px;
+}
+.photo .profilerealimage{
+  width: 150px;
+  height: 150px;
+  border: none;
+  border-radius: 50%;
+  filter: drop-shadow(10px 10px 10px  rgb(199, 195, 195));
+  border: 2px solid white;
+}
+.signup .info{
+  border: 3px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  border: none;
+}
+.info .form{
+  width: 700px;
+  border: 1px solid black;
+  border: none;
+  height: 369px;
+}
+.form .name,.email,.phoneno,.education,.password,.confirmpass{
+  height: 50px;
+  border: 1px solid black;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.info .error{
+  border: 1px solid red;
+  margin-top: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: none;
+  box-shadow: 10px 10px 10px  rgba(105, 103, 103,0.4);
+}
+.icon:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.gmailicon{
+  width: 30px;
+  height:30px;
+  border-radius: 50%;
+  margin-right: 20px;
+  box-shadow: 10px 10px 10px black;
+}
+.inputinfo{
+  border: 1px solid black;
+  outline: none;
+  height: 30px;
+  width: 300px;
+  
+  font-weight: 500;
+  font-size:14px;
+  border: none;
+  border-radius: 17px 78px;
+  text-shadow: 10px 10px 10px black;
+  text-align: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+.inputinfo::placeholder{
+  color: black;
+  text-align: center;
+}
+.errorparagraph{
+  border: 1px solid black;
+
+  font-weight: 500;
+
+  font-size: 14px;
+
+  text-shadow: 10px 10px 10px black;
+  text-align: center;
+  width: 400px;
+  border: none;
+
+}
+.submit{
+  border: 1px solid black;
+  margin-top: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.submit .submitbutton{
+  height: 30px;
+  width: 111px;
+  margin-left: 20px;
+  
+  font-weight: 500;
+  font-size: 14px;
+  text-shadow: 10px 10px 10px rgba(61, 53, 53 ,0.2);
+  box-shadow: 10px 10px 10px  rgba(63, 62, 62,0.3);
+  border-radius: 17px 78px;
+  border: none;
+}
+.submitbutton:hover{
+transform: scale(1.03);
+color: red;
+}
+.form .or{
+  display: flex;
+  border: 1px solid red;
+  height: 50px;
+  margin-top: 30px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.orbutton{
+
+font-size: large;
+font-weight: 500;
+
+border: 1px solid black;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+margin-left: 30px;
+box-shadow: 10px 10px 10px rgba(145, 142, 142,0.3);
+text-shadow: 10px 10px 10px rgb(160, 154, 154);
+border: none;
+}
+
+.create{
+  border: 1px solid black;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+  border: none;
+}
+.create .createbutton{
+ 
+ font-size: 14px;
+ font-weight: 500;
+ text-shadow: 10px 10px 10px black;
+ box-shadow: 10px 10px 10px  rgba(143, 139, 139, 0.5);
+ width: 250px;
+ height: 40px;
+ border-radius: 17px 78px;
+ border: none;
+}
+.createbutton:hover{
+  transform: scale(1.05);
+  color: red;
+}
+.circleleft{
+  width: 20px ;
+  height: 20px;
+  box-shadow: 10px 10px 10px rgba(187, 185, 185,0.5);
+  border-radius: 50%;
+  border: none;
+  padding: 7px;
+  color: black;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.circleleft:hover{
+  transform: scale(1.1);
+  color: red;
+}
+@media screen and (max-width: 750px){
+  .signup {
+    border: none;
+    display: flex;
+    justify-content: none;
+    align-items: none;
+    width: 100vw; 
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  
+    border: 2px solid black;
+     overflow: scroll;
+     overflow-x: hidden;
+    border: none;
+  }
+  .signup .signupcontainer {
+    width: 400px;
+    border: 1px solid white;
+    border-radius: 17px;
+    height: 680px;
+    border: none;
+  }
+}
+@media screen and (min-width:0px) and (max-width: 358px) {
+  .signup .signupcontainer {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 17px;
+    border: 3px solid red;
+    height: auto;
+    border: none;
+  }
+  .circleleft{
+    width: 20px ;
+    height: 20px;
+    box-shadow: 10px 10px 10px rgba(187, 185, 185,0.5);
+    border-radius: 50%;
+    border: none;
+    padding: 7px;
+    color: black;
+    margin-left: 5px;
+    margin-top: 200px;
+  }
+  .icon{
+    width: 20px;
+    height: 20px;
+    padding: 7px;
+    border: 1px solid black;
+    border-radius: 50%;
+    margin-right: 2px;
+    border: none;
+    margin-left: 15px;
+    box-shadow: 10px 10px 10px  rgba(105, 103, 103,0.4);
+  }
+  .inputinfo{
+    border: 1px solid black;
+    outline: none;
+    height: 30px;
+    flex-grow: 1;
+     border: 3px solid red;
+    font-weight: 500;
+    font-size:14px;
+    border: none;
+    border-radius: 17px 78px;
+    text-shadow: 10px 10px 10px black;
+    text-align: center;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+  }
+  .photo .profilerealimage{
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 50%;
+    filter: drop-shadow(10px 10px 10px  rgb(199, 195, 195));
+    border: 2px solid white;
+  }
+   }
+   @media screen and (min-width:900px){
+    .signup .signupcontainer{
+      box-shadow: 10px 10px 10px rgb(224, 218, 218);
+      border: 1px solid white;
+    }
+   }
+/* Info Box - Right Side */
+.info-box {
+  padding: 50px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
+  box-shadow: 10px 10px 10px rgb(224, 218, 218);
+   border: 1px solid white;
+}
+
+/* Heading */
+.info-box h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+/* Paragraph */
+.info-box p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* List Styling */
+.info-box ul {
+  list-style: none;
+  font-size: 16px;
+  text-align: left;
+  padding-left: 0;
+}
+
+.info-box li {
+  margin: 10px 0;
+}
+
+/* Call-to-Action */
+.cta {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive - Hide on Small Screens */
+@media (max-width: 900px) {
+  .info-box {
+      display: none;
+  }
+}
+@media (min-width: 900px) {
+  .info-box {
+    padding: 50px;
+    margin-right: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+    box-shadow: 10px 10px 10px rgb(224, 218, 218);
+     border: 1px solid white;
+  }
+}
