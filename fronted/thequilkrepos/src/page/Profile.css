@@ -123,42 +123,11 @@ display: none;
   margin-left: 30px;
 }
 }
-.inputpost{
-  width: 100%;
-  height: 100%;
-  box-sizing:border-box;
-  border: 3px solid blue; 
-  border: none;
-}
 
 
-.inputpost::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  
-  display: none;
-}
-.inputpost::-webkit-scrollbar {
-  width: 8px;  
-  display: none;
-}
 
-.inputpost::-webkit-scrollbar-track {
-  background-color: rgb(207,204,204);
-  border-radius: 10px;  
-  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
-  display: none;
-}
 
-.inputpost::-webkit-scrollbar-thumb {
-  background-color: #888;  
-  border-radius: 10px;  
-  height: 15px;
- display: none;
-}
 
-.inputpost::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  
-  display: none;
-}
 .alwaysmain .changediv{
   width: 100%;
   border: 1px solid black;
@@ -169,7 +138,6 @@ display: none;
   margin-bottom: 5px;
   margin-top: 15px;
   border: none;
-  border-bottom: 2px solid white;
 }
 .changediv .changeimage{
   width: 150px;
@@ -200,8 +168,8 @@ display: none;
   outline: none;
   background-color: transparent;
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 3px;
+  margin-top: 21px;
+  margin-bottom: 15px;
   width: 100%;
 }
 
@@ -629,7 +597,7 @@ border: none;
   color: red;
 }
 
-.inputpost .collection{
+ .collection{
   border: 1px solid black;
   display: flex;
   align-items: center;
@@ -641,7 +609,7 @@ border: none;
 width: 111px;
 text-shadow: 10px 10px 10px black;
 }
-.inputpost .userprofilediv{
+ .userprofilediv{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -675,18 +643,13 @@ text-shadow: 10px 10px 10px black;
   background-color: #555;  
   display: none;
 }
-.inputpost .postholder{
+ .postholder{
   width: 100%;
   display: flex;
-  height:90%;
   box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
   flex-wrap: wrap;
   justify-content: center;
-  overflow: scroll;
-  overflow-x: hidden;
   box-shadow: none;
-  overflow-y: auto; 
-  margin-top: 5px;
 }
 .postholder::-webkit-scrollbar {
   width: 8px;  
@@ -713,17 +676,18 @@ text-shadow: 10px 10px 10px black;
 .postholder .postdiv{
   border: 2px solid red;
   width: 19%;
-  height: 230px;
+  height: 250px;
   margin-bottom: 5px;
   margin-left: 3px;
   margin-right: 5px;
   position: relative;
   margin-top: 4px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 10px rgb(231, 231, 231);
+  border: 1px solid white;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border: none;
 }
+
 .postdiv .delete{
   position: absolute;
   right: 2px;
@@ -734,17 +698,47 @@ text-shadow: 10px 10px 10px black;
   height: 20px;
   border-radius: 50%;
   padding: 7px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
   cursor: pointer;
   border: none;
 }
 .postdiv .show{
   width: 100%;
 }
+.postdiv .showoption{
+  position: absolute;
+  top: 35px;
+  display: flex;
+  flex-direction: column;
+  right: 0px;
+  z-index: 99999;
+}
+.showoption .buttonoptionshow {
+  height: 40px;
+  border: none;
+  width: 120px;
+  
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(255, 75, 43, 0.3);
+}
+.buttonoptionshow:hover {
+  transform: scale(1.05);
+
+}
+
+
+
 .show .showimage{
   width: 100%;
-  height: 200px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  height: 220px;
+  box-shadow: 10px 10px 10px rgb(231, 231, 231);
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
@@ -760,9 +754,10 @@ text-shadow: 10px 10px 10px black;
   border: 1px  solid black;
   text-transform: lowercase;
   font-weight: 500;
+  font-size: 17px;
   width: 100%;
   text-align: center;
-  text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+  text-shadow: 10px 10px 10px rgba(243, 241, 241, 0.5);
   color: black;
   border: none;
 }
@@ -1330,29 +1325,34 @@ text-transform: capitalize;
   }
 
   }
-  @media screen and (min-width: 500px) and (max-width:900px) {
+  @media screen and (min-width: 499px) and (max-width:650px) {
     .postholder .postdiv{
       width: 48%;
     }
     }
-    @media screen and (min-width: 900px) and (max-width:1300px) {
+    @media screen and (min-width: 649px) and (max-width:843px) {
      
       .postholder .postdiv{
-        width: 32%;
+        width: 48%;
       }
     
       }
-    @media screen and (min-width: 1300px) and (max-width:1400px) {
+    @media screen and (min-width: 842px) and (max-width:905px) {
       .postholder .postdiv{
         width: 31%;
       }
      
       }
-      @media screen and (min-width: 1400px) and (max-width:1600px) {
+      @media screen and (min-width: 904px) and (max-width:1250px) {
     .postholder .postdiv{
-      width: 24%;
+      width: 32%;
     }
         }
+        @media screen and (min-width: 1249px) and (max-width:1700px) {
+          .postholder .postdiv{
+            width: 24%;
+          }
+              }
  @media screen and (min-width:0px) and (max-width:750px) {
         .optionholderquiz .optionholderquizone{
           width: 100%;

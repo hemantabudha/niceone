@@ -379,8 +379,8 @@ navigate(`/search?query=management`);
    <span className="para">Terms and Condition</span> 
   </div>
       </div>
-      <div className="infoforallthediv">
-    <div className="searchcontainer" onScroll={handleScroll}>
+      <div className="infoforallthediv" onScroll={handleScroll}>
+    <div className="searchcontainer">
     <div className="mobileops">
   <div className="buttonholders" onClick={handlebiology}>
     <FontAwesomeIcon icon={faBookOpenReader}/>

@@ -229,6 +229,60 @@
   box-shadow: 10px 10px 10px rgb(212, 211, 211);
   border-radius: 15px;
 }
+.navbarmain .menu-list{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: absolute;
+  top: 70px;
+  right: 1px;
+  z-index: 99999;
+  background: #f0f0f0;
+  border: none;
+}
+@media screen and (min-width: 600px){
+  .navbarmain .menu-list{
+    display: none;
+  }
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.3s, color 0.2s;
+}
+.menu-item:hover{
+  background-color:#f1ecec ;
+}
+/* Icons */
+.menu-item .menuicon{
+  width: 20px;
+  height: 20px;
+  box-shadow: 10px 10px 10px rgb(228, 223, 223);
+  border-radius: 50%;
+  border: 1px solid white;
+  outline: none;
+}
+.menu-item .spantext{
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 9px;
+}
+/* Signout Button */
+.signout {
+  color: red;
+  font-weight: bold;
+}
+
+
+
+
 /* Responsive adjustments */
 @media screen and (max-width: 1200px) {
   .start .image,

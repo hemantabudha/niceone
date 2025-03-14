@@ -170,6 +170,11 @@ export default function Pquiz() {
      navigate(`/discuss/info/${id}`)
 
   }
+  const userprofile=(e)=>{
+
+    navigate(`/profile/info/${id}`)
+   
+ }
   const usernews=(e)=>{
  
      navigate(`/profile/news/${id}`)
@@ -481,7 +486,7 @@ export default function Pquiz() {
           </div>
           <div className="searchdataquizandnonsearchdisplay"> 
                   <div className="mobileops" style={{marginBottom:"1px"}}>
-                                <div className="buttonholders">
+                                <div className="buttonholders" onClick={userprofile}>
                                   <FontAwesomeIcon icon={faUser} />
                                   <button className="buttonsz">User Profile</button>
                                 </div>

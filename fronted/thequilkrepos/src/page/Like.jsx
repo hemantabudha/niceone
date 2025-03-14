@@ -151,6 +151,11 @@ export default function Like(){
      navigate(`/discuss/info/${id}`)
 
   }
+  const userprofile=(e)=>{
+   
+    navigate(`/profile/info/${id}`)
+
+ }
   const usernews=(e)=>{
 
      navigate(`/profile/news/${id}`)
@@ -392,7 +397,7 @@ export default function Like(){
              <span className="para">Terms and Condition</span> 
             </div>
                 </div>
-      <div className="infoforallthediv">
+      <div className="infoforallthediv" onScroll={handleScroll}>
 <div className="userpro">
         {user&&<img src={user.profile} alt="" className="imagepr" onLoad={handleImageLoad}  style={{ display: "none" }} />}
        {user&&<p className="userna">{user.name}</p>}
@@ -414,9 +419,9 @@ export default function Like(){
         </div>
         </div>
       
-<div className="likescontainer" onScroll={handleScroll}>
+<div className="likescontainer">
 <div className="mobileops">
-  <div className="buttonholders" onClick={handleuserprofile}>
+  <div className="buttonholders" onClick={userprofile}>
     <FontAwesomeIcon icon={faUser}/>
     <button className="buttonsz">User Profile</button>
   </div>

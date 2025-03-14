@@ -364,37 +364,9 @@ const handletermandcondition=(e)=>{
   </div>
       </div>
      <div className="postcontainer" onScroll={handleScroll}>
-     <div className="mobileop">
-  <div className="buttonholder" onClick={handlewishlist}>
-    <FontAwesomeIcon icon={faHeart}/>
-    <button className="button">Wishlist Notes</button>
-  </div>
-         <div className="buttonholder" onClick={handleyourquiz}>
-                  <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon"/>
-                   <button className="button">Your Quiz</button>
-    </div>
-  <div className="buttonholder" onClick={handleyourdisscussion}>
-    <FontAwesomeIcon icon={faUsers}/>
-    <button className="button">Your Discussion</button>
-  </div>
-        <div className="buttonholder" onClick={handleyournews}>
-    <FontAwesomeIcon icon={faNewspaper}/>
-    <button className="button">Your News</button>
-  </div>
-  <div className="buttonholder" onClick={handlelikenote}>
-    <FontAwesomeIcon icon={faThumbsUp}/>
-    <button className="button">Like Notes</button>
-  </div>
-  <div className="buttonholder" onClick={handlefollowing}>
-    <FontAwesomeIcon icon={faUserPlus}/>
-    <button className="button">Following</button>
-  </div>
-  <div className="buttonholder" onClick={handletrend}>
-    <FontAwesomeIcon icon={faArrowTrendUp}/>
-    <button className="button">Trending Notes</button>
-  </div>
-</div>
+   
 <div className="mobileops">
+
   <div className="buttonholders" onClick={handlebiology}>
     <FontAwesomeIcon icon={faBookOpenReader}/>
     <button className="buttonsz">Biology Notes</button>

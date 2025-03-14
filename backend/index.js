@@ -2752,7 +2752,7 @@ app.post("/submit-quiz-with-update", async (req, res) => {
 // export const handler = (event, context) => {
 //   return awsServerlessExpress.proxy(server, event, context);
 // };
-const port=8001
+const port=8000
 app.listen(port,async()=>{
   console.log("server is running",port)
 })

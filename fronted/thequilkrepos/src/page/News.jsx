@@ -8,19 +8,17 @@ import { useNavigate } from "react-router-dom"
 import { Helmet } from "react-helmet"; // Import react-helmet
 export default function News(){
   const navigate=useNavigate();
- const[newspost,setnewspost]=useState(false);
+ 
  const [searchQuery, setSearchQuery] = useState("");
- const [image, setimage] = useState([]);
- const [selectedImage, setSelectedImage] = useState(null);
- const [title, settitle] = useState("");
- const[filterdata,setfilterdata]=useState([]);
+
+ 
  const[chunkdata,setchunkdata]=useState([]);
  const[realchunkdata,setrealchunkdata]=useState([])
  const [page, setPage] = useState(1);  // Track the current page
  const [loading, setLoading] = useState(false);  // Track loading state
  const [postdata, setpostdata] = useState([]);
  const[actualupdate,setactualupdate]=useState([]);
- const [newloading, setnewLoading] = useState(false);
+
  const backendurl=import.meta.env.VITE_BACKEND_URL;
   const [userid, setUserid] = useState(null)
   const [adsdata, setadsdata] =useState([]);
@@ -48,9 +46,7 @@ export default function News(){
     }
     return result;
   };
- const handleadds=(e)=>{
-  setnewspost(true)
- }
+
  const handleSearch = (e) => {
   setSearchQuery(e.target.value);
 };
@@ -70,15 +66,6 @@ const handlePrevImage = (e, postId, imagesLength) => {
     ...prevIndexes,
     [postId]: (prevIndexes[postId] - 1 + imagesLength) % imagesLength,
   }));
-};
- const handleadd=(e)=>{
-  setnewspost(false)
-  setimage([])
-  setSelectedImage(null)
-  settitle("")
- }
- const handleImageClick = (image) => {
-  setSelectedImage(image);
 };
 
 useEffect(() => {
@@ -142,142 +129,11 @@ useEffect(()=>{
     setrealchunkdata(report)
   }
   },[chunkdata,adsdata])
-const handletitle = (e) => {
-  const newtitle = e.target.value;
-  if (newtitle.length <= 90) {
-    settitle(newtitle);
-  }
-};
-const handlenewsinfo=(e,id)=>{
-  navigate(`/profile/news/${id}`)
-}
-const handlefilechange = (e) => {
-  const file = e.target.files[0];
 
-  // Check if file type is valid
-  if (file && (file.type.startsWith("image/"))) {
-    const newTotalSize = image.reduce((acc, currentImage) => acc + currentImage.file.size, 0) + file.size;
 
-    const MAX_SIZE = 2 * 1024 * 1024;  // 10 MB in bytes
 
-    // If the total size exceeds 300MB, alert the user and stop further uploads
-    if (newTotalSize > MAX_SIZE) {
-        return;  // Stop here, no further action
-    }
-      if (image.length >= 2) {
-        alert("this is short news section only upload two news images format.");
-        return; // Stop further uploads
-      }
 
-      // If size is valid, proceed with adding the file
-      setimage((prev) => {
-          const newImages = [...prev, { src: URL.createObjectURL(file), file }];
-          if (selectedImage === null) {
-              setSelectedImage(newImages[0]);
-          }
-          return newImages;
-      });
 
-      // Clear the input field after selecting a file
-      e.target.value = "";
-  } else {
-      alert("please upload news images format.");
-  }
-};
-const uploadToS3 = async (file) => {
-  const fileExtension = file.name.split('.').pop();
-  const objectKey = `${Date.now()}.${fileExtension}`;
-  const s3Url = `https://quilkimages.s3.ap-south-1.amazonaws.com/${objectKey}`;
-
-  try {
-    // Upload the file to S3 with Cache-Control header for 1-year caching
-    await axios.put(s3Url, file, {
-      headers: {
-        "Content-Type": file.type, // Set content type for the file
-        "Cache-Control": "public, max-age=31536000", // Cache for 1 year
-      },
-    });
-    
-    return s3Url; // Return the public URL of the uploaded file
-  } catch (error) {
-    console.error("Error uploading to S3:", error);
-    throw error;
-  }
-};
-
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  if (!title|| image.length === 0) {
-    alert("Please fill out all fields and select files.");
-    return;
-  }
-  setnewLoading(true);
-  if(newloading){
-    alert("file is uploading")
-    return;
-  }
-  const imageUrls = [];
-  for (let i = 0; i < image.length; i++) {
-    const imageUrl = await uploadToS3(image[i].file); // Assuming you have the uploadToS3 function to get the S3 URL
-    imageUrls.push(imageUrl);
-  }
-
-  const token = localStorage.getItem("token");
-  if (!token) {
-    alert("You must be logged in to create a post.");
-    navigate("/login"); // Redirect to login page if no token
-    return;
-  }
-  const body = {
-    title,
-    images: imageUrls, // Sending array of URLs instead of files
-  };
-  try {
-    const response = await axios.post(
-      `${backendurl}/upload/file/news`, 
-      body,
-      {
-        headers: {
-          "Content-Type": "application/json", 
-          Authorization: `Bearer ${token}`, // Add the token in the headers
-        },
-      }
-    );
-    const newfilterdata=[response.data.data,...filterdata]
-      
-    setfilterdata(newfilterdata)
-    settitle("");
-    setimage([]);
-    setSelectedImage(null);
-  } catch (error) {
-   localStorage.removeItem("token");
-   navigate("/login")
-  }finally {
-    // Set loading state to false after the process finishes
-    setnewLoading(false);
-  }
-};
-const handledeletenews = async (e, id) => {
-  e.stopPropagation();
-  const token = localStorage.getItem('token'); // Get token from localStorage
-  if (!token) {
-    alert("you must login to delete the news")
-    return;
-  }
-  try {
-    const response = await axios.delete(`${backendurl}/upload/file/news/${id}`, {
-      headers: {
-        "Authorization": `Bearer ${token}`,
-      },
-    });
-    const responseremaining = response.data.remainingPosts;
-    const remainalso = responseremaining.reverse();
-   
-    setfilterdata(remainalso)
-  } catch (error) {
-  }
-}
 
 const handleLike = async (e, postId) => {
   e.stopPropagation();
@@ -353,28 +209,7 @@ const formatLikes = (num) => {
         console.error('Failed to copy the URL: ', error);
       });
   }
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const token = localStorage.getItem('token'); // Get token from localStorage
-    if (!token) {
-      
-      return;
-    }
-      try {
-        const response = await axios.get(`${backendurl}/upload/file/news/createdby`, {
-          headers: {
-            "Authorization": `Bearer ${token}`,
-          },
-        });
-        const dataset = response.data;
-        setfilterdata(dataset)
-       
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      }
-    };
-    fetchPosts();
-  }, [navigate]);
+
   useEffect(() => {
     const fetchPosts = async () => {
     
@@ -531,6 +366,9 @@ const formatLikes = (num) => {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
+  const handlenewsinfo=(e,id)=>{
+    navigate(`/profile/news/${id}`)
+  }
   useEffect(() => {
 
     const checkTokenAndFetchData = async () => {
@@ -669,104 +507,9 @@ const formatLikes = (num) => {
               </div>
       <div className="newscontainer" onScroll={handleScroll}>
         <div className="createsearch">
-          <div className="creates" onClick={handleadds} >
-            <FontAwesomeIcon icon={faPlus} className="newsadd"/>
-            <span className="add">add update</span>
-          </div>
           <input type="text" name="" id="" className="newssearch" placeholder="search update..." onChange={handleSearch}/>
         </div>
-        {newspost===true&&( 
-          <div className="newcollectionadd">
-          <div className="posting">
-          <div className="inputholders">
-            <div className="inputpics">
-
-              {image.length > 0 ? (image.map((current, index) => (
-                <div key={index} className="divimages" onClick={() => handleImageClick(current)}>
-                  {current.file.type.startsWith("image/") ? (<img src={current.src} alt="image not found" className="imageshows" />) : current.file.type.startsWith("video/") ? (<video autoPlay muted loop className="imageshows"><source src={current.src} type={current.file.type} /></video>) : (<iframe src={current.src} className="imageshows"></iframe>)}
-                </div>
-              ))) : (<div className="managers">
-                <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div> <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div>
-              </div>)}
-
-            </div>
-            <div className="inputselectors">
-              <label htmlFor="inputid" className="label"><FontAwesomeIcon icon={faPlus} className="pluss" /> </label>
-              <input type="file" name="newsimage" id="inputid" className="inputclasss" onChange={handlefilechange} required />
-            </div>
-            <div className="showresults">
-              {selectedImage ? (
-                selectedImage.file.type.startsWith("video/") ? (
-                  <video autoPlay muted loop className="bigshowvideos"  >
-                    <source src={selectedImage.src} type={selectedImage.file.type} />
-
-                  </video>
-                ) : selectedImage.file.type.startsWith("image/") ? (
-                  <img src={selectedImage.src} alt="Selected" className="bigshowimages" />
-                ) : (<iframe src={selectedImage.src} allow="Selected" className="bigshowimages"></iframe>)
-              ) : (
-                <div className="showresultonlys"></div>
-              )}
-              <div className="titles">
-                <input type="text" className="titleinputs" placeholder="Set Title Of Updates" onChange={handletitle} value={title} required />
-              </div>
-            </div>
-          </div>
-          <div className="closeandadd">
-              <div className="close" onClick={handleadd}>
-              <FontAwesomeIcon icon={faX}  className="closeicon"/>
-              <span className="discard">discard update</span>
-              </div>
-              <div className="publish" onClick={handleSubmit}>
-                <FontAwesomeIcon icon={faAdd} className="publishicon"/>
-                <span className="publishadd">{newloading?"publishing":"publish update"}</span>
-              </div>
-            </div>
-          </div>
-          <div className="collectionnews">
-{filterdata.length>0?(
-  <div className="collectionnewsholder">
-    {filterdata.map((current,index)=>{
-  return(
-    <div className="newsholder" key={index}>
-      <div className="imageanddelete">
-      {current.images[0].endsWith('.jpg') || current.images[0].endsWith('.jpeg') || current.images[0].endsWith('.png') || current.images[0].endsWith('.gif') || current.images[0].endsWith('.bmp') ? (
-    <img 
-      src={current.images[0]} 
-      alt={current.title} 
-      className="newsimage" 
-    />
-  ) : current.images[0].endsWith('.mp4') || current.images[0].endsWith('.webm') || current.images[0].endsWith('.ogg') ? (
-    <video 
-      className="newsimage" 
-     muted autoPlay loop
-      src={current.images[0]} 
-      alt={current.title} 
-    />
-  ) : current.images[0].endsWith('.pdf') ? (
-    <iframe 
-      className="newsimage" 
-      src={`https://docs.google.com/viewer?url=${current.images[0]}&embedded=true`} 
-      title={current.title} 
-      width="100%" 
-      height="500px" 
-    />
-  ) : (
-    <p>Unsupported media type</p>
-  )}
-        <FontAwesomeIcon icon={faTrash} className="deletenews" onClick={(e)=>{handledeletenews(e,current._id)}}/>
-      </div>
-      <div className="newstitlediv">
-        <p className="newstitle" >{current.title.length>20?current.title.slice(0,20)+"...":current.title}</p>
-      </div>
-    </div>
-  )
-    })}
-  </div>
-):(<div className="nocontain"><p className="notitle">create some news</p> </div>)}
-          </div>
-          </div>
-        )}
+       
         {actualupdate.length>0?(<div className="actualnews">
          {actualupdate.map((current,index)=>{
           const currentIndex = imageIndexes[current._id] || 0;

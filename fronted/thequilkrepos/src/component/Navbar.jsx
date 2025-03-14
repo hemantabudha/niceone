@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSearch, faHeart, faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSearch, faHeart, faUsers, faThumbsUp, faArrowTrendUp, faNewspaper, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import "./Navbar.css";
 import { useState,useEffect } from 'react';
@@ -12,6 +12,8 @@ export default function Navbar() {
   const [loading, setLoading] = useState(false);  // Track loading state
   const [postdata, setpostdata] = useState([]);
   const backendurl=import.meta.env.VITE_BACKEND_URL;
+  const [isOpen, setIsOpen] = useState(false);
+  const[userid,setUserid]=useState(null)
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
   };
@@ -91,6 +93,102 @@ export default function Navbar() {
     navigate(`/profile/info/${profileid}`)
     setSearchValue("")
   }
+  const handlesignout=(e)=>{
+    localStorage.removeItem('token')
+    navigate("/login")
+  }
+  const handletrend=(e)=>{
+    navigate("/trending")
+  }
+  const handleyournews=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/profile/news/${userid}`)
+    }else{
+      alert("login to see your news.")
+    }
+  }
+  const handleyourquiz=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/profile/quiz/${userid}`)
+    }else{
+      alert("login to see your quiz.")
+    }
+  }
+  const handleyournote=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/profile/info/${userid}`)
+    }else{
+      alert("login to see your note.")
+    }
+  }
+  const handleyourdisscussion=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/discuss/info/${userid}`)
+    }else{
+      alert("login to see your disscussion.")
+    }
+  }
+  const handlewishlist=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate("/wishlist")
+    }else{
+      alert("login to see your wishlist note.")
+    }
+  }
+  const handlelikenote=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/likenotes/${userid}`)
+    }else{
+      alert("login to see your like notes")
+    }
+  }
+  const handletermandcondition=(e)=>{
+    navigate("/terms-and-conditions")
+  }
+  
+  const handlefollowing=(e)=>{
+    const token = localStorage.getItem("token");
+    if(token && userid){
+      navigate(`/follower/${userid}`)
+    }else{
+      alert("login to see your following user.")
+    }
+  }
+  useEffect(() => {
+    
+    const checkTokenAndFetchData = async () => {
+      const token = localStorage.getItem("token"); 
+      if (!token) {
+        return;
+      }
+  
+      try {
+        // Send the token to backend for validation
+        const response = await axios.post(
+          `${backendurl}/upload/file/verifytoken`,
+          {}, 
+          {
+            headers: {
+              Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+            },
+          }
+        );
+       
+        setUserid(response.data.user._id)
+    
+      } catch (error) {
+    
+      }
+    };
+  
+    checkTokenAndFetchData();
+  }, []);
   return (
     <div className="navbarmain">
     <div className="navbar">
@@ -145,7 +243,7 @@ export default function Navbar() {
 
         {/* Profile Icon */}
         <Link to="/profile" className={`link ${searchClicked ? 'hide' : ''}`}>
-          <FontAwesomeIcon icon={faUser} className="user" />
+          <FontAwesomeIcon icon={faUser} className="user"  onMouseEnter={() => setIsOpen(true)}  onMouseLeave={() => setIsOpen(false)}/>
         </Link>
       </div>
     </div>
@@ -161,6 +259,55 @@ export default function Navbar() {
      }))}
     </div>
    } 
+    {isOpen && (
+        <div
+          className="menu-list"
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+        >
+          <button className="menu-item" onClick={handlewishlist}>
+            <FontAwesomeIcon icon={faHeart} className="menuicon" />
+            <span className='spantext'>Wishlist</span>
+          </button>
+
+          <button className="menu-item" onClick={handlelikenote}>
+            <FontAwesomeIcon icon={faThumbsUp} className="menuicon" />
+            <span className='spantext'>Like Notes</span>
+          </button>
+          
+          <button className="menu-item"  onClick={handlefollowing}>
+            <FontAwesomeIcon icon={faUsers} className="menuicon" />
+            <span className='spantext'>Following</span>
+          </button>
+          <div className="menu-item" onClick={handleyourquiz}>
+                  <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="menuicon"/>
+                   <span className="spantext">Your Quiz</span>
+    </div>
+          <button className="menu-item" onClick={handletrend}>
+            <FontAwesomeIcon icon={faArrowTrendUp} className="menuicon" />
+            <span className='spantext'>Trending Notes</span>
+          </button>
+
+          <button className="menu-item" onClick={handleyournews}>
+            <FontAwesomeIcon icon={faNewspaper} className="menuicon" />
+            <span className='spantext'>Your News</span>
+          </button>
+
+          <button className="menu-item" onClick={handleyourdisscussion}>
+            <FontAwesomeIcon icon={faUsers} className="menuicon" />
+            <span className='spantext'>Your Discussions</span>
+          </button>
+          <button className="menu-item" onClick={handletermandcondition}>
+           
+            <span className='spantext'>terms and conditions</span>
+          </button>
+
+          <button className="menu-item signout" onClick={handlesignout}>
+            <FontAwesomeIcon icon={faSignOutAlt} className="menuicon" />
+            <span>Sign Out</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

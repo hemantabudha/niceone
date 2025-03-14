@@ -1,6 +1,6 @@
 .alwaysmain{
   overflow:auto;
-  border: 2px solid red;
+  border: none;
 }
 .alwaysmain::-webkit-scrollbar {
   width: 8px;  
@@ -27,10 +27,11 @@
 }
 .infoforallthediv{
   width: 100%;
-  overflow: hidden;
+  height: 100%;
+  overflow: scroll;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  border: none;
 }
 .infoforallthediv::-webkit-scrollbar {
   width: 8px;
@@ -59,12 +60,9 @@
   display: flex;
   box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
   flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
   justify-content: center;
   box-shadow: none;
-  overflow-y: auto; 
-  border: 3px solid black;
+  border: none;
 }
 
 .userdivhola::-webkit-scrollbar {
@@ -272,26 +270,31 @@
  }
 
  }
- @media screen and (min-width: 500px) and (max-width:900px) {
+ @media screen and (min-width: 499px) and (max-width:650px) {
   .userdivhola .boxa{
      width: 48%;
    }
    }
-   @media screen and (min-width: 900px) and (max-width:1300px) {
+   @media screen and (min-width: 649px) and (max-width:843px) {
     
      .userdivhola .boxa{
-       width: 32%;
+       width: 48%;
      }
    
      }
-   @media screen and (min-width: 1300px) and (max-width:1400px) {
+   @media screen and (min-width: 842px) and (max-width:905px) {
     .userdivhola .boxa{
        width: 31%;
      }
     
      }
-     @media screen and (min-width: 1400px) and (max-width:1600px) {
+     @media screen and (min-width: 904px) and (max-width:1250px) {
       .userdivhola .boxa{
-     width: 24%;
+     width: 32%;
    }
        }
+       @media screen and (min-width: 1249px) and (max-width:1700px) {
+        .userdivhola .boxa{
+       width: 24%;
+     }
+         }

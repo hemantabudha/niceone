@@ -1,11 +1,10 @@
  .followingcontainer{
   border: 2px solid black;
-  overflow-x: hidden;
+  border:none;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  overflow: scroll;
   margin-top: 5px;
   justify-content: center;
 }
@@ -169,29 +168,36 @@ border: none;
   .lowerfollow .share{
     display: none;
   }
- 
+  .upperfollow .none2{
+    display: none;
+  }
  }
- @media screen and (min-width: 500px) and (max-width:900px) {
+ @media screen and (min-width: 499px) and (max-width:650px) {
   .followingcontainer .follodiv{
     width: 48%;
-    border: none;
   }
   }
-  @media screen and (min-width: 900px) and (max-width:1300px) {
+  @media screen and (min-width: 649px) and (max-width:843px) {
     .followingcontainer .follodiv{
-      width: 32%;
+      width: 48%;
       border: none;
     }
     }
-@media screen and (min-width: 1300px) and (max-width:1400px) {
+@media screen and (min-width: 842px) and (max-width:905px) {
   .followingcontainer .follodiv{
     width: 31%;
     border: none;
   }
         }
-        @media screen and (min-width: 1400px) and (max-width:1600px) {
+        @media screen and (min-width: 904px) and (max-width:1250px) {
           .followingcontainer .follodiv{
-            width: 24%;
+            width: 32%;
             border: none;
           }
           }
+          @media screen and (min-width: 1249px) and (max-width:1700px) {
+            .followingcontainer .follodiv{
+              width: 24%;
+              border: none;
+            }
+            }

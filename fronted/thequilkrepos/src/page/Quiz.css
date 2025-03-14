@@ -141,15 +141,13 @@
 }
 .searchdataquizandnonsearchdisplay .realsearchdataquizandnonsearchdisplay{
   border: 2px solid red;
-  width: 49%;
-  min-height: 286px;
-  max-height: 305px;
+  width: 100%;
   border: 1px solid white;
   box-sizing: border-box;
   margin-top: 8px;
-  margin-left: 10px;
   display: flex;
   flex-direction: column;
+  border: none;
 }
 
 .realsearchdataquizandnonsearchdisplay .imageandtitleforthequiz{
@@ -165,7 +163,7 @@
   height: 50px;
   border-radius: 50%;
   box-sizing: border-box;
-  box-shadow: 10px 10px 10px rgb(212, 208, 208);
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
   transition: all 0.3s ease;
   cursor: pointer;
   border: none;
@@ -418,4 +416,18 @@
 
 .quizholderhamkohoni.error {
   border: 2px solid red;
+}
+@media screen and (min-width:1602px){
+  .searchdataquizandnonsearchdisplay .realsearchdataquizandnonsearchdisplay {
+    width: 49%;
+    max-height: 330px; /* Maximum height limit */
+    box-sizing: border-box;
+    margin-bottom: 3px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 4px;
+    border: 1px solid white;
+    align-self: stretch; /* Forces height to match the tallest sibling */
+}
+
 }

@@ -30,12 +30,10 @@
   display: flex;
   box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
   flex-wrap: wrap;
-  overflow: scroll;
-  overflow-x: hidden;
+ 
   justify-content: center;
   box-shadow: none;
-  overflow-y: auto; 
-  border: 3px solid black;
+  border: none;
 }
 .likescontainer::-webkit-scrollbar {
   width: 8px;  
@@ -63,7 +61,6 @@
 .likescontainer .con{
   border: 2px solid red;
   width: 19%;
-  height: 282px;
   margin-bottom: 5px;
   margin-left: 3px;
   margin-right: 5px;
@@ -185,23 +182,23 @@
     display: flex;
     align-items: center;
     justify-content: start;
-    margin-top: 10px;
+    margin-top: 0px;
     margin-bottom: 5px;
     border: none;
   }
   .thumb .thumbna{
     width: 100%;
     height: 190px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(233, 231, 231, 0.2);
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
   }
   .creatord .creatorima{
-    width: 25px;
-    height: 25px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 1px solid black;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(248, 246, 246, 0.2);
     border: none;
     margin-left: 5px;
     transition: all 2s ease;
@@ -213,7 +210,7 @@
     width: 100%;
     font-size: 13px;
     text-align: center;
-    text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+    text-shadow: 10px 10px 10px rgba(241, 240, 240, 0.5);
     color: black;
     border: none;
   }
@@ -229,24 +226,29 @@
   }
   
   }
-  @media screen and (min-width: 500px) and (max-width:900px) {
+  @media screen and (min-width: 499px) and (max-width:650px) {
    
     .likescontainer .con{
       width: 48%;
     }
     }
-    @media screen and (min-width: 900px) and (max-width:1300px) {
+    @media screen and (min-width: 649px) and (max-width:843px) {
       .likescontainer .con{
-        width: 32%;
+        width: 48%;
       }
       }
-  @media screen and (min-width: 1300px) and (max-width:1400px) {
+  @media screen and (min-width: 842px) and (max-width:905px) {
     .likescontainer .con{
       width: 31%;
     }
           }
-          @media screen and (min-width: 1400px) and (max-width:1600px) {
+          @media screen and (min-width: 905px) and (max-width:1250px) {
             .likescontainer .con{
-              width: 24%;
+              width: 32%;
             }
             }
+            @media screen and (min-width: 1249px) and (max-width:1700px) {
+              .likescontainer .con{
+                width: 24%;
+              }
+              }

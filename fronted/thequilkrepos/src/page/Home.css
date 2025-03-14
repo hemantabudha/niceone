@@ -54,8 +54,37 @@
   outline: none;
   background-color: #f1f1f1;
   border: 1px solid white;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
 }
-
+.buttonholdersss {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center align icon and button text */
+  margin-right: 5px;
+  background-color: transparent; /* White background for buttons */
+  padding: 5px 15px;
+  border-radius: 25px;  /* Rounded edges for buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  height: 30px;  /* Set a fixed height for consistency */
+  outline: none;
+  background-color: #f1f1f1;
+  border: 1px solid white;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
 /* Button holder hover effect */
 .buttonholders:hover {
   transform: scale(1.05);  /* Slightly enlarge on hover */
@@ -122,9 +151,7 @@
     width: 8px;  
     display: none;
   }
-.mobileop{
-  display: none;
-}
+
 
 
 .home{
@@ -172,12 +199,21 @@
   display: flex;
   align-items: center;
   margin-bottom: 25px;
-  margin-top: 26px;
+  margin-top: 21px;
   border: 1px solid white;
   border-radius: 17px;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  
 }
 .sidebar .sidedivterm{
-  margin-top: -13px;
+  margin-top: 13px;
   display: flex;
   justify-content: center;
   border: 2px solid black;
@@ -209,7 +245,7 @@
 .postcontainer{
   display: flex;
   height: 100%;
-  width: 91%;
+  width: 100%;
   flex-wrap: wrap;
   justify-content: center;
   overflow: scroll;
@@ -431,21 +467,7 @@
  }
  }
  @media screen and (max-width: 500px) {
-  .mobileops{
-    display: none;
-  }
-  /* Container holding the buttons */
-.mobileop {
-  display: flex;
-  overflow-x: auto; /* Allows horizontal scrolling */
-
-  border-radius: 10px;  /* Rounded corners */
-
- /* Adds space on the left */
-  border: none;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
+ 
 
 /* Styling for the individual button holders */
 .buttonholder {
@@ -499,55 +521,6 @@
   background-color: #e7f1ff;  /* Light blue background on hover */
 }
 
-/* Hide the scrollbar */
-.mobileop::-webkit-scrollbar {
-  height: 8px;  /* Vertical scrollbar height */
-  background-color: transparent; /* Make scrollbar background invisible */
-  display: none;
-}
-
-/* Styling for the scrollbar track */
-.mobileop::-webkit-scrollbar-track {
-  background-color: transparent;
-  display: none;
-}
-
-/* Styling for the scrollbar thumb */
-.mobileop::-webkit-scrollbar-thumb {
-  background-color: #888;  /* Dark thumb color */
-  border-radius: 10px;  /* Rounded corners */
-  display: none;
-}
-
-/* Hover effect for the scrollbar thumb */
-.mobileop::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  /* Darker thumb on hover */
-  display: none;
-}
-
-  .realwish::-webkit-scrollbar {
-    width: 8px;  
-    display: none;
-  }
-  
-  .realwish::-webkit-scrollbar-track {
-    background-color: rgb(207,204,204);
-    border-radius: 10px;  
-    box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
-    display: none;
-  }
-  
-  .realwish::-webkit-scrollbar-thumb {
-    background-color: #888;  
-    border-radius: 10px;  
-    height: 15px;
-     display: none;
-  }
-  
-  .realwish::-webkit-scrollbar-thumb:hover {
-    background-color: #555;  
-    display: none;
-  }
  .postcontainer .containe{
   width: 100%;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
@@ -570,7 +543,10 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  margin-top: 0px;
+  border: none;
 }
+
 .postcontainer .contentdivsponsored{
   width: 100%;
   margin-top: 0px;
@@ -604,26 +580,44 @@
   border: none;
 }
 }
-@media screen and (min-width: 500px) and (max-width:900px) {
-  .modern .sidebar{
-   display: block;
-   width: 18%;
-   border: 2px solid black;
-   border: none;
-  }
+
+@media screen and (min-width: 499px) and (max-width:650px) {
   .postcontainer{
-    width: 90%;
+    width: 100%;
     border: 2px solid black;
     border: none;
   }
   .postcontainer .contentdivsponsored{
     width: 48%;
+ 
   }
   .postcontainer .containe{
     width: 48%;
+   
   }
   }
-  @media screen and (min-width: 900px) and (max-width:1300px) {
+  @media screen and (min-width: 649px) and (max-width:843px) {
+    .modern .sidebar{
+     display: block;
+     width: 18%;
+     border: 2px solid black;
+     border: none;
+    }
+    .postcontainer{
+      width: 82%;
+      border: 2px solid black;
+      border: none;
+    }
+    .postcontainer .contentdivsponsored{
+      width: 48%;
+      
+    }
+    .postcontainer .containe{
+      width: 48%;
+      
+    }
+    }
+  @media screen and (min-width: 842px) and (max-width:905px) {
     .modern .sidebar{
      display: block;
      width: 18%;
@@ -636,32 +630,34 @@
       border: none;
     }
     .postcontainer .contentdivsponsored{
-      width: 32%;
+      width: 31%;
     }
     .postcontainer .containe{
-      width: 32%;
+      width: 31%;
+      
     }
     }
-@media screen and (min-width: 1300px) and (max-width:1400px) {
-        .modern .sidebar{
-         display: block;
-         width: 15%;
-         border: 2px solid black;
+    @media screen and (min-width: 904px) and (max-width:1250px) {
+      .modern .sidebar{
+       display: block;
+       width: 18%;
+       border: 2px solid black;
+       border: none;
+      }
+      .postcontainer{
+        width: 90%;
+        border: 2px solid black;
         border: none;
-        }
-        .postcontainer{
-          width: 90%;
-          border: 2px solid black;
-          border: none;
-        }
-        .postcontainer .contentdivsponsored{
-          width: 31%;
-        }
-        .postcontainer .containe{
-          width: 31%;
-        }
-        }
-        @media screen and (min-width: 1400px) and (max-width:1600px) {
+      }
+      .postcontainer .contentdivsponsored{
+        width: 32%;
+      }
+      .postcontainer .containe{
+        width: 32%;
+        
+      }
+      }
+        @media screen and (min-width: 1249px) and (max-width:1700px) {
           .modern .sidebar{
            display: block;
            width: 15%;

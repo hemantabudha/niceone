@@ -407,6 +407,14 @@ const handlelikenote=(e)=>{
     alert("login to see your like notes")
   }
 }
+const handleuserlikenote=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/likenotes/${creatorinfo._id}`)
+  }else{
+    alert("login to see your like notes")
+  }
+}
 const handlefollowing=(e)=>{
   const token = localStorage.getItem("token");
   if(token && userid){
@@ -419,6 +427,14 @@ const handleyourquiz=(e)=>{
   const token = localStorage.getItem("token");
   if(token && userid){
     navigate(`/profile/quiz/${userid}`)
+  }else{
+    alert("login to see your quiz.")
+  }
+}
+const handleuserquiz=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/profile/quiz/${creatorinfo._id}`)
   }else{
     alert("login to see your quiz.")
   }
@@ -439,10 +455,34 @@ const handleyourdisscussion=(e)=>{
     alert("login to see your disscussion.")
   }
 }
+const handleuserdisscussion=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/discuss/info/${creatorinfo._id}`)
+  }else{
+    alert("login to see your disscussion.")
+  }
+}
+const handleuserprofile=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/profile/info/${creatorinfo._id}`)
+  }else{
+    alert("login to see your disscussion.")
+  }
+}
 const handleyournews=(e)=>{
   const token = localStorage.getItem("token");
   if(token && userid){
     navigate(`/profile/news/${userid}`)
+  }else{
+    alert("login to see your news.")
+  }
+}
+const handleusernews=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/profile/news/${creatorinfo._id}`)
   }else{
     alert("login to see your news.")
   }
@@ -500,6 +540,48 @@ useEffect(() => {
 }, []);
 const handlehome=(e)=>{
   navigate("/")
+}
+
+const userprofile=(e)=>{
+
+  navigate(`/profile/info/${id}`)
+ 
+}
+const likepage = (e) => {
+  navigate(`/likenotes/${id}`)
+
+}
+const profile = (e) => {
+  navigate("/profile")
+}
+const followpage = (e) => {
+
+  navigate(`/follower/${id}`)
+
+}
+
+const usernews = (e) => {
+
+  navigate(`/profile/news/${id}`)
+
+}
+const handlechemistry = () => {
+  navigate(`/search?query=chemistry`);
+}
+const handlezoology = () => {
+  navigate(`/search?query=zoology`);
+}
+const handlebotany = () => {
+  navigate(`/search?query=botany`);
+}
+const handleaccount = () => {
+  navigate(`/search?query=account`);
+}
+const handlescience = () => {
+  navigate(`/search?query=science`);
+}
+const handlemanagement = () => {
+  navigate(`/search?query=management`);
 }
   return (
     <div className="alwaysmain">
@@ -594,8 +676,62 @@ const handlehome=(e)=>{
               <FontAwesomeIcon icon={faShare} className="shareclass" onClick={handleprofilelink} />
             </div>
           </div>
+          <div className="mobileops">
+              <div className="buttonholders" onClick={handleuserprofile}>
+                <FontAwesomeIcon icon={faUser} />
+                <button className="buttonsz">User Profile</button>
+              </div>
+              <div className="buttonholders" onClick={handleuserquiz}>
+                <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
+                <button className="buttonsz">User quiz</button>
+              </div>
+              <div className="buttonholders" onClick={handleuserdisscussion}>
+                <FontAwesomeIcon icon={faUsers} />
+                <button className="buttonsz">Discussions</button>
+              </div>
+              <div className="buttonholders" onClick={handleusernews}>
+                <FontAwesomeIcon icon={faNewspaper} />
+                <button className="buttonsz">User News</button>
+              </div>
+              <div className="buttonholders" onClick={handleuserlikenote}>
+                <FontAwesomeIcon icon={faThumbsUp} />
+                <button className="buttonsz">Likes Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handletrend}>
+                <FontAwesomeIcon icon={faArrowTrendUp} />
+                <button className="buttonsz">Trending Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handlechemistry}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Chemistry</button>
+              </div>
+              <div className="buttonholders" onClick={handlezoology}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Zoology Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handletrend}>
+                <FontAwesomeIcon icon={faArrowTrendUp} />
+                <button className="buttonsz">Trending Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handlebotany}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Botany Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handleaccount}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Account Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handlescience}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Science Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handlemanagement}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Management Notes</button>
+              </div>
+            </div>
         </div>
-        <div className="inputanddescriptionforthequiz" style={{ marginTop: "10px" }}>
+        <div className="inputanddescriptionforthequiz" style={{ marginTop: "10px"}}>
           <p className="inputquiz">Title : {title}</p>
           <p className="descriptionquiz"> Context : {description}</p>
         </div>

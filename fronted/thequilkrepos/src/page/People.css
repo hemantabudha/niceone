@@ -121,7 +121,7 @@
   background-color: #555;  
   display: none;
 }
-.usercontainer .bigdiv{
+ .bigdiv{
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -133,6 +133,7 @@
 .bigdiv .imagediv{
   display: flex;
   align-items: center;
+  margin-bottom: 23px;
 }
 .imagediv .imageprofile{
   width: 50px;
@@ -510,7 +511,7 @@ width: 100%;
   font-size:medium;
 }
 
-@media screen and  (min-width: 0px) and (max-width: 1600px) {
+@media screen and  (min-width: 0px) and (max-width: 1200px) {
   .bigdiv .auto-expand-textarea{
     width: 100%;
   }

@@ -238,6 +238,9 @@ const ProfilePage = () => {
     navigate(`/discuss/info/${id}`)
 
   }
+  const userprofile=(e)=>{
+    navigate(`/profile/info/${id}`)
+  }
   const usernews = (e) => {
 
     navigate(`/profile/news/${id}`)
@@ -466,7 +469,7 @@ const ProfilePage = () => {
             <span className="para">Terms and Condition</span>
           </div>
         </div>
-        <div className="infoforallthediv">
+        <div className="infoforallthediv" onScroll={handleScroll}>
           <div className="userprofilediv">
             {user && <img src={user.profile} alt="" className="imageprofiles" onLoad={handleImageLoad} style={{ display: "none" }} />}
             {user && <p className="usernameclasss">{user.name}</p>}
@@ -490,9 +493,9 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <div className="userdivhola" onScroll={handleScroll}>
+          <div className="userdivhola">
             <div className="mobileops">
-              <div className="buttonholders">
+              <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
                 <button className="buttonsz">User Profile</button>
               </div>

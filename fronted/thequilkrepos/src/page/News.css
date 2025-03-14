@@ -75,14 +75,15 @@
   border-radius:17px 78px;
   margin-left: 21px;
   cursor: pointer;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(235, 231, 231);
+  border: 1px solid white;
 }
 .publish .publishicon{
    width: 20px;
    height: 20px;
    border-radius: 50%;
    padding: 7px;
-   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   box-shadow: 5px 5px 15px rgba(236, 233, 233, 0.2);
 }
 .publish .publishadd{
  
@@ -90,7 +91,7 @@
   text-align: center;
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+  text-shadow: 10px 10px 10px rgb(243, 239, 239);
 }
 .newscontainer .createsearch{
   border: 1px solid red;
@@ -147,14 +148,8 @@
   color: black;
   text-align: center;
 }
-.newcollectionadd{
-  display: flex;
-  flex-direction: row;
-  border: 2px solid black;
-  width: 100%;
-  border: none;
-}
-.newcollectionadd .collectionnews{
+
+.collectionnews{
   border: 2px solid blue;
   display: none;
   border: none;
@@ -253,12 +248,14 @@
  text-align: center;
  text-shadow: 10px 10px 10px black;
  }
-.newcollectionadd .posting{
+.posting{
   border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: start;
-  width: 50%; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   border: none;
 }
 .closeandadd .close{
@@ -266,17 +263,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(221, 218, 218);
   border-radius: 17px 78px;
   border: none;
   cursor: pointer;
   width: 150px;
+  border: 1px solid white;
 }
 .close .closeicon{
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(247, 244, 244, 0.2);
   padding: 7px;
 }
 .close .discard{
@@ -285,7 +283,7 @@
   text-align: center;
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+  text-shadow: 10px 10px 10px rgb(241, 236, 236);
 }
 
 .inputholders{
@@ -348,7 +346,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(209, 205, 205);
 }
 .pluss:hover{
   color: red;
@@ -359,7 +357,7 @@
   font-size: large;
 
   font-weight: 500;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(240, 235, 235);
 }
 .inputpics .divimages{
   border: 2px solid blue;
@@ -369,7 +367,9 @@
   margin-left: 25px;
   margin-top: 18px;
   border: none;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(211, 207, 207);
+  border-radius: 17px;
+  border: 1px solid white;
 }
 .divimages:hover{
   transform: scale(1.1);
@@ -381,11 +381,13 @@
   margin-bottom: 18px;
   margin-left: 25px;
   margin-top: 18px;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(209, 205, 205);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
+  border-radius: 17px;
+  border: 1px solid white;
 }
 .divimagetwos:hover{
   transform: scale(1.1);
@@ -394,13 +396,11 @@
 
   font-weight: 500;
  
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(235, 232, 232);
 }
 .divimages .imageshows{
   width: 150px;
   height: 150px;
-  border: 1px solid green;
-  border: none;
 }
 .divimages .imageshowpdfs{
   height: 140px;
@@ -408,7 +408,6 @@
   border: 1px solid blue;
   border: none;
   overflow: hidden;
-
 }
 
 .showresults{
@@ -420,9 +419,9 @@ border: none;
 .showresults .showresultonlys{
   width: 300px;
 height: 300px;
-box-shadow: 10px 10px 10px rgb(121, 117, 117);
-border: 3px solid black;
-border: none;
+box-shadow: 10px 10px 10px rgb(238, 233, 233);
+border: 1px solid white;
+border-radius: 17px;
 }
 .showresultonlys:hover{
   transform: scale(1.02);
@@ -430,7 +429,9 @@ border: none;
 .showresults .bigshowimages{
   width: 300px;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(209, 205, 205);
+  border-radius: 17px;
+  border: 1px solid white;
 }
 .bigshowimages:hover{
   transform: scale(1.03);
@@ -438,7 +439,9 @@ border: none;
 .showresults .bigshowvideos{
   width: 300px;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(209, 205, 205);
+  border-radius: 17px;
+  border: 1px solid white;
 }
 .bigshowvideos:hover{
   transform: scale(1.03);
@@ -658,42 +661,9 @@ align-items: center;
   margin-top: 3px;
   text-shadow: 10px 10px 10px rgb(121, 117, 117);
 }
-@media screen and (min-width: 1450px) {
- .newcollectionadd .posting{
-  width: 39%;
-  border: 1px solid red;
-  border: none;
- }
- .newcollectionadd .collectionnews{
-  width: 61%;
-  display: inline-block;
- }
-  }
-  @media screen and (min-width: 1000px) and (max-width: 1450px) {
-   .newcollectionadd .posting{
-      width:60%;
-      border: 1px solid green;
-      border: none;
-    }
-    .newcollectionadd .collectionnews{
-      width: 40%;
-      display: inline-block;
-      border: none;
-    }
-  }
-  @media screen and (min-width: 760px) and (max-width: 1000px) {
- .newcollectionadd .posting{
-    width: 74.5%;
-    border: 1px solid black;
-    border: none;
-  }
-  .newcollectionadd .collectionnews{
-    width: 25.5%;
-    display: inline-block;
-    
-  }
-  }
-  @media screen  and (max-width: 760px) {
+
+  
+  @media screen  and (max-width: 700px) {
     .newscontainer::-webkit-scrollbar {
       width: 8px;  
       display: none;
@@ -717,8 +687,8 @@ align-items: center;
       background-color: #555;  
      
     }
-  .newcollectionadd  .posting{
-      width: 100%;
+   .posting{
+   
       margin-top: 10px;
     }
     .posting .inputholders{
@@ -743,7 +713,7 @@ align-items: center;
       width: 200px;
       height: 200px;
       border-radius: 12px;
-      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      box-shadow: 10px 10px 10px rgb(230, 226, 226);
       border: none;
     }
     .showresults .bigshowimages{
@@ -751,8 +721,9 @@ align-items: center;
       height: 200px;
       border: none;
       border-radius: 12px;
-      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      box-shadow: 10px 10px 10px rgb(233, 230, 230);
       border: none;
+      border: 1px solid white;
     }
     .showresults .showresultonlys{
       border: 2px solid yellow;
@@ -761,7 +732,8 @@ align-items: center;
       margin-top: 0px;
       border-radius: 12px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      box-shadow: 10px 10px 10px rgb(226, 222, 222);
+      border: 1px solid white;
     }
     .inputholders .inputselectors{
       border: 1px solid red;
@@ -771,11 +743,13 @@ align-items: center;
     .inputselectors .pluss{
       box-shadow: 10px 10px 10px rgb(224, 212, 212);
       border: none;
+      border: 1px solid white;
     }
     .inputholders .inputpics{
       border: 1px solid black;
       width: 100%;
       display: flex;
+      justify-content: center;
       flex-direction: row;
       border: none;
     }
@@ -792,7 +766,8 @@ align-items: center;
       border: 1px solid yellow;
       border-radius: 17px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      box-shadow: 10px 10px 10px rgb(221, 216, 216);
+      border: 1px solid white;
     }
     .inputpics .managers{
       width: 100%;
@@ -807,15 +782,17 @@ align-items: center;
       height: 90px;
       border-radius: 17px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(157, 152, 152);
+      box-shadow: 10px 10px 10px rgb(230, 225, 225);
+      border: 1px solid white;
     }
     .inputcontainers .inputposts {
       width: 100%;
       margin-top: 10px;
       border: 3px solid blue;
       border: none;
-      box-shadow: 10px 10px 10px 10px black;
+      box-shadow: 10px 10px 10px 10px rgb(228, 224, 224);
       box-shadow: none;
+      border: 1px solid white;
     }
     .posting .closeandadd{
       border: 1px solid red;
@@ -848,7 +825,7 @@ align-items: center;
       width: 50px;
       height: 50px;
       border-radius: 17%;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 15px rgba(226, 223, 223, 0.2);
       transition: transform 2s ease-in-out
     }
     .imageprofile:hover{
@@ -873,7 +850,7 @@ align-items: center;
       width: 100%;        
       text-align: center;         /* Make it take full width of the container */
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(121, 117, 117);
+      text-shadow: 10px 10px 10px rgb(233, 229, 229);
       
       /* Prevent text from wrapping to the next line */
       white-space: wrap;         /* This forces the text to stay on one line */
@@ -917,7 +894,7 @@ align-items: center;
     border: none;
    }
    .titles .titleinputs{
-    text-shadow:10px 10px 10px rgb(179, 169, 169);
+    text-shadow:10px 10px 10px rgb(236, 230, 230);
    }
    .actualnews .container{
     margin-top: 5px;
@@ -958,7 +935,7 @@ align-items: center;
       width: 50px;
       height: 50px;
       border-radius: 17%;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 15px rgba(236, 233, 233, 0.2);
       transition: transform 2s ease-in-out
     }
     .imageprofile:hover{
@@ -983,7 +960,7 @@ align-items: center;
       width: 100%;        
       text-align: center;         /* Make it take full width of the container */
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(121, 117, 117);
+      text-shadow: 10px 10px 10px rgb(233, 229, 229);
       
       /* Prevent text from wrapping to the next line */
       white-space: wrap;         /* This forces the text to stay on one line */
@@ -1032,7 +1009,7 @@ align-items: center;
       text-align: center;
       font-weight: 500;
   
-      text-shadow: 10px 10px 10px black;
+      text-shadow: 10px 10px 10px rgb(236, 233, 233);
     }
     .createsearch .newssearch{
       width: 150px;
@@ -1044,7 +1021,7 @@ align-items: center;
       
       font-weight: 500;
 
-      text-shadow: 10px 10px 10px black;
+      text-shadow: 10px 10px 10px rgb(241, 241, 241);
       border-radius: 17px 38px;
       background-color: transparent;
       box-shadow: 10px 10px 10px rgb(121, 117, 117);
@@ -1069,21 +1046,25 @@ align-items: center;
     .createsearch .newssearch{
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
       border: 1px solid black;
-      text-shadow: 10px 10px 10px rgb(129, 123, 123);
+      text-shadow: 10px 10px 10px rgb(233, 229, 229);
       border: none;
     }
     
   }
-  @media screen and (min-width: 760px) and (max-width: 900px){
+  @media screen and (min-width: 760px) and (max-width: 1100px){
    .actualnews .container{
     width: 100%;
     margin: 1px;
+    border: none;
+    margin-top: 5px;
    }
   }
-  @media screen and (min-width: 900px) and (max-width: 1300px){
+  @media screen and (min-width: 1100px) and (max-width: 1650px){
     .actualnews .container{
      width: 49%;
      margin: 1px;
+     margin-left: 3px;
+     border: none;
      margin-top: 5px;
     }
    }
