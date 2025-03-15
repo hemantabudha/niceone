@@ -1288,7 +1288,7 @@ text-transform: capitalize;
 @media screen and (min-width:0px) and (max-width:500px) {
    .postholder .postdiv{
     width: 49%;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   
     border-bottom-left-radius: 1px;
     border-bottom-right-radius: 1px;
     margin-top: 1px;
@@ -1307,7 +1307,7 @@ text-transform: capitalize;
     height: 15px;
     border-radius: 50%;
     padding: 7px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   
     cursor: pointer;
     border: none;
   }
@@ -1319,7 +1319,7 @@ text-transform: capitalize;
     width: 100%;
     font-size: 13px;
     text-align: center;
-    text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+    
     color: black;
     border: none;
   }

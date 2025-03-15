@@ -530,12 +530,11 @@ width: 100%;
     .questiondiv .question {
       font-size:15px;
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(199, 193, 193);
+     
     }
     .commentordiv .commentorname{
       font-size: 15px;
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(199, 193, 193);
       text-transform: capitalize;
     }
     .textdiv .text {
@@ -545,7 +544,7 @@ width: 100%;
       white-space: normal; 
       border: none;  
       text-transform: lowercase; 
-      text-shadow: 10px 10px 10px rgb(199, 193, 193);
+     
         /* Allow the text to break naturally at spaces */       /* Hide anything that overflows */
     }
    }

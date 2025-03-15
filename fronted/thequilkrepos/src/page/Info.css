@@ -103,7 +103,7 @@
 .userprofilediv .imageprofiles{
   width: 150px;
   height: 150px;
-  box-shadow: 10px 10px 10px rgba(172, 164, 164,0.3);
+  box-shadow: 10px 10px 10px rgba(238, 235, 235, 0.3);
   transition: transform 0.2s ease;
   border-radius: 50%;
   border: 1px solid black;
@@ -247,7 +247,7 @@
 @media screen and (min-width:0px) and (max-width:500px) {
   .userdivhola .boxa{
    width: 49%;
-   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   
    border-bottom-left-radius: 1px;
    border-bottom-right-radius: 1px;
    margin-top: 1px;
@@ -265,7 +265,7 @@
    width: 100%;
    font-size: 13px;
    text-align: center;
-   text-shadow: 10px 10px 10px rgba(141, 134, 134,0.5);
+
    color: black;
    border: none;
  }
