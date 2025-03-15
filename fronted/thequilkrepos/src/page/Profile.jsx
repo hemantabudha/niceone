@@ -46,6 +46,64 @@ export default function Profile() {
   const [newselectedImage, newsetSelectedImage] = useState(null);
   const [newtitle, newsettitle] = useState("");
   const [newloading, newsetLoading] = useState(false);
+  const [playlistIsOpen, setPlaylistIsOpen] = useState(false);
+  const [playlistTitle, setPlaylistTitle] = useState("");
+  const [playlistdescription, setPlaylistdescription] = useState("");
+  const [playlistNotes, setPlaylistNotes] = useState([]);
+  const [playlistNotesId, setPlaylistNotesId] = useState("");
+
+
+
+  const addNote = () => {
+    const trimmedId = playlistNotesId.trim();
+
+    // Check if the ObjectId is valid and not a duplicate, and ensure the limit of 20
+    if (
+      trimmedId &&
+      !playlistNotes.includes(trimmedId) && // Prevent duplicates
+      /^[a-fA-F0-9]{24}$/.test(trimmedId) && // Validate ObjectId format
+      playlistNotes.length < 21 // Limit to 20 notes
+    ) {
+      setPlaylistNotes([...playlistNotes, trimmedId]);
+      setPlaylistNotesId(""); // Clear the input field after adding
+    } else if (playlistNotes.length >= 21) {
+      alert("You can only add up to 21 notes.");
+    } else {
+      alert("Please enter a valid ObjectId and don't repeat same notes.");
+    }
+  };
+
+  const removeNote = (index) => {
+    setPlaylistNotes(playlistNotes.filter((_, i) => i !== index));
+  };
+  const createPlaylist = () => {
+    const trimmedTitle = playlistTitle.trim();
+    const trimmeddescription=playlistdescription.trim();
+    if (!trimmedTitle || playlistNotes.length === 0 || !trimmeddescription) {
+      alert("Please enter a title , description and add at least one note.");
+      return;
+    }
+
+    if (trimmedTitle.length > 90) {
+      alert("The title must be less than 90 characters.");
+      return;
+    }
+    if (trimmeddescription.length > 180) {
+      alert("The description must be less than 180 characters.");
+      return;
+    }
+    const playlistData = {
+      title: playlistTitle,
+      notes: playlistNotes,
+      description:playlistdescription
+    };
+
+    console.log("Playlist Data:", playlistData);
+    setPlaylistTitle("");
+    setPlaylistNotes([]);
+    setPlaylistNotesId("");
+    setPlaylistdescription("")
+  };
 
   const handleInput = (event) => {
     // Reset the height to auto to shrink if the text is deleted
@@ -485,12 +543,7 @@ export default function Profile() {
     e.stopPropagation();
     const url = `${id}`; // Construct the URL
     navigator.clipboard.writeText(url)
-      .then(() => {
-        alert(' post id copied.paste on your playlist.');
-      })
-      .catch((error) => {
-        console.error('Failed to copy the URL: ', error);
-      });
+     
     setActivePost(null)
   }
   const handledeletepost = async (e, id) => {
@@ -632,7 +685,7 @@ export default function Profile() {
     };
 
     fetchTotalLikes();
-  }, [user, navigate,postholder]); // Runs when `user` is updated
+  }, [user,postholder,navigate]); // Runs when `user` is updated
   
   const handleImageLoad = (e) => {
     e.target.style.display = "block"; // Make the image visible as soon as it's loaded
@@ -966,6 +1019,7 @@ export default function Profile() {
     setprofile(false)
     setadd(false)
     setnewspost(false)
+    setPlaylistIsOpen(false);
    }
    const handlepost = (e) => {
     setpostholder(false)
@@ -974,6 +1028,7 @@ export default function Profile() {
     setprofile(false)
     setadd(false)
     setnewspost(false)
+    setPlaylistIsOpen(false);
   }
   
   const handleseparatequiz = (e) => {
@@ -983,6 +1038,7 @@ export default function Profile() {
     setprofile(false)
     setadd(false)
     setnewspost(false)
+    setPlaylistIsOpen(false);
   }
   const handleprofile = (e) => {
     setpostholder(false)
@@ -991,6 +1047,7 @@ export default function Profile() {
     setprofile(true)
     setadd(false)
     setnewspost(false)
+    setPlaylistIsOpen(false);
   }
   const handleadd = (e) => {
     setpostholder(false)
@@ -999,6 +1056,7 @@ export default function Profile() {
     setprofile(false)
     setadd(true)
     setnewspost(false)
+    setPlaylistIsOpen(false);
   }
   const handleaddnews=(e)=>{
     setpostholder(false)
@@ -1007,16 +1065,17 @@ export default function Profile() {
     setprofile(false)
     setadd(false)
     setnewspost(true)
+    setPlaylistIsOpen(false);
    }
   const handlediscardquiz = (e) => {
-    setaddingquiz(false)
+   
     setquiztitle("");
     setquizdescription("");
     setQuestions([])
-    setpostholder(true)
+   
   }
   const handlediscardpost = (e) => {
-    setpost(false)
+ 
     settitle("");
     setdescription("");
     setimage([]);
@@ -1024,9 +1083,24 @@ export default function Profile() {
     setSelectedImage(null);
     setQuestions([])
     setthumbanil(null);
-    setpostholder(true)
-  }
  
+  }
+  const toggleForm = () => {
+    setPlaylistIsOpen(true);
+    setpostholder(false)
+    setpost(false)
+    setaddingquiz(false)
+    setprofile(false)
+    setadd(false)
+    setnewspost(false)
+  };
+
+  const resetForm = () => {
+    setPlaylistTitle("");
+    setPlaylistNotes([]);
+    setPlaylistNotesId("");
+    setPlaylistdescription("")
+  };
   return (
     <div className="alwaysmain">
       <Helmet>
@@ -1141,6 +1215,10 @@ export default function Profile() {
               </div>
             </div>
             <div className="mobileops">
+            <div className="buttonholders" onClick={toggleForm}>
+                <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">Manage Homes</button>
+              </div>
             <div className="buttonholders" onClick={handleseenotes}>
                 <FontAwesomeIcon icon={faBook} />
                 <button className="buttonsz">Manage Notes</button>
@@ -1217,7 +1295,7 @@ export default function Profile() {
 
           </div>)}
           {postholder && <div className="postholder" >
-
+              
             {postdata.length > 0 ? (postdata && postdata.map((current, index) => {
               return (
                 <div className="postdiv" key={index} onClick={(e) => { handleinfodiv(e, current._id) }}>
@@ -1547,6 +1625,60 @@ export default function Profile() {
 
             </div>
           )}
+           
+           {playlistIsOpen && (
+        <div className="playlist">
+          <div className="inputandheadingplaylist">
+        {user && <img src={user.profile} alt="" className="playlistowner" />}
+          <input
+            type="text"
+            placeholder="Playlist Title"
+            value={playlistTitle}
+            onChange={(e) => setPlaylistTitle(e.target.value)}
+            className="inputplaylist"
+            maxLength={90} 
+          />
+          </div>
+          <div className="notes-list">
+            {playlistNotes.map((id, index) => (
+              <div key={index} className="note-item">
+                <button className="remove-btn">
+                {id}
+                </button>
+                <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
+              </div>
+            ))}
+          </div>
+          <div className="notesobjectidcontainer">
+            <input
+              type="text"
+              placeholder="Enter Note ID"
+              value={playlistNotesId}
+              onChange={(e) => setPlaylistNotesId(e.target.value)}
+              className="objectidinput"
+            />
+            <button onClick={addNote} className="addbtn">
+              Add
+            </button>
+          </div>
+          <div className="inputdescriptionplaylist">
+          <input type="text" 
+          value={playlistdescription}
+          onChange={(e) => setPlaylistdescription(e.target.value)}
+          maxLength={180} 
+          placeholder="description for playlist" className="descriptionplaylist"/>
+          </div>
+          <div className="btn-container">
+            <button onClick={createPlaylist} className="save-btn">
+              Save Playlist
+            </button>
+            <button onClick={resetForm} className="cancel-btn">
+              Cancel Playlist
+            </button>
+          </div>
+        </div>
+      )}
+         
         </div>
       </div>
 

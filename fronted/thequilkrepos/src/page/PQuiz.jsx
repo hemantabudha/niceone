@@ -544,6 +544,7 @@ export default function Pquiz() {
                                   <button className="buttonsz">Management Notes</button>
                                 </div>
                               </div> 
+                            
        {actualquizdata && actualquizdata.length>0?(actualquizdata.map((current,index)=>{
              return(
               <div key={index} className="realsearchdataquizandnonsearchdisplay">

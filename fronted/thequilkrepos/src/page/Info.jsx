@@ -553,6 +553,7 @@ const ProfilePage = () => {
                 <button className="buttonsz">Management Notes</button>
               </div>
             </div>
+            
             {userPosts.length > 0 ? (userPosts && userPosts.map((current, index) => {
               return (
                 <div className="boxa" key={index} >

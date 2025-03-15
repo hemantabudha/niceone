@@ -72,19 +72,15 @@
   transform: scale(1.1);
   color: red;
 }
-.addingthequizandsearchthequiz .addingthequizandsearchthequizinput{
+ .addingthequizandsearchthequizinput{
   height: 30px;
-  width: 260px;
+  width: 200px;
   font-size: large;
   font-weight: 500;
-  margin-left: 21px;
   border: none;
   background-color: transparent;
   text-align: center;
   outline: none;
-  border: 1px solid white;
-  border-radius: 17px 78px;
-  margin-right: 10px;
 }
 .addingthequizandsearchthequizinput::placeholder{
   color: black;
@@ -417,10 +413,33 @@
 .quizholderhamkohoni.error {
   border: 2px solid red;
 }
-@media screen and (min-width:1602px){
+@media screen and (min-width:1199px) and (max-width:1500px){
+  .inputanddescriptionforthequiz .inputquiz{
+    font-size: 17px;
+  }
+  .inputanddescriptionforthequiz .descriptionquiz{
+    font-size: 17px;
+  }
+  .otherresultforthequiz .totalquizlength{
+    margin-left: 10px;
+  }
+  .totalsubmitted .totalsubmittedbuttontwo{
+    width: 150px;
+  }
+  .totalquizlength .totalquizlengthtwo{
+    width: 100px;
+  }
+  .otherresultforthequiz .classplay{
+    margin-left: 10px;
+  }
+.classplay .classplaybuttontwo{
+  width: 100px;
+}
+}
+@media screen and (min-width:1200px){
   .searchdataquizandnonsearchdisplay .realsearchdataquizandnonsearchdisplay {
     width: 49%;
-    max-height: 330px; /* Maximum height limit */
+    max-height: 500px; /* Maximum height limit */
     box-sizing: border-box;
     margin-bottom: 3px;
     display: flex;

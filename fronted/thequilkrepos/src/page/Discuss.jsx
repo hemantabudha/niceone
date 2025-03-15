@@ -780,6 +780,7 @@ useEffect(() => {
                           <button className="buttonsz">Management Notes</button>
                         </div>
                       </div>
+                      
 {myquestion.length > 0 && mixdata.length>0? (
    mixdata.map((post, index) => {
     return (index + 1) % 9 === 0 ? (

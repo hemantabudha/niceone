@@ -492,6 +492,7 @@ export default function Follower() {
                 <button className="buttonsz">Management Notes</button>
               </div>
             </div>
+            
             {Array.isArray(followingdata) && followingdata.length > 0 ? (followingdata && followingdata.map((current, index) => {
               return (
                 <div key={index} className="follodiv">

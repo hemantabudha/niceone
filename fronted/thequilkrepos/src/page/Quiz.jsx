@@ -260,6 +260,45 @@ const generateSEO = (quiz) => {
     </Helmet>
   );
 };
+const handlemath = () => {
+  setSearchQuery("math")
+};
+const handlebiology = () => {
+  setSearchQuery("biology")
+};
+const handlecharter = () => {
+  setSearchQuery("ca")
+};
+const handlegeography = () => {
+  setSearchQuery("geography")
+};
+const handlephysics=()=>{
+  setSearchQuery("physic")
+}
+const handlejee=()=>{
+  setSearchQuery("jee")
+}
+const handleneet=()=>{
+  setSearchQuery("neet")
+}
+const handlechemistry=()=>{
+  setSearchQuery("chemistry")
+}
+const handlezoology=()=>{
+  setSearchQuery("zoology")
+}
+const handlebotany=()=>{
+  setSearchQuery("botany")
+}
+const handleaccount=()=>{
+  setSearchQuery("account")
+}
+const handlescience=()=>{
+  setSearchQuery("science")
+}
+const handlemanagement=()=>{
+  setSearchQuery("management")
+}
   return(
     <div className="alwaysmain">
      
@@ -335,9 +374,82 @@ const generateSEO = (quiz) => {
    
 
       <div className="quizsectiontodisplayallthequiz" onScroll={handleScroll}>
-        <div className="addingthequizandsearchthequiz">
-          <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
-        </div>
+      <div className="mobileops" style={{marginBottom:"0px"}}>
+      <div className="buttonholders" onClick={handlescience}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Science Notes</button>
+</div>
+<div className="buttonholders" onClick={handlemanagement}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Management Notes</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handleaccount}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Account Notes</button>
+</div>
+<div className="buttonholders" onClick={handlecharter}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Chartered Accountancy</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlejee}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Jee Notes</button>
+</div>
+<div className="buttonholders" onClick={handleneet}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Neet Notes</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlemath}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Math Notes</button>
+</div>
+<div className="buttonholders" onClick={handlechemistry}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Chemistry</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlezoology}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Zoology Notes</button>
+</div>
+<div className="buttonholders" onClick={handletrend}>
+  <FontAwesomeIcon icon={faArrowTrendUp}/>
+  <button className="buttonsz">Trending Notes</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlebotany}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Botany Notes</button>
+</div>
+<div className="buttonholders" onClick={handlegeography}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Geography</button>
+</div>
+<div className="buttonholdersss">
+  <input type="text" className="addingthequizandsearchthequizinput" placeholder="searchquiz..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlebiology}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Biology Notes</button>
+</div>
+<div className="buttonholders" onClick={handlephysics}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Physics Notes</button>
+</div>
+</div>
            <div className="searchdataquizandnonsearchdisplay">
          {searchquizdata && searchquizdata.length>0 ?(
           searchquizdata.map((current,index)=>{

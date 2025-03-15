@@ -479,6 +479,7 @@ export default function Like(){
     <button className="buttonsz">Management Notes</button>
   </div>
 </div>
+
  { Array.isArray(postlike)&& postlike.length > 0 ? (postlike &&postlike.map((current, index) => {
               return (
                 <div className="con" key={index} >

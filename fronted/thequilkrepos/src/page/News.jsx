@@ -334,37 +334,37 @@ const formatLikes = (num) => {
     navigate("/terms-and-conditions")
   }
   const handlemath = () => {
-    navigate(`/search?query=math`);
+    setSearchQuery("canada")
   };
   const handlebiology = () => {
-    navigate(`/search?query=biology`);
+    setSearchQuery("usa")
   };
   const handlephysics = () => {
-    navigate(`/search?query=physics`);
+    setSearchQuery("donald")
   }
   const handlejee = () => {
-    navigate(`/search?query=jee`);
+    setSearchQuery("tariff")
   }
   const handleneet = () => {
-    navigate(`/search?query=neet`);
+    setSearchQuery("result")
   }
   const handlechemistry = () => {
-    navigate(`/search?query=chemistry`);
+    setSearchQuery("latest")
   }
   const handlezoology = () => {
-    navigate(`/search?query=zoology`);
+    setSearchQuery("result")
   }
   const handlebotany = () => {
-    navigate(`/search?query=botany`);
+    setSearchQuery("startup")
   }
   const handleaccount = () => {
-    navigate(`/search?query=account`);
+    setSearchQuery("bussiness")
   }
   const handlescience = () => {
-    navigate(`/search?query=science`);
+    setSearchQuery("india")
   }
   const handlemanagement = () => {
-    navigate(`/search?query=management`);
+    setSearchQuery("china")
   }
   const handlenewsinfo=(e,id)=>{
     navigate(`/profile/news/${id}`)
@@ -402,6 +402,7 @@ const formatLikes = (num) => {
     localStorage.removeItem('token')
     navigate("/login")
   }
+  
   return(
     <div className="alwaysmain">
       <Helmet>
@@ -506,9 +507,73 @@ const formatLikes = (num) => {
                 </div>
               </div>
       <div className="newscontainer" onScroll={handleScroll}>
-        <div className="createsearch">
-          <input type="text" name="" id="" className="newssearch" placeholder="search update..." onChange={handleSearch}/>
-        </div>
+      <div className="mobileops" style={{marginBottom:"0px"}}>
+
+<div className="buttonholders" onClick={handlebiology}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">USA</button>
+</div>
+<div className="buttonholders" onClick={handlephysics}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Donald Trump</button>
+</div>
+<div className="buttonholdersss">
+<input type="text" name="" id="" value={searchQuery} className="newssearch" placeholder="search update..." onChange={handleSearch}/>
+</div>
+<div className="buttonholders" onClick={handlejee}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">tariff</button>
+</div>
+<div className="buttonholders" onClick={handleneet}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Result</button>
+</div>
+<div className="buttonholdersss">
+<input type="text" name="" id=""value={searchQuery} className="newssearch" placeholder="search update..." onChange={handleSearch}/>
+</div>
+<div className="buttonholders" onClick={handlemath}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Canada</button>
+</div>
+<div className="buttonholders" onClick={handlechemistry}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Latest news</button>
+</div>
+<div className="buttonholdersss">
+<input type="text" name="" id="" className="newssearch" placeholder="search update..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlezoology}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Result</button>
+</div>
+<div className="buttonholders" onClick={handletrend}>
+  <FontAwesomeIcon icon={faArrowTrendUp}/>
+  <button className="buttonsz">Trending Notes</button>
+</div>
+<div className="buttonholdersss">
+<input type="text" name="" id="" className="newssearch" placeholder="search update..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlebotany}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Startup</button>
+</div>
+<div className="buttonholders" onClick={handleaccount}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">Bussiness</button>
+</div>
+<div className="buttonholdersss">
+<input type="text" name="" id="" className="newssearch" placeholder="search update..." onChange={handleSearch} value={searchQuery}/>
+</div>
+<div className="buttonholders" onClick={handlescience}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">India</button>
+</div>
+<div className="buttonholders" onClick={handlemanagement}>
+  <FontAwesomeIcon icon={faBookOpenReader}/>
+  <button className="buttonsz">China</button>
+</div>
+</div>
+
        
         {actualupdate.length>0?(<div className="actualnews">
          {actualupdate.map((current,index)=>{

@@ -160,6 +160,9 @@ display: none;
   margin-bottom: 3px;
 
 }
+.changenames::placeholder{
+  color: black;
+}
 .changediv .changeinfos{
   color: black;
   font-size: medium;
@@ -172,20 +175,24 @@ display: none;
   margin-bottom: 15px;
   width: 100%;
 }
+.changeinfos::placeholder{
+  color: black;
+}
 
 .changediv .hello{
   margin-top: 5px;
   margin-bottom: 10px;
 }
 .uploadbutton{
-font-size: medium;
+font-size:large;
 font-weight: 500;
 border-radius: 17px 78px;
-width: 100px;
-height: 30px;
+width: 150px;
+height: 41px;
 outline: none;
 border: none;
-box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
+box-shadow: 10px 10px 10px rgba(250, 249, 249, 0.5);
+border: 1px solid white;
 }
 .uploadbutton:hover{
   transform: scale(1.1);
@@ -224,7 +231,7 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
   border: 2px solid white;
 }
 .plus:hover{
@@ -279,7 +286,7 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
   font-size: large;
 
   font-weight: 500;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(240, 237, 237);
 }
 .inputpic .divimage{
   border: 2px solid blue;
@@ -289,7 +296,7 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
   margin-left: 25px;
   margin-top: 18px;
   border: none;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(228, 224, 224, 0.2);
 }
 .divimage:hover{
   transform: scale(1.01);
@@ -336,12 +343,13 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
   margin-bottom: 18px;
   margin-left: 25px;
   margin-top: 18px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(228, 224, 224, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border: 2px solid white;
+  border: 1px solid white;
+  border-radius: 17px;
 }
 .divimagetwo:hover{
   transform: scale(1.01);
@@ -350,13 +358,13 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
  
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(238, 233, 233);
 }
 .divimage .imageshow{
   width: 150px;
   height: 150px;
-  border: 1px solid green;
-  border: none;
+  border: 1px solid white;
+  border-radius: 17px;
 }
 .divimage .imageshowpdf{
   height: 140px;
@@ -364,7 +372,8 @@ box-shadow: 10px 10px 10px rgba(202, 196, 196,0.5);
   border: 1px solid blue;
   border: none;
   overflow: hidden;
-  border: none;
+  border: 1px solid white;
+  border-radius: 17px;
 }
 
 .showresult{
@@ -376,10 +385,11 @@ margin-top: 10px;
 .showresult .showresultonly{
 width: 300px;
 height: 300px;
-box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+box-shadow: 5px 5px 15px rgba(238, 236, 236, 0.2);
 border: 3px solid black;
 border: none;
-border: 2px solid white;
+border: 1px solid white;
+border-radius: 17px;
 }
 .showresultonly:hover{
   transform: scale(1.02);
@@ -387,7 +397,9 @@ border: 2px solid white;
 .showresult .bigshowimage{
   width: 300px;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(214, 211, 211);
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
+  border: 1px solid white;
+  border-radius: 17px;
 }
 .bigshowimage:hover{
   transform: scale(1.03);
@@ -395,7 +407,9 @@ border: 2px solid white;
 .showresult .bigshowvideo{
   width: 300px;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(194, 187, 187);
+  box-shadow: 10px 10px 10px rgb(247, 244, 244);
+  border: 1px solid white;
+  border-radius: 17px;
 }
 .bigshowvideo:hover{
   transform: scale(1.03);
@@ -451,7 +465,7 @@ border: none;
   resize: none;  
   overflow-y: auto;
   line-height: 1.5;
-  text-shadow: 10px 10px 10px rgb(194, 189, 189);
+  text-shadow: 10px 10px 10px rgb(245, 242, 242);
   
   
   word-wrap: break-word; 
@@ -511,7 +525,7 @@ border: none;
  width: 20px;
  height: 20px;
  border-radius: 50%;
- box-shadow: 10px 10px 10px rgb(218, 211, 211);
+ box-shadow: 10px 10px 10px rgb(255, 253, 253);
  border: 2px solid white;
 }
 .iconplus:hover{
@@ -530,8 +544,10 @@ border: none;
 .uploadthumbnail .imageclass{
   width: 170px;
   height: 170px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(243, 241, 241, 0.2);
   border: none;
+  border-radius: 17px;
+  border: 1px solid white;
 }
 .imageclass:hover{
   transform: scale(1.03);
@@ -540,12 +556,13 @@ border: none;
   width: 170px;
   height: 170px;
   
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(245, 243, 243, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid white;
+  border: 1px solid white;
  box-sizing: border-box;
+ border-radius: 17px;
 }
 
 
@@ -553,7 +570,7 @@ border: none;
   border: 1px solid black;
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px rgb(194, 187, 187);
+  text-shadow: 10px 10px 10px rgb(243, 240, 240);
   text-align: center;
 }
 .uploaded .paragraph{
@@ -562,7 +579,7 @@ border: none;
   font-weight: 500;
  
  
-  text-shadow: 10px 10px 10px rgb(194, 187, 187);
+  text-shadow: 10px 10px 10px rgb(243, 240, 240);
   text-align: center;
 }
 
@@ -1408,3 +1425,276 @@ text-transform: capitalize;
             margin-right: 1px;
           }
            }
+
+
+
+
+.allnotes{
+  font-size: 18px;
+  font-weight: 600;
+  width: 150px;
+  height: 41px;
+  margin-left: 15px;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+/* Form Styles */
+.playlist {
+  width: 100%;
+  box-sizing: border-box;
+  animation: slideIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-in-out;
+  border: none;
+  margin-top:15px;
+}
+.playlist .inputandheadingplaylist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.inputandheadingplaylist .playlistowner{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.playlistowner:hover{
+ 
+  transform: scale(1.05);
+}
+.inputandheadingplaylist .inputplaylist{
+  height: 41px;
+  width:60%;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: lowercase;
+  text-align: center;
+  border: none;
+  outline: none;
+  border-radius: 17px 78px;
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
+  background-color: rgb(236, 236, 240);
+  border: 1px solid white;
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.inputplaylist::placeholder{
+  color: black;
+}
+.playlist .notesobjectidcontainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+.notesobjectidcontainer .objectidinput{
+  width: 35%;
+  height: 35px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
+  background-color: rgb(236, 236, 240);
+  border: 1px solid white;
+  border-radius: 8px;
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.objectidinput::placeholder{
+  color: black;
+  text-transform: lowercase;
+}
+.notesobjectidcontainer .addbtn{
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  height: 40px;
+  width: 130px;
+  text-align: center;
+  border-radius: 7px 80px;
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
+  border: 1px solid white;  
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.addbtn:hover{
+  transform: scale(1.1);
+  color: red;
+}
+.playlist .notes-list{
+  display: flex;
+  overflow-x: auto; 
+  border: none;
+  margin-top: 9px;
+  margin-bottom:3px;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  border: none;
+  box-sizing: border-box;
+  margin-left: 15px;
+}
+.notes-list::-webkit-scrollbar {
+  height: 8px;  /* Vertical scrollbar height */
+  background-color: transparent; /* Make scrollbar background invisible */
+  display: none;
+}
+
+/* Styling for the scrollbar track */
+.notes-list::-webkit-scrollbar-track {
+  background-color: transparent;
+  display: none;
+}
+
+/* Styling for the scrollbar thumb */
+.notes-list::-webkit-scrollbar-thumb {
+  background-color: #888;  /* Dark thumb color */
+  border-radius: 10px;  /* Rounded corners */
+  display: none;
+}
+
+/* Hover effect for the scrollbar thumb */
+.notes-list::-webkit-scrollbar-thumb:hover {
+  background-color: #555;  /* Darker thumb on hover */
+  display: none;
+}
+.notes-list .note-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center align icon and button text */
+  margin-right: 5px;
+  background-color: transparent; /* White background for buttons */
+  padding: 5px 15px;
+  border-radius: 25px;  /* Rounded edges for buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  height: 30px;  /* Set a fixed height for consistency */
+  outline: none;
+  background-color: #f1f1f1;
+  border: 1px solid white;
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.note-item .remove-btn{
+  border: none;
+  background-color: transparent;  /* Transparent button background */
+  color: #333;  /* Dark text color */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;  /* Padding inside the button */
+  transition: color 0.3s, background-color 0.3s; /* Smooth transitions */
+  height: 100%; /* Make button fill the height of the holder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  /* Ensure text is centered */
+  outline: none;
+  flex-shrink: 0;
+}
+.remove-btn:hover{
+  color: #007bff;  /* Change text color on hover */
+  background-color: #e7f1ff;  /* Light blue background on hover */
+}
+.note-item .xmarkicon{
+  color: #5e5e5e; 
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.xmarkicon:hover{
+  transform: scale(1.03);
+  color: red;
+}
+.playlist .btn-container{
+  display: flex;
+ flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+.playlist .inputdescriptionplaylist{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.inputdescriptionplaylist .descriptionplaylist{
+  height: 41px;
+  width:60%;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: lowercase;
+  text-align: center;
+  border: none;
+  outline: none;
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
+  background-color: rgb(236, 236, 240);
+  border: 1px solid white;
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.descriptionplaylist::placeholder{
+  color: black;
+}
+.btn-container .save-btn{
+  margin-left: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  outline: none;
+  height: 40px;
+  width: 180px;
+  text-align: center;
+  border-radius: 7px 80px;
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  box-shadow: 10px 10px 10px rgb(228, 223, 223);
+  border: 1px solid white;  
+  background-color: rgba(243, 236, 240, 0.973);
+}
+.btn-container .cancel-btn{
+  margin-left: 10px;
+  font-size:14px;
+  font-weight: 600;
+  outline: none;
+  height: 40px;
+  width: 180px;
+  text-align: center;
+  border-radius: 7px 80px;
+  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  box-shadow: 10px 10px 10px rgb(228, 223, 223);
+  border: 1px solid white;  
+  background-color: rgba(243, 236, 240, 0.973);
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

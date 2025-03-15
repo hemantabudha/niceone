@@ -130,19 +130,15 @@
   font-weight: 500;
   color: black;
 }
-.createsearch .newssearch{
-  width: 240px;
+ .newssearch{
   height: 30px;
-  border: none;
-  outline: none;
-
-  font-size: 16px;
-  text-align: center;
+  width: 200px;
+  font-size: large;
   font-weight: 500;
-  border-radius: 17px 38px;
+  border: none;
   background-color: transparent;
-  box-shadow: 10px 10px 10px rgb(211, 204, 204);
-  border: 2px solid white;
+  text-align: center;
+  outline: none;
 }
 .newssearch::placeholder{
   color: black;

@@ -663,6 +663,7 @@ const handleImageLoad = (e) => {
                     <button className="buttonsz">Management Notes</button>
                   </div>
                 </div>
+                
             {updateddata.length>0?(<div className="actualnews">
              {updateddata.map((current,index)=>{
               const currentIndex = imageIndexes[current._id] || 0;
