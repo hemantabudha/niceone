@@ -138,11 +138,7 @@ export default function Like(){
   const profile=(e)=>{
     navigate("/profile")
   }
-  const followpage=(e)=>{
-
-     navigate(`/follower/${id}`)
-
-  }
+ 
   const handlehome=(e)=>{
     navigate("/")
   }
@@ -151,6 +147,11 @@ export default function Like(){
      navigate(`/discuss/info/${id}`)
 
   }
+  const userfollowing=(e)=>{
+
+    navigate(`/follower/${id}`)
+
+ }
   const userprofile=(e)=>{
    
     navigate(`/profile/info/${id}`)
@@ -435,12 +436,16 @@ export default function Like(){
   </div>
   <div className="buttonholders" onClick={usernews}>
     <FontAwesomeIcon icon={faNewspaper}/>
-    <button className="buttonsz">User News</button>
+    <button className="buttonsz">Announcement</button>
   </div>
   <div className="buttonholders" onClick={likepage}>
     <FontAwesomeIcon icon={faThumbsUp}/>
     <button className="buttonsz">Likes Notes</button>
   </div>
+   <div className="buttonholders" onClick={userfollowing}>
+                  <FontAwesomeIcon icon={faUserPlus} />
+                  <button className="buttonsz">User following</button>
+                </div>
   <div className="buttonholders" onClick={handletrend}>
     <FontAwesomeIcon icon={faArrowTrendUp}/>
     <button className="buttonsz">Trending Notes</button>

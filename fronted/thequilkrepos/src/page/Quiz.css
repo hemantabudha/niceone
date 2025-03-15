@@ -195,7 +195,7 @@
  text-transform: lowercase;
   text-align: center;
   margin-top: 3px;
-  text-shadow: 10px 10px 10px rgb(216, 212, 212);
+  text-shadow: 10px 10px 10px rgb(255, 255, 255);
   /* Flexbox for centering text vertically and horizontally */
   display: flex;
   align-items: center;  /* Vertically center the text */
@@ -230,7 +230,7 @@
   
 
   word-wrap: break-word;  /* Ensures long words break to fit */
-  text-shadow: 10px 10px 10px rgb(216, 212, 212);
+  text-shadow: 10px 10px 10px rgb(255, 255, 255);
   /* Ensure long words break to fit within the container */
   word-wrap: break-word;  /* Break long words */
   word-break: break-word;  /* Additional fallback for word break */

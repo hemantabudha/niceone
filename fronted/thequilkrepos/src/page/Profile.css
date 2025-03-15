@@ -843,14 +843,14 @@ text-shadow: 10px 10px 10px black;
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
   border: 2px solid white;
   transition: all 0.3s ease;
   border: 2px solid black;
   margin-left: 10px;
   margin-right: 5px;
   transition: all 3s ease;
-  border: none;
+  border: 1px solid white;
 }
 .askingquestionicon:hover{
   transform: scale(1.35);
@@ -864,10 +864,9 @@ text-shadow: 10px 10px 10px black;
   text-align: center;
   font-size: large;
   font-weight:500;
-  box-shadow: 10px 10px 10px rgb(235, 231, 231);
-  background-color: rgb(238, 210, 210);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
+  background-color: rgb(247, 205, 205);
   border-radius: 17px 78px;
-  border: 2px solid rgb(204, 200, 200);
   outline: none;
   border: none;
 }
@@ -889,36 +888,33 @@ text-shadow: 10px 10px 10px black;
 .optionholderquiz .optionholderquizone{
   border: none;
   outline: none;
-  width: 18%;
   margin-left: 10px;
   height: 35px;
   font-size: 18px;
   text-align: center;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
   background-color: transparent;
   border-radius: 30px;
-  border: 2px solid rgb(204, 200, 200);
-  border: none;
+  border: 1px solid white;
   outline: none;
   transition: all 3s ease;
 }
 .optionholderquiz .optionholderquiztwo{
   border: none;
   outline: none;
-  width: 18%;
+
   margin-left: 10px;
   height: 35px;
   font-size: 18px;
   text-align: center;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
   background-color: transparent;
   border-radius: 30px;
-  border: 2px solid rgb(204, 200, 200);
+  border: 1px solid white;
   outline: none;
   transition: all 3s ease;
-  border: none;
 }
 .optionholderquizone:hover,.optionholderquiztwo:hover{
   transform: scale(1.004);
@@ -941,15 +937,16 @@ text-shadow: 10px 10px 10px black;
   border-radius: 18px;
   font-size: large;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
   background-color: transparent;
-  border-radius:30px;
-  border: 2px solid rgb(204, 200, 200);
+  border-radius: 30px;
+  border: 1px solid white;
   outline: none;
+  transition: all 3s ease;
   text-align: center;
   color: green;
-  transition: all 3s ease;
-  border: none;
+ 
+ 
 }
 .explainationinput:hover{
   transform: scale(1.002);
@@ -1006,10 +1003,11 @@ text-shadow: 10px 10px 10px black;
   font-size: large;
   font-weight: 500;
   border-radius: 17px 78px;
-  background-color: #f0bfbf;
+  background-color: rgb(247, 205, 205);
+  border-radius: 17px 78px;
   text-align: center;
-  border: none;
   outline: none;
+  border: none;
 }
 .inputwhereimageandtitle .titleforthequiz::placeholder{
 text-align: center;
@@ -1095,8 +1093,9 @@ text-transform: capitalize;
   height: 20px;
   padding: 7px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(185, 182, 182);
+  box-shadow: 10px 10px 10px rgb(248, 247, 247);
   transition: all 0.3s ease;
+  border: 1px solid white;
 }
 .plusiconforadd:hover{
   transform: scale(1.1);
@@ -1112,8 +1111,7 @@ text-transform: capitalize;
   border: none;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: 10px 10px 10px rgb(184, 178, 178);
- 
+  border: 1px solid white;
 }
 .plusbuttonadd:hover{
   transform: scale(1.1);
@@ -1127,25 +1125,27 @@ text-transform: capitalize;
   margin-top: 10px;
 }
 .submitorcancelquiz .submitquiz{
-  height: 30px;
+  height: 42px;
   width: 170px;
   border: none;
   outline: none;
   font-size: large;
   font-weight: 500;
   transition: all 0.3s ease;
-  box-shadow: 10px 10px 10px rgb(184, 178, 178);
+  border: 1px solid white;
   margin-right: 50px;
+  border-radius: 17px 78px;
 }
 .submitorcancelquiz .cancelquiz{
-  height: 30px;
+  height: 42px;
   width: 170px;
   border: none;
   outline: none;
   font-size: large;
   font-weight: 500;
   transition: all 0.3s ease;
-  box-shadow: 10px 10px 10px rgb(184, 178, 178);
+  border: 1px solid white;
+  border-radius: 17px 78px;
 }
 .submitquiz:hover,.cancelquiz:hover{
   transform: scale(1.1);
@@ -1359,14 +1359,14 @@ text-transform: capitalize;
           margin-top: 10px;
           margin-left: 1px;
           border: 1px solid white;
-      
+          border-radius: 1px;
         }
         .optionholderquiz .optionholderquiztwo{
           width: 100%;
           margin-top: 10px;
           margin-left: 1px;
           border: 1px solid white;
-          
+          border-radius: 1px;
         }
         .quizholderhamkohoni .optionholderquiz{
           margin-top: 0px;
@@ -1374,6 +1374,7 @@ text-transform: capitalize;
         .explainationdiv .explainationinput{
           width: 100%;
           border: 1px solid white;
+          border-radius: 1px;
         }
         .askingquestion .askingquestioninput{
           margin-right: 1px;

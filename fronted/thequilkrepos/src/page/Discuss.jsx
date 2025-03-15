@@ -420,17 +420,18 @@ const likepage=(e)=>{
 const profile=(e)=>{
   navigate("/profile")
 }
-const followpage=(e)=>{
 
-   navigate(`/follower/${id}`)
- 
-}
 const handlehome=(e)=>{
   navigate("/")
 }
 const userdisscussion=(e)=>{
 
    navigate(`/discuss/info/${id}`)
+
+}
+const userfollowing=(e)=>{
+
+  navigate(`/follower/${id}`)
 
 }
 const userprofile=(e)=>{
@@ -736,11 +737,15 @@ useEffect(() => {
                         </div>
                         <div className="buttonholders" onClick={usernews}>
                           <FontAwesomeIcon icon={faNewspaper} />
-                          <button className="buttonsz">User News</button>
+                          <button className="buttonsz">Announcement</button>
                         </div>
                         <div className="buttonholders" onClick={likepage}>
                           <FontAwesomeIcon icon={faThumbsUp} />
                           <button className="buttonsz">Likes Notes</button>
+                        </div>
+                        <div className="buttonholders" onClick={userfollowing}>
+                          <FontAwesomeIcon icon={faUserPlus} />
+                          <button className="buttonsz">User following</button>
                         </div>
                         <div className="buttonholders" onClick={handletrend}>
                           <FontAwesomeIcon icon={faArrowTrendUp} />

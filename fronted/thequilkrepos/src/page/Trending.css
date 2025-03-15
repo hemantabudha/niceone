@@ -91,6 +91,7 @@
   border: 1px solid white;
   cursor: pointer;
   margin-bottom: 5px;
+  
 }
 .trenddiv .photoname{
   font-size: large;
@@ -214,7 +215,7 @@
   border: none;
 }
 }
-@media screen and (min-width: 500px) and (max-width:900px) {
+@media screen and (min-width: 499px) and (max-width:650px) {
   .viralperson .trenddiv{
     width: 48%;
   }
@@ -222,15 +223,15 @@
     width: 48%;
   }
   }
-  @media screen and (min-width: 900px) and (max-width:1300px) {
+  @media screen and (min-width: 649px) and (max-width:843px) {
     .viralperson .trenddiv{
-      width: 32%;
+      width: 48%;
     }
     .noteholder .containe{
-      width: 32%;
+      width: 48%;
     }
     }
-@media screen and (min-width: 1300px) and (max-width:1400px) {
+@media screen and (min-width: 842px) and (max-width:905px) {
   .viralperson .trenddiv{
     width: 31%;
   }
@@ -238,11 +239,19 @@
           width: 31%;
         }
         }
-        @media screen and (min-width: 1400px) and (max-width:1600px) {
+        @media screen and (min-width: 904px) and (max-width:1250px) {
           .viralperson .trenddiv{
-            width: 24%;
+            width: 32%;
           }
           .noteholder .containe{
-            width: 24%;
+            width: 32%;
           }
           }
+          @media screen and (min-width: 1250px) and (max-width:1700px) {
+            .viralperson .trenddiv{
+              width: 24%;
+            }
+            .noteholder .containe{
+              width: 24%;
+            }
+            }

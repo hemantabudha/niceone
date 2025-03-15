@@ -417,7 +417,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(218, 211, 211);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
   border: 2px solid white;
   transition: all 0.3s ease;
   border: 2px solid black;
@@ -425,6 +425,7 @@
   margin-right: 5px;
   transition: all 3s ease;
   border: none;
+  border: 1px solid white;
 }
 .askingquestionpeopleicon:hover{
   transform: scale(1.35);
@@ -438,7 +439,7 @@
   text-align: center;
   font-size: large;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(235, 231, 231);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
   background-color: rgb(247, 205, 205);
   border-radius: 17px 78px;
   border: 2px solid rgb(204, 200, 200);
@@ -482,7 +483,7 @@
   font-size: 18px;
   text-align: center;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
   background-color: transparent;
   border-radius: 30px;
   border: 1px solid white;
@@ -519,7 +520,7 @@
   min-height: 35px;  /* Minimum height of 35px */
   font-size: large;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(248, 246, 246);
   background-color: transparent;
   border-radius: 30px;
   border: 1px solid white;
@@ -801,14 +802,18 @@
 .actualrankholding .actualhonking{
   border: 2px solid red;
   display: flex;
+  width: 19%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-left: 50px;
-  margin-top: 20px;
+  margin-left: 3px;
+  margin-right: 5px;
+  margin-top: 4px;
+  margin-bottom: 5px;
   position: relative;
   border: none;
   box-shadow:10px 10px 10px 10px rgb(240, 238, 238);
+  border: 1px solid white;
 }
 .actualhonking .awardguys{
   width: 30px;
@@ -838,6 +843,17 @@
   display: flex;
   margin-top: 5px;
 }
+.icontoproudholder .crownicon{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-left: 3px;
+  padding: 7px;
+  box-shadow: 10px 10px 10px rgb(231, 231, 231);
+  border: 1px solid white;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
 .icontoproudholder .icontoproud{
   width: 25px;
   height: 25px;
@@ -845,8 +861,8 @@
   cursor: pointer;
   margin-left: 3px;
   padding: 7px;
-  color: rgb(170, 152, 155);
-  box-shadow: 10px 10px 10px rgb(243, 241, 241);
+  box-shadow: 10px 10px 10px rgb(231, 231, 231);
+  border: 1px solid white;
   transition: all 0.3s ease;
 }
 .icontoproud:hover{
@@ -861,13 +877,13 @@
   margin-top: 9px;
   border: none;
   outline: none;
+  text-transform: lowercase;
   box-shadow: 10px 10px 10px rgb(238, 236, 236);
   text-align: center;
   transition: all 0.3 ease;
+  
 }
-.nameofwinner:hover{
-  transform: scale(1.04);
-}
+
 .actualhonking .okdoingit{
   margin-top: 5px;
   display: flex;
@@ -884,6 +900,7 @@
   border-radius: 50%;
   box-shadow: 10px 10px 10px rgb(236, 234, 234);
   transition:all 0.3s ease;
+  border: 1px solid white;
 }
 .stopwatching:hover{
   transform: scale(1.1);
@@ -899,6 +916,7 @@
   height: 35px;
   box-shadow: 10px 10px 10px rgb(245, 244, 244);
   transition:all 0.3s ease;
+  border: 1px solid white;
 }
 .secondholdering:hover{
   transform: scale(1.05);
@@ -914,9 +932,9 @@ outline: none;
 height: 35px;
 box-shadow: 10px 10px 10px rgb(238, 236, 236);
 transition:all 0.3s ease;
+border: 1px solid white;
 }
 .showingscore:hover{
-  transform: scale(1.05);
   color: red;
 } 
 
@@ -1031,13 +1049,7 @@ transition:all 0.3s ease;
     background-color: black;
     color: white;
   }
-  .actualrankholding .actualhonking{
-    width: 100%;
-    border: 2px solid black;
-    margin: 0px;
-    margin-bottom: 10px;
-    border: none;
-  }
+ 
   .commentholdersectionforpost .actualholderwhoholdcomment{
     margin-bottom: 10px;
   }
@@ -1057,49 +1069,52 @@ transition:all 0.3s ease;
     font-weight: 500px;
   }
 }
-@media screen and (min-width:650px) and (max-width:1000px) {
+@media screen and (min-width:0px) and (max-width:500px) {
+  .actualrankholding .actualhonking{
+    width: 100%;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+@media screen and (min-width:499px) and (max-width:650px) {
+  .actualrankholding .actualhonking{
+    width: 48%;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width:650px) and (max-width:843px) {
+  .actualrankholding .actualhonking{
+    width: 48%;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width:842px) and (max-width:905px) {
+  .actualrankholding .actualhonking{
+    width: 31%;
+  }
+  .actualhonking .nameofwinner{
+    height: 27px;
+    overflow: hidden;
+  }
+}
+@media screen and (min-width:905px) and (max-width:1250px) {
   .actualrankholding .actualhonking{
     width: 32%;
-    border: 2px solid black;
-    margin: 0px;
-    margin-bottom: 10px;
-    border: none;
-  }
-  .actualhonking .nameofwinner{
-    height: 27px;
-    overflow: hidden;
   }
 }
-@media screen and (min-width:1000px) and (max-width:1300px) {
+@media screen and (min-width:1249px) and (max-width:1700px) {
   .actualrankholding .actualhonking{
-    width: 32%;
-    border: 2px solid black;
-    margin: 5px;
-    border: none;
-  }
-  .actualhonking .nameofwinner{
-    height: 27px;
-    overflow: hidden;
-  }
-}
-@media screen and (min-width:1300px) and (max-width:1600px) {
-  .actualrankholding .actualhonking{
-    width: 23%;
-    border: 2px solid black;
-    margin: 10px;
-    border: none;
-  }
-  .actualhonking .nameofwinner{
-    height: 27px;
-    overflow: hidden;
-  }
-}
-@media screen and (min-width: 1600px) {
-  .actualrankholding .actualhonking{
-    width: 18%;
-    border: 2px solid black;
-    margin: 10px;
-    border: none;
+    width: 24%;
   }
 }
 @media screen and (max-width: 500px) {
@@ -1504,6 +1519,7 @@ transition:all 0.3s ease;
                 margin-left: 1px;
                 border: 1px solid white;
                 border-radius: 1px;
+              
               }
               .quizholderhamkohoni .optionholderquiz{
                 margin-top: 0px;
@@ -1524,10 +1540,19 @@ transition:all 0.3s ease;
                 display: none;
               }
                }
-               @media screen and (min-width:750px) and (max-width:1200px) {
+             
+                
+               @media screen and (min-width:750px) and (max-width:1400px) {
+                .optionholderhohaiguys .optionholderhohaiguystext{
+                 
+                  width: 47%;
+                  
+                }
                 .explanationhoniguys .explanationhoniguystext{
-                  width: 100%;
-                  border: 1px solid white;
+                  width: 90%;
+                 
+                  border-radius: 1px;
+               
                 }
                
                  }

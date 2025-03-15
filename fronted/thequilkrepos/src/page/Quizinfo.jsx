@@ -463,6 +463,16 @@ const handleuserdisscussion=(e)=>{
     alert("login to see your disscussion.")
   }
 }
+const handleuserfollowing=(e)=>{
+  const token = localStorage.getItem("token");
+  if(token && creatorinfo && creatorinfo._id){
+    navigate(`/follower/${creatorinfo._id}`)
+   
+  }else{
+    alert("login to see your disscussion.")
+  }
+}
+
 const handleuserprofile=(e)=>{
   const token = localStorage.getItem("token");
   if(token && creatorinfo && creatorinfo._id){
@@ -691,11 +701,15 @@ const handlemanagement = () => {
               </div>
               <div className="buttonholders" onClick={handleusernews}>
                 <FontAwesomeIcon icon={faNewspaper} />
-                <button className="buttonsz">User News</button>
+                <button className="buttonsz">Announcement</button>
               </div>
               <div className="buttonholders" onClick={handleuserlikenote}>
                 <FontAwesomeIcon icon={faThumbsUp} />
                 <button className="buttonsz">Likes Notes</button>
+              </div>
+              <div className="buttonholders" onClick={handleuserfollowing}>
+                <FontAwesomeIcon icon={faUserPlus} />
+                <button className="buttonsz">User following</button>
               </div>
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
@@ -917,11 +931,11 @@ const handlemanagement = () => {
         {index<3 && <FontAwesomeIcon icon={faMedal} className="awardguys"/>}
         <img src={current.submittedBy.profile} alt="" className="imagetoppers"onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{handleprofile(e,current.submittedBy._id)}}/>
         <div className="icontoproudholder">
+        
         <FontAwesomeIcon icon={faStar} className="icontoproud"/>
+        <FontAwesomeIcon icon={faCrown} className="crownicon"/>
         <FontAwesomeIcon icon={faStar} className="icontoproud"/>
-        <FontAwesomeIcon icon={faCrown} className="icontoproud" style={{color:"black"}}/>
-        <FontAwesomeIcon icon={faStar} className="icontoproud"/>
-        <FontAwesomeIcon icon={faStar} className="icontoproud"/>
+        
         </div>
     
         <button className="nameofwinner" onClick={(e)=>{handleprofile(e,current.submittedBy._id)}}>{current.submittedBy.name}</button>

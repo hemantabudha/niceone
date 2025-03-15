@@ -1051,11 +1051,11 @@ export default function Review() {
                   {index < 3 && <FontAwesomeIcon icon={faMedal} className="awardguys" />}
                   <img src={current.submittedBy.profile} alt="" className="imagetoppers" onLoad={handleImageLoad} style={{ display: "none" }} onClick={(e) => { handleprofile(e, current.submittedBy._id) }} />
                   <div className="icontoproudholder">
+                  
                     <FontAwesomeIcon icon={faStar} className="icontoproud" />
+                    <FontAwesomeIcon icon={faCrown} className="crownicon" />
                     <FontAwesomeIcon icon={faStar} className="icontoproud" />
-                    <FontAwesomeIcon icon={faCrown} className="icontoproud" style={{ color: "black" }} />
-                    <FontAwesomeIcon icon={faStar} className="icontoproud" />
-                    <FontAwesomeIcon icon={faStar} className="icontoproud" />
+                    
                   </div>
 
                   <button className="nameofwinner" onClick={(e) => { handleprofile(e, current.submittedBy._id) }}>{current.submittedBy.name}</button>

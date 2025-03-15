@@ -11,7 +11,7 @@ export default function Quiz(){
   const navigate=useNavigate();
 
   const backendurl=import.meta.env.VITE_BACKEND_URL;
-  const [questions, setQuestions] = useState([]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const[searchquizdata,setsearchquizdata]=useState([])
  
@@ -266,7 +266,7 @@ const generateSEO = (quiz) => {
 
   <Navbar/>
   <div className="modern">
-    {questions.length<=0&&( 
+    
          <div className="sidebar">
          <div className="sidediv" onClick={handlehome}>
            <FontAwesomeIcon icon={faHome} className="homeicon"/> <span className="para">Home</span>
@@ -332,7 +332,7 @@ const generateSEO = (quiz) => {
           <span className="para">Terms and Condition</span> 
          </div>
              </div>
-    )}
+   
 
       <div className="quizsectiontodisplayallthequiz" onScroll={handleScroll}>
         <div className="addingthequizandsearchthequiz">

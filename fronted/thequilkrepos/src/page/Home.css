@@ -39,7 +39,21 @@
   border: none;
   margin-left: 15px;
 }
-
+@media screen and (min-width:0px) and (max-width:750px){
+  .mobileops {
+    display: flex;
+    overflow-x: auto; 
+    border: none;
+    margin-top: 9px;
+    margin-bottom:3px;
+    border: 2px solid black;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    border: none;
+    margin-left: 0px;
+  }
+}
 /* Styling for the individual button holders */
 .buttonholders {
   display: flex;
