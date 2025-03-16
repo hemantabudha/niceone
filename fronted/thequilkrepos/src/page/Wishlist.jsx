@@ -106,8 +106,8 @@ export default function Wishlist(){
           "Authorization": `Bearer ${token}`,
         },
       });
-      alert(response.data.message)
-
+      const updatedwishlistdata = wishlistdata.filter(wishlistdata => wishlistdata._id !== id);
+      setwishlistdata(updatedwishlistdata)
     } catch (error) {
       
     }

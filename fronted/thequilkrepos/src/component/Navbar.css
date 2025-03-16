@@ -160,7 +160,7 @@
 .navbarmain .searchthing{
   border: 2px solid black;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(190, 186, 186);
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
  box-sizing: border-box;
   overflow: auto;
   width: 50%;
@@ -176,25 +176,21 @@
 }
 .searchthing::-webkit-scrollbar {
   width: 8px;  
- 
+  
 }
 
 .searchthing::-webkit-scrollbar-track {
-  background-color: rgb(207,204,204);
+ 
   border-radius: 10px;  
-  box-shadow: 10px 10px 10px 10px rgb(228, 223, 223);
+  background-color: #faf5f5;  
 
 }
 
 .searchthing::-webkit-scrollbar-thumb {
-  background-color: #888;  
+  background-color: rgb(187, 162, 162);
+  
   border-radius: 10px;  
   height: 15px;
-  
-}
-
-.searchthing::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  
   
 }
 .searchthing .herodiv{
@@ -213,7 +209,7 @@
   border-radius: 50%;
   margin-right: 20px;
   margin-left: 50px;
-  box-shadow: 10px 10px 10px rgb(206, 204, 204);
+  box-shadow: 10px 10px 10px rgb(240, 236, 236);
 }
 .heroimage:hover{
   transform: rotate(180deg);
@@ -221,12 +217,12 @@
 .herodiv .herotitle{
   font-size: 16px;
   font-weight: 500;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(238, 231, 231);
   text-transform: lowercase;
 }
 .herodiv:hover{
   background-color: rgb(241, 241, 241);
-  box-shadow: 10px 10px 10px rgb(212, 211, 211);
+  box-shadow: 10px 10px 10px rgb(247, 245, 245);
   border-radius: 15px;
 }
 .navbarmain .menu-list{

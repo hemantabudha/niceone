@@ -781,9 +781,9 @@ text-shadow: 10px 10px 10px black;
 .wrongparagraph{
 
   font-size: large;
-  font-weight: 500;
-
-  text-shadow: 10px 10px 10px black;
+  font-weight: 600;
+  margin-top: 27px;
+  text-shadow: 10px 10px 10px rgb(226, 219, 219);
 }
 .quizbasediv{
   border: 2px solid black;

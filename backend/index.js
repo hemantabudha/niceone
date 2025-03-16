@@ -2861,7 +2861,170 @@ app.get("/playlists/creator", async (req, res) => {
     return res.status(500).json({ message: "Server error." });
   }
 });
+app.put("/playlists/update/:id", async (req, res) => {
+  try {
+    // Extract playlist ID from URL parameters and new data from the request body
+    const { title, description, notes } = req.body;
+    const { id } = req.params;  // Playlist ID from the URL
 
+    // Extract token from request headers
+    const token = req.headers["authorization"]?.split(" ")[1];
+
+    // Validate if token is present
+    if (!token) {
+      return res.status(403).json({ message: "Token is required" });
+    }
+
+    // Decode the token and get the user ID (createdBy)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const createdBy = decoded.userId;
+
+    // Find the user to ensure they exist (optional check for safety)
+    const user = await usermodel.findById(createdBy);
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    // Validate each note's ObjectId against the postmodel (using batch query for efficiency)
+    const posts = await postmodel.find({ '_id': { $in: notes } });
+    const postIds = posts.map(post => post._id.toString());
+    const invalidNotes = notes.filter(noteId => !postIds.includes(noteId.toString()));
+
+    if (invalidNotes.length > 0) {
+      return res.status(400).json({
+        message: "Invalid note ObjectId(s) found. Please remove the invalid note ID(s).",
+        invalidNotes,
+      });
+    }
+
+    // Find the playlist by ID
+    const playlist = await playlistmodel.findById(id);
+    if (!playlist) {
+      return res.status(404).json({ message: "Playlist not found." });
+    }
+
+    // Ensure that the playlist belongs to the user (authorization check)
+    if (playlist.createdBy.toString() !== createdBy.toString()) {
+      return res.status(403).json({ message: "You are not authorized to update this playlist." });
+    }
+
+    // Check if playlist with the same title already exists for the same user (excluding current playlist)
+    const existingPlaylist = await playlistmodel.findOne({ title, createdBy });
+    if (existingPlaylist && existingPlaylist._id.toString() !== id) {
+      return res.status(400).json({
+        message: "You already have a playlist with this title.",
+      });
+    }
+
+    // Update the playlist fields
+    playlist.title = title;
+    playlist.description = description;
+    playlist.notes = notes;
+
+    // Save the updated playlist
+    await playlist.save();
+
+    return res.status(200).json({
+      message: "Playlist updated successfully",
+      playlist,
+    });
+  } catch (error) {
+    console.error("Error updating playlist:", error);
+    return res.status(500).json({ message: "Server error." });
+  }
+});
+app.delete("/playlists/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params; // Playlist ID from the URL
+
+    // Extract token from request headers
+    const token = req.headers["authorization"]?.split(" ")[1];
+
+    // Validate if token is present
+    if (!token) {
+      return res.status(403).json({ message: "Token is required" });
+    }
+
+    // Decode the token and get the user ID (createdBy)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const createdBy = decoded.userId;
+
+    // Find the user to ensure they exist (optional check for safety)
+    const user = await usermodel.findById(createdBy);
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    // Find the playlist by ID
+    const playlist = await playlistmodel.findByIdAndDelete(id);
+    if (!playlist) {
+      return res.status(404).json({ message: "Playlist not found." });
+    }
+
+    // Ensure that the playlist belongs to the user (authorization check)
+    if (playlist.createdBy.toString() !== createdBy.toString()) {
+      return res.status(403).json({ message: "You are not authorized to delete this playlist." });
+    }
+    return res.status(200).json({
+      message: "Playlist deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting playlist:", error);
+    return res.status(500).json({ message: "Server error." });
+  }
+});
+app.post("/playlists/playlistcreator", async (req, res) => {
+  const token = req.headers["authorization"]?.split(" ")[1];
+  
+  if (!token) {
+    return res.status(403).json({ message: "Token is required" });
+  }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY );
+    const id = decoded.userId;
+
+  const limit = parseInt(req.body.limit) || 12;
+  const excludeIds = req.body.excludeIds || []; // Already fetched posts
+
+  try {
+    const posts = await playlistmodel.aggregate([
+      { 
+        $match: { 
+          createdBy: new mongoose.Types.ObjectId(id), 
+          _id: { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) } // Exclude fetched posts
+        } 
+      },
+      { 
+        $sort: { createdAt: -1 } // Sort by creation date in descending order (latest first)
+      },
+      { $sample: { size: limit } }, // Fetch 'limit' number of new posts
+      { 
+        $lookup: { 
+          from: "users", 
+          localField: "createdBy", 
+          foreignField: "_id", 
+          as: "createdBy" 
+        } 
+      },
+      { $unwind: "$createdBy" }, // Flatten the createdBy field
+      { 
+        $project: { 
+          _id: 1,
+          title: 1,
+          description: 1,
+          notes:1
+        } 
+      }
+    ]);
+
+    res.json({
+      datas: posts,
+      message: "Random user posts fetched successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching posts" });
+  }
+});
 // const server = awsServerlessExpress.createServer(app);
 
 // // Lambda handler

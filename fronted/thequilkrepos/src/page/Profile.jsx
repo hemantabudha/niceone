@@ -6,6 +6,7 @@ import "./Profile.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import PlaylistComponent from "./Edithome";
 import { faHackerNewsSquare, faSlack, faYoutube } from "@fortawesome/free-brands-svg-icons";
 export default function Profile() {
   const [quiztitle, setquiztitle] = useState("");
@@ -179,7 +180,7 @@ export default function Profile() {
     }
   };
   const handlesubmitquestion = async (e) => {
-    e.preventDefault();
+    e.stopPropagation();
 
     if (question.length <= 10) {
       alert("Please ask a question longer than 10 characters.");
@@ -1373,7 +1374,6 @@ export default function Profile() {
 
           </div>)}
           {postholder && <div className="postholder" >
-              
             {postdata.length > 0 ? (postdata && postdata.map((current, index) => {
               return (
                 <div className="postdiv" key={index} onClick={(e) => { handleinfodiv(e, current._id) }}>
@@ -1757,11 +1757,7 @@ export default function Profile() {
           </div>
         </div>
       )}
-         {edithome && (
-          <div>
-            here is edit home you know 
-            </div>
-         )}
+        {edithome && <PlaylistComponent user={user} />}
         </div>
       </div>
 
