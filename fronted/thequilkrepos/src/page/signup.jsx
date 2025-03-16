@@ -110,26 +110,26 @@ export default function Signup(){
   
   const handlesubmit = async (e) => {
     e.preventDefault(); 
-    setLoading(true);
-    if(loading){
-      alert("file is uploading")
-      return;
-    }
     if (!isAgreed) {
       alert("You must agree to the Terms and Conditions to proceed.");
-      setLoading(false);
+     
       return;  // Prevent submission if not agreed
     }
     if (!profile || !name || !email || !education || !password) {
       alert("Please upload your profile picture ,name ,email ,education. thank you");
-      setLoading(false);
+     
       return;
     }
     if (error && error.length > 0) {
       alert(error); // Show error if email is invalid
-      setLoading(false);
+     
       return;
       
+    }
+    setLoading(true);
+    if(loading){
+      alert("account is creating.please wait.")
+      return;
     }
     const profileImageUrl = await uploadToS3(profile.file);
     try {

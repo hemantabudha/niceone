@@ -13,6 +13,7 @@
    overflow: scroll;
    overflow-x: hidden;
   border: none;
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
 }
 .signup::-webkit-scrollbar {
   width: 8px;  
@@ -43,6 +44,7 @@
   border: 1px solid white;
   border-radius: 17px;
   height: 680px;
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
 }
 
 .signup .photo{
@@ -72,7 +74,6 @@ border: 2px solid white;
   height: 150px;
   border: none;
   border-radius: 50%;
-  filter: drop-shadow(10px 10px 10px  rgb(199, 195, 195));
   border: 2px solid white;
 }
 .signup .info{
@@ -115,7 +116,8 @@ border: 2px solid white;
   border-radius: 50%;
   margin-right: 20px;
   border: none;
-  box-shadow: 10px 10px 10px  rgba(105, 103, 103,0.4);
+  box-shadow: 10px 10px 10px  rgba(240, 238, 238, 0.4);
+  border: 1px solid white;
 }
 .icon:hover{
   transform: scale(1.1);
@@ -126,7 +128,8 @@ border: 2px solid white;
   height:30px;
   border-radius: 50%;
   margin-right: 20px;
-  box-shadow: 10px 10px 10px black;
+  box-shadow: 10px 10px 10px rgb(245, 243, 243);
+  border: 1px solid white;
 }
 .inputinfo{
   border: 1px solid black;
@@ -138,10 +141,11 @@ border: 2px solid white;
   font-size:14px;
   border: none;
   border-radius: 17px 78px;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(248, 245, 245);
   text-align: center;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(252, 251, 251, 0.2);
   background-color: transparent;
+  border: 1px solid white;
 }
 .inputinfo::placeholder{
   color: black;
@@ -154,7 +158,7 @@ border: 2px solid white;
 
   font-size: 14px;
 
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(241, 238, 238);
   text-align: center;
   width: 400px;
   border: none;
@@ -170,16 +174,16 @@ border: 2px solid white;
   border: none;
 }
 .submit .submitbutton{
-  height: 30px;
-  width: 111px;
+  height: 41px;
+  width: 135px;
   margin-left: 20px;
   
   font-weight: 500;
   font-size: 14px;
-  text-shadow: 10px 10px 10px rgba(61, 53, 53 ,0.2);
-  box-shadow: 10px 10px 10px  rgba(63, 62, 62,0.3);
+  text-shadow: 10px 10px 10px rgba(240, 235, 235, 0.2);
+  box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.3);
   border-radius: 17px 78px;
-  border: none;
+  border: 1px solid white;
 }
 .submitbutton:hover{
 transform: scale(1.03);
@@ -204,9 +208,9 @@ width: 40px;
 height: 40px;
 border-radius: 50%;
 margin-left: 30px;
-box-shadow: 10px 10px 10px rgba(145, 142, 142,0.3);
-text-shadow: 10px 10px 10px rgb(160, 154, 154);
-border: none;
+box-shadow: 10px 10px 10px rgba(238, 236, 236, 0.3);
+text-shadow: 10px 10px 10px rgb(243, 239, 239);
+border: 1px solid white;
 }
 
 .create{
@@ -223,12 +227,12 @@ border: none;
  
  font-size: 14px;
  font-weight: 500;
- text-shadow: 10px 10px 10px black;
- box-shadow: 10px 10px 10px  rgba(143, 139, 139, 0.5);
+ text-shadow: 10px 10px 10px rgb(245, 242, 242);
+ box-shadow: 10px 10px 10px  rgba(243, 240, 240, 0.5);
  width: 250px;
  height: 40px;
  border-radius: 17px 78px;
- border: none;
+ border: 1px solid white;
 }
 .createbutton:hover{
   transform: scale(1.05);
@@ -237,13 +241,14 @@ border: none;
 .circleleft{
   width: 20px ;
   height: 20px;
-  box-shadow: 10px 10px 10px rgba(187, 185, 185,0.5);
+  box-shadow: 10px 10px 10px rgba(245, 244, 244, 0.5);
   border-radius: 50%;
   border: none;
   padding: 7px;
   color: black;
   margin-left: 20px;
   margin-top: 10px;
+  border: 1px solid white;
 }
 .circleleft:hover{
   transform: scale(1.1);
@@ -264,7 +269,7 @@ border: none;
     border: 2px solid black;
      overflow: scroll;
      overflow-x: hidden;
-    border: none;
+     border: none;
   }
   .signup .signupcontainer {
     width: 400px;
@@ -286,9 +291,8 @@ border: none;
   .circleleft{
     width: 20px ;
     height: 20px;
-    box-shadow: 10px 10px 10px rgba(187, 185, 185,0.5);
     border-radius: 50%;
-    border: none;
+ 
     padding: 7px;
     color: black;
     margin-left: 5px;
@@ -298,26 +302,26 @@ border: none;
     width: 20px;
     height: 20px;
     padding: 7px;
-    border: 1px solid black;
+ 
     border-radius: 50%;
     margin-right: 2px;
-    border: none;
+ 
     margin-left: 15px;
-    box-shadow: 10px 10px 10px  rgba(105, 103, 103,0.4);
+   
   }
   .inputinfo{
-    border: 1px solid black;
+  
     outline: none;
     height: 30px;
     flex-grow: 1;
-     border: 3px solid red;
+
     font-weight: 500;
     font-size:14px;
-    border: none;
+
     border-radius: 17px 78px;
-    text-shadow: 10px 10px 10px black;
+
     text-align: center;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+   
     background-color: transparent;
   }
   .photo .profilerealimage{
@@ -325,13 +329,12 @@ border: none;
     height: 100px;
     border: none;
     border-radius: 50%;
-    filter: drop-shadow(10px 10px 10px  rgb(199, 195, 195));
     border: 2px solid white;
   }
    }
    @media screen and (min-width:900px){
     .signup .signupcontainer{
-      box-shadow: 10px 10px 10px rgb(224, 218, 218);
+      box-shadow: 10px 10px 10px rgb(238, 236, 236);
       border: 1px solid white;
     }
    }
@@ -346,7 +349,7 @@ border: none;
   align-items: center;
   border-radius: 10px;
   animation: fadeIn 1s ease-in-out;
-  box-shadow: 10px 10px 10px rgb(224, 218, 218);
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
    border: 1px solid white;
 }
 
@@ -404,7 +407,7 @@ border: none;
     align-items: center;
     border-radius: 10px;
     animation: fadeIn 1s ease-in-out;
-    box-shadow: 10px 10px 10px rgb(224, 218, 218);
+    box-shadow: 10px 10px 10px rgb(238, 236, 236);
      border: 1px solid white;
   }
 }

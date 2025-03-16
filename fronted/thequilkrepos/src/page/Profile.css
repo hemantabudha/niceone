@@ -1479,10 +1479,9 @@ text-transform: capitalize;
   border: none;
   outline: none;
   border-radius: 17px 78px;
-  box-shadow: 10px 10px 10px rgb(240, 237, 237);
-  background-color: rgb(236, 236, 240);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
   border: 1px solid white;
-  background-color: rgba(243, 236, 240, 0.973);
 }
 .inputplaylist::placeholder{
   color: black;
@@ -1502,11 +1501,10 @@ text-transform: capitalize;
   font-weight: 600;
   border: none;
   outline: none;
-  box-shadow: 10px 10px 10px rgb(240, 237, 237);
-  background-color: rgb(236, 236, 240);
-  border: 1px solid white;
   border-radius: 8px;
-  background-color: rgba(243, 236, 240, 0.973);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid white;
 }
 .objectidinput::placeholder{
   color: black;
@@ -1522,9 +1520,10 @@ text-transform: capitalize;
   text-align: center;
   border-radius: 7px 80px;
   text-shadow: 10px 10px 10px rgb(204, 198, 198);
-  box-shadow: 10px 10px 10px rgb(241, 239, 239);
-  border: 1px solid white;  
-  background-color: rgba(243, 236, 240, 0.973);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid white;
+ 
 }
 .addbtn:hover{
   transform: scale(1.1);
@@ -1578,8 +1577,7 @@ text-transform: capitalize;
   transition: all 0.3s ease; /* Smooth transition for hover effect */
   height: 30px;  /* Set a fixed height for consistency */
   outline: none;
-  background-color: #f1f1f1;
-  border: 1px solid white;
+  
   color: black;
   font-size: 14px;
   font-weight: bold;
@@ -1588,7 +1586,9 @@ text-transform: capitalize;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   outline: none;
-  background-color: rgba(243, 236, 240, 0.973);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid white;
 }
 .note-item .remove-btn{
   border: none;
@@ -1643,10 +1643,9 @@ text-transform: capitalize;
   text-align: center;
   border: none;
   outline: none;
-  box-shadow: 10px 10px 10px rgb(240, 237, 237);
-  background-color: rgb(236, 236, 240);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
   border: 1px solid white;
-  background-color: rgba(243, 236, 240, 0.973);
 }
 .descriptionplaylist::placeholder{
   color: black;
@@ -1661,9 +1660,9 @@ text-transform: capitalize;
   text-align: center;
   border-radius: 7px 80px;
   text-shadow: 10px 10px 10px rgb(204, 198, 198);
-  box-shadow: 10px 10px 10px rgb(228, 223, 223);
-  border: 1px solid white;  
-  background-color: rgba(243, 236, 240, 0.973);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid white;
 }
 .btn-container .cancel-btn{
   margin-left: 10px;
@@ -1675,9 +1674,9 @@ text-transform: capitalize;
   text-align: center;
   border-radius: 7px 80px;
   text-shadow: 10px 10px 10px rgb(204, 198, 198);
-  box-shadow: 10px 10px 10px rgb(228, 223, 223);
-  border: 1px solid white;  
-  background-color: rgba(243, 236, 240, 0.973);
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid white;
 }
 @keyframes fadeIn {
   0% {
@@ -1697,4 +1696,70 @@ text-transform: capitalize;
     transform: translateY(0);
     opacity: 1;
   }
+}
+.invalid-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* Center align icon and button text */
+  margin-right: 5px;
+  background-color: transparent; /* White background for buttons */
+  padding: 5px 15px;
+  border-radius: 25px;  /* Rounded edges for buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  height: 30px;  /* Set a fixed height for consistency */
+  outline: none;
+  
+  color: black;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  background-color: transparent;
+  box-shadow: 10px 10px 10px rgb(236, 233, 233);
+  border: 1px solid red;
+}
+.invalid-note .remove-btn{
+  border: none;
+  background-color: transparent;  /* Transparent button background */
+  color: #333;  /* Dark text color */
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;  /* Padding inside the button */
+  transition: color 0.3s, background-color 0.3s; /* Smooth transitions */
+  height: 100%; /* Make button fill the height of the holder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;  /* Ensure text is centered */
+  outline: none;
+  flex-shrink: 0;
+}
+.remove-btn:hover{
+  color: #007bff;  /* Change text color on hover */
+  background-color: #e7f1ff;  /* Light blue background on hover */
+}
+.invalid-note .xmarkicon{
+  color: #5e5e5e; 
+  width: 20px;
+  height: 20px;
+  padding: 3px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+.xmarkicon:hover{
+  transform: scale(1.03);
+  color: red;
+}
+.playlist .errorplaylist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+}
+.errorplaylist .perrorplaylist{
+  font-size: 17px;
+  font-weight: 600;
 }

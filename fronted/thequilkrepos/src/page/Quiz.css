@@ -413,7 +413,7 @@
 .quizholderhamkohoni.error {
   border: 2px solid red;
 }
-@media screen and (min-width:1199px) and (max-width:1500px){
+@media screen and (min-width:1098px) and (max-width:1500px){
   .inputanddescriptionforthequiz .inputquiz{
     font-size: 17px;
   }
@@ -436,7 +436,7 @@
   width: 100px;
 }
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width:1099px){
   .searchdataquizandnonsearchdisplay .realsearchdataquizandnonsearchdisplay {
     width: 49%;
     max-height: 500px; /* Maximum height limit */

@@ -168,6 +168,32 @@ const quizresultmodel=mongoose.model("quizresult",QuizResultsSchema);
   },
 }, { timestamps: true });
 const postmodel=mongoose.model("post",postSchema);
+const playlistSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    notes: [
+      {
+        type:mongoose.Schema.Types.ObjectId,
+        required:true,
+        ref:"post"
+      },
+    ],
+    createdBy: {
+      type: mongoose.Schema.Types.ObjectId,  
+      ref: 'user',  
+      required: true,
+    }
+  },
+  { timestamps: true }
+);
+const playlistmodel=mongoose.model("playlist",playlistSchema)
 const realquizSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -2743,6 +2769,96 @@ app.post("/submit-quiz-with-update", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "An error occurred while processing the quiz results." });
+  }
+});
+app.post("/playlists/create", async (req, res) => {
+  try {
+    const { title, description, notes } = req.body;
+    const token = req.headers["authorization"]?.split(" ")[1];
+
+    // Validate if token is present
+    if (!token) {
+      return res.status(403).json({ message: "Token is required" });
+    }
+
+    // Decode the token and get the user ID
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const createdBy = decoded.userId;
+
+    // Find the user who is creating the playlist
+    const user = await usermodel.findById(createdBy);
+    if (!user) {
+      return res.status(404).json({ message: "User not found." });
+    }
+
+    // Validate each note's ObjectId against the postmodel (using batch query for efficiency)
+    const posts = await postmodel.find({ '_id': { $in: notes } });
+    const postIds = posts.map(post => post._id.toString());
+    const invalidNotes = notes.filter(noteId => !postIds.includes(noteId.toString()));
+
+    if (invalidNotes.length > 0) {
+      return res.status(400).json({
+        message: "Invalid note ObjectId(s) found.please remove the red notes  id.",
+        invalidNotes,
+      });
+    }
+
+    // Check for duplicate playlist title
+    const existingPlaylist = await playlistmodel.findOne({ title, createdBy });
+    if (existingPlaylist) {
+      return res.status(400).json({
+        message: "You already have a playlist with this title.",
+      });
+    }
+
+    // Create a new playlist
+    const newPlaylist = new playlistmodel({
+      title,
+      description,
+      notes,
+      createdBy,
+    });
+
+    // Save the playlist to the database
+    await newPlaylist.save();
+
+    return res.status(201).json({
+      message: "Playlist created successfully",
+      playlist: newPlaylist,
+    });
+  } catch (error) {
+    console.error("Error creating playlist:", error);
+    return res.status(500).json({ message: "Server error." });
+  }
+});
+// Endpoint to fetch playlists created by the user
+app.get("/playlists/creator", async (req, res) => {
+  try {
+    const token = req.headers["authorization"]?.split(" ")[1];
+
+    // Validate if token is present
+    if (!token) {
+      return res.status(403).json({ message: "Token is required" });
+    }
+
+    // Decode the token and get the user ID
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const createdBy = decoded.userId;
+
+    // Find the playlists created by the user
+    const playlists = await playlistmodel.find({ createdBy });
+
+    if (!playlists) {
+      return res.status(404).json({ message: "No playlists found for this user" });
+    }
+
+    return res.status(200).json({
+      message: "Playlists retrieved successfully",
+      playlists,
+    });
+  } catch (error) {
+    console.error("Error retrieving playlists:", error);
+    return res.status(500).json({ message: "Server error." });
   }
 });
 

@@ -1,12 +1,12 @@
 import Navbar from "../component/Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faTrash, faShare, faCamera, faBookOpenReader, faUpload, faDollar, faRightFromBracket, faHome, faNewspaper, faThumbsUp, faUser, faUserPlus, faCrown, faUsers, faHandPointRight, faArrowTrendUp, faHeart, faEllipsisVertical, faFileUpload, faUserEdit, faAdd, faCloudUploadAlt, faXmark, faNotesMedical, faFile, faCopy, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash, faShare, faCamera, faBookOpenReader, faUpload, faDollar, faRightFromBracket, faHome, faNewspaper, faThumbsUp, faUser, faUserPlus, faCrown, faUsers, faHandPointRight, faArrowTrendUp, faHeart, faEllipsisVertical, faFileUpload, faUserEdit, faAdd, faCloudUploadAlt, faXmark, faNotesMedical, faFile, faCopy, faBook, faL, faEdit } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./Profile.css";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import { faHackerNewsSquare, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faHackerNewsSquare, faSlack, faYoutube } from "@fortawesome/free-brands-svg-icons";
 export default function Profile() {
   const [quiztitle, setquiztitle] = useState("");
   const [add, setadd] = useState(false);
@@ -51,9 +51,11 @@ export default function Profile() {
   const [playlistdescription, setPlaylistdescription] = useState("");
   const [playlistNotes, setPlaylistNotes] = useState([]);
   const [playlistNotesId, setPlaylistNotesId] = useState("");
-
-
-
+  const[playlistloading,setplaylistloading]=useState(false)
+  const[profilechangeloading,setprofilechangeloading]=useState(false)
+  const [invalidNotes, setInvalidNotes] = useState([]); // Store invalid notes from backend
+  const[playlisterror,setplaylisterror]=useState("")
+  const[edithome,setedithome]=useState(false);
   const addNote = () => {
     const trimmedId = playlistNotesId.trim();
 
@@ -74,9 +76,22 @@ export default function Profile() {
   };
 
   const removeNote = (index) => {
-    setPlaylistNotes(playlistNotes.filter((_, i) => i !== index));
+    const removedNote = playlistNotes[index];
+    const updatedNotes = playlistNotes.filter((_, i) => i !== index);
+  
+    setPlaylistNotes(updatedNotes);
+    if (invalidNotes.includes(removedNote)) {
+      const updatedInvalidNotes = invalidNotes.filter(note => note !== removedNote);
+      setInvalidNotes(updatedInvalidNotes);
+  
+      // If there are no more invalid notes, clear the error message
+      if (updatedInvalidNotes.length === 0) {
+        setplaylisterror(""); // Clear the error message
+      }
+    }
   };
-  const createPlaylist = () => {
+  const createPlaylist = async (e) => {
+    e.preventDefault();
     const trimmedTitle = playlistTitle.trim();
     const trimmeddescription=playlistdescription.trim();
     if (!trimmedTitle || playlistNotes.length === 0 || !trimmeddescription) {
@@ -92,19 +107,61 @@ export default function Profile() {
       alert("The description must be less than 180 characters.");
       return;
     }
-    const playlistData = {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You must be logged in to create a post.");
+    
+      return;
+    }
+    setplaylistloading(true);
+    if (playlistloading) {
+      alert("playlist is creating")
+      return;
+    }
+    const body = {
       title: playlistTitle,
       notes: playlistNotes,
       description:playlistdescription
     };
-
-    console.log("Playlist Data:", playlistData);
-    setPlaylistTitle("");
-    setPlaylistNotes([]);
-    setPlaylistNotesId("");
-    setPlaylistdescription("")
+    try {
+      const response = await axios.post(
+        `${backendurl}/playlists/create`,
+        body,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Add the token in the headers
+          },
+        }
+      );
+      
+      console.log(response)
+      setPlaylistTitle("");
+      setPlaylistNotes([]);
+      setPlaylistNotesId("");
+      setPlaylistdescription("")
+      setplaylisterror("")
+    } catch (error) {
+      setplaylisterror(error.response.data.message)
+      if (error.response.data.invalidNotes) {
+        // Set invalid notes state with the IDs from the backend
+        const invalidNoteStrings = error.response.data.invalidNotes.map(note => note.toString());
+        console.log("Invalid Notes:", invalidNoteStrings);
+        setInvalidNotes(invalidNoteStrings);
+        setplaylisterror(error.response.data.message)
+      }
+      
+    } finally {
+      // Set loading state to false after the process finishes
+      setplaylistloading(false);
+    }
   };
-
+  const getNoteClass = (noteId) => {
+    const stringNoteId = noteId.toString();
+    // Check if the noteId is in invalidNotes and return a class for red border
+    return invalidNotes.includes(stringNoteId) ? "invalid-note" : "note-item";
+  };
+ 
   const handleInput = (event) => {
     // Reset the height to auto to shrink if the text is deleted
     event.target.style.height = 'auto';
@@ -114,8 +171,6 @@ export default function Profile() {
  
   const handlecancel = (e) => {
     setquestion("")
-    setadd(false)
-    setpostholder(true)
   }
   const handleChange = (e) => {
 
@@ -621,14 +676,19 @@ export default function Profile() {
   const handlesubmitprofilechange = async (e) => {
     e.preventDefault();
 
-    if (!profileimage || !name) {
-      alert("Please fill out all profile and select names.");
+    if (!profileimage || !name || !infodescription) {
+      alert("Please fill out all profile and select names and description.");
       return;
     }
     const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to create a post.");
       navigate("/login"); // Redirect to login page if no token
+      return;
+    }
+    setprofilechangeloading(true);
+    if (profilechangeloading) {
+      alert("profile is changing")
       return;
     }
     const profileImageUrl = await uploadToS3(profileimage.file);
@@ -654,13 +714,16 @@ export default function Profile() {
       setprofileimage()
       setname("")
     }
+    finally {
+      // Set loading state to false after the process finishes
+      setprofilechangeloading(false);
+    }
   };
   const handleclear = (e) => {
     setprofileimage()
     setname("")
     setinfodescription("")
-    setprofile(false)
-    setpostholder(true)
+  
   }
   const handleScroll = (e) => {
     if(!postholder){
@@ -916,17 +979,23 @@ export default function Profile() {
     navigate(`/search?query=management`);
   }
   const handlediscardnews = (e) => {
-    setnewspost(false)
+  
     newsetimage([])
     newsetSelectedImage(null)
     newsettitle("")
-    setpostholder(true)
+ 
   }
   const handleSubmitnews = async (e) => {
     e.preventDefault();
 
     if (!newtitle || newimage.length === 0) {
       alert("Please fill out all fields and select files.");
+      return;
+    }
+    const token = localStorage.getItem("token");
+    if (!token) {
+      alert("You must be logged in to create a post.");
+    
       return;
     }
     newsetLoading(true);
@@ -939,18 +1008,10 @@ export default function Profile() {
       const imageUrl = await uploadToS3(newimage[i].file); // Assuming you have the uploadToS3 function to get the S3 URL
       imageUrls.push(imageUrl);
     }
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      alert("You must be logged in to create a post.");
-    
-      return;
-    }
     const body = {
       title:newtitle,
       images: imageUrls, // Sending array of URLs instead of files
     };
-    console.log(body)
     try {
       const response = await axios.post(
         `${backendurl}/upload/file/news`,
@@ -1020,6 +1081,7 @@ export default function Profile() {
     setadd(false)
     setnewspost(false)
     setPlaylistIsOpen(false);
+    setedithome(false)
    }
    const handlepost = (e) => {
     setpostholder(false)
@@ -1029,6 +1091,7 @@ export default function Profile() {
     setadd(false)
     setnewspost(false)
     setPlaylistIsOpen(false);
+    setedithome(false)
   }
   
   const handleseparatequiz = (e) => {
@@ -1039,6 +1102,7 @@ export default function Profile() {
     setadd(false)
     setnewspost(false)
     setPlaylistIsOpen(false);
+    setedithome(false)
   }
   const handleprofile = (e) => {
     setpostholder(false)
@@ -1048,6 +1112,7 @@ export default function Profile() {
     setadd(false)
     setnewspost(false)
     setPlaylistIsOpen(false);
+    setedithome(false)
   }
   const handleadd = (e) => {
     setpostholder(false)
@@ -1057,6 +1122,7 @@ export default function Profile() {
     setadd(true)
     setnewspost(false)
     setPlaylistIsOpen(false);
+    setedithome(false)
   }
   const handleaddnews=(e)=>{
     setpostholder(false)
@@ -1066,6 +1132,17 @@ export default function Profile() {
     setadd(false)
     setnewspost(true)
     setPlaylistIsOpen(false);
+    setedithome(false)
+   }
+   const handleedithome=(e)=>{
+    setpostholder(false)
+    setpost(false)
+    setaddingquiz(false)
+    setprofile(false)
+    setadd(false)
+    setnewspost(false)
+    setPlaylistIsOpen(false);
+    setedithome(true)
    }
   const handlediscardquiz = (e) => {
    
@@ -1093,6 +1170,7 @@ export default function Profile() {
     setprofile(false)
     setadd(false)
     setnewspost(false)
+    setedithome(false)
   };
 
   const resetForm = () => {
@@ -1217,6 +1295,10 @@ export default function Profile() {
             <div className="mobileops">
             <div className="buttonholders" onClick={toggleForm}>
                 <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">Setup Homes</button>
+              </div>
+              <div className="buttonholders" onClick={handleedithome}>
+                <FontAwesomeIcon icon={faEdit} />
                 <button className="buttonsz">Manage Homes</button>
               </div>
             <div className="buttonholders" onClick={handleseenotes}>
@@ -1246,10 +1328,6 @@ export default function Profile() {
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlechemistry}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Chemistry</button>
               </div>
               <div className="buttonholders" onClick={handlezoology}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
@@ -1478,7 +1556,7 @@ export default function Profile() {
               <input type="text" value={name} onChange={handlename} placeholder="newname" className="changenames" />
               <input type="text" value={infodescription} onChange={handleinfodescription} placeholder=" Set your Bio..." className="changeinfos" />
               {error && <p>{error}</p>}
-              <div className="hello"> <button onClick={handlesubmitprofilechange} className="uploadbutton">upload</button> <button onClick={handleclear} className="uploadbutton">cancel</button></div>
+              <div className="hello"> <button onClick={handlesubmitprofilechange} className="uploadbutton">{profilechangeloading ? "uploading" : "save change"}</button> <button onClick={handleclear} className="uploadbutton">cancel</button></div>
             </div>)
           }
           {addingquiz && (
@@ -1640,14 +1718,12 @@ export default function Profile() {
           />
           </div>
           <div className="notes-list">
-            {playlistNotes.map((id, index) => (
-              <div key={index} className="note-item">
-                <button className="remove-btn">
-                {id}
-                </button>
-                <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
-              </div>
-            ))}
+          {playlistNotes.map((id, index) => (
+    <div key={index} className={`${getNoteClass(id)}`}>
+      <button className="remove-btn">{id}</button>
+      <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
+    </div>
+  ))}
           </div>
           <div className="notesobjectidcontainer">
             <input
@@ -1668,9 +1744,12 @@ export default function Profile() {
           maxLength={180} 
           placeholder="description for playlist" className="descriptionplaylist"/>
           </div>
+        {playlisterror && <div className="errorplaylist">
+          <p className="perrorplaylist">{playlisterror}</p>
+          </div>}
           <div className="btn-container">
             <button onClick={createPlaylist} className="save-btn">
-              Save Playlist
+            {playlistloading ? "uploading" : "save playlist"}
             </button>
             <button onClick={resetForm} className="cancel-btn">
               Cancel Playlist
@@ -1678,7 +1757,11 @@ export default function Profile() {
           </div>
         </div>
       )}
-         
+         {edithome && (
+          <div>
+            here is edit home you know 
+            </div>
+         )}
         </div>
       </div>
 
