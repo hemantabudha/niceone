@@ -645,7 +645,7 @@ useEffect(() => {
     <FontAwesomeIcon icon={faThumbsUp} className="likeicon"/> <span className="para">like notes</span>
   </div>
   <div className="sidediv" onClick={handlefollowing}>
-    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">your following</span>
+    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">following</span>
   </div>
   <div className="sidediv" onClick={handleyourquiz}>
                   <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon"/>
@@ -895,7 +895,9 @@ onChange={(e) => handleCommentInputChange(post._id, e)}  // Handle comment chang
     );
   })
     ) : (
-      <p style={{marginTop:"100px",fontSize:"large",fontWeight:"500",textShadow:"10px 10px 10px black"}}>No questions Raise by users..... </p>
+      <div className="nodiv">
+      <p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>No questions Raise by users..... </p>
+      </div>
     )}
 </div>
       </div>

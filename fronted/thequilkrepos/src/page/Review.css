@@ -65,7 +65,7 @@
 .detail .sponsordivb{
   border: 3px solid blue;
   overflow: hidden;
-  box-shadow: 10px 10px 10px 10px rgb(174, 164, 164),inset -30px 30px 20px rgb(207,204,204);
+  box-shadow: 10px 10px 10px 10px rgb(243, 241, 241),inset -30px 30px 20px rgb(207,204,204);
   display: none;
   height: 100%;
   border: none;
@@ -73,7 +73,7 @@
 .sponsordivb .headingb{
   border: 1px solid black;
   text-align: center;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(247, 244, 244);
   border: none;
 }
 .sponsordivb .paragraphb{
@@ -124,7 +124,7 @@
   border-radius: 39%;
   padding: 7px;
   color: black;
-  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+  box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
 }
 .penicon:hover{
   color: red;
@@ -143,7 +143,7 @@
   border-radius: 50%;
   padding: 7px;
   color: black;
-  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+  box-shadow: 10px 10px 10px  rgba(240, 237, 237, 0.2);
 }
 .bigimagediv .pen3{
   position: absolute;
@@ -158,7 +158,7 @@
   border-radius: 50%;
   color: black;
   padding: 7px;
-  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+  box-shadow: 10px 10px 10px  rgba(245, 243, 243, 0.2);
 }
 .pen3 .penactiveicon3{
   width: 25px;
@@ -166,7 +166,7 @@
   border-radius: 50%;
   color:red;
   padding: 7px;
-  box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+  box-shadow: 10px 10px 10px  rgba(247, 244, 244, 0.2);
 }
 .penactiveicon3:hover,.penicon3:hover{
   transform: scale(1.1);
@@ -188,7 +188,7 @@
   font-weight: 500;
 
   text-align: center;
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(250, 247, 247);
   border: 1px solid black;
   text-transform: capitalize;
   border: none;
@@ -231,7 +231,7 @@
   justify-content: flex-start;  /* Align items to the left */
   white-space: nowrap;  /* Prevent line breaks between images */
   width: 99%;
-  box-shadow: 10px 10px 10px 10px rgba(70, 69, 69,0.2);
+  box-shadow: 10px 10px 10px 10px rgba(211, 207, 207, 0.2);
   border-radius: 15px;
   border: none;
 }
@@ -267,7 +267,7 @@
   margin-left: 40px; 
   border: none;
   border-radius: 15%;
-  box-shadow: 5px 5px 15px rgba(90, 88, 88, 0.5);
+  box-shadow: 5px 5px 15px rgba(245, 242, 242, 0.5);
   transition: all 0.2s ease-in;
 }
 .imageprev:hover ,.imageprevdata:hover{
@@ -304,7 +304,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px  rgba(0, 0, 0, 0.5);
+  box-shadow: 10px 10px 10px  rgba(241, 239, 239, 0.5);
   margin-right: 21px;
   transition: all 0.2s ease;
 }
@@ -660,7 +660,7 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(211, 206, 206),inset -10px -10px 10px rgb(202, 197, 197);
+  box-shadow: 10px 10px 10px rgb(240, 238, 238),inset -10px -10px 10px rgb(202, 197, 197);
   border: none;
   outline: none;
   transition: all 0.3s ease;
@@ -956,7 +956,7 @@ border: 1px solid white;
   border-radius: 17px 78px;
   font-size: large;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(243, 241, 241);
   background-color: transparent;
   border: 1px solid white;
 }
@@ -974,7 +974,7 @@ border: 1px solid white;
   border-radius: 17px 78px;
   font-size: large;
   font-weight: 500;
-  box-shadow: 10px 10px 10px rgb(216, 214, 214);
+  box-shadow: 10px 10px 10px rgb(245, 243, 243);
   background-color: transparent;
   border: 1px solid white;
   transition: all 0.3s ease;
@@ -998,7 +998,7 @@ border: 1px solid white;
   border-radius: 50%;
   border: none;
   outline: none;
-  box-shadow: 10px 10px 10px rgb(145, 142, 142);
+  box-shadow: 10px 10px 10px rgb(241, 239, 239);
   margin-left: 10px;
   margin-right: 10px;
   transition: all 0.3s ease;
@@ -1013,7 +1013,7 @@ border: 1px solid white;
   font-weight: 500;
   word-wrap: break-word;  /* Break long words */
   word-break: break-word;  /* Additional fallback for word break */
-  text-shadow: 10px 10px 10px rgb(204, 198, 198);
+  text-shadow: 10px 10px 10px rgb(247, 243, 243);
 }
 .namepluscomment .usertextforcommentor{
   font-size: 17px;
@@ -1021,7 +1021,7 @@ border: 1px solid white;
   word-wrap: break-word;  /* Break long words */
   word-break: break-word; 
   margin-left: 5px;
-  text-shadow: 10px 10px 10px rgb(192, 184, 184); /* Additional fallback for word break */
+  text-shadow: 10px 10px 10px rgb(248, 245, 245); /* Additional fallback for word break */
 }
 .buttondivholderhamkohonitesma{
   border: 2px solid black;
@@ -1062,7 +1062,7 @@ border: 1px solid white;
     height: 50px;
     margin-left: 1px;
     margin-right: 1px;
-    box-shadow: 10px 10px 10px rgb(212, 207, 207);
+    box-shadow: 10px 10px 10px rgb(247, 245, 245);
   }
   .namepluscomment .usertextforcommentor{
     font-size: 17px;
@@ -1159,7 +1159,7 @@ border: 1px solid white;
   border: none;
   margin-top: 0px;
   border-radius: 0px;
-  box-shadow: 10px 10px 10px 10px rgb(129, 125, 125);
+  box-shadow: 10px 10px 10px 10px rgb(245, 244, 244);
 }
 .imagedivreview {
   margin-top: 10px;
@@ -1171,7 +1171,7 @@ border: 1px solid white;
   align-items: center;
   justify-content: flex-start;  /* Align items to the left */
   white-space: nowrap;  /* Prevent line breaks between images */
-  box-shadow: 5px 5px 15px rgba(94, 92, 92, 0.5);
+  box-shadow: 5px 5px 15px rgba(245, 242, 242, 0.5);
   border: none;
 }
 .imagedivreview::-webkit-scrollbar {
@@ -1232,7 +1232,7 @@ border: 1px solid white;
       border: 2px solid red;
       margin-top: 0px;
       border-radius: 0px;
-      box-shadow: 10px 10px 10px 10px rgb(129, 125, 125);
+      box-shadow: 10px 10px 10px 10px rgb(243, 241, 241);
       border: none;
     }
     .bigimagediv .pen{
@@ -1249,7 +1249,7 @@ border: 1px solid white;
       border-radius: 39%;
       padding: 7px;
       color: black;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(243, 242, 242, 0.2);
     }
     .penicon:hover{
       color: red;
@@ -1268,7 +1268,7 @@ border: 1px solid white;
       border-radius: 50%;
       padding: 7px;
       color: black;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(241, 240, 240, 0.2);
     }
     .bigimagediv .pen3{
       position: absolute;
@@ -1284,7 +1284,7 @@ border: 1px solid white;
       border-radius: 50%;
       color: black;
       padding: 7px;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(245, 242, 242, 0.2);
     }
     .pen3 .penactiveicon3{
       width: 25px;
@@ -1292,7 +1292,7 @@ border: 1px solid white;
       border-radius: 50%;
       color:red;
       padding: 7px;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(243, 242, 242, 0.2);
     }
     .penactiveicon3:hover,.penicon3:hover{
       transform: scale(1.1);
@@ -1310,7 +1310,7 @@ border: 1px solid white;
       border-radius: 50%;
       padding: 7px;
       color: black;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(241, 239, 239, 0.2);
     }
     .bigimagediv .pen2{
       position: absolute;
@@ -1323,7 +1323,7 @@ border: 1px solid white;
       border-radius: 50%;
       padding: 7px;
       color: black;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(241, 241, 241, 0.2);
     }
     .bigimagediv .pen3{
       position: absolute;
@@ -1336,7 +1336,7 @@ border: 1px solid white;
       border-radius: 50%;
       padding: 7px;
       color: black;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(240, 238, 238, 0.2);
     }
     .pen3 .penactiveicon3{
       width: 20px;
@@ -1344,7 +1344,7 @@ border: 1px solid white;
       border-radius: 50%;
       padding: 7px;
       color: red;
-      box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+      box-shadow: 10px 10px 10px  rgba(243, 240, 240, 0.2);
     }
     .correctincorrect .correct{
       margin-right: 1px;
@@ -1369,7 +1369,7 @@ border: 1px solid white;
         border-radius: 50%;
         padding: 7px;
         color: black;
-        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
       }
       .bigimagediv .pen2{
         position: absolute;
@@ -1382,7 +1382,7 @@ border: 1px solid white;
         border-radius: 50%;
         padding: 7px;
         color: black;
-        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        box-shadow: 10px 10px 10px  rgba(243, 240, 240, 0.2);
       }
       .bigimagediv .pen3{
         position: absolute;
@@ -1395,7 +1395,7 @@ border: 1px solid white;
         border-radius: 50%;
         padding: 7px;
         color: black;
-        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        box-shadow: 10px 10px 10px  rgba(241, 239, 239, 0.2);
       }
       .pen3 .penactiveicon3{
         width: 20px;
@@ -1403,7 +1403,7 @@ border: 1px solid white;
         border-radius: 50%;
         padding: 7px;
         color: red;
-        box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+        box-shadow: 10px 10px 10px  rgba(247, 245, 245, 0.2);
       }
       }
       @media screen and (min-width: 370px) and (max-width:400px) {
@@ -1418,7 +1418,7 @@ border: 1px solid white;
           border-radius: 50%;
           padding: 7px;
           color: black;
-          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
         }
         .bigimagediv .pen2{
           position: absolute;
@@ -1431,7 +1431,7 @@ border: 1px solid white;
           border-radius: 50%;
           padding: 7px;
           color: black;
-          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
         }
         .bigimagediv .pen3{
           position: absolute;
@@ -1444,7 +1444,7 @@ border: 1px solid white;
           border-radius: 50%;
           padding: 7px;
           color: black;
-          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
         }
         .pen3 .penactiveicon3{
           width: 20px;
@@ -1452,7 +1452,7 @@ border: 1px solid white;
           border-radius: 50%;
           padding: 7px;
           color: red;
-          box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+          box-shadow: 10px 10px 10px  rgba(243, 239, 239, 0.2);
         }
         }
         @media screen and (min-width: 400px) and (max-width:500px) {
@@ -1467,7 +1467,7 @@ border: 1px solid white;
             border-radius: 50%;
             padding: 7px;
             color: black;
-            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+            box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
           }
           .bigimagediv .pen2{
             position: absolute;
@@ -1480,7 +1480,7 @@ border: 1px solid white;
             border-radius: 50%;
             padding: 7px;
             color: black;
-            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+            box-shadow: 10px 10px 10px  rgba(243, 240, 240, 0.2);
           }
           .bigimagediv .pen3{
             position: absolute;
@@ -1493,7 +1493,7 @@ border: 1px solid white;
             border-radius: 50%;
             padding: 7px;
             color: black;
-            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+            box-shadow: 10px 10px 10px  rgba(238, 235, 235, 0.2);
           }
           .pen3 .penactiveicon3{
             width: 20px;
@@ -1501,7 +1501,7 @@ border: 1px solid white;
             border-radius: 50%;
             padding: 7px;
             color: black;
-            box-shadow: 10px 10px 10px  rgba(128, 125, 125,0.2);
+            box-shadow: 10px 10px 10px  rgba(243, 241, 241, 0.2);
           }
           }
         
@@ -1604,7 +1604,7 @@ border: 1px solid white;
   color: red;
   padding: 7px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(236, 234, 234);
+  box-shadow: 10px 10px 10px rgb(253, 251, 251);
   transition: all 0.3s ease;
 }
 .youtubelinktoshowicon:hover{

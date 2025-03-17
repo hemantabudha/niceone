@@ -496,7 +496,7 @@ navigate(`/search?query=management`);
 
                 </div>
               )
-            })) : (<div className="nodiv"><p className="nocontent">Uff! Create Some wishlist</p></div>)}
+            })) : (<div className="nodiv"><p  style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>Uff! Create Some wishlist</p></div>)}
   </div>
   </div>
   </div>

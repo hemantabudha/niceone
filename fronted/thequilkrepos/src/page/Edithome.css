@@ -1,9 +1,88 @@
+.orbuttonfordelete{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.orbuttonfordelete .porbutton{
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px rgb(243, 241, 241);
+    font-size: large;
+    font-weight: 600;
+    margin-top: 21px;
+    border: 1px solid white;
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 9px;
+    padding-right: 6px;
+    padding-bottom: 8px;
+    margin-left: 30px;
+}
+.porbutton:hover{
+    color: red;
+}
+.deletesection{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 21px;
+}
+.deletesection .deletedivplaylist{
+    display: flex;
+  align-items: center;
+  justify-content: center;  /* Center align icon and button text */
+  margin-right: 5px;
+  background-color: transparent; /* White background for buttons */
+  padding: 5px 15px;
+  border-radius: 25px;  /* Rounded edges for buttons */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+  height: 30px;  /* Set a fixed height for consistency */
+  outline: none;
+  background-color: #f1f1f1;
+  border: 1px solid white;;
+}
+.deletedivplaylist:hover {
+    transform: scale(1.05);  /* Slightly enlarge on hover */
+    background-color: #f1f1f1; /* Light grey background on hover */
+  }
+  .deletedivplaylist .delete-btn{
+    border: none;
+    background-color: transparent;  /* Transparent button background */
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;  /* Padding inside the button */
+    transition: color 0.3s, background-color 0.3s; /* Smooth transitions */
+    height: 100%; /* Make button fill the height of the holder */
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  /* Ensure text is centered */
+    outline: none;
+    flex-shrink: 0;
+  }
+  .delete-btn:hover {
+    color: #007bff;  /* Change text color on hover */
+    background-color: #e7f1ff;  /* Light blue background on hover */
+  }
+  .deletedivplaylist .xmark-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+  }
+  .xmark-icon:hover{
+    color: red;
+    transform: scale(1.05);
+  }
 .playlist-container {
     border: 1px solid red;
     height: 100%;
     width: 100%;
     overflow: scroll;
     overflow-x: hidden;
+    border: none;
 }
 
 .playlist-container::-webkit-scrollbar {
@@ -26,24 +105,105 @@
 .playlist-container .playlist{
     display: flex;
     flex-direction: column;
+    margin-top: 15px;
+    border-bottom: 1px solid white;
 }
 .playlist .playlist-title{
     display: flex;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
 }
-.playlist-title .playlisttitle{
-  font-size: large;
-  font-weight: 600;
-  text-shadow: 10px 10px 10px rgb(226, 219, 219);
+.playlist-title .playlistprofile{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+.playlistprofile:hover{
+    transform: scale(1.05);
+}
+.playlist .playlisttitle{
+    height: 41px;
+    width:60%;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-align: center;
+    border: none;
+    display: flex;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9px;
+    background-color: transparent;
+    margin-left: 9px;
+    box-shadow: 10px 10px 10px rgb(236, 233, 233);
+    border: 1px solid white;
+}
+.playlist-title .editanddelte{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 10px 10px 10px white;
+    margin-left: 10px;
+    border: 1px solid white;
+}
+
+.playlist .playlist-description{
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    margin-bottom: 9px;
 }
 .playlist-description .renderdescription{
-  font-size: large;
-  font-weight: 600;
-  text-shadow: 10px 10px 10px rgb(226, 219, 219);
-  text-align: center;
+    height: 41px;
+    font-size: 17px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-align: center;
+    border: none;
+    display: flex;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
 }
-.imageprofile{
-    width: 100px;
-    height: 100px;
+.playlist .thumbnailplaylistpic{
+    display: flex;
+    justify-content: center;
+}
+.thumbnailplaylistpic .playlisthumbnailpic{
+    width: 200px;
+    height: 200px;
+}
+.playlist .thumbnailplaylistpicture{
+    display: flex;
+    justify-content: center;
+}
+.thumbnailplaylistpicture .showinggorg{
+    width:200px;
+    height: 200px;
+    position: relative;
+}
+.thumbnailplaylistpicture .playlisthumbnailpicture{
+    width: 200px;
+    height: 200px;
+}
+.thumbnailplaylistpicture .hello{
+    position:absolute;
+    right: 2px;
+    top: 3px;
+    width: 20px;
+    width: 20px;
+    height: 20px;
+    color: red;
     border-radius: 50%;
+    border: 1px solid white;
+    z-index: 9999;
+}
+.hello:hover{
+    transform: scale(1.1);
 }

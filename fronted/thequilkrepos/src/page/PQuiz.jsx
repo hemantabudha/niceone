@@ -410,7 +410,7 @@ export default function Pquiz() {
     <FontAwesomeIcon icon={faThumbsUp} className="likeicon"/> <span className="para">like notes</span>
   </div>
   <div className="sidediv" onClick={handlefollowing}>
-    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">your following</span>
+    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">following</span>
   </div>
   <div className="sidediv" onClick={handleyourquiz}>
                   <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon"/>
@@ -574,7 +574,7 @@ export default function Pquiz() {
               </div>
             </div>
              )
-       })):(<div style={{width:"100%",marginTop:"5%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",fontSize:"large",fontWeight:"500"}}>NO quiz Uploaded by Users....</div>)}
+       })):(<div style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>NO quiz Uploaded by Users....</div>)}
             </div>
         </div>
       </div>

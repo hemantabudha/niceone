@@ -312,7 +312,7 @@ const handletermandcondition=(e)=>{
     <FontAwesomeIcon icon={faThumbsUp} className="likeicon"/> <span className="para">like notes</span>
   </div>
   <div className="sidediv" onClick={handlefollowing}>
-    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">your following</span>
+    <FontAwesomeIcon icon={faUserPlus} className="followicon"/> <span className="para">following</span>
   </div>
   <div className="sidediv" onClick={handleyourquiz}>
                   <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon"/>
@@ -494,7 +494,7 @@ const handletermandcondition=(e)=>{
           })
         ) : (
           <div className="nodiv">
-            <p className="nocontent">LOADING...</p>
+            <p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>LOADING Content...</p>
           </div>
         )}
       </div>

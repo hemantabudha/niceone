@@ -75,7 +75,7 @@
   border-radius:17px 78px;
   margin-left: 21px;
   cursor: pointer;
-  box-shadow: 10px 10px 10px rgb(235, 231, 231);
+  box-shadow: 10px 10px 10px rgb(253, 252, 252);
   border: 1px solid white;
 }
 .publish .publishicon{
@@ -83,7 +83,7 @@
    height: 20px;
    border-radius: 50%;
    padding: 7px;
-   box-shadow: 5px 5px 15px rgba(236, 233, 233, 0.2);
+   box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
 }
 .publish .publishadd{
  
@@ -119,7 +119,7 @@
   height: 20px;
   border-radius: 50%;
   padding: 7px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(238, 236, 236, 0.2);
   margin-right: 10px;
   cursor: pointer;
   border: 2px solid white;
@@ -195,7 +195,7 @@
   font-size: large;
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(245, 239, 239);
 }
  .collectionnewsholder .newsholder{
   height: 230px;
@@ -227,7 +227,7 @@
   position: absolute;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 10px 10px 10px rgb(121, 117, 117);
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
  }
  .newsholder .newstitlediv{
   width: 200px;
@@ -242,7 +242,7 @@
 
  font-weight: 300;
  text-align: center;
- text-shadow: 10px 10px 10px black;
+ text-shadow: 10px 10px 10px rgb(243, 240, 240);
  }
 .posting{
   border: 1px solid red;
@@ -259,7 +259,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 10px 10px 10px rgb(221, 218, 218);
+  box-shadow: 10px 10px 10px rgb(252, 251, 251);
   border-radius: 17px 78px;
   border: none;
   cursor: pointer;
@@ -270,7 +270,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 5px 5px 15px rgba(247, 244, 244, 0.2);
+  box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
   padding: 7px;
 }
 .close .discard{
@@ -278,8 +278,8 @@
   font-size: 16px;
   text-align: center;
   font-weight: 500;
-
-  text-shadow: 10px 10px 10px rgb(241, 236, 236);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
+  text-shadow: 10px 10px 10px rgb(255, 254, 254);
 }
 
 .inputholders{
@@ -342,7 +342,8 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  box-shadow: 10px 10px 10px rgb(209, 205, 205);
+  box-shadow: 10px 10px 10px rgb(248, 246, 246);
+  border: 1px solid white;
 }
 .pluss:hover{
   color: red;
@@ -363,7 +364,7 @@
   margin-left: 25px;
   margin-top: 18px;
   border: none;
-  box-shadow: 10px 10px 10px rgb(211, 207, 207);
+  box-shadow: 10px 10px 10px rgb(248, 246, 246);
   border-radius: 17px;
   border: 1px solid white;
 }
@@ -377,7 +378,7 @@
   margin-bottom: 18px;
   margin-left: 25px;
   margin-top: 18px;
-  box-shadow: 10px 10px 10px rgb(209, 205, 205);
+  box-shadow: 10px 10px 10px rgb(241, 238, 238);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -425,7 +426,7 @@ border-radius: 17px;
 .showresults .bigshowimages{
   width: 300px;
   height: 300px;
-  box-shadow: 10px 10px 10px rgb(209, 205, 205);
+  box-shadow: 10px 10px 10px rgb(238, 236, 236);
   border-radius: 17px;
   border: 1px solid white;
 }
@@ -468,7 +469,7 @@ border: none;
   outline: none;
   font-weight: 500;
   background-color: transparent;
-  text-shadow: 10px 10px 10px rgb(138, 132, 132);
+  text-shadow: 10px 10px 10px rgb(255, 251, 251);
 }
 .titleinputs::placeholder{
   color: black;
@@ -499,9 +500,8 @@ border: none;
   margin-bottom: 10px;
   border-radius: 10px;
   margin-top: 9px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-  border: 2px solid black;
-  border: none;
+  box-shadow: 5px 5px 15px rgba(247, 245, 245, 0.2);
+  border: 1px solid white;
 }
 .container .imageandcreated{
 height: 60px;
@@ -517,7 +517,7 @@ align-items: center;
   width: 60px;
   height: 60px;
   border-radius: 17%;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(248, 246, 246, 0.2);
   transition: transform 2s ease-in-out
 }
 .imageprofile:hover{
@@ -542,7 +542,8 @@ align-items: center;
   font-weight: 500;
   white-space: wrap;       
   text-wrap: wrap;
-  overflow: hidden;  
+  overflow: hidden; 
+  text-shadow: 10px 10px 10px white;
 }
 .container .postingimage{
   height: 540px;
@@ -640,7 +641,7 @@ align-items: center;
   width: 200px;
   height: 200px;
   border-radius: 30px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 15px rgba(247, 245, 245, 0.2);
   transition: transform 0.2s ease;
 }
 
@@ -655,7 +656,7 @@ align-items: center;
   font-weight: 500;
 
   margin-top: 3px;
-  text-shadow: 10px 10px 10px rgb(121, 117, 117);
+  text-shadow: 10px 10px 10px rgb(241, 236, 236);
 }
 
   
@@ -709,7 +710,7 @@ align-items: center;
       width: 200px;
       height: 200px;
       border-radius: 12px;
-      box-shadow: 10px 10px 10px rgb(230, 226, 226);
+      box-shadow: 10px 10px 10px rgb(248, 246, 246);
       border: none;
     }
     .showresults .bigshowimages{
@@ -728,7 +729,7 @@ align-items: center;
       margin-top: 0px;
       border-radius: 12px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(226, 222, 222);
+      box-shadow: 10px 10px 10px rgb(240, 237, 237);
       border: 1px solid white;
     }
     .inputholders .inputselectors{
@@ -737,7 +738,7 @@ align-items: center;
       border: none;
     }
     .inputselectors .pluss{
-      box-shadow: 10px 10px 10px rgb(224, 212, 212);
+      box-shadow: 10px 10px 10px rgb(243, 241, 241);
       border: none;
       border: 1px solid white;
     }
@@ -762,7 +763,7 @@ align-items: center;
       border: 1px solid yellow;
       border-radius: 17px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(221, 216, 216);
+      box-shadow: 10px 10px 10px rgb(245, 243, 243);
       border: 1px solid white;
     }
     .inputpics .managers{
@@ -778,7 +779,7 @@ align-items: center;
       height: 90px;
       border-radius: 17px;
       border: none;
-      box-shadow: 10px 10px 10px rgb(230, 225, 225);
+      box-shadow: 10px 10px 10px rgb(245, 243, 243);
       border: 1px solid white;
     }
     .inputcontainers .inputposts {
@@ -786,7 +787,7 @@ align-items: center;
       margin-top: 10px;
       border: 3px solid blue;
       border: none;
-      box-shadow: 10px 10px 10px 10px rgb(228, 224, 224);
+      box-shadow: 10px 10px 10px 10px rgb(247, 245, 245);
       box-shadow: none;
       border: 1px solid white;
     }
@@ -821,7 +822,7 @@ align-items: center;
       width: 50px;
       height: 50px;
       border-radius: 17%;
-      box-shadow: 5px 5px 15px rgba(226, 223, 223, 0.2);
+      box-shadow: 5px 5px 15px rgba(247, 244, 244, 0.2);
       transition: transform 2s ease-in-out
     }
     .imageprofile:hover{
@@ -846,7 +847,7 @@ align-items: center;
       width: 100%;        
       text-align: center;         /* Make it take full width of the container */
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(233, 229, 229);
+      text-shadow: 10px 10px 10px rgb(247, 241, 241);
       
       /* Prevent text from wrapping to the next line */
       white-space: wrap;         /* This forces the text to stay on one line */
@@ -874,12 +875,12 @@ align-items: center;
    .createsearch .creates{
     border: 1px solid black;
     border: none;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(247, 245, 245, 0.2);
    }
    .createsearch .newssearch{
     border: 1px solid red;
     border: none;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(243, 241, 241, 0.2);
    }
    .newscontainer .actualnews{
     border: 1px solid black;
@@ -900,10 +901,10 @@ align-items: center;
     border: none;
    }
    .closeandadd .close{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(247, 246, 246, 0.2);
    }
    .closeandadd .publish{
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 15px rgba(250, 248, 248, 0.2);
    }
        }
  @media screen and (min-width: 400px) and (max-width: 760px) {
@@ -931,7 +932,7 @@ align-items: center;
       width: 50px;
       height: 50px;
       border-radius: 17%;
-      box-shadow: 5px 5px 15px rgba(236, 233, 233, 0.2);
+      box-shadow: 5px 5px 15px rgba(247, 245, 245, 0.2);
       transition: transform 2s ease-in-out
     }
     .imageprofile:hover{
@@ -956,7 +957,7 @@ align-items: center;
       width: 100%;        
       text-align: center;         /* Make it take full width of the container */
       font-weight: 500;
-      text-shadow: 10px 10px 10px rgb(233, 229, 229);
+      text-shadow: 10px 10px 10px rgb(241, 237, 237);
       
       /* Prevent text from wrapping to the next line */
       white-space: wrap;         /* This forces the text to stay on one line */
@@ -986,7 +987,7 @@ align-items: center;
       border-radius: 17px 78px;
       justify-content: center;
       align-items: center;
-      box-shadow: 10px 10px 10px rgb(121, 117, 117);
+      box-shadow: 10px 10px 10px rgb(245, 244, 244);
       border: none;
       cursor: pointer;
     }
@@ -995,7 +996,7 @@ align-items: center;
       height: 20px;
       border-radius: 50%;
       padding: 7px;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 15px rgba(245, 243, 243, 0.2);
       margin-right: 10px;
       cursor: pointer;
     }
@@ -1005,7 +1006,7 @@ align-items: center;
       text-align: center;
       font-weight: 500;
   
-      text-shadow: 10px 10px 10px rgb(236, 233, 233);
+      text-shadow: 10px 10px 10px rgb(245, 240, 240);
     }
     .createsearch .newssearch{
       width: 150px;
@@ -1020,7 +1021,7 @@ align-items: center;
       text-shadow: 10px 10px 10px rgb(241, 241, 241);
       border-radius: 17px 38px;
       background-color: transparent;
-      box-shadow: 10px 10px 10px rgb(121, 117, 117);
+      box-shadow: 10px 10px 10px rgb(247, 244, 244);
       border: none;
     }
     .newssearch::placeholder{
@@ -1033,16 +1034,16 @@ align-items: center;
     }
     .createsearch .creates{
       border: 1px solid black;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 5px 5px 15px rgba(250, 248, 248, 0.2);
       border: none;
     }
     .creates .add{
-      text-shadow: 10px 10px 10px rgb(145, 138, 138);
+      text-shadow: 10px 10px 10px rgb(250, 246, 246);
     }
     .createsearch .newssearch{
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
       border: 1px solid black;
-      text-shadow: 10px 10px 10px rgb(233, 229, 229);
+      text-shadow: 10px 10px 10px rgb(253, 249, 249);
       border: none;
     }
     

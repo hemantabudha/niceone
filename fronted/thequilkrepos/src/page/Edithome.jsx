@@ -17,6 +17,21 @@ const PlaylistComponent = ({ user, }) => {
   const [loadingpage, setLoadingpage] = useState(false); 
   const [page, setPage] = useState(1); 
   const[loadingchange,setloadingchange]=useState(false)
+  const[playlistthumbnail,setplaylistthumbnail]=useState(null)
+  const [activeIndex, setActiveIndex] = useState(null);  // Track which playlist should show the image
+const [currentImage, setCurrentImage] = useState(null); // Store the fetched image
+
+const fetchImage = async (index, id) => {
+  try {
+    const response = await axios.get(`${backendurl}/playlist/show/${id}`);
+    setActiveIndex(index); // Set the active playlist index
+    setCurrentImage(response.data.postdata.thumbnail); // Set the image
+  } catch (error) {
+    console.error("Error fetching image:", error);
+  }
+};
+
+
     useEffect(() => {
       const fetchUserData = async () => {
         setLoadingpage(true);
@@ -74,6 +89,8 @@ const PlaylistComponent = ({ user, }) => {
     setPlaylistDescription(playlist.description);
     setEditIndex(index);
     setIsEditing(true);
+    setCurrentImage(null)
+    setActiveIndex(null)
   };
 
   // Add New Note ID
@@ -118,6 +135,7 @@ const PlaylistComponent = ({ user, }) => {
   const cancelUpdate = () => {
     setIsEditing(false);
     setPlaylisterror("")
+    setplaylistthumbnail(null)
   };
 
   // Handle Playlist Update (API Request)
@@ -170,6 +188,7 @@ const PlaylistComponent = ({ user, }) => {
         updatedPlaylists[editIndex] = { ...updatedPlaylists[editIndex], ...updatedPlaylist };
         setNewPlaylist(updatedPlaylists); // Update the state correctly
         setIsEditing(false);
+        setPlaylisterror("")
       }
     } catch (error) {
       if (error.response) {
@@ -183,6 +202,7 @@ const PlaylistComponent = ({ user, }) => {
       }
     }finally {
      setloadingchange(false);
+     setplaylistthumbnail(null)
     }
   };
   
@@ -209,12 +229,31 @@ const PlaylistComponent = ({ user, }) => {
         // Successfully deleted playlist, update the UI (remove from state)
         const updatedPlaylists = newPlaylist.filter(playlist => playlist._id !== id);
         setNewPlaylist(updatedPlaylists);
+        setIsEditing(false)
       }
     } catch (error) {
       console.error("Error deleting playlist:", error);
       alert("Error deleting playlist.");
     }
   };
+  const handlenotdisplay=(e)=>{
+    e.stopPropagation();
+   setCurrentImage(null)
+   setActiveIndex(null)
+  }
+  const handlegetthumbnail = async (e,id) => {
+    e.stopPropagation();
+    try {
+    
+  
+      const response = await axios.get(`${backendurl}/playlist/show/${id}`);
+  
+     setplaylistthumbnail(response.data.postdata.thumbnail)
+    } catch (error) {
+      alert("i think this notes object id isnot valid.please check it out.");
+    }
+  };
+  
   
   return (
     <div className="playlist-container" onScroll={handleScroll}>
@@ -223,20 +262,14 @@ const PlaylistComponent = ({ user, }) => {
         newPlaylist.map((playlist, index) => (
           <div key={index} className="playlist">
             <div className="playlist-title">
-              {user && <img src={user.profile} className="imageprofile"/>}
-              <p className="playlisttitle">{playlist.title}</p>
-              <button className="edit-btn" onClick={() => editPlaylist(index)}>
-                <FontAwesomeIcon icon={faEdit} />
-              </button>
-              <button className="edit-btn" onClick={(e) => deletePlaylist(e,playlist._id)}>
-                <FontAwesomeIcon icon={faTrash} />
-              </button>
+              {user && <img src={user.profile} className="playlistprofile"/>}
+              <p className="playlisttitle">{playlist.title}</p>      
             </div>
 
             <div className="notes-list">
               {playlist.notes.map((id, i) => (
                 <div key={i} className={getNoteClass(id)}>
-                   <button className="remove-btn">{id}</button>
+                   <button className="remove-btn" onClick={() => fetchImage(index, id)}>{id}</button>
                 <FontAwesomeIcon
                   icon={faEdit}
                   onClick={() => editPlaylist(index)}
@@ -245,12 +278,20 @@ const PlaylistComponent = ({ user, }) => {
                 </div>
               ))}
             </div>
+            {activeIndex === index && currentImage && (
+      <div className="thumbnailplaylistpicture">
+        <div className="showinggorg">
+        <FontAwesomeIcon icon={faXmark} className="hello" onClick={handlenotdisplay}/>
+        <img src={currentImage} alt="Fetched" className="playlisthumbnailpicture" />
+        </div>
+      </div>
+    )}
 
             <div className="playlist-description">
-              <p className="renderdescription">{playlist.description}</p>
+              <p className="renderdescription">Description:{playlist.description}</p>
             </div>
           </div>
-        )):(<div><p>create playlist</p></div>)
+        )):(<div className="nodiv"><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',marginLeft:"50%"}}>UFF ! Create Some  Playlist</p></div>)
       ) : (
         <div className="playlist">
           <div className="inputandheadingplaylist">
@@ -267,16 +308,21 @@ const PlaylistComponent = ({ user, }) => {
           <div className="notes-list">
             {playlistNotes.map((id, index) => (
               <div key={index} className={getNoteClass(id)}>
-                <button className="remove-btn">{id}</button>
+                <button className="remove-btn" onClick={(e)=>{handlegetthumbnail(e,id)}}>{id}</button>
                 <FontAwesomeIcon
                   icon={faXmark}
                   onClick={() => removeNote(index)}
-                  className="xmarkicon"
+                  className="xmark-icon"
+               
                 />
               </div>
             ))}
           </div>
-
+          {playlistthumbnail && 
+         <div className="thumbnailplaylistpic">
+           <img src={playlistthumbnail} alt="" className="playlisthumbnailpic" />
+          </div>
+          } 
           <div className="notesobjectidcontainer">
             <input
               type="text"
@@ -304,6 +350,15 @@ const PlaylistComponent = ({ user, }) => {
           <div className="btn-container">
             <button onClick={submitUpdate} className="save-btn">{loadingchange?"uploading":"submitUpdate"}</button>
             <button onClick={cancelUpdate} className="cancel-btn">Cancel</button>
+          </div>
+          <div className="orbuttonfordelete">
+            <p className="porbutton">Or</p>
+          </div>
+          <div className="deletesection">
+            <div className="deletedivplaylist" onClick={(e)=>{deletePlaylist(e,newPlaylist[editIndex]._id)}}>
+          <button className="delete-btn">Delete Playlist</button>
+          <FontAwesomeIcon className="xmark-icon" icon={faXmark}/>  
+          </div>
           </div>
         </div>
       )}

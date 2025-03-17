@@ -722,7 +722,9 @@ export default function People() {
                 );
               })
             ) : (
-              <p>LOADING QUESTIONS </p>
+              <div className="nodiv">
+              <p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>LOADING QUESTIONS </p>
+              </div>
             )}
           </div>
         </div>

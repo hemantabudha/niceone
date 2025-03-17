@@ -57,6 +57,7 @@ export default function Profile() {
   const [invalidNotes, setInvalidNotes] = useState([]); // Store invalid notes from backend
   const[playlisterror,setplaylisterror]=useState("")
   const[edithome,setedithome]=useState(false);
+  const[playlistthumbnail,setplaylistthumbnail]=useState(null)
   const addNote = () => {
     const trimmedId = playlistNotesId.trim();
 
@@ -155,6 +156,7 @@ export default function Profile() {
     } finally {
       // Set loading state to false after the process finishes
       setplaylistloading(false);
+      setplaylistthumbnail(null)
     }
   };
   const getNoteClass = (noteId) => {
@@ -366,6 +368,30 @@ export default function Profile() {
 
     checkTokenAndFetchData();
   }, []);
+  const handlesethome = async (e, postId) => {
+    e.stopPropagation();
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token, redirect to login page
+      navigate("/login");
+      return;
+    }
+    try {
+      const response = await axios.post(
+        `${backendurl}/favorite`, // Backend API endpoint
+        { postId }, // Sending post ID
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, // Send the token in the Authorization header
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Error setting home post:", error);
+      alert("Failed to set home post. Try again.");
+    }
+  };
+  
   useEffect(() => {
     const fetchUserData = async () => {
       setLoadingpage(true);
@@ -1179,6 +1205,19 @@ export default function Profile() {
     setPlaylistNotes([]);
     setPlaylistNotesId("");
     setPlaylistdescription("")
+    setplaylistthumbnail(null)
+  };
+  const handlegetthumbnail = async (e,id) => {
+    e.stopPropagation();
+    try {
+    
+  
+      const response = await axios.get(`${backendurl}/playlist/show/${id}`);
+  
+     setplaylistthumbnail(response.data.postdata.thumbnail)
+    } catch (error) {
+      alert("i think this notes object id isnot valid.please check it out.");
+    }
   };
   return (
     <div className="alwaysmain">
@@ -1385,6 +1424,7 @@ export default function Profile() {
                     <div className="showoption">
                       <button className="buttonoptionshow" onClick={(e) => { handledeletepost(e, current._id) }}>delete</button>
                       <button className="buttonoptionshow" onClick={(e) => { handlecopypostid(e, current._id) }}>copy id</button>
+                      <button className="buttonoptionshow" onClick={(e) => { handlesethome(e, current._id) }}>set home</button>
                     </div>
                   )}
 
@@ -1720,11 +1760,16 @@ export default function Profile() {
           <div className="notes-list">
           {playlistNotes.map((id, index) => (
     <div key={index} className={`${getNoteClass(id)}`}>
-      <button className="remove-btn">{id}</button>
+      <button className="remove-btn" onClick={(e)=>{handlegetthumbnail(e,id)}}>{id}</button>
       <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
     </div>
   ))}
           </div>
+          {playlistthumbnail && 
+         <div className="thumbnailplaylistpic">
+           <img src={playlistthumbnail} alt="" className="playlisthumbnailpic" />
+          </div>
+          } 
           <div className="notesobjectidcontainer">
             <input
               type="text"

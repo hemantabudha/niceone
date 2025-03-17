@@ -322,6 +322,12 @@ postid:{
 }
 },{timestamps:true})
 const wishlistmodel=mongoose.model("wishlist",wishlistSchema)
+const favoriteSchema = new mongoose.Schema({
+  post: { type: mongoose.Schema.Types.ObjectId, ref: "post", required: true }, 
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: true }, 
+}, { timestamps: true });
+
+const FavoriteModel = mongoose.model("favorite", favoriteSchema);
 
 const newslikeschema = new mongoose.Schema({
   userId: {
@@ -1931,7 +1937,7 @@ app.get("/upload/file/:id", async (req, res) => {
   const initialLimit = req.query.initialLimit; 
   try {
     // Fetch post, but don't exclude 'quiz' yet
-    const post = await postmodel.findById(postId).populate('createdBy', 'name _id profile followercounts description notelink');
+    const post = await postmodel.findById(postId).populate('createdBy', 'name _id profile followercounts description ');
 
     if (!post) {
       return res.status(404).json({ error: "Post not found" });
@@ -3031,6 +3037,68 @@ app.post("/playlists/playlistcreator", async (req, res) => {
 // export const handler = (event, context) => {
 //   return awsServerlessExpress.proxy(server, event, context);
 // };
+app.get("/playlist/show/:id", async (req, res) => {
+  const postId = req.params.id;
+  try {
+    // Fetch post, but don't exclude 'quiz' yet
+    const post = await postmodel.findById(postId).select("thumbnail");
+
+    if (!post) {
+      return res.status(404).json({ error: "Post not found" });
+    }
+
+  
+ 
+    // Now you can exclude 'quiz' in the response if needed
+    const postData = post.toObject();
+
+
+    res.json({
+      postdata:postData
+   
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Failed to get the post, thank you" });
+  }
+});
+app.post("/favorite", async (req, res) => {
+  try {
+    const { postId } = req.body;
+    const token = req.headers["authorization"]?.split(" ")[1];
+  
+  if (!token) {
+    return res.status(403).json({ message: "Token is required" });
+  }
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY );
+    const userId = decoded.userId;
+    if (!postId) {
+      return res.status(400).json({ message: "Post ID is required" });
+    }
+
+    // Check if user already has a favorite post
+    const existingFavorite = await FavoriteModel.findOne({ createdBy: userId });
+
+    if (existingFavorite) {
+      // If already exists, replace it with the new one
+      existingFavorite.post = postId;
+      await existingFavorite.save();
+      return res.status(200).json({ message: "Favorite updated"});
+    }
+
+    // If no favorite exists, create a new one
+    const newFavorite = new FavoriteModel({
+      post: postId,
+      createdBy: userId,
+    });
+
+    await newFavorite.save();
+    return res.status(201).json({ message: "Post added to favorites"});
+
+  } catch (error) {
+    console.error("Error in setting favorite:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+});
 const port=8000
 app.listen(port,async()=>{
   console.log("server is running",port)
