@@ -27,7 +27,7 @@ const fetchImage = async (index, id) => {
     setActiveIndex(index); // Set the active playlist index
     setCurrentImage(response.data.postdata.thumbnail); // Set the image
   } catch (error) {
-    console.error("Error fetching image:", error);
+    alert("i think you maybe deleted this notes. ")
   }
 };
 
@@ -260,6 +260,7 @@ const fetchImage = async (index, id) => {
       {!isEditing ? (
         newPlaylist &&newPlaylist.length>0?
         newPlaylist.map((playlist, index) => (
+                 
           <div key={index} className="playlist">
             <div className="playlist-title">
               {user && <img src={user.profile} className="playlistprofile"/>}
@@ -285,13 +286,14 @@ const fetchImage = async (index, id) => {
         <img src={currentImage} alt="Fetched" className="playlisthumbnailpicture" />
         </div>
       </div>
-    )}
+    )}  
 
             <div className="playlist-description">
               <p className="renderdescription">Description:{playlist.description}</p>
+              {playlist.notes.length===0 && <FontAwesomeIcon icon={faEdit} className="xmarkdesc"  onClick={() => editPlaylist(index)}/>}
             </div>
           </div>
-        )):(<div className="nodiv"><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',marginLeft:"50%"}}>UFF ! Create Some  Playlist</p></div>)
+        )):(<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',}}>UFF ! Create Some  Playlist</p></div>)
       ) : (
         <div className="playlist">
           <div className="inputandheadingplaylist">

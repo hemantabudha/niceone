@@ -512,7 +512,7 @@ const handlemanagement=()=>{
                 </div>
               </div>
             )
-           })):(<div style={{width:"100%",marginTop:"50%",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",fontSize:"large",fontWeight:"500"}}>loading....</div>)
+           })):(<div style={{width:"100%",marginTop:"21px",height:"100%",display:"flex",justifyContent:"center",alignItems:"center",fontSize:"large",fontWeight:"500"}}>loading....</div>)
          )}
            </div>
       </div>

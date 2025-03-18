@@ -557,6 +557,11 @@ const userprofile=(e)=>{
   navigate(`/profile/info/${id}`)
  
 }
+const userhome=(e)=>{
+
+  navigate(`/userhome/${creatorinfo._id}`)
+
+}
 const likepage = (e) => {
   navigate(`/likenotes/${id}`)
 
@@ -687,6 +692,10 @@ const handlemanagement = () => {
             </div>
           </div>
           <div className="mobileops">
+             <div className="buttonholders" onClick={userhome}>
+                                      <FontAwesomeIcon icon={faHome}/>
+                                      <button className="buttonsz">User home</button>
+                                    </div>
               <div className="buttonholders" onClick={handleuserprofile}>
                 <FontAwesomeIcon icon={faUser} />
                 <button className="buttonsz">User Profile</button>

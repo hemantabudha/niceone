@@ -278,6 +278,11 @@ const handleprofilelink= (e) => {
     navigate(`/profile/info/${id}`)
    
  }
+ const userhome=(e)=>{
+
+  navigate(`/userhome/${id}`)
+
+}
   const usernews=(e)=>{
   
      navigate(`/profile/news/${id}`)
@@ -606,6 +611,10 @@ const handleImageLoad = (e) => {
              </div>
              </div>
     <div className="mobileops" style={{marginBottom:"0px",marginTop:"5px"}}>
+       <div className="buttonholders" onClick={userhome}>
+                                <FontAwesomeIcon icon={faHome}/>
+                                <button className="buttonsz">User home</button>
+                              </div>
                   <div className="buttonholders"  onClick={userprofile}>
                     <FontAwesomeIcon icon={faUser} />
                     <button className="buttonsz">User Profile</button>
@@ -760,7 +769,7 @@ const handleImageLoad = (e) => {
               </div>
              )
              })}
-            </div>):(<div className="nodiv"><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',marginLeft:"50%"}}>User doesn't create News</p></div>)}
+            </div>):(<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>User doesn't create News</p></div>)}
           </div>
           </div>
     </div>

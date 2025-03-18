@@ -2,27 +2,25 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../component/Navbar";
 import axios from "axios";
+import "./Userhome.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShare, faBookOpenReader, faHeart, faPlus, faUpload, faDollar, faRightFromBracket, faHome, faNewspaper, faThumbsUp, faUser, faUserPlus, faCrown, faArrowTrendUp, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faShare, faBookOpenReader, faHeart, faPlus, faUpload, faDollar, faRightFromBracket, faHome, faNewspaper, faThumbsUp, faUser, faUserPlus, faCrown, faArrowTrendUp, faUsers, faComment, faVoicemail, faQuestion, faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { Helmet } from "react-helmet"; // Import Helmet for dynamic SEO
-import "./Info.css"
-const ProfilePage = () => {
+export default function Userhome() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [user, setUser] = useState(null);
-  const [userPosts, setUserPosts] = useState([]);
   const backendurl = import.meta.env.VITE_BACKEND_URL;
+  const [user, setUser] = useState(null);
+  const [userid, setUserid] = useState(null)
   const [totallikes, settotallikes] = useState(null)
   const [follow, setFollow] = useState(null);
-  const [page, setPage] = useState(1);  // Track the current page
-  const [loading, setLoading] = useState(false);  // Track loading state 
-  const [userid, setUserid] = useState(null)
-  const handlepostinfo = (e, id) => {
-    e.stopPropagation();
-    navigate(`/detail/review/${id}`)
-
-  }
-  // Second useEffect: Fetch user data and posts
+  const [favoritepost, setfavoritepost] = useState(null)
+  const [loadingpage, setLoadingpage] = useState(false); 
+  const [page, setPage] = useState(1); 
+  const[playlistholder,setplaylistholder]=useState([])
+  const[latestpost,setlatestpost]=useState([])
+  const[popularpost,setpopularpost]=useState([])
+  const[oldestpost,setoldestpost]=useState([])
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -41,47 +39,9 @@ const ProfilePage = () => {
 
     fetchUserData();
   }, [id]);
-  const handleScroll = (e) => {
-    const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <= 100; // 100px tolerance before bottom
-    if (bottom && !loading) {
-      setPage((prevPage) => prevPage + 1); // Increment page number when scrolled near to the bottom
-    }
-  };
-  useEffect(() => {
-    const fetchUserData = async () => {
-      setLoading(true);
-      const initialLimit = window.innerWidth < 600 ? 9 : 18;
-      const limit = page === 1 ? initialLimit : 5;
-
-      try {
-        const response = await axios.post(`${backendurl}/upload/file/people/profile/profile/${id}`, {
-          limit,
-          excludeIds: userPosts.map((post) => post._id), // Exclude already fetched posts
-        });
-
-        const newPosts = response.data.datas;
-
-        if (page === 1) {
-          setUserPosts(newPosts); // Replace old data with fresh posts
-        } else {
-          setUserPosts((prevData) => {
-            // Ensure the order is maintained by reversing the new posts before prepending
-            return [...prevData, ...newPosts];
-          }); // Append for pagination
-        }
-      } catch (error) {
-        console.error("Error fetching user news:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchUserData();
-  }, [id, page, navigate]);
-
 
   const handleprofilelink = (e) => {
-    const url = `https://www.thequilk.com/profile/info/${id}`; // Construct the URL
+    const url = `https://www.thequilk.com/userhome/${id}`; // Construct the URL
     navigator.clipboard.writeText(url)
       .then(() => {
         alert(' profile link copied.Share it.');
@@ -190,42 +150,79 @@ const ProfilePage = () => {
   const handleImageLoad = (e) => {
     e.target.style.display = "block"; // Make the image visible as soon as it's loaded
   };
+  useEffect(() => {
+    if (!id) return;
 
-  const handleprofile = (e, id) => {
-    e.stopPropagation();
-    navigate(`/profile/info/${id}`)
-  }
-  const handlesignout = (e) => {
-    localStorage.removeItem('token')
-    navigate("/login")
-  }
-  const termandcondition = (e) => {
-    navigate("/terms-and-conditions")
-  }
+    const fetchTotalLikes = async () => {
+      try {
+        const response = await axios.get(`${backendurl}/favorite/${id}/posts`);
+        console.log(response.data.posts[0])
+        setfavoritepost(response.data.posts[0])
+      } catch (err) {
+        console.error("Error fetching total likes:", err.response || err);
+      }
+    };
 
-  const discussion = (e) => {
-    navigate("/people")
-  }
-  const profilepage = (e) => {
-    navigate("/profile")
-  }
-  const newspage = (e) => {
-    navigate("/news")
-  }
-  const wishlistpage = (e) => {
-    navigate("/wishlist")
-  }
-  const revenue = (e) => {
-    navigate("/revenue")
-  }
+    fetchTotalLikes();
+  }, [id]);
   const likepage = (e) => {
     navigate(`/likenotes/${id}`)
 
   }
-  const profile = (e) => {
-    navigate("/profile")
+  const handleusergetpost=async()=>{
+    try{
+      const response = await axios.get(`${backendurl}/user/posts/${id}`);
+      setlatestpost(response.data.latestPosts)
+      setpopularpost(response.data.popularPosts)
+      setoldestpost(response.data.oldestPosts)
+    }catch(error){
+      console.log(error)
+    }
   }
-  
+  useEffect(() => {
+    const fetchUserData = async () => {
+      setLoadingpage(true);
+     
+      const initialLimit = window.innerWidth < 600 ? 9 : 18;
+      const limit = page === 1 ? initialLimit : 5;
+     
+     if(loadingpage){
+      return;
+     }
+      try {
+        const response = await axios.post(`${backendurl}/playlists/playlistcreator/userhome/${id}`, {
+          limit,
+          excludeIds: playlistholder.map((post) => post._id), // Exclude already fetched posts
+        });
+         console.log(response.data.datas)
+        const newPosts = response.data.datas;
+       
+        if (page === 1) {
+          if(response.data && newPosts.length <=3){
+            handleusergetpost()
+          }
+          setplaylistholder(newPosts); // Replace old data with fresh posts
+        } else {
+          setplaylistholder((prevData) => {
+            // Ensure the order is maintained by reversing the new posts before prepending
+            return [...prevData, ...newPosts];
+          }); // Append for pagination
+        }
+      } catch (error) {
+        console.error("Error fetching user news:", error);
+      } finally {
+        setLoadingpage(false);
+      }
+    };
+
+    fetchUserData();
+  }, [page, backendurl]);
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <= 100; // 100px tolerance before bottom
+    if (bottom && !loadingpage) {
+      setPage((prevPage) => prevPage + 1); // Increment page number when scrolled near to the bottom
+    }
+  };
   const handlehome = (e) => {
     navigate("/")
   }
@@ -239,7 +236,7 @@ const ProfilePage = () => {
     navigate(`/follower/${id}`)
 
   }
-  const userprofile=(e)=>{
+  const userprofile = (e) => {
     navigate(`/profile/info/${id}`)
   }
   const usernews = (e) => {
@@ -300,6 +297,10 @@ const ProfilePage = () => {
     } else {
       alert("login to see your note.")
     }
+  }
+  const handlesignout = (e) => {
+    localStorage.removeItem('token')
+    navigate("/login")
   }
   const handleyourdisscussion = (e) => {
     const token = localStorage.getItem("token");
@@ -367,47 +368,12 @@ const ProfilePage = () => {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
-  const userhome=(e)=>{
-
+  const userhome = () => {
     navigate(`/userhome/${id}`)
-  
   }
+
   return (
     <div className="alwaysmain">
-      <Helmet>
-
-        <title> {user ? `${user.name} - Notes` : 'News - TheQuilk'}- TheQuilk</title>
-
-        {/* Meta Description */}
-        <meta
-          name="description"
-          content={`Explore the profile of ${user?.name} on TheQuilk!.${user?.name} has uploaded increadible handwritten notes as well as well as his question to the community along his favourite notes and his following who is he trying to follow as well as written notes on thequilk . see on thequilk`}
-        />
-
-        {/* Open Graph Tags for social media sharing */}
-        <meta property="og:title" content={`${user?.name}-Notes`} />
-        <meta
-          property="og:description"
-          content={`Explore the profile of ${user?.name} on TheQuilk! See all the notes uploaded by him.${user?.name} has uploaded increadible handwritten notes as well as well written notes on thequilk ,his favourite notes  as well as his following and his question to the community also . see on thequilk`}
-        />
-        <meta property="og:image" content={user?.profile} />
-        <meta property="og:type" content="profile" />
-        <meta property="og:url" content={window.location.href} />
-
-        {/* Twitter Card Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={user?.name} />
-        <meta
-          name="twitter:description"
-          content={`Explore the profile of ${user?.name} on TheQuilk! See all the notes uploaded by him.${user?.name} has uploaded increadible handwritten notes as well as well written notes on thequilk as well as his favourite notes as well as his follwing notes  and his question to the community also  . see on thequilk`}
-        />
-        <meta name="twitter:image" content={user?.profile} />
-
-
-        {/* SEO Keywords for profile page */}
-        <meta name="robots" content="index, follow" />
-        <meta name="keywords" content={`${user?.name} notes, ${user?.name} profile,${user?.name}handwrittennotes ,  ${user?.name}follower, ${user?.name}question,${user?.name} farrey,notesharing,student questions, community engagement`} />
-      </Helmet>
       <Navbar />
       <div className="modern">
         <div className="sidebar">
@@ -475,7 +441,7 @@ const ProfilePage = () => {
             <span className="para">Terms and Condition</span>
           </div>
         </div>
-        <div className="infoforallthediv" onScroll={handleScroll}>
+        <div className="userhome" onScroll={handleScroll}>
           <div className="userprofilediv">
             {user && <img src={user.profile} alt="" className="imageprofiles" onLoad={handleImageLoad} style={{ display: "none" }} />}
             {user && <p className="usernameclasss">{user.name}</p>}
@@ -499,10 +465,10 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="mobileops">
-            <div className="buttonholders" onClick={userhome}>
-                          <FontAwesomeIcon icon={faHome}/>
-                          <button className="buttonsz">User home</button>
-                        </div>
+              <div className="buttonholders" onClick={userhome}>
+                <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">User home</button>
+              </div>
               <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
                 <button className="buttonsz">User Profile</button>
@@ -561,23 +527,128 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <div className="recommendiationdivs">
-                <p className="recommendiationparas">Allnotes</p>
+          {favoritepost && (
+            <div className="favoriteshowndiv">
+              <div className="recommendiationdiv">
+                <p className="recommendiationpara">Recommendation</p>
               </div>
-          <div className="userdivhola">
-            {userPosts.length > 0 ? (userPosts && userPosts.map((current, index) => {
-              return (
-                <div className="boxa" key={index} >
-                  <img src={current.thumbnail} alt="Selected" className="thumbnailpictur" onClick={(e) => { handlepostinfo(e, current._id) }} onLoad={handleImageLoad} style={{ display: "none" }} />
-                  <p className="paragraphtitl">{current.title}</p>
-                </div>
-              )
-            })) : (<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>Uff! User doesn't create Post</p></div>)}
+              <div className="favoriteimageandall">
+                <div className="imagefavoritediv">
+              <img src={favoritepost.thumbnail} alt="" className="favoriteimage" />
+              </div>
+              <div className="favoritedescriptiondiv">
+              <p className="favoritetitle">Title : {favoritepost.title}</p>
+              <p className="favoritedescription">{favoritepost.description}</p>
+             <div className="likecommentandquizdiv">
+              <button className="buttonfavorite"><FontAwesomeIcon icon={faThumbsUp}className="likesinfofollow"/> <span>{formatLikes(favoritepost.likesCount)}</span></button>
+              <button className="buttonfavorite" ><FontAwesomeIcon icon={faComment} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+              <button className="buttonfavorite" ><FontAwesomeIcon icon={faQuestion} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+             </div>
+              
+              </div>
+              </div>
+            </div>)}
+          {latestpost && latestpost.length>0 && (
+            <div className="playlistholdingdiv">
+              <div className="playlisttitlehomediv">
+           <p className="playlisttitlehome">Latest Posts from {user?user.name:""} That Are Gaining Popularity</p>
+           </div>
+           <div className="notesofplaylistholder">
+           {latestpost&& latestpost.length>0&& latestpost.map((current,index)=>{
+            return(
+              <div key={index} className="holderofplaylistnote">
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <p className="textofplaylistnote">{current.title}</p>
+              </div>
+            )
+           })}
+           </div>
+           <div className="playlistdescriptionholder" style={{ justifyContent:latestpost.length > 4 ? "center" : "start" }}>
+           <p className="playlistdescriptiontext">Description:Dive into the latest playlists created by {user?user.name:""}! These newly curated playlists feature fresh, trending content that’s bound to keep you engaged. Perfect for discovering new favorites!"</p>
+           </div>
+            </div>
+          )}
+           {playlistholder && playlistholder.length>0 &&(
+              <div className="recommendiationdiv" style={{marginTop:"5px",display:"flex",alignItems:"center"}}>
+                <p className="recommendiationpara">Userplaylists</p>
+                <FontAwesomeIcon icon={faPlay} style={{marginLeft:"6px"}}/>
+              </div>
+            )}
+          {playlistholder && playlistholder.length>0 && playlistholder.map((playlist,id)=>{
+            return(
+              <div key={id}>
+              {playlist.notes && playlist.notes.length>0 &&(
+                <div key={id} className="playlistholdingdiv">
+           <div className="playlisttitlehomediv">
+           <p className="playlisttitlehome">{playlist.title}</p>
+           </div>
+          
+           <div className="notesofplaylistholder">
+           {playlist.notes && playlist.notes.length>0&& playlist.notes.map((current,index)=>{
+            return(
+              <div key={index} className="holderofplaylistnote">
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <p className="textofplaylistnote">{current.title}</p>
+              </div>
+            )
+           })}
+           </div>
+           <div className="playlistdescriptionholder" style={{ justifyContent: playlist.notes.length > 4 ? "center" : "start" }}>
+           <p className="playlistdescriptiontext">Description:{playlist.description}</p>
+           </div>
+              </div>
+            )}
+              </div>
+            )
+          })}
+            {latestpost && latestpost.length>1 && popularpost && popularpost.length>0 && (
+            <div className="playlistholdingdiv">
+              <div className="playlisttitlehomediv">
+           <p className="playlisttitlehome">Fan Favorites The Most Popular Playlists from {user?user.name:""}</p>
+           </div>
+           <div className="notesofplaylistholder">
+           {popularpost&& popularpost.length>0&& popularpost.map((current,index)=>{
+            return(
+              <div key={index} className="holderofplaylistnote">
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <p className="textofplaylistnote">{current.title}</p>
+              </div>
+            )
+           })}
+           </div>
+           <div className="playlistdescriptionholder" style={{ justifyContent:popularpost.length > 4 ? "center" : "start" }}>
+           <p className="playlistdescriptiontext">Description:Dive into {user?user.name:""}'s most popular playlists! These collections are packed with the highest-rated and most-played tracks, showcasing the best content that everyone is enjoying right now!</p>
+           </div>
+            </div>
+          )}
+            {latestpost && latestpost.length>1 && oldestpost && oldestpost.length>0 && (
+            <div className="playlistholdingdiv">
+              <div className="playlisttitlehomediv">
+           <p className="playlisttitlehome">Oldies But Goodies: Classic Playlists Collection from {user?user.name:""}</p>
+           </div>
+           <div className="notesofplaylistholder">
+           {oldestpost&& oldestpost.length>0&& oldestpost.map((current,index)=>{
+            return(
+              <div key={index} className="holderofplaylistnote">
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <p className="textofplaylistnote">{current.title}</p>
+              </div>
+            )
+           })}
+           </div>
+           <div className="playlistdescriptionholder" style={{ justifyContent:oldestpost.length > 4 ? "center" : "start" }}>
+           <p className="playlistdescriptiontext">Description : Discover the timeless playlists that have been part of {user?user.name:""}’s collection for the longest time. These classic playlists offer a glimpse into the journey and musical evolution, bringing you nostalgic gems from the past</p>
+           </div>
+            </div>
+          )}
+          
+          <div>
+
           </div>
         </div>
       </div>
-    </div>
-  );
 
-};
-export default ProfilePage;
+    </div>
+
+  )
+}

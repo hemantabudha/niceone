@@ -308,6 +308,11 @@ export default function Follower() {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
+  const userhome=(e)=>{
+
+    navigate(`/userhome/${id}`)
+  
+  }
   return (
     <div className="alwaysmain">
       <Helmet>
@@ -435,6 +440,10 @@ export default function Follower() {
 
           <div className="followingcontainer">
             <div className="mobileops">
+               <div className="buttonholders" onClick={userhome}>
+                                        <FontAwesomeIcon icon={faHome}/>
+                                        <button className="buttonsz">User home</button>
+                                      </div>
               <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
                 <button className="buttonsz">User Profile</button>
@@ -508,7 +517,7 @@ export default function Follower() {
                   </div>
                 </div>
               )
-            })) : (<div className="nodiv"><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>"Following: Oof! No following by the user."</p></div>)}
+            })) : (<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>"Following: Oof! No following by the user."</p></div>)}
           </div>
         </div>
       </div>

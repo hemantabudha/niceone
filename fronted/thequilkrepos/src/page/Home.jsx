@@ -493,7 +493,7 @@ const handletermandcondition=(e)=>{
             );
           })
         ) : (
-          <div className="nodiv">
+          <div style={{display:"flex",justifyContent:"center"}}>
             <p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>LOADING Content...</p>
           </div>
         )}

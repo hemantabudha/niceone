@@ -442,6 +442,11 @@ const usernews=(e)=>{
    navigate(`/profile/news/${id}`)
 
 }
+const userhome=(e)=>{
+
+  navigate(`/userhome/${id}`)
+
+}
 const trend=()=>{
   navigate("/trending")
 }
@@ -723,6 +728,10 @@ useEffect(() => {
      
         <div className="myquestion">
            <div className="mobileops" style={{marginBottom:"0px"}}>
+           <div className="buttonholders" onClick={userhome}>
+                          <FontAwesomeIcon icon={faHome}/>
+                          <button className="buttonsz">User home</button>
+                        </div>
                         <div className="buttonholders" onClick={userprofile}>
                           <FontAwesomeIcon icon={faUser}/>
                           <button className="buttonsz">User Profile</button>
@@ -895,7 +904,7 @@ onChange={(e) => handleCommentInputChange(post._id, e)}  // Handle comment chang
     );
   })
     ) : (
-      <div className="nodiv">
+      <div style={{display:"flex",justifyContent:"center"}}>
       <p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>No questions Raise by users..... </p>
       </div>
     )}

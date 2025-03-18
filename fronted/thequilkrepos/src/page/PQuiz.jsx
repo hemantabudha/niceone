@@ -176,6 +176,11 @@ export default function Pquiz() {
     navigate(`/profile/info/${id}`)
    
  }
+ const userhome=(e)=>{
+
+  navigate(`/userhome/${id}`)
+
+}
   const usernews=(e)=>{
  
      navigate(`/profile/news/${id}`)
@@ -487,6 +492,10 @@ export default function Pquiz() {
           </div>
           <div className="searchdataquizandnonsearchdisplay"> 
                   <div className="mobileops" style={{marginBottom:"1px"}}>
+                     <div className="buttonholders" onClick={userhome}>
+                                              <FontAwesomeIcon icon={faHome}/>
+                                              <button className="buttonsz">User home</button>
+                                            </div>
                                 <div className="buttonholders" onClick={userprofile}>
                                   <FontAwesomeIcon icon={faUser} />
                                   <button className="buttonsz">User Profile</button>
@@ -574,7 +583,7 @@ export default function Pquiz() {
               </div>
             </div>
              )
-       })):(<div style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>NO quiz Uploaded by Users....</div>)}
+       })):(<div style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',display:"flex",justifyContent:"center"}}>NO quiz Uploaded by Users....</div>)}
             </div>
         </div>
       </div>

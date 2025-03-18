@@ -370,6 +370,7 @@ export default function Profile() {
   }, []);
   const handlesethome = async (e, postId) => {
     e.stopPropagation();
+    setActivePost(null)
     const token = localStorage.getItem("token");
     if (!token) {
       // If no token, redirect to login page
@@ -641,9 +642,8 @@ export default function Profile() {
           "Authorization": `Bearer ${token}`,
         },
       });
-      const responseremaining = response.data.remainingPosts;
-      const remainalso = responseremaining.reverse();
-      setpostdata(remainalso)
+      const updatedpostdata = postdata.filter(postdata => postdata._id !== id);
+      setpostdata(updatedpostdata)
       setActivePost(null)
     } catch (error) {
     }
@@ -1012,6 +1012,14 @@ export default function Profile() {
     newsettitle("")
  
   }
+  const seehome=()=>{
+    const token = localStorage.getItem("token");
+    if (token && userid) {
+      navigate(`/userhome/${userid}`)
+    } else {
+      alert("login to see your home.")
+    }
+  }
   const handleSubmitnews = async (e) => {
     e.preventDefault();
 
@@ -1333,6 +1341,10 @@ export default function Profile() {
               </div>
             </div>
             <div className="mobileops">
+            <div className="buttonholders" onClick={seehome}>
+                <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">See Homes</button>
+              </div>
             <div className="buttonholders" onClick={toggleForm}>
                 <FontAwesomeIcon icon={faHome} />
                 <button className="buttonsz">Setup Homes</button>

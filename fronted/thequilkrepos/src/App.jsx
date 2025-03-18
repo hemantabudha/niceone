@@ -25,6 +25,7 @@ import Trending from "./page/Trending";
 import Quiz from "./page/Quiz";
 import Quizinfo from "./page/Quizinfo";
 import Pquiz from "./page/PQuiz";
+import Userhome from "./page/Userhome";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,6 +77,10 @@ element:<Signup/>
 {
   path:"/profile/info/:id",
   element:(<Info/>)
+},
+{
+  path:"/userhome/:id",
+  element:(<Userhome/>)
 },
 {
 path:"/profile/quiz/:id",

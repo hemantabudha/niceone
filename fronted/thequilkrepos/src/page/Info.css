@@ -103,7 +103,7 @@
 .userprofilediv .imageprofiles{
   width: 150px;
   height: 150px;
-  box-shadow: 10px 10px 10px rgba(238, 235, 235, 0.3);
+  box-shadow: 10px 10px 10px rgba(247, 245, 245, 0.3);
   transition: transform 0.2s ease;
   border-radius: 50%;
   border: 1px solid black;
@@ -191,7 +191,7 @@
 .userinfotext{
   font-size: 17px;
   font-weight: 500;
-  text-shadow: 10px 10px 10px rgb(228, 222, 222);
+  text-shadow: 10px 10px 10px rgb(255, 255, 255);
   text-align: center;
 }
 .userprofilediv .links{

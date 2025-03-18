@@ -61,7 +61,7 @@ border: none;
   width: 100%;
   margin-top: 5px;
   text-align: center;
-  text-shadow: 10px 10px 10px rgba(107, 104, 104, 0.5);
+  text-shadow: 10px 10px 10px rgba(247, 241, 241, 0.5);
   color: black;
   border: none;
 }
@@ -82,7 +82,7 @@ border: none;
   width: 110px;
   font-weight: 500;
   background-color: transparent;
-  text-shadow: 10px 10px 10px rgb(173, 171, 171);
+  text-shadow: 10px 10px 10px rgb(245, 240, 240);
 }
 .upperfollow .none1{
    outline: none;

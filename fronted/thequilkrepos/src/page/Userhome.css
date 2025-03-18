@@ -1,0 +1,629 @@
+
+.userhome {
+    border: 1px solid red;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: none;
+}
+
+.userhome::-webkit-scrollbar {
+    width: 8px;
+    display: none
+}
+
+.userhome::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #faf5f5;
+    display: none;
+}
+
+.userhome::-webkit-scrollbar-thumb {
+    background-color: rgb(187, 162, 162);
+    border-radius: 10px;
+    height: 15px;
+    display: none;
+}
+
+.userhome .favoriteshowndiv{
+    display: flex;
+    flex-direction: column;
+}
+.favoriteshowndiv .recommendiationdiv{
+    border: 1px solid black;
+    border: none;
+    margin-bottom: 3px;
+}
+.recommendiationdiv .recommendiationpara{
+    font-size: large;
+    font-weight: 600;
+    margin-left: 21px;
+}
+.favoriteshowndiv .recommendiationdivs{
+    border: 1px solid black;
+    border: none;
+    margin-bottom: 3px;
+}
+.recommendiationdivs .recommendiationparas{
+    font-size: large;
+    font-weight: 600;
+    margin-left: 21px;
+}
+.favoriteshowndiv .favoriteimageandall{
+    display: flex;
+    width: 100%;
+}
+.favoriteimageandall .imagefavoritediv{
+    border: 1px solid black;
+    margin-left: 8px;
+    border: none;
+}
+.imagefavoritediv .favoriteimage{
+   width: 300px;
+   height: 200px;
+}
+.favoriteimageandall .favoritedescriptiondiv{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex-grow: 1;
+    justify-content: center;
+    border: none;
+}
+.favoritedescriptiondiv .favoritetitle{
+    font-size: 15px;
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: capitalize;
+    word-wrap: break-word;  /* Ensures long words break to fit */
+  
+    /* Ensure long words break to fit within the container */
+    word-wrap: break-word;  /* Break long words */
+    word-break: break-word;
+}
+.favoritedescriptiondiv .favoritedescription{
+    font-size: 17px;
+    width: 50%;
+    margin-top: 3px;
+    word-wrap: break-word;  /* Ensures long words break to fit */
+  
+    /* Ensure long words break to fit within the container */
+    word-wrap: break-word;  /* Break long words */
+    word-break: break-word;
+}
+.favoriteimageandall .likecommentandquizdiv{
+    width: 100%;
+    display: flex;
+    margin-top: 6px;
+}
+.likecommentandquizdiv .buttonfavorite{
+    height: 36px;
+    width: 150px;
+    border: 1px solid white;
+    margin-left: 3px;
+    outline: none;
+}
+.buttonfavorite:hover{
+    color: red;
+    transform: scale(1.05);
+}
+.likecommentandquizdiv .likesinfofollow{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+@media screen and (min-width: 0px) and (max-width:450px) {
+    .recommendiationdiv .recommendiationpara{
+        font-size: large;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+    .favoriteshowndiv .recommendiationdiv{
+        border: 1px solid black;
+        border: none;
+        margin-bottom: 1px;
+    }
+    .recommendiationdivs .recommendiationparas{
+        font-size: large;
+        font-weight: 600;
+        margin-left: 5px;
+        display: none;
+    }
+    .favoriteshowndivs .recommendiationdivs{
+        border: 1px solid black;
+        border: none;
+        margin-bottom: 1px;
+        text-transform: capitalize;
+        display: none;
+    }
+    .favoriteshowndiv .favoriteimageandall{
+        display: flex;
+        flex-direction: column;
+    }
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 100%;
+        margin-top: 3px;
+    }
+    .favoriteimageandall .favoritedescriptiondiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .favoriteimageandall .imagefavoritediv{
+        border: 1px solid black;
+        margin-left: 0px;
+        border: none;
+        width: 100%;
+    }
+    .imagefavoritediv .favoriteimage{
+        width: 100%;
+        height:200px;
+    }
+    .likecommentandquizdiv .buttonfavorite{
+        height: 36px;
+        width:31%;
+        border: 1px solid white;
+    }
+}
+@media screen and (min-width: 449px) and (max-width:750px) {
+    .recommendiationdiv .recommendiationpara{
+        font-size: large;
+        font-weight: 600;
+        margin-left: 5px;
+    }
+    .favoriteshowndiv .recommendiationdiv{
+        border: 1px solid black;
+        border: none;
+        margin-bottom: 1px;
+    }
+    .recommendiationdivs .recommendiationparas{
+        font-size: large;
+        font-weight: 600;
+        margin-left: 5px;
+        display: none;
+    }
+    .favoriteshowndivs .recommendiationdivs{
+        border: 1px solid black;
+        border: none;
+        margin-bottom: 1px;
+        text-transform: capitalize;
+        display: none;
+    }
+    .favoriteshowndiv .favoriteimageandall{
+        display: flex;
+        flex-direction: column;
+    }
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 100%;
+        margin-top: 3px;
+    }
+    .favoriteimageandall .favoritedescriptiondiv{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .favoriteimageandall .imagefavoritediv{
+        border: 1px solid black;
+        margin-left: 0px;
+        border: none;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .imagefavoritediv .favoriteimage{
+        width: 70%;
+        height:200px;
+    }
+    .likecommentandquizdiv .buttonfavorite{
+        height: 36px;
+        width:31%;
+        border: 1px solid white;
+    }
+    .favoritedescriptiondiv .favoritetitle{
+        font-size: 15px;
+        margin-top: 6px;
+        font-weight: 600;
+        text-transform: capitalize;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+      
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+    }
+}
+@media screen and (min-width:749px) and (max-width:1000px){
+   
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 100%;
+        margin-top: 3px;
+    }
+    .likecommentandquizdiv .buttonfavorite{
+        height: 36px;
+        width:100px;
+        border: 1px solid white;
+    }
+    .favoriteimageandall .likecommentandquizdiv{
+        width: 100%;
+        display: flex;
+        margin-top: 6px;
+        justify-content: center;
+    }
+    .favoriteshowndiv .favoriteimageandall{
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+}
+@media screen and (min-width:999px) and (max-width:1200px){
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 90%;
+        margin-top: 3px;
+       border: none;
+    }
+}
+@media screen and (min-width:1199px) and (max-width:1400px){
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 80%;
+        margin-top: 3px;
+       border: none;
+    }
+}
+@media screen and (min-width:1399px) and (max-width:1500px){
+   
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 68%;
+        margin-top: 3px;
+        border: none;
+    }
+}
+@media screen and (min-width:1499px) and (max-width:1900px){
+   
+    .favoritedescriptiondiv .favoritedescription{
+        font-size: 17px;
+        width: 65%;
+        margin-top: 3px;
+        border: none;
+    }
+}
+.userhome .playlistholdingdiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+}
+.playlistholdingdiv .playlisttitlehomediv{
+    display: flex;
+    width: 100%;
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+.playlisttitlehomediv .playlisttitlehome{
+    font-size: large;
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: capitalize;
+    word-wrap: break-word;  /* Ensures long words break to fit */
+  
+    /* Ensure long words break to fit within the container */
+    word-wrap: break-word;  /* Break long words */
+    word-break: break-word;
+}
+.playlistholdingdiv .playlistdescriptionholder{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.playlistdescriptionholder .playlistdescriptiontext{
+    font-size: large;
+    margin-top: 6px;
+    font-weight: 500;
+    text-transform: capitalize;
+    word-wrap: break-word;  /* Ensures long words break to fit */
+  
+    /* Ensure long words break to fit within the container */
+    word-wrap: break-word;  /* Break long words */
+    word-break: break-word;
+}
+.playlistholdingdiv .notesofplaylistholder{
+    display: flex;
+    width: 100%;
+    overflow: auto;
+}
+.notesofplaylistholder::-webkit-scrollbar {
+    width: 8px;
+    display: none
+}
+
+.notesofplaylistholder::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #faf5f5;
+    display: none;
+}
+
+.notesofplaylistholder::-webkit-scrollbar-thumb {
+    background-color: rgb(187, 162, 162);
+    border-radius: 10px;
+    height: 15px;
+    display: none;
+}
+.notesofplaylistholder .holderofplaylistnote{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:300px;
+    margin-left: 10px;
+}
+.holderofplaylistnote .imageofplaylistnote{
+   width: 300px;
+    height: 210px; 
+}
+.holderofplaylistnote .textofplaylistnote{
+    /* min-height: 40px;
+    max-height: 60px; */
+    text-align: center;
+    /* display: flex;
+    align-items: center; */
+    word-wrap: break-word;  /* Ensures long words break to fit */
+  
+    /* Ensure long words break to fit within the container */
+    word-wrap: break-word;  /* Break long words */
+    word-break: break-word;
+}
+@media screen and (min-width: 0px) and (max-width:600px){
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 1px;
+        margin-bottom:3px;
+    }
+    .playlisttitlehomediv .playlisttitlehome{
+        font-size: 14px;
+        margin-top: 6px;
+        font-weight: 600;
+        text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: start;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        height: 15px;
+        margin-left: 3px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlistdescriptionholder{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .playlistdescriptionholder .playlistdescriptiontext{
+        margin-top: 3px;
+        font-size: 15px;
+        font-weight: 500;
+       text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: center;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        min-height: 20px;
+        max-height: 35px;
+        overflow: hidden;
+        
+        border: 1px solid white;
+    }
+    .holderofplaylistnote .textofplaylistnote{
+        height: 20px;
+        text-align: center;
+       
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        overflow: hidden;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        border: none;
+        margin-top: 6px;
+        display: none;
+    }
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}
+@media screen and (min-width: 599px) and (max-width:1000px){
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 1px;
+        margin-bottom:1px;
+    }
+    .playlisttitlehomediv .playlisttitlehome{
+        font-size: 14px;
+        margin-top: 6px;
+        font-weight: 600;
+        text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: start;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        height: 17px;
+        margin-left: 5px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlistdescriptionholder{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .playlistdescriptionholder .playlistdescriptiontext{
+        margin-top: 3px;
+        font-size: 15px;
+        font-weight: 500;
+       text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: center;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        min-height: 20px;
+        max-height: 35px;
+        overflow: hidden;
+        
+        border: 1px solid white;
+    }
+    .holderofplaylistnote .textofplaylistnote{
+        height: 20px;
+        text-align: center;
+        text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        overflow: hidden;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        border: none;
+        margin-top: 6px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}
+@media screen and (min-width: 999px) and (max-width:1200px){
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 1px;
+        margin-bottom:1px;
+    }
+    .playlisttitlehomediv .playlisttitlehome{
+        font-size: 15px;
+        margin-top: 6px;
+        font-weight: 600;
+        text-transform: capitalize;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: start;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        height: 17px;
+        margin-left: 5px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlistdescriptionholder{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .playlistdescriptionholder .playlistdescriptiontext{
+        margin-top: 3px;
+        font-size: 15px;
+        font-weight: 500;
+       text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: center;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        min-height: 20px;
+        max-height: 35px;
+        overflow: hidden;
+        
+        border: 1px solid white;
+    }
+    .holderofplaylistnote .textofplaylistnote{
+        height: 20px;
+        text-align: center;
+        text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        overflow: hidden;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        border: none;
+        margin-top: 6px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}
+@media screen and (min-width: 1199px){
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 1px;
+        margin-bottom:1px;
+    }
+    .playlisttitlehomediv .playlisttitlehome{
+        font-size: 15px;
+        margin-top: 6px;
+        font-weight: 600;
+        text-transform: capitalize;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: start;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        height: 17px;
+        margin-left: 12px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlistdescriptionholder{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    .playlistdescriptionholder .playlistdescriptiontext{
+        margin-top: 3px;
+        font-size: 16.2px;
+        font-weight: 500;
+       text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        text-align: center;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        min-height: 20px;
+        max-height: 35px;
+        overflow: hidden;
+        
+        border: 1px solid white;
+    }
+    .holderofplaylistnote .textofplaylistnote{
+        height: 20px;
+        text-align: center;
+        text-transform: lowercase;
+        word-wrap: break-word;  /* Ensures long words break to fit */
+        overflow: hidden;
+        /* Ensure long words break to fit within the container */
+        word-wrap: break-word;  /* Break long words */
+        word-break: break-word;
+        border: none;
+        margin-top: 6px;
+        overflow: hidden;
+    }
+    .playlistholdingdiv .playlisttitlehomediv{
+        display: flex;
+        width: 100%;
+        margin-left: 5px;
+        margin-bottom: 5px;
+    }
+}

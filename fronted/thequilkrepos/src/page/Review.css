@@ -221,7 +221,6 @@
 }
 .imagedivreview {
   margin-top: 10px;
-  border: 3px solid black;
   display: flex;
   margin-left:0.5%;
   margin-right: 0.5%;
@@ -233,7 +232,7 @@
   width: 99%;
   box-shadow: 10px 10px 10px 10px rgba(211, 207, 207, 0.2);
   border-radius: 15px;
-  border: none;
+  border: 1px solid white;
 }
 .imagedivreview::-webkit-scrollbar {
   width: 8px;  
@@ -269,6 +268,7 @@
   border-radius: 15%;
   box-shadow: 5px 5px 15px rgba(245, 242, 242, 0.5);
   transition: all 0.2s ease-in;
+  border: 1px solid white;
 }
 .imageprev:hover ,.imageprevdata:hover{
   transform: scale(1.3);
@@ -280,13 +280,14 @@
   font-size: large;
   font-weight: 500;
 
-  text-shadow: 10px 10px 10px black;
+  text-shadow: 10px 10px 10px rgb(252, 249, 249);
   border-radius: 15px;
   border: none;
   outline: none;
   margin-left: 40px;
-  box-shadow: 10px 10px 10px  rgb(107, 103, 103);
+  box-shadow: 10px 10px 10px  rgb(255, 255, 255);
   transition: all 0.2s ease;
+  border: 1px solid white;
 }
 .showbutton:hover{
   transform: scale(1.07);
@@ -1163,7 +1164,6 @@ border: 1px solid white;
 }
 .imagedivreview {
   margin-top: 10px;
-  border: 3px solid black;
   display: flex;
   overflow-x: scroll;  
   width: 100%;
@@ -1172,7 +1172,7 @@ border: 1px solid white;
   justify-content: flex-start;  /* Align items to the left */
   white-space: nowrap;  /* Prevent line breaks between images */
   box-shadow: 5px 5px 15px rgba(245, 242, 242, 0.5);
-  border: none;
+  border: 1px solid white;
 }
 .imagedivreview::-webkit-scrollbar {
   width: 8px;  

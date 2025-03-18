@@ -1850,6 +1850,7 @@ app.post("/upload/file/home", async (req, res) => {
 
 
 
+
 app.delete("/upload/file/:id", async (req, res) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) {
@@ -1858,28 +1859,44 @@ app.delete("/upload/file/:id", async (req, res) => {
   const postId = req.params.id;
 
   try {
-   
-    const post = await postmodel.findById(postId);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const userId = decoded.userId;
 
+    // Step 1: Check if Post Exists
+    const post = await postmodel.findOne({ _id: postId, createdBy: userId });
     if (!post) {
-      
       return res.status(404).json({ error: "Post not found" });
     }
 
-  
+    // Step 2: Delete the Post from postmodel
     await postmodel.findByIdAndDelete(postId);
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-const userId = decoded.userId;
 
-   
-    const remainingPosts = await postmodel.find({createdBy:userId}).populate("createdBy","name profile").select("-quiz -images -description");
-    res.json({  remainingPosts });
+    // Step 3: Find and update playlists containing the postId in their notes
+    const playlists = await playlistmodel.find({ notes: postId });
+
+    // Step 4: Remove Post ID from all found Playlists' notes array
+    for (const playlist of playlists) {
+      await playlistmodel.updateOne(
+        { _id: playlist._id },
+        { $pull: { notes: postId } }
+      );
+
+      // Step 5: If the playlist is empty after removal, delete the playlist
+      if (playlist.notes.length === 1) { // Only one note left, meaning this is the last note
+        await playlistmodel.findByIdAndDelete(playlist._id); // Delete the playlist
+      }
+    }
+
+    res.json({ message: "Post deleted successfully" });
 
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to delete post" });
   }
 });
+
+
+
 app.delete("/upload/file/news/:id", async (req, res) => {
   const token = req.headers["authorization"]?.split(" ")[1];
   if (!token) {
@@ -2838,35 +2855,7 @@ app.post("/playlists/create", async (req, res) => {
   }
 });
 // Endpoint to fetch playlists created by the user
-app.get("/playlists/creator", async (req, res) => {
-  try {
-    const token = req.headers["authorization"]?.split(" ")[1];
 
-    // Validate if token is present
-    if (!token) {
-      return res.status(403).json({ message: "Token is required" });
-    }
-
-    // Decode the token and get the user ID
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
-    const createdBy = decoded.userId;
-
-    // Find the playlists created by the user
-    const playlists = await playlistmodel.find({ createdBy });
-
-    if (!playlists) {
-      return res.status(404).json({ message: "No playlists found for this user" });
-    }
-
-    return res.status(200).json({
-      message: "Playlists retrieved successfully",
-      playlists,
-    });
-  } catch (error) {
-    console.error("Error retrieving playlists:", error);
-    return res.status(500).json({ message: "Server error." });
-  }
-});
 app.put("/playlists/update/:id", async (req, res) => {
   try {
     // Extract playlist ID from URL parameters and new data from the request body
@@ -2981,28 +2970,31 @@ app.delete("/playlists/delete/:id", async (req, res) => {
 });
 app.post("/playlists/playlistcreator", async (req, res) => {
   const token = req.headers["authorization"]?.split(" ")[1];
-  
+
   if (!token) {
     return res.status(403).json({ message: "Token is required" });
   }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY );
-    const id = decoded.userId;
-
-  const limit = parseInt(req.body.limit) || 12;
-  const excludeIds = req.body.excludeIds || []; // Already fetched posts
 
   try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    const id = decoded.userId;
+
+    const limit = parseInt(req.body.limit) || 12;
+    const excludeIds = req.body.excludeIds || []; // Already fetched posts
+
     const posts = await playlistmodel.aggregate([
       { 
         $match: { 
           createdBy: new mongoose.Types.ObjectId(id), 
-          _id: { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) } // Exclude fetched posts
+          _id: { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) } 
         } 
       },
       { 
-        $sort: { createdAt: -1 } // Sort by creation date in descending order (latest first)
+        $sort: { createdAt: -1 } // ✅ Ensure sorting by latest posts first
       },
-      { $sample: { size: limit } }, // Fetch 'limit' number of new posts
+      { 
+        $limit: limit // ✅ Instead of `$sample`, use `$limit` to get the latest posts
+      },
       { 
         $lookup: { 
           from: "users", 
@@ -3011,26 +3003,27 @@ app.post("/playlists/playlistcreator", async (req, res) => {
           as: "createdBy" 
         } 
       },
-      { $unwind: "$createdBy" }, // Flatten the createdBy field
+      { $unwind: "$createdBy" },
       { 
         $project: { 
           _id: 1,
           title: 1,
           description: 1,
-          notes:1
+          notes: 1
         } 
       }
     ]);
 
     res.json({
       datas: posts,
-      message: "Random user posts fetched successfully",
+      message: "Latest user posts fetched successfully",
     });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error fetching posts" });
   }
 });
+
 // const server = awsServerlessExpress.createServer(app);
 
 // // Lambda handler
@@ -3099,6 +3092,168 @@ app.post("/favorite", async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 });
+app.get("/favorite/:id/posts", async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Find all favorite posts of the user and populate post data
+    const favoritePosts = await FavoriteModel.find({ createdBy: userId })
+      .populate({ path: "post", select: "thumbnail quiz title _id description likesCount commentsCount" }) 
+      .exec();
+
+    // Filter out deleted posts
+    const filteredFavoritePosts = favoritePosts
+      .map(fav => fav.post)
+      .filter(post => post !== null); // ✅ Remove deleted posts
+
+    if (filteredFavoritePosts.length > 0) {
+      return res.status(200).json({ 
+        success: true, 
+        posts: filteredFavoritePosts.map(post => ({
+          _id: post._id,
+          title: post.title,
+          thumbnail: post.thumbnail,
+          description:post.description,
+          likesCount:post.likesCount,
+          commentsCount:post.commentsCount,
+          quizcount:post.quiz.length,
+        })) 
+      });
+    }
+
+    // If all favorite posts are deleted or there are no favorites, fetch the latest post by the user
+    const latestPosts = await postmodel.find({ createdBy: userId })
+      .sort({ createdAt: -1 })
+      .limit(1) // ✅ Return up to 10 latest posts
+      .select("title quiz thumbnail _id description likesCount commentsCount")
+      .exec();
+
+    if (latestPosts.length === 0) {
+      return res.status(404).json({ success: false, message: "No posts found for this user." });
+    }
+
+    return res.status(200).json({ 
+      success: true, 
+      posts: latestPosts.map(post => ({
+        _id: post._id,
+        title: post.title,
+        thumbnail: post.thumbnail,
+        description:post.description,
+        likesCount:post.likesCount,
+        commentsCount:post.commentsCount,
+        quizcount:post.quiz.length
+      }))
+    });
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
+app.post("/playlists/playlistcreator/userhome/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    const limit = parseInt(req.body.limit) || 12;
+    const excludeIds = req.body.excludeIds || []; // Already fetched playlists
+
+    const posts = await playlistmodel.aggregate([
+      { 
+        $match: { 
+          createdBy: new mongoose.Types.ObjectId(id), 
+          _id: { $nin: excludeIds.map(id => new mongoose.Types.ObjectId(id)) } 
+        } 
+      },
+      { 
+        $sort: { createdAt: -1 } // ✅ Ensure sorting by latest playlists first
+      },
+      { 
+        $limit: limit // ✅ Get the latest playlists within limit
+      },
+      { 
+        $lookup: { 
+          from: "users", 
+          localField: "createdBy", 
+          foreignField: "_id", 
+          as: "createdBy" 
+        } 
+      },
+      { $unwind: "$createdBy" },
+      { 
+        $lookup: { 
+          from: "posts", // ✅ Fetch details from 'post' collection
+          localField: "notes",
+          foreignField: "_id",
+          as: "notes"
+        } 
+      },
+      { 
+        $addFields: { 
+          notes: { $slice: ["$notes", 6] } // ✅ Only take the first 6 notes from the array
+        }
+      },
+      { 
+        $project: { 
+          _id: 1,
+          title: 1,
+          description: 1,
+          notes: { _id: 1, title: 1, thumbnail: 1 } // ✅ Only fetching _id, title, thumbnail
+        } 
+      }
+    ]);
+
+    res.json({
+      datas: posts,
+      message: "Latest user playlists fetched successfully",
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Error fetching playlists" });
+  }
+});
+app.get("/user/posts/:id", async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Fetch top 5 latest posts
+    const latestPosts = await postmodel
+      .find({ createdBy: userId })
+      .sort({ createdAt: -1 }) // Sort by latest created
+      .limit(8)
+      .select("_id title thumbnail");
+
+    // Fetch top 5 most popular posts (by likes + comments)
+    const popularPosts = await postmodel.aggregate([
+      { $match: { createdBy: new mongoose.Types.ObjectId(userId) } },
+      { 
+        $addFields: { totalEngagement: { $add: ["$likesCount", "$commentsCount"] } } // Compute total likes + comments
+      },
+      { $sort: { totalEngagement: -1 } }, // Sort by total engagement (descending)
+      { $limit: 8 },
+      { $project: { _id: 1, title: 1, thumbnail: 1 } } // Select only needed fields
+    ]);
+
+    // Fetch top 5 oldest posts
+    const oldestPosts = await postmodel
+      .find({ createdBy: userId })
+      .sort({ createdAt: 1 }) // Sort by oldest created
+      .limit(8)
+      .select("_id title thumbnail");
+
+    res.json({
+      latestPosts,
+      popularPosts,
+      oldestPosts,
+    });
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    res.status(500).json({ message: "Error fetching posts" });
+  }
+});
+
+
+
+
+
 const port=8000
 app.listen(port,async()=>{
   console.log("server is running",port)

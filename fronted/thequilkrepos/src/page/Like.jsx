@@ -107,6 +107,11 @@ export default function Like(){
   const handleuserprofile=()=>{
     navigate(`/profile/info/${id}`)
   }
+  const userhome=(e)=>{
+
+    navigate(`/userhome/${id}`)
+  
+  }
   const handlesignout=(e)=>{
     localStorage.removeItem('token')
     navigate("/login")
@@ -422,6 +427,10 @@ export default function Like(){
       
 <div className="likescontainer">
 <div className="mobileops">
+   <div className="buttonholders" onClick={userhome}>
+                            <FontAwesomeIcon icon={faHome}/>
+                            <button className="buttonsz">User home</button>
+                          </div>
   <div className="buttonholders" onClick={userprofile}>
     <FontAwesomeIcon icon={faUser}/>
     <button className="buttonsz">User Profile</button>
@@ -496,7 +505,7 @@ export default function Like(){
 
                 </div>
               )
-            })) : (<div className="nodiv"><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>"Discussions: Oof! No posts liked by the user."</p></div>)}
+            })) : (<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>"Discussions: Oof! No posts liked by the user."</p></div>)}
 </div>
       </div>
 </div>
