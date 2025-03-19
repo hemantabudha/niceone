@@ -159,10 +159,10 @@ export default function Follower() {
     navigate(`/discuss/info/${id}`)
 
   }
-  const userfollowing=(e)=>{
+  const userfollowing = (e) => {
 
     navigate(`/follower/${id}`)
-  
+
   }
   const userprofile = (e) => {
 
@@ -308,13 +308,13 @@ export default function Follower() {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
-  const userhome=(e)=>{
+  const userhome = (e) => {
 
     navigate(`/userhome/${id}`)
-  
+
   }
-  const homepageforother=(e,id)=>{
-  
+  const homepageforother = (e, id) => {
+
     navigate(`/userhome/${id}`)
   }
   return (
@@ -385,17 +385,17 @@ export default function Follower() {
           <div className="sidediv" onClick={handleyournews}>
             <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon" /> <span className="para">Your News</span>
           </div>
-          <div className="sidediv" onClick={handlequiz}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
             <span className="para">Upload Quiz</span>
           </div>
-          <div className="sidediv" onClick={handlediscussion}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload Discussion</span>
           </div>
           <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faUpload} className="likeicon" /> <span className="para">Upload Notes</span>
           </div>
-          <div className="sidediv" onClick={handlenews}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload News</span>
           </div>
           <div className="sidediv" onClick={handletrend}>
@@ -444,13 +444,13 @@ export default function Follower() {
 
           <div className="followingcontainer">
             <div className="mobileops">
-               <div className="buttonholders" onClick={userhome}>
-                                        <FontAwesomeIcon icon={faHome}/>
-                                        <button className="buttonsz">User home</button>
-                                      </div>
+              <div className="buttonholders" onClick={userhome}>
+                <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">User home</button>
+              </div>
               <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
-                <button className="buttonsz">User Profile</button>
+                <button className="buttonsz">userNotes</button>
               </div>
               <div className="buttonholders" onClick={handlequiz}>
                 <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
@@ -476,52 +476,38 @@ export default function Follower() {
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlechemistry}>
+              <div className="buttonholders" onClick={handlenews}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Chemistry</button>
+                <button className="buttonsz">Trending News</button>
               </div>
-              <div className="buttonholders" onClick={handlezoology}>
+              <div className="buttonholders" onClick={handlediscussion}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Zoology Notes</button>
+                <button className="buttonsz">Trending Disscussions</button>
               </div>
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlebotany}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Botany Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handleaccount}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Account Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlescience}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Science Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlemanagement}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Management Notes</button>
-              </div>
+
+
             </div>
-            
+
             {Array.isArray(followingdata) && followingdata.length > 0 ? (followingdata && followingdata.map((current, index) => {
               return (
                 <div key={index} className="follodiv">
-                  <img src={current.profile} alt="" className="followimage" onClick={(e) => {homepageforother(e, current._id) }} onLoad={handleImageLoad} style={{ display: "none" }} />
+                  <img src={current.profile} alt="" className="followimage" onClick={(e) => { homepageforother(e, current._id) }} onLoad={handleImageLoad} style={{ display: "none" }} />
                   <p className="followname">{current.name}</p>
                   <div className="upperfollow">
                     <button className="none1">{current.followercounts > 2 ? <FontAwesomeIcon icon={faCrown} className="crowns" /> : ""}</button>
                     <button className="one">{formatLikes(current.followercounts)}</button>
-                     <button className="none2">{current.followercounts > 2 ? <FontAwesomeIcon icon={faStar} className="stars" /> : ""}</button>
+                    <button className="none2">{current.followercounts > 2 ? <FontAwesomeIcon icon={faStar} className="stars" /> : ""}</button>
                   </div>
                   <div className="lowerfollow">
-                    <button className="pro" onClick={(e) => {homepageforother(e, current._id) }}>Profile</button> <button className="fol">follower</button> <div className="share" onClick={(e) => { handleprofilelink(e, current._id) }}>Share<FontAwesomeIcon icon={faShare} className="shareicon" /></div>
+                    <button className="pro" onClick={(e) => { homepageforother(e, current._id) }}>Profile</button> <button className="fol">follower</button> <div className="share" onClick={(e) => { handleprofilelink(e, current._id) }}>Share<FontAwesomeIcon icon={faShare} className="shareicon" /></div>
                   </div>
                 </div>
               )
-            })) : (<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>"Following: Oof! No following by the user."</p></div>)}
+            })) : (<div style={{ display: "flex", justifyContent: "center" }}><p style={{ boxShadow: "none", fontSize: "large", fontWeight: "600", marginTop: '21px' }}>"Following: Oof! No following by the user."</p></div>)}
           </div>
         </div>
       </div>

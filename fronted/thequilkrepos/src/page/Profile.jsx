@@ -52,12 +52,12 @@ export default function Profile() {
   const [playlistdescription, setPlaylistdescription] = useState("");
   const [playlistNotes, setPlaylistNotes] = useState([]);
   const [playlistNotesId, setPlaylistNotesId] = useState("");
-  const[playlistloading,setplaylistloading]=useState(false)
-  const[profilechangeloading,setprofilechangeloading]=useState(false)
+  const [playlistloading, setplaylistloading] = useState(false)
+  const [profilechangeloading, setprofilechangeloading] = useState(false)
   const [invalidNotes, setInvalidNotes] = useState([]); // Store invalid notes from backend
-  const[playlisterror,setplaylisterror]=useState("")
-  const[edithome,setedithome]=useState(false);
-  const[playlistthumbnail,setplaylistthumbnail]=useState(null)
+  const [playlisterror, setplaylisterror] = useState("")
+  const [edithome, setedithome] = useState(false);
+  const [playlistthumbnail, setplaylistthumbnail] = useState(null)
   const addNote = () => {
     const trimmedId = playlistNotesId.trim();
 
@@ -80,12 +80,12 @@ export default function Profile() {
   const removeNote = (index) => {
     const removedNote = playlistNotes[index];
     const updatedNotes = playlistNotes.filter((_, i) => i !== index);
-  
+
     setPlaylistNotes(updatedNotes);
     if (invalidNotes.includes(removedNote)) {
       const updatedInvalidNotes = invalidNotes.filter(note => note !== removedNote);
       setInvalidNotes(updatedInvalidNotes);
-  
+
       // If there are no more invalid notes, clear the error message
       if (updatedInvalidNotes.length === 0) {
         setplaylisterror(""); // Clear the error message
@@ -95,7 +95,7 @@ export default function Profile() {
   const createPlaylist = async (e) => {
     e.preventDefault();
     const trimmedTitle = playlistTitle.trim();
-    const trimmeddescription=playlistdescription.trim();
+    const trimmeddescription = playlistdescription.trim();
     if (!trimmedTitle || playlistNotes.length === 0 || !trimmeddescription) {
       alert("Please enter a title , description and add at least one note.");
       return;
@@ -112,7 +112,7 @@ export default function Profile() {
     const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to create a post.");
-    
+
       return;
     }
     setplaylistloading(true);
@@ -123,7 +123,7 @@ export default function Profile() {
     const body = {
       title: playlistTitle,
       notes: playlistNotes,
-      description:playlistdescription
+      description: playlistdescription
     };
     try {
       const response = await axios.post(
@@ -136,7 +136,7 @@ export default function Profile() {
           },
         }
       );
-      
+
       console.log(response)
       setPlaylistTitle("");
       setPlaylistNotes([]);
@@ -152,7 +152,7 @@ export default function Profile() {
         setInvalidNotes(invalidNoteStrings);
         setplaylisterror(error.response.data.message)
       }
-      
+
     } finally {
       // Set loading state to false after the process finishes
       setplaylistloading(false);
@@ -164,14 +164,14 @@ export default function Profile() {
     // Check if the noteId is in invalidNotes and return a class for red border
     return invalidNotes.includes(stringNoteId) ? "invalid-note" : "note-item";
   };
- 
+
   const handleInput = (event) => {
     // Reset the height to auto to shrink if the text is deleted
     event.target.style.height = 'auto';
     // Set the height to match the scrollHeight (content height)
     event.target.style.height = `${event.target.scrollHeight}px`;
   };
- 
+
   const handlecancel = (e) => {
     setquestion("")
   }
@@ -392,7 +392,7 @@ export default function Profile() {
       alert("Failed to set home post. Try again.");
     }
   };
-  
+
   useEffect(() => {
     const fetchUserData = async () => {
       setLoadingpage(true);
@@ -626,7 +626,7 @@ export default function Profile() {
     e.stopPropagation();
     const url = `${id}`; // Construct the URL
     navigator.clipboard.writeText(url)
-     
+
     setActivePost(null)
   }
   const handledeletepost = async (e, id) => {
@@ -649,7 +649,7 @@ export default function Profile() {
     }
   }
 
-  
+
   const handleinfodiv = (e, id) => {
     e.stopPropagation();
     navigate(`/detail/review/${id}`)
@@ -670,7 +670,7 @@ export default function Profile() {
         console.error('Failed to copy the URL: ', error);
       });
   }
- 
+
   const handleprofileimage = (e) => {
     const file = e.target.files[0];
     if (!file) return; // If no file is selected, do nothing
@@ -750,10 +750,10 @@ export default function Profile() {
     setprofileimage()
     setname("")
     setinfodescription("")
-  
+
   }
   const handleScroll = (e) => {
-    if(!postholder){
+    if (!postholder) {
       return;
     };
     const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <= 100; // 100px tolerance before bottom
@@ -775,8 +775,8 @@ export default function Profile() {
     };
 
     fetchTotalLikes();
-  }, [user,postholder,navigate]); // Runs when `user` is updated
-  
+  }, [user, postholder, navigate]); // Runs when `user` is updated
+
   const handleImageLoad = (e) => {
     e.target.style.display = "block"; // Make the image visible as soon as it's loaded
   };
@@ -878,7 +878,7 @@ export default function Profile() {
       setquizloading(false);
     }
   };
-  
+
   const handlehome = (e) => {
     navigate("/")
   }
@@ -1006,13 +1006,13 @@ export default function Profile() {
     navigate(`/search?query=management`);
   }
   const handlediscardnews = (e) => {
-  
+
     newsetimage([])
     newsetSelectedImage(null)
     newsettitle("")
- 
+
   }
-  const seehome=()=>{
+  const seehome = () => {
     const token = localStorage.getItem("token");
     if (token && userid) {
       navigate(`/userhome/${userid}`)
@@ -1030,7 +1030,7 @@ export default function Profile() {
     const token = localStorage.getItem("token");
     if (!token) {
       alert("You must be logged in to create a post.");
-    
+
       return;
     }
     newsetLoading(true);
@@ -1044,7 +1044,7 @@ export default function Profile() {
       imageUrls.push(imageUrl);
     }
     const body = {
-      title:newtitle,
+      title: newtitle,
       images: imageUrls, // Sending array of URLs instead of files
     };
     try {
@@ -1063,7 +1063,7 @@ export default function Profile() {
       newsetimage([]);
       newsetSelectedImage(null);
     } catch (error) {
-   console.log(error)
+      console.log(error)
     } finally {
       // Set loading state to false after the process finishes
       newsetLoading(false);
@@ -1077,38 +1077,38 @@ export default function Profile() {
   };
   const handlenewchange = (e) => {
     const file = e.target.files[0];
-  
+
     // Check if file type is valid
     if (file && (file.type.startsWith("image/"))) {
       const newTotalSize = newimage.reduce((acc, currentImage) => acc + currentImage.file.size, 0) + file.size;
-  
+
       const MAX_SIZE = 2 * 1024 * 1024;  // 10 MB in bytes
-  
+
       // If the total size exceeds 300MB, alert the user and stop further uploads
       if (newTotalSize > MAX_SIZE) {
-          return;  // Stop here, no further action
+        return;  // Stop here, no further action
       }
-        if (newimage.length >= 2) {
-          alert("this is short news section only upload two news images format.");
-          return; // Stop further uploads
-        }
-  
-        // If size is valid, proceed with adding the file
+      if (newimage.length >= 2) {
+        alert("this is short news section only upload two news images format.");
+        return; // Stop further uploads
+      }
+
+      // If size is valid, proceed with adding the file
       newsetimage((prev) => {
-            const newImages = [...prev, { src: URL.createObjectURL(file), file }];
-            if (newselectedImage === null) {
-              newsetSelectedImage(newImages[0]);
-            }
-            return newImages;
-        });
-  
-        // Clear the input field after selecting a file
-        e.target.value = "";
+        const newImages = [...prev, { src: URL.createObjectURL(file), file }];
+        if (newselectedImage === null) {
+          newsetSelectedImage(newImages[0]);
+        }
+        return newImages;
+      });
+
+      // Clear the input field after selecting a file
+      e.target.value = "";
     } else {
-        alert("please upload news images format.");
+      alert("please upload news images format.");
     }
   };
-   const handleseenotes=(e)=>{
+  const handleseenotes = (e) => {
     setpostholder(true)
     setpost(false)
     setaddingquiz(false)
@@ -1117,8 +1117,8 @@ export default function Profile() {
     setnewspost(false)
     setPlaylistIsOpen(false);
     setedithome(false)
-   }
-   const handlepost = (e) => {
+  }
+  const handlepost = (e) => {
     setpostholder(false)
     setpost(true)
     setaddingquiz(false)
@@ -1128,7 +1128,7 @@ export default function Profile() {
     setPlaylistIsOpen(false);
     setedithome(false)
   }
-  
+
   const handleseparatequiz = (e) => {
     setpostholder(false)
     setpost(false)
@@ -1159,7 +1159,7 @@ export default function Profile() {
     setPlaylistIsOpen(false);
     setedithome(false)
   }
-  const handleaddnews=(e)=>{
+  const handleaddnews = (e) => {
     setpostholder(false)
     setpost(false)
     setaddingquiz(false)
@@ -1168,8 +1168,8 @@ export default function Profile() {
     setnewspost(true)
     setPlaylistIsOpen(false);
     setedithome(false)
-   }
-   const handleedithome=(e)=>{
+  }
+  const handleedithome = (e) => {
     setpostholder(false)
     setpost(false)
     setaddingquiz(false)
@@ -1178,16 +1178,16 @@ export default function Profile() {
     setnewspost(false)
     setPlaylistIsOpen(false);
     setedithome(true)
-   }
+  }
   const handlediscardquiz = (e) => {
-   
+
     setquiztitle("");
     setquizdescription("");
     setQuestions([])
-   
+
   }
   const handlediscardpost = (e) => {
- 
+
     settitle("");
     setdescription("");
     setimage([]);
@@ -1195,7 +1195,7 @@ export default function Profile() {
     setSelectedImage(null);
     setQuestions([])
     setthumbanil(null);
- 
+
   }
   const toggleForm = () => {
     setPlaylistIsOpen(true);
@@ -1215,14 +1215,14 @@ export default function Profile() {
     setPlaylistdescription("")
     setplaylistthumbnail(null)
   };
-  const handlegetthumbnail = async (e,id) => {
+  const handlegetthumbnail = async (e, id) => {
     e.stopPropagation();
     try {
-    
-  
+
+
       const response = await axios.get(`${backendurl}/playlist/show/${id}`);
-  
-     setplaylistthumbnail(response.data.postdata.thumbnail)
+
+      setplaylistthumbnail(response.data.postdata.thumbnail)
     } catch (error) {
       alert("i think this notes object id isnot valid.please check it out.");
     }
@@ -1281,17 +1281,17 @@ export default function Profile() {
             <div className="sidediv" onClick={handleyournews}>
               <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon" /> <span className="para">Your News</span>
             </div>
-            <div className="sidediv" onClick={handlequiz}>
+            <div className="sidediv" onClick={handleyourprofile}>
               <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
               <span className="para">Upload Quiz</span>
             </div>
-            <div className="sidediv" onClick={handlediscussion}>
+            <div className="sidediv" onClick={handleyourprofile}>
               <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload Discussion</span>
             </div>
             <div className="sidediv" onClick={handleyourprofile}>
               <FontAwesomeIcon icon={faUpload} className="likeicon" /> <span className="para">Upload Notes</span>
             </div>
-            <div className="sidediv" onClick={handlenews}>
+            <div className="sidediv" onClick={handleyourprofile}>
               <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload News</span>
             </div>
             <div className="sidediv" onClick={handletrend}>
@@ -1341,11 +1341,11 @@ export default function Profile() {
               </div>
             </div>
             <div className="mobileops">
-            <div className="buttonholders" onClick={seehome}>
+              <div className="buttonholders" onClick={seehome}>
                 <FontAwesomeIcon icon={faHome} />
                 <button className="buttonsz">See Homes</button>
               </div>
-            <div className="buttonholders" onClick={toggleForm}>
+              <div className="buttonholders" onClick={toggleForm}>
                 <FontAwesomeIcon icon={faHome} />
                 <button className="buttonsz">Setup Homes</button>
               </div>
@@ -1353,7 +1353,7 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faEdit} />
                 <button className="buttonsz">Manage Homes</button>
               </div>
-            <div className="buttonholders" onClick={handleseenotes}>
+              <div className="buttonholders" onClick={handleseenotes}>
                 <FontAwesomeIcon icon={faBook} />
                 <button className="buttonsz">Manage Notes</button>
               </div>
@@ -1381,29 +1381,17 @@ export default function Profile() {
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlezoology}>
+              <div className="buttonholders" onClick={handlenews}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Zoology Notes</button>
+                <button className="buttonsz">Trending News</button>
+              </div>
+              <div className="buttonholders" onClick={handlediscussion}>
+                <FontAwesomeIcon icon={faBookOpenReader} />
+                <button className="buttonsz">Trending Disscussions</button>
               </div>
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlebotany}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Botany Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handleaccount}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Account Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlescience}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Science Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlemanagement}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Management Notes</button>
               </div>
             </div>
           </div>
@@ -1421,7 +1409,7 @@ export default function Profile() {
               placeholder="share your thought,question,stories and many more..."
               ref={textareaRef}
             />
-            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px",marginTop:"24px" }}><button className="cancel" onClick={handlecancel}>Cancel</button><button className="upload" onClick={handlesubmitquestion}>{loadingpostquestion ? "uploading..." : "upload"}</button></div>
+            <div style={{ display: "flex", alignItems: "center", marginBottom: "10px", marginTop: "24px" }}><button className="cancel" onClick={handlecancel}>Cancel</button><button className="upload" onClick={handlesubmitquestion}>{loadingpostquestion ? "uploading..." : "upload"}</button></div>
 
           </div>)}
           {postholder && <div className="postholder" >
@@ -1705,116 +1693,116 @@ export default function Profile() {
             </div>
           )}
           {newspost === true && (
-           
-              <div className="posting">
-                <div className="inputholders">
-                  <div className="inputpics">
 
-                    {newimage.length > 0 ? (newimage.map((current, index) => (
-                      <div key={index} className="divimages" onClick={() => handleImageClick(current)}>
-                        {current.file.type.startsWith("image/") ? (<img src={current.src} alt="image not found" className="imageshows" />) : current.file.type.startsWith("video/") ? (<video autoPlay muted loop className="imageshows"><source src={current.src} type={current.file.type} /></video>) : (<iframe src={current.src} className="imageshows"></iframe>)}
-                      </div>
-                    ))) : (<div className="managers">
-                      <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div> <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div>
-                    </div>)}
+            <div className="posting">
+              <div className="inputholders">
+                <div className="inputpics">
 
-                  </div>
-                  <div className="inputselectors">
-                    <label htmlFor="newid" className="label"><FontAwesomeIcon icon={faPlus} className="pluss" /> </label>
-                    <input type="file" name="newsimage" id="newid" className="inputclasss" onChange={handlenewchange} required />
-                  </div>
-                  <div className="showresults">
-                    {newselectedImage ? (
-                      newselectedImage.file.type.startsWith("video/") ? (
-                        <video autoPlay muted loop className="bigshowvideos"  >
-                          <source src={newselectedImage.src} type={newselectedImage.file.type} />
-
-                        </video>
-                      ) : newselectedImage.file.type.startsWith("image/") ? (
-                        <img src={newselectedImage.src} alt="Selected" className="bigshowimages" />
-                      ) : (<iframe src={newselectedImage.src} allow="Selected" className="bigshowimages"></iframe>)
-                    ) : (
-                      <div className="showresultonlys"></div>
-                    )}
-                    <div className="titles">
-                      <input type="text" className="titleinputs" placeholder="Set Title Of Updates" onChange={handlenewtitle} value={newtitle} required />
+                  {newimage.length > 0 ? (newimage.map((current, index) => (
+                    <div key={index} className="divimages" onClick={() => handleImageClick(current)}>
+                      {current.file.type.startsWith("image/") ? (<img src={current.src} alt="image not found" className="imageshows" />) : current.file.type.startsWith("video/") ? (<video autoPlay muted loop className="imageshows"><source src={current.src} type={current.file.type} /></video>) : (<iframe src={current.src} className="imageshows"></iframe>)}
                     </div>
+                  ))) : (<div className="managers">
+                    <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div> <div className="divimagetwos"><p className="uploadparagraphs">Upload</p></div>
+                  </div>)}
+
+                </div>
+                <div className="inputselectors">
+                  <label htmlFor="newid" className="label"><FontAwesomeIcon icon={faPlus} className="pluss" /> </label>
+                  <input type="file" name="newsimage" id="newid" className="inputclasss" onChange={handlenewchange} required />
+                </div>
+                <div className="showresults">
+                  {newselectedImage ? (
+                    newselectedImage.file.type.startsWith("video/") ? (
+                      <video autoPlay muted loop className="bigshowvideos"  >
+                        <source src={newselectedImage.src} type={newselectedImage.file.type} />
+
+                      </video>
+                    ) : newselectedImage.file.type.startsWith("image/") ? (
+                      <img src={newselectedImage.src} alt="Selected" className="bigshowimages" />
+                    ) : (<iframe src={newselectedImage.src} allow="Selected" className="bigshowimages"></iframe>)
+                  ) : (
+                    <div className="showresultonlys"></div>
+                  )}
+                  <div className="titles">
+                    <input type="text" className="titleinputs" placeholder="Set Title Of Updates" onChange={handlenewtitle} value={newtitle} required />
                   </div>
                 </div>
-                <div className="closeandadd">
-                  <div className="close" onClick={handlediscardnews}>
-                    <FontAwesomeIcon icon={faXmark} className="closeicon" />
-                    <span className="discard">discard update</span>
-                  </div>
-                  <div className="publish" onClick={handleSubmitnews}>
-                    <FontAwesomeIcon icon={faAdd} className="publishicon" />
-                    <span className="publishadd">{newloading ? "publishing" : "publish update"}</span>
-                  </div>
+              </div>
+              <div className="closeandadd">
+                <div className="close" onClick={handlediscardnews}>
+                  <FontAwesomeIcon icon={faXmark} className="closeicon" />
+                  <span className="discard">discard update</span>
                 </div>
-             
+                <div className="publish" onClick={handleSubmitnews}>
+                  <FontAwesomeIcon icon={faAdd} className="publishicon" />
+                  <span className="publishadd">{newloading ? "publishing" : "publish update"}</span>
+                </div>
+              </div>
+
 
             </div>
           )}
-           
-           {playlistIsOpen && (
-        <div className="playlist">
-          <div className="inputandheadingplaylist">
-        {user && <img src={user.profile} alt="" className="playlistowner" />}
-          <input
-            type="text"
-            placeholder="Playlist Title"
-            value={playlistTitle}
-            onChange={(e) => setPlaylistTitle(e.target.value)}
-            className="inputplaylist"
-            maxLength={90} 
-          />
-          </div>
-          <div className="notes-list">
-          {playlistNotes.map((id, index) => (
-    <div key={index} className={`${getNoteClass(id)}`}>
-      <button className="remove-btn" onClick={(e)=>{handlegetthumbnail(e,id)}}>{id}</button>
-      <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
-    </div>
-  ))}
-          </div>
-          {playlistthumbnail && 
-         <div className="thumbnailplaylistpic">
-           <img src={playlistthumbnail} alt="" className="playlisthumbnailpic" />
-          </div>
-          } 
-          <div className="notesobjectidcontainer">
-            <input
-              type="text"
-              placeholder="Enter Note ID"
-              value={playlistNotesId}
-              onChange={(e) => setPlaylistNotesId(e.target.value)}
-              className="objectidinput"
-            />
-            <button onClick={addNote} className="addbtn">
-              Add
-            </button>
-          </div>
-          <div className="inputdescriptionplaylist">
-          <input type="text" 
-          value={playlistdescription}
-          onChange={(e) => setPlaylistdescription(e.target.value)}
-          maxLength={180} 
-          placeholder="description for playlist" className="descriptionplaylist"/>
-          </div>
-        {playlisterror && <div className="errorplaylist">
-          <p className="perrorplaylist">{playlisterror}</p>
-          </div>}
-          <div className="btn-container">
-            <button onClick={createPlaylist} className="save-btn">
-            {playlistloading ? "uploading" : "save playlist"}
-            </button>
-            <button onClick={resetForm} className="cancel-btn">
-              Cancel Playlist
-            </button>
-          </div>
-        </div>
-      )}
-        {edithome && <PlaylistComponent user={user} />}
+
+          {playlistIsOpen && (
+            <div className="playlist">
+              <div className="inputandheadingplaylist">
+                {user && <img src={user.profile} alt="" className="playlistowner" />}
+                <input
+                  type="text"
+                  placeholder="Playlist Title"
+                  value={playlistTitle}
+                  onChange={(e) => setPlaylistTitle(e.target.value)}
+                  className="inputplaylist"
+                  maxLength={90}
+                />
+              </div>
+              <div className="notes-list">
+                {playlistNotes.map((id, index) => (
+                  <div key={index} className={`${getNoteClass(id)}`}>
+                    <button className="remove-btn" onClick={(e) => { handlegetthumbnail(e, id) }}>{id}</button>
+                    <FontAwesomeIcon icon={faXmark} onClick={() => removeNote(index)} className="xmarkicon" />
+                  </div>
+                ))}
+              </div>
+              {playlistthumbnail &&
+                <div className="thumbnailplaylistpic">
+                  <img src={playlistthumbnail} alt="" className="playlisthumbnailpic" />
+                </div>
+              }
+              <div className="notesobjectidcontainer">
+                <input
+                  type="text"
+                  placeholder="Enter Note ID"
+                  value={playlistNotesId}
+                  onChange={(e) => setPlaylistNotesId(e.target.value)}
+                  className="objectidinput"
+                />
+                <button onClick={addNote} className="addbtn">
+                  Add
+                </button>
+              </div>
+              <div className="inputdescriptionplaylist">
+                <input type="text"
+                  value={playlistdescription}
+                  onChange={(e) => setPlaylistdescription(e.target.value)}
+                  maxLength={180}
+                  placeholder="description for playlist" className="descriptionplaylist" />
+              </div>
+              {playlisterror && <div className="errorplaylist">
+                <p className="perrorplaylist">{playlisterror}</p>
+              </div>}
+              <div className="btn-container">
+                <button onClick={createPlaylist} className="save-btn">
+                  {playlistloading ? "uploading" : "save playlist"}
+                </button>
+                <button onClick={resetForm} className="cancel-btn">
+                  Cancel Playlist
+                </button>
+              </div>
+            </div>
+          )}
+          {edithome && <PlaylistComponent user={user} />}
         </div>
       </div>
 

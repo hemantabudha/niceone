@@ -340,17 +340,17 @@ const homepageforother=(e,id)=>{
          <div className="sidediv" onClick={handleyournews}>
            <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon"/> <span className="para">Your News</span>
          </div>
-         <div className="sidediv" onClick={handlequiz}>
+         <div className="sidediv" onClick={handleyourprofile}>
                          <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png"  alt="" className="likeicon"/>
                           <span className="para">Upload Quiz</span>
            </div>
-           <div className="sidediv" onClick={handlediscussion}>
+           <div className="sidediv" onClick={handleyourprofile}>
            <FontAwesomeIcon icon={faPlus} className="likeicon"/> <span className="para">Upload Discussion</span>
          </div>
          <div className="sidediv" onClick={handleyourprofile}>
            <FontAwesomeIcon icon={faUpload} className="likeicon"/> <span className="para">Upload Notes</span>
          </div>
-         <div className="sidediv" onClick={handlenews}>
+         <div className="sidediv"onClick={handleyourprofile}>
            <FontAwesomeIcon icon={faPlus} className="likeicon"/> <span className="para">Upload News</span>
          </div>
          <div className="sidediv" onClick={handletrend}>

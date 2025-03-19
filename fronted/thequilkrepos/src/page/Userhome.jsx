@@ -15,13 +15,13 @@ export default function Userhome() {
   const [totallikes, settotallikes] = useState(null)
   const [follow, setFollow] = useState(null);
   const [favoritepost, setfavoritepost] = useState(null)
-  const [loadingpage, setLoadingpage] = useState(false); 
-  const [page, setPage] = useState(1); 
-  const[playlistholder,setplaylistholder]=useState([])
-  const[latestpost,setlatestpost]=useState([])
-  const[popularpost,setpopularpost]=useState([])
-  const[oldestpost,setoldestpost]=useState([])
-  const[loadinganotherid,setLoadinganotherid]=useState(false)
+  const [loadingpage, setLoadingpage] = useState(false);
+  const [page, setPage] = useState(1);
+  const [playlistholder, setplaylistholder] = useState([])
+  const [latestpost, setlatestpost] = useState([])
+  const [popularpost, setpopularpost] = useState([])
+  const [oldestpost, setoldestpost] = useState([])
+  const [loadinganotherid, setLoadinganotherid] = useState(false)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -170,31 +170,31 @@ export default function Userhome() {
     navigate(`/likenotes/${id}`)
 
   }
-  const handleusergetpost=async()=>{
-    try{
+  const handleusergetpost = async () => {
+    try {
       const response = await axios.get(`${backendurl}/user/posts/${id}`);
       setlatestpost(response.data.latestPosts)
       setpopularpost(response.data.popularPosts)
       setoldestpost(response.data.oldestPosts)
-    }catch(error){
+    } catch (error) {
       console.log(error)
     }
   }
   useEffect(() => {
     const fetchUserData = async () => {
       setLoadingpage(true);
-  
+
       const limit = page === 1 ? 3 : 2;
-     
-     if(loadingpage){
-      return;
-     }
+
+      if (loadingpage) {
+        return;
+      }
       try {
         const response = await axios.post(`${backendurl}/playlists/playlistcreator/userhome/${id}`, {
           limit,
           excludeIds: playlistholder.map((post) => post._id), // Exclude already fetched posts
         });
-         console.log(response.data.datas)
+        console.log(response.data.datas)
         const newPosts = response.data.datas;
         if (page === 1) {
           handleusergetpost()
@@ -368,14 +368,14 @@ export default function Userhome() {
   const userhome = () => {
     navigate(`/userhome/${id}`)
   }
-  const handleleftscroll = async (e,index) => {
+  const handleleftscroll = async (e, index) => {
     const rightEnd = e.target.scrollWidth - e.target.scrollLeft - e.target.clientWidth <= 10; // 10px tolerance before the right end
     if (rightEnd && !loadinganotherid) {
       setLoadinganotherid(true);
       const activePlaylist = playlistholder[index];
-     
+
       const excludedIds = activePlaylist.notes.map((note) => note._id);
- 
+
       try {
         const res = await axios.post(`${backendurl}/playlist/remainingid/${activePlaylist._id}`, {
           excludedId: excludedIds,  // Send already fetched image URLs
@@ -400,7 +400,7 @@ export default function Userhome() {
       }
     }
   };
-  const handledetail=(e,id)=>{
+  const handledetail = (e, id) => {
     e.stopPropagation();
     navigate(`/detail/review/${id}`)
   }
@@ -438,17 +438,17 @@ export default function Userhome() {
           <div className="sidediv" onClick={handleyournews}>
             <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon" /> <span className="para">Your News</span>
           </div>
-          <div className="sidediv" onClick={handlequiz}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
             <span className="para">Upload Quiz</span>
           </div>
-          <div className="sidediv" onClick={handlediscussion}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload Discussion</span>
           </div>
           <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faUpload} className="likeicon" /> <span className="para">Upload Notes</span>
           </div>
-          <div className="sidediv" onClick={handlenews}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload News</span>
           </div>
           <div className="sidediv" onClick={handletrend}>
@@ -503,7 +503,7 @@ export default function Userhome() {
               </div>
               <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
-                <button className="buttonsz">User Profile</button>
+                <button className="buttonsz">userNotes</button>
               </div>
               <div className="buttonholders" onClick={handlequiz}>
                 <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
@@ -529,33 +529,17 @@ export default function Userhome() {
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlechemistry}>
+              <div className="buttonholders" onClick={handlenews}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Chemistry</button>
+                <button className="buttonsz">Trending News</button>
               </div>
-              <div className="buttonholders" onClick={handlezoology}>
+              <div className="buttonholders" onClick={handlediscussion}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Zoology Notes</button>
+                <button className="buttonsz">Trending Disscussions</button>
               </div>
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlebotany}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Botany Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handleaccount}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Account Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlescience}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Science Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlemanagement}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Management Notes</button>
               </div>
             </div>
           </div>
@@ -566,114 +550,117 @@ export default function Userhome() {
               </div>
               <div className="favoriteimageandall">
                 <div className="imagefavoritediv">
-              <img src={favoritepost.thumbnail} alt="" className="favoriteimage" onClick={(e)=>{handledetail(e,favoritepost._id)}}/>
-              </div>
-              <div className="favoritedescriptiondiv">
-              <p className="favoritetitle">Title : {favoritepost.title}</p>
-              <p className="favoritedescription">{favoritepost.description}</p>
-             <div className="likecommentandquizdiv">
-              <button className="buttonfavorite"><FontAwesomeIcon icon={faThumbsUp}className="likesinfofollow"/> <span>{formatLikes(favoritepost.likesCount)}</span></button>
-              <button className="buttonfavorite" ><FontAwesomeIcon icon={faComment} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
-              <button className="buttonfavorite" ><FontAwesomeIcon icon={faQuestion} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
-             </div>
-              
-              </div>
+                  <img src={favoritepost.thumbnail} alt="" onLoad={handleImageLoad} style={{ display: "none" }} className="favoriteimage" onClick={(e) => { handledetail(e, favoritepost._id) }} />
+                </div>
+                <div className="favoritedescriptiondiv">
+                  <p className="favoritetitle">Title : {favoritepost.title}</p>
+                  <p className="favoritedescription">{favoritepost.description}</p>
+                  <div className="likecommentandquizdiv">
+                    <button className="buttonfavorite"><FontAwesomeIcon icon={faThumbsUp} className="likesinfofollow" /> <span>{formatLikes(favoritepost.likesCount)}</span></button>
+                    <button className="buttonfavorite" ><FontAwesomeIcon icon={faComment} className="likesinfofollow" /> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+                    <button className="buttonfavorite" ><FontAwesomeIcon icon={faQuestion} className="likesinfofollow" /> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+                  </div>
+
+                </div>
               </div>
             </div>)}
-          {latestpost && latestpost.length>0 && (
+          {!favoritepost && playlistholder.length === 0 &&
+            (<div style={{ display: "flex", justifyContent: "center" }}><p style={{ boxShadow: "none", fontSize: "large", fontWeight: "600", marginTop: '21px' }}>Uff! user doesn't create playlist</p>
+            </div>)}
+          {latestpost && latestpost.length > 0 && (
             <div className="playlistholdingdiv">
               <div className="playlisttitlehomediv">
-           <p className="playlisttitlehome">Latest Posts from {user?user.name:""} That Are Gaining Popularity</p>
-           </div>
-           <div className="notesofplaylistholder">
-           {latestpost&& latestpost.length>0&& latestpost.map((current,index)=>{
-            return(
-              <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
-                <p className="textofplaylistnote">{current.title}</p>
+                <p className="playlisttitlehome">Latest Posts from {user ? user.name : ""} That Are Gaining Popularity</p>
               </div>
-            )
-           })}
-           </div>
-           <div className="playlistdescriptionholder" style={{ justifyContent:latestpost.length > 4 ? "center" : "start" }}>
-           <p className="playlistdescriptiontext">Description:Dive into the latest playlists created by {user?user.name:""}! These newly curated playlists feature fresh, trending content that’s bound to keep you engaged. Perfect for discovering new favorites!"</p>
-           </div>
+              <div className="notesofplaylistholder">
+                {latestpost && latestpost.length > 0 && latestpost.map((current, index) => {
+                  return (
+                    <div key={index} className="holderofplaylistnote">
+                      <img src={current.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} className="imageofplaylistnote" alt="" onClick={(e) => { handledetail(e, current._id) }} />
+                      <p className="textofplaylistnote">{current.title}</p>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="playlistdescriptionholder" style={{ justifyContent: latestpost.length > 4 ? "center" : "start" }}>
+                <p className="playlistdescriptiontext">Description:Dive into the latest playlists created by {user ? user.name : ""}! These newly curated playlists feature fresh, trending content that’s bound to keep you engaged. Perfect for discovering new favorites!"</p>
+              </div>
             </div>
           )}
-           {playlistholder && playlistholder.length>0 &&(
-              <div className="recommendiationdiv" style={{marginTop:"5px",display:"flex",alignItems:"center"}}>
-                <p className="recommendiationpara">Userplaylists</p>
-                <FontAwesomeIcon icon={faPlay} style={{marginLeft:"6px"}}/>
-              </div>
-            )}
-          {playlistholder && playlistholder.length>0 && playlistholder.map((playlist,id)=>{
-            return(
+          {playlistholder && playlistholder.length > 0 && (
+            <div className="recommendiationdiv" style={{ marginTop: "5px", display: "flex", alignItems: "center" }}>
+              <p className="recommendiationpara">Userplaylists</p>
+              <FontAwesomeIcon icon={faPlay} style={{ marginLeft: "6px" }} />
+            </div>
+          )}
+          {playlistholder && playlistholder.length > 0 && playlistholder.map((playlist, id) => {
+            return (
               <div key={id} className="justrandomlycoming">
-              {playlist.notes && playlist.notes.length>0 &&(
-                <div key={id} className="playlistholdingdiv">
-           <div className="playlisttitlehomediv">
-           <p className="playlisttitlehome">{playlist.title}</p>
-           </div>
-          
-           <div className="notesofplaylistholder" onScroll={(e)=>{handleleftscroll(e,id)}}>
-           {playlist.notes && playlist.notes.length>0&& playlist.notes.map((current,index)=>{
-            return(
-              <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
-                <p className="textofplaylistnote">{current.title}</p>
-              </div>
-            )
-           })}
-           </div>
-           <div className="playlistdescriptionholder" style={{ justifyContent: playlist.notes.length > 4 ? "center" : "start" }}>
-           <p className="playlistdescriptiontext">Description:{playlist.description}</p>
-           </div>
-              </div>
-            )}
+                {playlist.notes && playlist.notes.length > 0 && (
+                  <div key={id} className="playlistholdingdiv">
+                    <div className="playlisttitlehomediv">
+                      <p className="playlisttitlehome">{playlist.title}</p>
+                    </div>
+
+                    <div className="notesofplaylistholder" onScroll={(e) => { handleleftscroll(e, id) }}>
+                      {playlist.notes && playlist.notes.length > 0 && playlist.notes.map((current, index) => {
+                        return (
+                          <div key={index} className="holderofplaylistnote">
+                            <img src={current.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} className="imageofplaylistnote" alt="" onClick={(e) => { handledetail(e, current._id) }} />
+                            <p className="textofplaylistnote">{current.title}</p>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    <div className="playlistdescriptionholder" style={{ justifyContent: playlist.notes.length > 4 ? "center" : "start" }}>
+                      <p className="playlistdescriptiontext">Description:{playlist.description}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             )
           })}
-            {latestpost && latestpost.length>1 && popularpost && popularpost.length>0 && (
+          {latestpost && latestpost.length > 1 && popularpost && popularpost.length > 0 && (
             <div className="playlistholdingdiv">
               <div className="playlisttitlehomediv">
-           <p className="playlisttitlehome">Fan Favorites The Most Popular Playlists from {user?user.name:""}</p>
-           </div>
-           <div className="notesofplaylistholder">
-           {popularpost&& popularpost.length>0&& popularpost.map((current,index)=>{
-            return(
-              <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
-                <p className="textofplaylistnote">{current.title}</p>
+                <p className="playlisttitlehome">Fan Favorites The Most Popular Playlists from {user ? user.name : ""}</p>
               </div>
-            )
-           })}
-           </div>
-           <div className="playlistdescriptionholder" style={{ justifyContent:popularpost.length > 4 ? "center" : "start" }}>
-           <p className="playlistdescriptiontext">Description:Dive into {user?user.name:""}'s most popular playlists! These collections are packed with the highest-rated and most-played tracks, showcasing the best content that everyone is enjoying right now!</p>
-           </div>
+              <div className="notesofplaylistholder">
+                {popularpost && popularpost.length > 0 && popularpost.map((current, index) => {
+                  return (
+                    <div key={index} className="holderofplaylistnote">
+                      <img src={current.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} className="imageofplaylistnote" alt="" onClick={(e) => { handledetail(e, current._id) }} />
+                      <p className="textofplaylistnote">{current.title}</p>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="playlistdescriptionholder" style={{ justifyContent: popularpost.length > 4 ? "center" : "start" }}>
+                <p className="playlistdescriptiontext">Description:Dive into {user ? user.name : ""}'s most popular playlists! These collections are packed with the highest-rated and most-played tracks, showcasing the best content that everyone is enjoying right now!</p>
+              </div>
             </div>
           )}
-            {latestpost && latestpost.length>1 && oldestpost && oldestpost.length>0 && (
+          {latestpost && latestpost.length > 1 && oldestpost && oldestpost.length > 0 && (
             <div className="playlistholdingdiv">
               <div className="playlisttitlehomediv">
-           <p className="playlisttitlehome">Oldies But Goodies: Classic Playlists Collection from {user?user.name:""}</p>
-           </div>
-           <div className="notesofplaylistholder">
-           {oldestpost&& oldestpost.length>0&& oldestpost.map((current,index)=>{
-            return(
-              <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}}/>
-                <p className="textofplaylistnote">{current.title}</p>
+                <p className="playlisttitlehome">Oldies But Goodies: Classic Playlists Collection from {user ? user.name : ""}</p>
               </div>
-            )
-           })}
-           </div>
-           <div className="playlistdescriptionholder" style={{ justifyContent:oldestpost.length > 4 ? "center" : "start" }}>
-           <p className="playlistdescriptiontext">Description : Discover the timeless playlists that have been part of {user?user.name:""}’s collection for the longest time. These classic playlists offer a glimpse into the journey and musical evolution, bringing you nostalgic gems from the past</p>
-           </div>
+              <div className="notesofplaylistholder">
+                {oldestpost && oldestpost.length > 0 && oldestpost.map((current, index) => {
+                  return (
+                    <div key={index} className="holderofplaylistnote">
+                      <img src={current.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} className="imageofplaylistnote" alt="" onClick={(e) => { handledetail(e, current._id) }} />
+                      <p className="textofplaylistnote">{current.title}</p>
+                    </div>
+                  )
+                })}
+              </div>
+              <div className="playlistdescriptionholder" style={{ justifyContent: oldestpost.length > 4 ? "center" : "start" }}>
+                <p className="playlistdescriptiontext">Description : Discover the timeless playlists that have been part of {user ? user.name : ""}’s collection for the longest time. These classic playlists offer a glimpse into the journey and musical evolution, bringing you nostalgic gems from the past</p>
+              </div>
             </div>
           )}
-          
+
           <div>
 
           </div>

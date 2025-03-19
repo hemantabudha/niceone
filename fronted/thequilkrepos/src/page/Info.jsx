@@ -225,7 +225,7 @@ const ProfilePage = () => {
   const profile = (e) => {
     navigate("/profile")
   }
-  
+
   const handlehome = (e) => {
     navigate("/")
   }
@@ -239,7 +239,7 @@ const ProfilePage = () => {
     navigate(`/follower/${id}`)
 
   }
-  const userprofile=(e)=>{
+  const userprofile = (e) => {
     navigate(`/profile/info/${id}`)
   }
   const usernews = (e) => {
@@ -367,10 +367,10 @@ const ProfilePage = () => {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
-  const userhome=(e)=>{
+  const userhome = (e) => {
 
     navigate(`/userhome/${id}`)
-  
+
   }
   return (
     <div className="alwaysmain">
@@ -440,17 +440,17 @@ const ProfilePage = () => {
           <div className="sidediv" onClick={handleyournews}>
             <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon" /> <span className="para">Your News</span>
           </div>
-          <div className="sidediv" onClick={handlequiz}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
             <span className="para">Upload Quiz</span>
           </div>
-          <div className="sidediv" onClick={handlediscussion}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload Discussion</span>
           </div>
           <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faUpload} className="likeicon" /> <span className="para">Upload Notes</span>
           </div>
-          <div className="sidediv" onClick={handlenews}>
+          <div className="sidediv" onClick={handleyourprofile}>
             <FontAwesomeIcon icon={faPlus} className="likeicon" /> <span className="para">Upload News</span>
           </div>
           <div className="sidediv" onClick={handletrend}>
@@ -499,13 +499,13 @@ const ProfilePage = () => {
               </div>
             </div>
             <div className="mobileops">
-            <div className="buttonholders" onClick={userhome}>
-                          <FontAwesomeIcon icon={faHome}/>
-                          <button className="buttonsz">User home</button>
-                        </div>
+              <div className="buttonholders" onClick={userhome}>
+                <FontAwesomeIcon icon={faHome} />
+                <button className="buttonsz">User home</button>
+              </div>
               <div className="buttonholders" onClick={userprofile}>
                 <FontAwesomeIcon icon={faUser} />
-                <button className="buttonsz">User Profile</button>
+                <button className="buttonsz">userNotes</button>
               </div>
               <div className="buttonholders" onClick={handlequiz}>
                 <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
@@ -531,39 +531,23 @@ const ProfilePage = () => {
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlechemistry}>
+              <div className="buttonholders" onClick={handlenews}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Chemistry</button>
+                <button className="buttonsz">Trending News</button>
               </div>
-              <div className="buttonholders" onClick={handlezoology}>
+              <div className="buttonholders" onClick={handlediscussion}>
                 <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Zoology Notes</button>
+                <button className="buttonsz">Trending Disscussions</button>
               </div>
               <div className="buttonholders" onClick={handletrend}>
                 <FontAwesomeIcon icon={faArrowTrendUp} />
                 <button className="buttonsz">Trending Notes</button>
               </div>
-              <div className="buttonholders" onClick={handlebotany}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Botany Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handleaccount}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Account Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlescience}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Science Notes</button>
-              </div>
-              <div className="buttonholders" onClick={handlemanagement}>
-                <FontAwesomeIcon icon={faBookOpenReader} />
-                <button className="buttonsz">Management Notes</button>
-              </div>
             </div>
           </div>
           <div className="recommendiationdivs">
-                <p className="recommendiationparas">Allnotes</p>
-              </div>
+            <p className="recommendiationparas">Allnotes</p>
+          </div>
           <div className="userdivhola">
             {userPosts.length > 0 ? (userPosts && userPosts.map((current, index) => {
               return (
@@ -572,7 +556,7 @@ const ProfilePage = () => {
                   <p className="paragraphtitl">{current.title}</p>
                 </div>
               )
-            })) : (<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>Uff! User doesn't create Post</p></div>)}
+            })) : (<div style={{ display: "flex", justifyContent: "center" }}><p style={{ boxShadow: "none", fontSize: "large", fontWeight: "600", marginTop: '21px' }}>Uff! User doesn't create Post</p></div>)}
           </div>
         </div>
       </div>

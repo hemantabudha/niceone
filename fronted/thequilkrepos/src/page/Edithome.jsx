@@ -284,6 +284,9 @@ const PlaylistComponent = ({ user, }) => {
       }
     }
   };
+  const handleImageLoad = (e) => {
+    e.target.style.display = "block"; // Make the image visible as soon as it's loaded
+  };
   return (
     <div className="playlist-container" onScroll={handleScroll}>
      {favoritepost && (
@@ -293,7 +296,7 @@ const PlaylistComponent = ({ user, }) => {
                   </div>
                   <div className="favoriteimageandall">
                     <div className="imagefavoritediv">
-                  <img src={favoritepost.thumbnail} alt="" className="favoriteimage" />
+                  <img src={favoritepost.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} alt="" className="favoriteimage" />
                   </div>
                   <div className="favoritedescriptiondiv">
                   <p className="favoritetitle">Title : {favoritepost.title}</p>
@@ -307,7 +310,9 @@ const PlaylistComponent = ({ user, }) => {
                   </div>
                   </div>
                 </div>)}
-       
+       {!favoritepost && playlistholder.length===0 &&
+       (<div style={{display:"flex",justifyContent:"center"}}><p  style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px'}}>Uff! Create Some playlist</p>
+       </div>)}
       {!isEditing ? (
       
         <div>
@@ -335,7 +340,7 @@ const PlaylistComponent = ({ user, }) => {
           onClick={() => editPlaylist(id)}
           className="editofplaylistnoteicon"
         />
-              <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+              <img src={current.thumbnail} onLoad={handleImageLoad} style={{ display: "none" }} className="imageofplaylistnote" alt="" />
               <p className="textofplaylistnote">{current.title}</p>
             </div>
           )

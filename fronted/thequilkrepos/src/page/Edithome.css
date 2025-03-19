@@ -82,6 +82,8 @@
     width: 100%;
     overflow: scroll;
     overflow-x: hidden;
+    animation: slideIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-in-out;
     border: none;
 }
 

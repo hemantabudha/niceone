@@ -670,17 +670,17 @@ useEffect(() => {
   <div className="sidediv" onClick={handleyournews}>
     <FontAwesomeIcon icon={faNewspaper} className="trendingpersonicon"/> <span className="para">Your News</span>
   </div>
-  <div className="sidediv" onClick={handlequiz}>
+  <div className="sidediv" onClick={handleyourprofile}>
                   <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png"  alt="" className="likeicon"/>
                    <span className="para">Upload Quiz</span>
     </div>
-    <div className="sidediv" onClick={handlediscussion}>
+    <div className="sidediv" onClick={handleyourprofile}>
     <FontAwesomeIcon icon={faPlus} className="likeicon"/> <span className="para">Upload Discussion</span>
   </div>
   <div className="sidediv" onClick={handleyourprofile}>
     <FontAwesomeIcon icon={faUpload} className="likeicon"/> <span className="para">Upload Notes</span>
   </div>
-  <div className="sidediv" onClick={handlenews}>
+  <div className="sidediv" onClick={handleyourprofile}>
     <FontAwesomeIcon icon={faPlus} className="likeicon"/> <span className="para">Upload News</span>
   </div>
   <div className="sidediv" onClick={handletrend}>
@@ -738,7 +738,7 @@ useEffect(() => {
                         </div>
                         <div className="buttonholders" onClick={userprofile}>
                           <FontAwesomeIcon icon={faUser}/>
-                          <button className="buttonsz">User Profile</button>
+                          <button className="buttonsz">userNotes</button>
                         </div>
                         <div className="buttonholders" onClick={handlequiz}>
                           <img src="https://thequilkads.s3.ap-south-1.amazonaws.com/quiz_8940669+(1)-modified.png" alt="" className="likeicon" />
@@ -764,33 +764,17 @@ useEffect(() => {
                           <FontAwesomeIcon icon={faArrowTrendUp} />
                           <button className="buttonsz">Trending Notes</button>
                         </div>
-                        <div className="buttonholders" onClick={handlechemistry}>
+                        <div className="buttonholders" onClick={handlenews}>
                           <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Chemistry</button>
+                          <button className="buttonsz">Trending News</button>
                         </div>
-                        <div className="buttonholders" onClick={handlezoology}>
+                        <div className="buttonholders" onClick={handlediscussion}>
                           <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Zoology Notes</button>
+                          <button className="buttonsz">Trending Disscussions</button>
                         </div>
                         <div className="buttonholders" onClick={handletrend}>
                           <FontAwesomeIcon icon={faArrowTrendUp} />
                           <button className="buttonsz">Trending Notes</button>
-                        </div>
-                        <div className="buttonholders" onClick={handlebotany}>
-                          <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Botany Notes</button>
-                        </div>
-                        <div className="buttonholders" onClick={handleaccount}>
-                          <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Account Notes</button>
-                        </div>
-                        <div className="buttonholders" onClick={handlescience}>
-                          <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Science Notes</button>
-                        </div>
-                        <div className="buttonholders" onClick={handlemanagement}>
-                          <FontAwesomeIcon icon={faBookOpenReader} />
-                          <button className="buttonsz">Management Notes</button>
                         </div>
                       </div>
                       

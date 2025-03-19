@@ -88,11 +88,6 @@ export default function Navbar() {
     navigate(`/detail/review/${postid}`)
     setSearchValue("")
   }
-  const handleprofle=(e,profileid)=>{
-    e.stopPropagation();
-    navigate(`/profile/info/${profileid}`)
-    setSearchValue("")
-  }
   const handlesignout=(e)=>{
     localStorage.removeItem('token')
     navigate("/login")
@@ -252,7 +247,7 @@ export default function Navbar() {
      {postdata.length>0&& (postdata.map((current,index)=>{
      return(
      <div className="herodiv" key={index} onClick={(e)=>{handledetail(e,current._id)}}>
-      <img src={current.createdBy.profile} alt="" className='heroimage' onClick={(e)=>{handleprofle(e,current.createdBy._id)}}/>
+      <img src={current.createdBy.profile} alt="" className='heroimage'/>
       <p className='herotitle'>{current.title}</p>
      </div>
     )
