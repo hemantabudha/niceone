@@ -402,7 +402,10 @@ const formatLikes = (num) => {
     localStorage.removeItem('token')
     navigate("/login")
   }
+  const homepageforother=(e,id)=>{
   
+    navigate(`/userhome/${id}`)
+  }
   return(
     <div className="alwaysmain">
       <Helmet>
@@ -582,7 +585,7 @@ const formatLikes = (num) => {
           <div className="container" key={index}>
             <div className="imageandcreated">
               <div className="imageprofilediv">
-                  <img src={current.createdBy.profile} alt="" className="imageprofile" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{handlenewsinfo(e,current.createdBy._id)}}/>
+                  <img src={current.createdBy.profile} alt="" className="imageprofile" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{homepageforother(e,current.createdBy._id)}}/>
               </div>
               <div className="createtitle">
                        <p className="titlething">{current.title}---{current.createdBy.name}</p>
@@ -681,7 +684,7 @@ const formatLikes = (num) => {
           <div className="container" key={index}>
             <div className="imageandcreated">
               <div className="imageprofilediv">
-                  <img src={current.createdBy.profile} alt="" className="imageprofile" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{handlenewsinfo(e,current.createdBy._id)}}/>
+                  <img src={current.createdBy.profile} alt="" className="imageprofile" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{homepageforother(e,current.createdBy._id)}}/>
               </div>
               <div className="createtitle">
               <p className="titlething">{current.title}---{current.createdBy.name}</p>

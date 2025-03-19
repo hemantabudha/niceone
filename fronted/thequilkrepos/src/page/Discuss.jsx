@@ -447,6 +447,10 @@ const userhome=(e)=>{
   navigate(`/userhome/${id}`)
 
 }
+const commentoruserhome=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
 const trend=()=>{
   navigate("/trending")
 }
@@ -871,7 +875,7 @@ post.comments.map((comment, index) => (
 <div key={index} className="commentcontainer">
   <div className="commentordiv">
     <div >
-    <img src={comment.user.profile} alt="" className="commentorimage" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{handleprofile(e,comment.user._id)}}/> 
+    <img src={comment.user.profile} alt="" className="commentorimage" onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{commentoruserhome(e,comment.user._id)}}/> 
     </div>
   <div className="textdiv">
     <p className="text">{comment.user.name}</p>

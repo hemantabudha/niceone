@@ -313,6 +313,10 @@ export default function Follower() {
     navigate(`/userhome/${id}`)
   
   }
+  const homepageforother=(e,id)=>{
+  
+    navigate(`/userhome/${id}`)
+  }
   return (
     <div className="alwaysmain">
       <Helmet>
@@ -505,7 +509,7 @@ export default function Follower() {
             {Array.isArray(followingdata) && followingdata.length > 0 ? (followingdata && followingdata.map((current, index) => {
               return (
                 <div key={index} className="follodiv">
-                  <img src={current.profile} alt="" className="followimage" onClick={(e) => { handleprofile(e, current._id) }} onLoad={handleImageLoad} style={{ display: "none" }} />
+                  <img src={current.profile} alt="" className="followimage" onClick={(e) => {homepageforother(e, current._id) }} onLoad={handleImageLoad} style={{ display: "none" }} />
                   <p className="followname">{current.name}</p>
                   <div className="upperfollow">
                     <button className="none1">{current.followercounts > 2 ? <FontAwesomeIcon icon={faCrown} className="crowns" /> : ""}</button>
@@ -513,7 +517,7 @@ export default function Follower() {
                      <button className="none2">{current.followercounts > 2 ? <FontAwesomeIcon icon={faStar} className="stars" /> : ""}</button>
                   </div>
                   <div className="lowerfollow">
-                    <button className="pro" onClick={(e) => { handleprofile(e, current._id) }}>Profile</button> <button className="fol">follower</button> <div className="share" onClick={(e) => { handleprofilelink(e, current._id) }}>Share<FontAwesomeIcon icon={faShare} className="shareicon" /></div>
+                    <button className="pro" onClick={(e) => {homepageforother(e, current._id) }}>Profile</button> <button className="fol">follower</button> <div className="share" onClick={(e) => { handleprofilelink(e, current._id) }}>Share<FontAwesomeIcon icon={faShare} className="shareicon" /></div>
                   </div>
                 </div>
               )

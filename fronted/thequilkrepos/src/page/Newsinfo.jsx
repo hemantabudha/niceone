@@ -481,6 +481,7 @@ const handleImageLoad = (e) => {
 
     checkTokenAndFetchData();
   }, []);
+  
   return(
     <div className="alwaysmain" >
        <Helmet>

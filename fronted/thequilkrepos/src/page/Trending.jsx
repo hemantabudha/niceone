@@ -167,6 +167,10 @@ const handlerevenue=(e)=>{
 const handletermandcondition=(e)=>{
   navigate("/terms-and-conditions")
 }
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
     return(
     <div className="alwaysmain">
        <Helmet>
@@ -277,7 +281,7 @@ const handletermandcondition=(e)=>{
                 return(
                   <div className="trenddiv" key={index} style={{marginBottom:"10px"}}>
                   
-                  <img src={current.profile} alt={current.name} className="sizephoto" onClick={(e)=>{handleprofile(e,current._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
+                  <img src={current.profile} alt={current.name} className="sizephoto" onClick={(e)=>{homepageforother(e,current._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
                   <div className="icontoproudholder" style={{marginBottom:"5px",marginTop:"5px"}}>
                   <FontAwesomeIcon icon={faStar} className="icontoproud"/>
                   <FontAwesomeIcon icon={faCrown} className="crownicon"/>
@@ -305,8 +309,8 @@ const handletermandcondition=(e)=>{
                   <p className="ptitl">{current.title.length>44?current.title.slice(0,45)+"...":current.title}</p>
                 </div>
                 <div className="creatordi">
-                <img src={current.createdBy.profile} alt={current.title} className="creatorima" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
-                <p className="creatornam" onClick={(e)=>{handleprofile(e,current.createdBy._id)}}>{current.createdBy.name}</p>
+                <img src={current.createdBy.profile} alt={current.title} className="creatorima" onClick={(e)=>{homepageforother(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
+                <p className="creatornam" onClick={(e)=>{homepageforother(e,current.createdBy._id)}}>{current.createdBy.name}</p>
                 </div>
     
               </div>

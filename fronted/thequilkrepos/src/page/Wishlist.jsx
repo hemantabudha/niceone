@@ -297,6 +297,10 @@ navigate(`/search?query=science`);
 const handlemanagement=()=>{
 navigate(`/search?query=management`);
 }
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
   return(
     <div className="alwaysmain">
   <Helmet>
@@ -490,8 +494,8 @@ navigate(`/search?query=management`);
                     <p className="ptitl">{current.title.length>44?current.title.slice(0,45)+"...":current.title}</p>
                   </div>
                   <div className="creatord">
-                  <img src={current.createdBy.profile} alt="Selected" className="creatorima" onClick={(e)=>{handleprofile(e,current.createdBy.id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
-                  <p className="creatorna" onClick={(e)=>{handleprofile(e,current.createdBy.id)}}>{current.createdBy.name}</p>
+                  <img src={current.createdBy.profile} alt="Selected" className="creatorima" onClick={(e)=>{homepageforother(e,current.createdBy.id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
+                  <p className="creatorna" onClick={(e)=>{homepageforother(e,current.createdBy.id)}}>{current.createdBy.name}</p>
                   </div>
 
                 </div>

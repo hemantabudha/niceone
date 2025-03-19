@@ -279,6 +279,10 @@ navigate(`/search?query=science`);
 const handlemanagement=()=>{
 navigate(`/search?query=management`);
 }
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
   return (
     <div className="alwaysmain">
         <Helmet>
@@ -497,8 +501,8 @@ current.imgsrc.match(/\.(mp4|webm|ogv)$/i) ? (
           <p className="pti">{current.title.length>44?current.title.slice(0,45)+"...":current.title}</p>
         </div>
         <div className="crea">
-        <img src={current.createdBy.profile} alt="Selected" className="creaa" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
-        <p className="creatorr" onClick={(e)=>{handleprofile(e,current.createdBy._id)}}>{current.createdBy.name}</p>
+        <img src={current.createdBy.profile} alt="Selected" className="creaa" onClick={(e)=>{homepageforother(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
+        <p className="creatorr" onClick={(e)=>{homepageforother(e,current.createdBy._id)}}>{current.createdBy.name}</p>
         </div>
 
       </div>
@@ -566,8 +570,8 @@ onLoad={handleImageLoad}  style={{ display: "none" }}
           <p className="pti">{current.title.length>44?current.title.slice(0,45)+"...":current.title}</p>
         </div>
         <div className="crea">
-        <img src={current.createdBy.profile} alt="Selected" className="creaa" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
-        <p className="creatorr" onClick={(e)=>{handleprofile(e,current.createdBy._id)}}>{current.createdBy.name}</p>
+        <img src={current.createdBy.profile} alt="Selected" className="creaa" onClick={(e)=>{homepageforother(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }}/>
+        <p className="creatorr" onClick={(e)=>{homepageforother(e,current.createdBy._id)}}>{current.createdBy.name}</p>
         </div>
 
       </div>

@@ -448,7 +448,10 @@ export default function People() {
   const handlemanagement = () => {
     navigate(`/search?query=management`);
   }
-
+  const homepageforother=(e,id)=>{
+  
+    navigate(`/userhome/${id}`)
+  }
   return (
     <div className="alwaysmain">
       <Helmet>
@@ -664,7 +667,7 @@ export default function People() {
                   </div>
                 ) : (
                   <div key={index} className="questiondiv">
-                    <div className="creatordiv" onClick={(e) => { discussinfo(e, post.user._id) }}>
+                    <div className="creatordiv" onClick={(e) => {homepageforother(e, post.user._id) }}>
                       <img src={post.user.profile} alt={post.user.name} className="imagecreator" onLoad={handleImageLoad} style={{ display: "none" }} />
                       <p className="imagename">{post.user.name}</p>
                     </div>
@@ -688,11 +691,11 @@ export default function People() {
                         post.comments.map((comment, index) => (
                           <div key={index} className="commentcontainer">
                             <div className="commentordiv">
-                              <div onClick={(e) => { discussinfo(e, comment.user._id) }}>
+                              <div onClick={(e) => {homepageforother(e, comment.user._id) }}>
                                 <img src={comment.user.profile} alt="" className="commentorimage" onLoad={handleImageLoad} style={{ display: "none" }} />
                               </div>
                               <div className="textdiv">
-                                <p className="text" onClick={(e) => { discussinfo(e, comment.user._id) }}>{comment.user.name}</p>
+                                <p className="text" onClick={(e) => {homepageforother(e, comment.user._id) }}>{comment.user.name}</p>
                                 <p className="text">{comment.text}</p>
                               </div>
 

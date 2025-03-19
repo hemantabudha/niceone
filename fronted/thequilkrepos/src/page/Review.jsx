@@ -683,6 +683,10 @@ export default function Review() {
         console.error('Failed to copy the URL: ', error);
       });
   }
+  const homepageforother=(e,id)=>{
+  
+    navigate(`/userhome/${id}`)
+  }
   return (
     <div className="alwaysmain">
       <Helmet>
@@ -830,7 +834,7 @@ export default function Review() {
           </div>
 
           <div className="userprofilediv" >
-            {creatorinfo && <img src={creatorinfo.profile} alt="" className="imageprofiles" onLoad={handleImageLoad} style={{ display: "none", width: "120px", height: "120px" }} onClick={(e) => { handleprofile(e, creatorinfo._id) }} />}
+            {creatorinfo && <img src={creatorinfo.profile} alt="" className="imageprofiles" onLoad={handleImageLoad} style={{ display: "none", width: "120px", height: "120px" }} onClick={(e) => { homepageforother(e, creatorinfo._id) }} />}
             {creatorinfo && <p className="usernameclasss">{creatorinfo.name}</p>}
             {creatorinfo && <p className="userinfotext">{creatorinfo.description}</p>}
             <div className="buttons">
@@ -1049,7 +1053,7 @@ export default function Review() {
               return (
                 <div key={index} className="actualhonking">
                   {index < 3 && <FontAwesomeIcon icon={faMedal} className="awardguys" />}
-                  <img src={current.submittedBy.profile} alt="" className="imagetoppers" onLoad={handleImageLoad} style={{ display: "none" }} onClick={(e) => { handleprofile(e, current.submittedBy._id) }} />
+                  <img src={current.submittedBy.profile} alt="" className="imagetoppers" onLoad={handleImageLoad} style={{ display: "none" }} onClick={(e) => { homepageforother(e, current.submittedBy._id) }} />
                   <div className="icontoproudholder">
                   
                     <FontAwesomeIcon icon={faStar} className="icontoproud" />
@@ -1058,7 +1062,7 @@ export default function Review() {
                     
                   </div>
 
-                  <button className="nameofwinner" onClick={(e) => { handleprofile(e, current.submittedBy._id) }}>{current.submittedBy.name}</button>
+                  <button className="nameofwinner" onClick={(e) => {homepageforother(e, current.submittedBy._id) }}>{current.submittedBy.name}</button>
                   <div className="okdoingit">
                     <FontAwesomeIcon icon={faStopwatch} className="stopwatching" />
                     <button className="secondholdering">{current.timeTaken}<span className="spaning">Sec</span></button>
@@ -1079,7 +1083,7 @@ export default function Review() {
               return (
                 <div key={index} className="actualholderwhoholdcomment">
 
-                  <img src={current.user.profile} alt="" className="imageforthecommentor" onLoad={handleImageLoad} style={{ display: "none" }} onClick={(e) => { handleprofile(e, current.user._id) }} />
+                  <img src={current.user.profile} alt="" className="imageforthecommentor" onLoad={handleImageLoad} style={{ display: "none" }} onClick={(e) => {homepageforother(e, current.user._id) }} />
 
                   <div className="namepluscomment">
                     <p className="usernameforcommentor">{current.user.name}</p>

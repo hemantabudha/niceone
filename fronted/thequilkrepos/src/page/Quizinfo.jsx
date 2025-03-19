@@ -598,6 +598,10 @@ const handlescience = () => {
 const handlemanagement = () => {
   navigate(`/search?query=management`);
 }
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
   return (
     <div className="alwaysmain">
         {generateSEO()}
@@ -938,7 +942,7 @@ const handlemanagement = () => {
     return(
       <div key={index} className="actualhonking">
         {index<3 && <FontAwesomeIcon icon={faMedal} className="awardguys"/>}
-        <img src={current.submittedBy.profile} alt="" className="imagetoppers"onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{handleprofile(e,current.submittedBy._id)}}/>
+        <img src={current.submittedBy.profile} alt="" className="imagetoppers"onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{homepageforother(e,current.submittedBy._id)}}/>
         <div className="icontoproudholder">
         
         <FontAwesomeIcon icon={faStar} className="icontoproud"/>
@@ -947,7 +951,7 @@ const handlemanagement = () => {
         
         </div>
     
-        <button className="nameofwinner" onClick={(e)=>{handleprofile(e,current.submittedBy._id)}}>{current.submittedBy.name}</button>
+        <button className="nameofwinner" onClick={(e)=>{homepageforother(e,current.submittedBy._id)}}>{current.submittedBy.name}</button>
         <div className="okdoingit">
           <FontAwesomeIcon icon={faStopwatch} className="stopwatching"/>
           <button className="secondholdering">{current.timeTaken}<span className="spaning">Sec</span></button>

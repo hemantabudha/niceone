@@ -364,6 +364,16 @@
     align-items: center;
     width:300px;
     margin-left: 10px;
+    position: relative;
+}
+.holderofplaylistnote .editofplaylistnoteicon{
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+    border-radius: 50%;
+    position:absolute;
+    top: 3px;
+    right: 3px;
 }
 .holderofplaylistnote .imageofplaylistnote{
    width: 300px;

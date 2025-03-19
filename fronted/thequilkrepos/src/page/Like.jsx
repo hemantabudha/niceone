@@ -300,6 +300,10 @@ export default function Like(){
   const handlemanagement=()=>{
     navigate(`/search?query=management`);
   }
+  const homepageforother=(e,id)=>{
+  
+    navigate(`/userhome/${id}`)
+  }
   return(
     <div className="alwaysmain">
    <Helmet>
@@ -498,7 +502,7 @@ export default function Like(){
                   <div className="titled">
                     <p className="ptitl">{current.title>44?current.title.slice(0,45)+"...":current.title}</p>
                   </div>
-                  <div className="creatord" onClick={(e)=>{handleprofile(e,current.createdBy.id)}}>
+                  <div className="creatord" onClick={(e)=>{homepageforother(e,current.createdBy.id)}}>
                   <img src={current.createdBy.profile} alt="Selected" className="creatorima"  onLoad={handleImageLoad}  style={{ display: "none" }} />
                   <p className="creatorna" >{current.createdBy.name}</p>
                   </div>

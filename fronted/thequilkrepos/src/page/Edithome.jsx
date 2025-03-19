@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faXmark, faEdit, faTrash, faThumbsUp, faComment, faQuestion, faPlay } from "@fortawesome/free-solid-svg-icons";
 import "./Edithome.css"
 import axios from "axios";
 const PlaylistComponent = ({ user, }) => {
-  const [newPlaylist, setNewPlaylist] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
   const [playlistTitle, setPlaylistTitle] = useState("");
@@ -14,84 +13,90 @@ const PlaylistComponent = ({ user, }) => {
   const [invalidNotes, setInvalidNotes] = useState([]); // New state for invalid notes
   const [playlisterror, setPlaylisterror] = useState(""); // Error state for playlist update
   const backendurl = import.meta.env.VITE_BACKEND_URL;
-  const [loadingpage, setLoadingpage] = useState(false); 
-  const [page, setPage] = useState(1); 
+    const [loadingpage, setLoadingpage] = useState(false); 
+    const [page, setPage] = useState(1); 
   const[loadingchange,setloadingchange]=useState(false)
   const[playlistthumbnail,setplaylistthumbnail]=useState(null)
-  const [activeIndex, setActiveIndex] = useState(null);  // Track which playlist should show the image
-const [currentImage, setCurrentImage] = useState(null); // Store the fetched image
-
-const fetchImage = async (index, id) => {
-  try {
-    const response = await axios.get(`${backendurl}/playlist/show/${id}`);
-    setActiveIndex(index); // Set the active playlist index
-    setCurrentImage(response.data.postdata.thumbnail); // Set the image
-  } catch (error) {
-    alert("i think you maybe deleted this notes. ")
-  }
-};
-
-
+   const[playlistholder,setplaylistholder]=useState([])
+     const[loadinganotherid,setLoadinganotherid]=useState(false)
+ // Store the fetched image
+   const [favoritepost, setfavoritepost] = useState(null)
     useEffect(() => {
-      const fetchUserData = async () => {
-        setLoadingpage(true);
-        const initialLimit = window.innerWidth < 600 ? 9 : 12;
-        const limit = page === 1 ? initialLimit : 5;
-  
-        const token = localStorage.getItem('token'); // Get token from localStorage
-        if (!token) {
-          navigate('/login'); // Redirect if no token
-          return;
-        }
-       if(loadingpage){
-        return;
-       }
-        try {
-          const response = await axios.post(`${backendurl}/playlists/playlistcreator`, {
-            limit,
-            excludeIds: newPlaylist.map((post) => post._id), // Exclude already fetched posts
-          }, {
-            headers: {
-              "Authorization": `Bearer ${token}`,
-            },
-          });
-  
-          const newPosts = response.data.datas;
-          console.log(newPosts)
-          if (page === 1) {
-            setNewPlaylist(newPosts); // Replace old data with fresh posts
-          } else {
-            setNewPlaylist((prevData) => {
-              // Ensure the order is maintained by reversing the new posts before prepending
-              return [...prevData, ...newPosts];
-            }); // Append for pagination
-          }
-        } catch (error) {
-          console.error("Error fetching user news:", error);
-        } finally {
-          setLoadingpage(false);
-        }
-      };
-  
-      fetchUserData();
-    }, [page, backendurl]);
-    const handleScroll = (e) => {
-      const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <= 100; // 100px tolerance before bottom
-      if (bottom && !loadingpage) {
-        setPage((prevPage) => prevPage + 1); // Increment page number when scrolled near to the bottom
+    if (!user._id) return;
+
+    const fetchTotalLikes = async () => {
+      try {
+        const response = await axios.get(`${backendurl}/favorite/${user._id}/posts`);
+    
+        setfavoritepost(response.data.posts[0])
+      } catch (err) {
+        console.error("Error fetching total likes:", err.response || err);
       }
     };
+
+    fetchTotalLikes();
+  }, [user]);
+  useEffect(() => {
+    if (!user._id) return;
+    const fetchUserData = async () => {
+      setLoadingpage(true);
+  
+      const limit = page === 1 ? 3 : 2;
+     
+     if(loadingpage){
+      return;
+     }
+      try {
+        const response = await axios.post(`${backendurl}/playlists/playlistcreator/userhome/${user._id}`, {
+          limit,
+          excludeIds: playlistholder.map((post) => post._id), // Exclude already fetched posts
+        });
+        
+        const newPosts = response.data.datas;
+        if (page === 1) {
+          setplaylistholder(newPosts); // Replace old data with fresh posts
+        } else {
+          setplaylistholder((prevData) => {
+            // Ensure the order is maintained by reversing the new posts before prepending
+            return [...prevData, ...newPosts];
+          }); // Append for pagination
+        }
+      } catch (error) {
+        console.error("Error fetching user news:", error);
+      } finally {
+        setLoadingpage(false);
+      }
+    };
+
+    fetchUserData();
+  }, [page,user,isEditing]);
+  const handleScroll = (e) => {
+    const bottom = e.target.scrollHeight - e.target.scrollTop - e.target.clientHeight <= 100; // 100px tolerance before bottom
+    if (bottom && !loadingpage) {
+      setPage((prevPage) => prevPage + 1); // Increment page number when scrolled near to the bottom
+    }
+  };
+
+
+   
   // Open Edit Mode for a Playlist
   const editPlaylist = (index) => {
-    const playlist = newPlaylist[index];
+    console.log("index",index)
+    const playlist = playlistholder[index];
+    const activeindex=playlist._id;
     setPlaylistTitle(playlist.title);
-    setPlaylistNotes(playlist.notes);
+    const playlistnotes=playlist.notes.map((current,index)=>{
+      return(current._id)
+    })
+    setPlaylistNotes(playlistnotes);
     setPlaylistDescription(playlist.description);
-    setEditIndex(index);
+    setEditIndex(activeindex);
     setIsEditing(true);
-    setCurrentImage(null)
-    setActiveIndex(null)
-  };
+    console.log("id",playlistnotes)
+    console.log("title",playlist.title)
+    console.log("description",playlist.description)
+    console.log("changeindex",playlist._id)
+  };//clear
 
   // Add New Note ID
   const addNote = () => {
@@ -171,10 +176,8 @@ const fetchImage = async (index, id) => {
       };
   
       const token = localStorage.getItem("token");
-  
-      // Make the PUT request to the backend
       const response = await axios.put(
-        `${backendurl}/playlists/update/${newPlaylist[editIndex]._id}`,
+        `${backendurl}/playlists/update/${editIndex}`,
         updatedPlaylist,
         {
           headers: {
@@ -183,13 +186,10 @@ const fetchImage = async (index, id) => {
         }
       );
   
-      if (response.status === 200) {
-        const updatedPlaylists = [...newPlaylist];
-        updatedPlaylists[editIndex] = { ...updatedPlaylists[editIndex], ...updatedPlaylist };
-        setNewPlaylist(updatedPlaylists); // Update the state correctly
+     
         setIsEditing(false);
         setPlaylisterror("")
-      }
+      
     } catch (error) {
       if (error.response) {
         setPlaylisterror(error.response.data.message);
@@ -212,7 +212,7 @@ const fetchImage = async (index, id) => {
     // Highlight invalid notes
     return invalidNotes.includes(stringNoteId) ? "invalid-note" : "note-item";
   };
-  const deletePlaylist = async (e,id) => {
+  const deletePlaylist = async (e) => {
     e.stopPropagation();
     try {
       const token = localStorage.getItem("token");
@@ -221,26 +221,19 @@ const fetchImage = async (index, id) => {
         return;
       }
   
-      const response = await axios.delete(`${backendurl}/playlists/delete/${id}`, {
+      const response = await axios.delete(`${backendurl}/playlists/delete/${editIndex}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-  
-      if (response.status === 200) {
-        // Successfully deleted playlist, update the UI (remove from state)
-        const updatedPlaylists = newPlaylist.filter(playlist => playlist._id !== id);
-        setNewPlaylist(updatedPlaylists);
+      const updatedplaylistdata = playlistholder.filter(playlistholder => playlistholder._id !== id);
+      setplaylistholder(updatedplaylistdata)
+
+        // 
         setIsEditing(false)
-      }
+      
     } catch (error) {
-      console.error("Error deleting playlist:", error);
-      alert("Error deleting playlist.");
+      setIsEditing(false)
     }
   };
-  const handlenotdisplay=(e)=>{
-    e.stopPropagation();
-   setCurrentImage(null)
-   setActiveIndex(null)
-  }
   const handlegetthumbnail = async (e,id) => {
     e.stopPropagation();
     try {
@@ -253,47 +246,111 @@ const fetchImage = async (index, id) => {
       alert("i think this notes object id isnot valid.please check it out.");
     }
   };
-  
-  
+  const formatLikes = (num) => {
+    if (num >= 1_000_000_000) return (num / 1_000_000_000).toFixed(1) + "B"; // Billions
+    if (num >= 1_000_000) return (num / 1_000_000).toFixed(1) + "M"; // Millions
+    if (num >= 1_000) return (num / 1_000).toFixed(1) + "K"; // Thousands
+    return num.toString(); // Less than 1K, show the number as is
+  };
+  const handleleftscroll = async (e,index) => {
+    const rightEnd = e.target.scrollWidth - e.target.scrollLeft - e.target.clientWidth <= 10; // 10px tolerance before the right end
+    if (rightEnd && !loadinganotherid) {
+      setLoadinganotherid(true);
+      const activePlaylist = playlistholder[index];
+     
+      const excludedIds = activePlaylist.notes.map((note) => note._id);
+ 
+      try {
+        const res = await axios.post(`${backendurl}/playlist/remainingid/${activePlaylist._id}`, {
+          excludedId: excludedIds,  // Send already fetched image URLs
+        });
+        console.log(res.data)
+        if (res.data.length > 0) {
+          // Add new notes to the active playlist
+          setplaylistholder((prev) => {
+            const updatedPlaylists = [...prev];
+            updatedPlaylists[index] = {
+              ...updatedPlaylists[index],
+              notes: [...updatedPlaylists[index].notes, ...res.data],
+            };
+            return updatedPlaylists;
+          });
+        }
+
+      } catch (error) {
+        console.error('Error loading more images', error);
+      } finally {
+        setLoadinganotherid(false);
+      }
+    }
+  };
   return (
     <div className="playlist-container" onScroll={handleScroll}>
+     {favoritepost && (
+                <div className="favoriteshowndiv">
+                  <div className="recommendiationdiv">
+                    <p className="recommendiationpara">Recommendation</p>
+                  </div>
+                  <div className="favoriteimageandall">
+                    <div className="imagefavoritediv">
+                  <img src={favoritepost.thumbnail} alt="" className="favoriteimage" />
+                  </div>
+                  <div className="favoritedescriptiondiv">
+                  <p className="favoritetitle">Title : {favoritepost.title}</p>
+                  <p className="favoritedescription">{favoritepost.description}</p>
+                 <div className="likecommentandquizdiv">
+                  <button className="buttonfavorite"><FontAwesomeIcon icon={faThumbsUp}className="likesinfofollow"/> <span>{formatLikes(favoritepost.likesCount)}</span></button>
+                  <button className="buttonfavorite" ><FontAwesomeIcon icon={faComment} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+                  <button className="buttonfavorite" ><FontAwesomeIcon icon={faQuestion} className="likesinfofollow"/> <span>{formatLikes(favoritepost.commentsCount)}</span></button>
+                 </div>
+                  
+                  </div>
+                  </div>
+                </div>)}
+       
       {!isEditing ? (
-        newPlaylist &&newPlaylist.length>0?
-        newPlaylist.map((playlist, index) => (
-                 
-          <div key={index} className="playlist">
-            <div className="playlist-title">
-              {user && <img src={user.profile} className="playlistprofile"/>}
-              <p className="playlisttitle">{playlist.title}</p>      
+      
+        <div>
+          {playlistholder && playlistholder.length>0 &&(
+                        <div className="recommendiationdiv" style={{marginTop:"5px",display:"flex",alignItems:"center"}}>
+                          <p className="recommendiationpara">Userplaylists</p>
+                          <FontAwesomeIcon icon={faPlay} style={{marginLeft:"6px"}}/>
+                        </div>
+                      )}
+          {playlistholder && playlistholder.length>0 && playlistholder.map((playlist,id)=>{
+          return(
+            <div key={id} className="justrandomlycoming">
+            {playlist.notes && playlist.notes.length>0 &&(
+              <div key={id} className="playlistholdingdiv">
+         <div className="playlisttitlehomediv">
+         <p className="playlisttitlehome">{playlist.title}</p>
+         </div>
+        
+         <div className="notesofplaylistholder" onScroll={(e)=>{handleleftscroll(e,id)}}>
+         {playlist.notes && playlist.notes.length>0&& playlist.notes.map((current,index)=>{
+          return(
+            <div key={index} className="holderofplaylistnote">
+              <FontAwesomeIcon
+          icon={faEdit}
+          onClick={() => editPlaylist(id)}
+          className="editofplaylistnoteicon"
+        />
+              <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+              <p className="textofplaylistnote">{current.title}</p>
             </div>
-
-            <div className="notes-list">
-              {playlist.notes.map((id, i) => (
-                <div key={i} className={getNoteClass(id)}>
-                   <button className="remove-btn" onClick={() => fetchImage(index, id)}>{id}</button>
-                <FontAwesomeIcon
-                  icon={faEdit}
-                  onClick={() => editPlaylist(index)}
-                  className="xmarkicon"
-                />
-                </div>
-              ))}
+          )
+         })}
+         </div>
+         <div className="playlistdescriptionholder" style={{ justifyContent: playlist.notes.length > 4 ? "center" : "start" }}>
+         <p className="playlistdescriptiontext">Description:{playlist.description}</p>
+         </div>
             </div>
-            {activeIndex === index && currentImage && (
-      <div className="thumbnailplaylistpicture">
-        <div className="showinggorg">
-        <FontAwesomeIcon icon={faXmark} className="hello" onClick={handlenotdisplay}/>
-        <img src={currentImage} alt="Fetched" className="playlisthumbnailpicture" />
-        </div>
-      </div>
-    )}  
-
-            <div className="playlist-description">
-              <p className="renderdescription">Description:{playlist.description}</p>
-              {playlist.notes.length===0 && <FontAwesomeIcon icon={faEdit} className="xmarkdesc"  onClick={() => editPlaylist(index)}/>}
+          )}
             </div>
+          )
+        })}
           </div>
-        )):(<div style={{display:"flex",justifyContent:"center"}}><p style={{boxShadow:"none",fontSize:"large",fontWeight:"600",marginTop:'21px',}}>UFF ! Create Some  Playlist</p></div>)
+
       ) : (
         <div className="playlist">
           <div className="inputandheadingplaylist">
@@ -357,7 +414,7 @@ const fetchImage = async (index, id) => {
             <p className="porbutton">Or</p>
           </div>
           <div className="deletesection">
-            <div className="deletedivplaylist" onClick={(e)=>{deletePlaylist(e,newPlaylist[editIndex]._id)}}>
+            <div className="deletedivplaylist" onClick={deletePlaylist}>
           <button className="delete-btn">Delete Playlist</button>
           <FontAwesomeIcon className="xmark-icon" icon={faXmark}/>  
           </div>

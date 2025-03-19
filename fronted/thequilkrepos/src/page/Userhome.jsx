@@ -400,6 +400,10 @@ export default function Userhome() {
       }
     }
   };
+  const handledetail=(e,id)=>{
+    e.stopPropagation();
+    navigate(`/detail/review/${id}`)
+  }
   return (
     <div className="alwaysmain">
       <Navbar />
@@ -562,7 +566,7 @@ export default function Userhome() {
               </div>
               <div className="favoriteimageandall">
                 <div className="imagefavoritediv">
-              <img src={favoritepost.thumbnail} alt="" className="favoriteimage" />
+              <img src={favoritepost.thumbnail} alt="" className="favoriteimage" onClick={(e)=>{handledetail(e,favoritepost._id)}}/>
               </div>
               <div className="favoritedescriptiondiv">
               <p className="favoritetitle">Title : {favoritepost.title}</p>
@@ -585,7 +589,7 @@ export default function Userhome() {
            {latestpost&& latestpost.length>0&& latestpost.map((current,index)=>{
             return(
               <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
                 <p className="textofplaylistnote">{current.title}</p>
               </div>
             )
@@ -615,7 +619,7 @@ export default function Userhome() {
            {playlist.notes && playlist.notes.length>0&& playlist.notes.map((current,index)=>{
             return(
               <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
                 <p className="textofplaylistnote">{current.title}</p>
               </div>
             )
@@ -638,7 +642,7 @@ export default function Userhome() {
            {popularpost&& popularpost.length>0&& popularpost.map((current,index)=>{
             return(
               <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}} />
                 <p className="textofplaylistnote">{current.title}</p>
               </div>
             )
@@ -658,7 +662,7 @@ export default function Userhome() {
            {oldestpost&& oldestpost.length>0&& oldestpost.map((current,index)=>{
             return(
               <div key={index} className="holderofplaylistnote">
-                <img src={current.thumbnail} className="imageofplaylistnote" alt="" />
+                <img src={current.thumbnail} className="imageofplaylistnote" alt="" onClick={(e)=>{handledetail(e,current._id)}}/>
                 <p className="textofplaylistnote">{current.title}</p>
               </div>
             )

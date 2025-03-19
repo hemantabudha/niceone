@@ -257,7 +257,10 @@ const handlesignout=(e)=>{
 const handletermandcondition=(e)=>{
   navigate("/terms-and-conditions")
 }
-
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
   return (
     <div className="alwaysmain">
      <Helmet>
@@ -485,8 +488,8 @@ const handletermandcondition=(e)=>{
               <p className="ptitl">{current.title.length>44?current.title.slice(0,45)+"...":current.title}</p>
             </div>
             <div className="creatordi">
-            <img src={current.createdBy.profile} alt={current.title} className="creatorima" onClick={(e)=>{handleprofile(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
-            <p className="creatornam" onClick={(e)=>{handleprofile(e,current.createdBy._id)}}>{current.createdBy.name}</p>
+            <img src={current.createdBy.profile} alt={current.title} className="creatorima" onClick={(e)=>{homepageforother(e,current.createdBy._id)}} onLoad={handleImageLoad}  style={{ display: "none" }} />
+            <p className="creatornam" onClick={(e)=>{homepageforother(e,current.createdBy._id)}}>{current.createdBy.name}</p>
             </div>
 
           </div>

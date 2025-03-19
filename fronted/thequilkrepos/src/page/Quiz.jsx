@@ -299,6 +299,10 @@ const handlescience=()=>{
 const handlemanagement=()=>{
   setSearchQuery("management")
 }
+const homepageforother=(e,id)=>{
+  
+  navigate(`/userhome/${id}`)
+}
   return(
     <div className="alwaysmain">
      
@@ -457,7 +461,7 @@ const handlemanagement=()=>{
             <div key={index} className="realsearchdataquizandnonsearchdisplay">
                {generateSEO(current)}
               <div className="imageandtitleforthequiz">
-                <img src={current.createdBy.profile} alt="" onLoad={handleImageLoad}  style={{ display: "none" }} className="imageandtitleforthequizimage" onClick={(e)=>{profilequiz(e,current.createdBy._id)}} />
+                <img src={current.createdBy.profile} alt="" onLoad={handleImageLoad}  style={{ display: "none" }} className="imageandtitleforthequizimage" onClick={(e)=>{homepageforother(e,current.createdBy._id)}} />
                 <p className="imageandtitleforthequizparagraph">{current.createdBy.name}</p>   
               </div>
               <div className="inputanddescriptionforthequiz">
@@ -488,7 +492,7 @@ const handlemanagement=()=>{
               <div key={index} className="realsearchdataquizandnonsearchdisplay">
                  {generateSEO(current)}
                 <div className="imageandtitleforthequiz">
-                  <img src={current.createdBy.profile}onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{profilequiz(e,current.createdBy._id)}}alt="" className="imageandtitleforthequizimage" />
+                  <img src={current.createdBy.profile}onLoad={handleImageLoad}  style={{ display: "none" }} onClick={(e)=>{homepageforother(e,current.createdBy._id)}}alt="" className="imageandtitleforthequizimage" />
                   <p className="imageandtitleforthequizparagraph">{current.createdBy.name}</p>   
                 </div>
                 <div className="inputanddescriptionforthequiz">
