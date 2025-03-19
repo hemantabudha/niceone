@@ -675,7 +675,7 @@
   font-weight: 500;
   margin-top: 5px;
   border-radius: 17px 78px;
-  box-shadow: 10px 10px 10px rgb(177, 172, 172);
+  box-shadow: 10px 10px 10px rgb(240, 237, 237);
   border: none;
   outline: none;
   transition: all 0.3s ease;
@@ -704,8 +704,9 @@
   font-weight: 500;
   outline: none;
   font-size: large;
-  box-shadow: 10px 10px 10px rgb(177, 173, 173);
+  box-shadow: 10px 10px 10px rgb(247, 245, 245);
   transition: all 0.3s ease;
+  border: 1px solid white;
 }
 .correct:hover{
   transform: scale(1.1);
@@ -715,9 +716,9 @@
   height: 35px;
   font-weight: 500;
   font-size: large;
-  box-shadow: 10px 10px 10px rgb(177, 173, 173);
+  box-shadow: 10px 10px 10px rgb(243, 241, 241);
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid white;
   outline: none;
 }
 .hellonegativemark:hover{
@@ -823,7 +824,7 @@
   
   border: none;
   outline: none;
-  box-shadow: 10px 10px 10px rgb(223, 219, 219);
+  box-shadow: 10px 10px 10px rgb(255, 255, 255);
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1202,8 +1203,6 @@ border: 1px solid white;
   font-size: 14px;
   font-weight: 200;
   width: 150px;
-  border: 2px solid black;
-  border: none;
 }
 .totalscoreimage{
   border: 1px solid white;

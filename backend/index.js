@@ -3251,6 +3251,40 @@ app.get("/user/posts/:id", async (req, res) => {
 });
 
 
+app.post("/playlist/remainingid/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const excludedId = req.body.excludedId || [];// Excluded IDs from request body
+
+    if (!Array.isArray(excludedId)) {
+      return res.status(400).json({ message: "excludedId must be an array" });
+    }
+
+    // Find the playlist by ID
+    const playlist = await playlistmodel.findById(id)
+      .populate({
+        path: "notes",
+        select: "title thumbnail", // Only get title & thumbnail
+      });
+
+    if (!playlist) {
+      return res.status(404).json({ message: "Playlist not found" });
+    }
+
+    // Filter out notes that are in excludedId
+    const filteredNotes = playlist.notes.filter(
+      (note) => !excludedId.includes(note._id.toString())
+    );
+
+    // Send only 2 notes
+    const limitedNotes = filteredNotes.slice(0, 2);
+
+    res.json(limitedNotes);
+  } catch (error) {
+    console.error("Error fetching playlist:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 
 
 

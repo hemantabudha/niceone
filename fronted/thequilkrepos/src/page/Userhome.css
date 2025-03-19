@@ -77,7 +77,6 @@
     font-weight: 600;
     text-transform: capitalize;
     word-wrap: break-word;  /* Ensures long words break to fit */
-  
     /* Ensure long words break to fit within the container */
     word-wrap: break-word;  /* Break long words */
     word-break: break-word;
@@ -87,7 +86,7 @@
     width: 50%;
     margin-top: 3px;
     word-wrap: break-word;  /* Ensures long words break to fit */
-  
+    text-transform: lowercase;
     /* Ensure long words break to fit within the container */
     word-wrap: break-word;  /* Break long words */
     word-break: break-word;
@@ -295,7 +294,10 @@
         border: none;
     }
 }
-.userhome .playlistholdingdiv{
+.userhome .justrandomlycoming{
+    width: 100%;
+}
+.justrandomlycoming .playlistholdingdiv{
     width: 100%;
     display: flex;
     flex-direction: column;

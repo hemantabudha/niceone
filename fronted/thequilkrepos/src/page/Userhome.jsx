@@ -21,6 +21,7 @@ export default function Userhome() {
   const[latestpost,setlatestpost]=useState([])
   const[popularpost,setpopularpost]=useState([])
   const[oldestpost,setoldestpost]=useState([])
+  const[loadinganotherid,setLoadinganotherid]=useState(false)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -182,9 +183,8 @@ export default function Userhome() {
   useEffect(() => {
     const fetchUserData = async () => {
       setLoadingpage(true);
-     
-      const initialLimit = window.innerWidth < 600 ? 9 : 18;
-      const limit = page === 1 ? initialLimit : 5;
+  
+      const limit = page === 1 ? 3 : 2;
      
      if(loadingpage){
       return;
@@ -196,11 +196,8 @@ export default function Userhome() {
         });
          console.log(response.data.datas)
         const newPosts = response.data.datas;
-       
         if (page === 1) {
-          if(response.data && newPosts.length <=3){
-            handleusergetpost()
-          }
+          handleusergetpost()
           setplaylistholder(newPosts); // Replace old data with fresh posts
         } else {
           setplaylistholder((prevData) => {
@@ -371,7 +368,38 @@ export default function Userhome() {
   const userhome = () => {
     navigate(`/userhome/${id}`)
   }
+  const handleleftscroll = async (e,index) => {
+    const rightEnd = e.target.scrollWidth - e.target.scrollLeft - e.target.clientWidth <= 10; // 10px tolerance before the right end
+    if (rightEnd && !loadinganotherid) {
+      setLoadinganotherid(true);
+      const activePlaylist = playlistholder[index];
+     
+      const excludedIds = activePlaylist.notes.map((note) => note._id);
+ 
+      try {
+        const res = await axios.post(`${backendurl}/playlist/remainingid/${activePlaylist._id}`, {
+          excludedId: excludedIds,  // Send already fetched image URLs
+        });
+        console.log(res.data)
+        if (res.data.length > 0) {
+          // Add new notes to the active playlist
+          setplaylistholder((prev) => {
+            const updatedPlaylists = [...prev];
+            updatedPlaylists[index] = {
+              ...updatedPlaylists[index],
+              notes: [...updatedPlaylists[index].notes, ...res.data],
+            };
+            return updatedPlaylists;
+          });
+        }
 
+      } catch (error) {
+        console.error('Error loading more images', error);
+      } finally {
+        setLoadinganotherid(false);
+      }
+    }
+  };
   return (
     <div className="alwaysmain">
       <Navbar />
@@ -576,14 +604,14 @@ export default function Userhome() {
             )}
           {playlistholder && playlistholder.length>0 && playlistholder.map((playlist,id)=>{
             return(
-              <div key={id}>
+              <div key={id} className="justrandomlycoming">
               {playlist.notes && playlist.notes.length>0 &&(
                 <div key={id} className="playlistholdingdiv">
            <div className="playlisttitlehomediv">
            <p className="playlisttitlehome">{playlist.title}</p>
            </div>
           
-           <div className="notesofplaylistholder">
+           <div className="notesofplaylistholder" onScroll={(e)=>{handleleftscroll(e,id)}}>
            {playlist.notes && playlist.notes.length>0&& playlist.notes.map((current,index)=>{
             return(
               <div key={index} className="holderofplaylistnote">
